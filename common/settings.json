@@ -8,7 +8,7 @@
 	"hardwareGatewayNetworkManager_clientPort": 50000,
 	"to_field":"andycavatorta@gmail.com",
 	"from_field":"simurghnodes@gmail.com",
-	"password_field":"5ed0n6rum15",
+	"password_field":"************",
 	"SMTP_field":"smtp.gmail.com",
 	"SMTP_port":587,
 	"servers":["wally", "nervebox"]
