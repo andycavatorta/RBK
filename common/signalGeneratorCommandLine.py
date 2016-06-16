@@ -84,6 +84,7 @@ def menuDigital(params):
         goodValue = True
     except Exception as e:
       print "menuDigital:invalid value:", input
+      print traceback.print_exc()
   return 
 
 def menuPulse(params):
@@ -100,6 +101,7 @@ def menuPulse(params):
         goodValue = True
     except Exception as e:
       print "menuPulse:invalid value:", input
+      print traceback.print_exc()
   return 
 
 def menuValues(params):
@@ -120,6 +122,7 @@ def menuFreq(params):
         goodValue = True
     except Exception as e:
       print "menuFreq:invalid value:", input
+      print traceback.print_exc()
   return 
   
 

@@ -23,7 +23,7 @@ for pin in TX_PINS:
 
 def send(word_bin_a): # word_ba must be 23 bit-characters long
     GPIO.output(DATA_READY_PIN,0)
-    #print "x24ParallalPort.send word_bin_a", word_bin_a
+    print "x24ParallalPort.send word_bin_a", word_bin_a
     word_bin_a += [0] * (len(TX_PINS) - len(word_bin_a)) # pad word_bin_a with zeroes
     for i in range(len(TX_PINS)):
         #print "x24ParallalPort.send ", i, TX_PINS[i], int(word_bin_a[i])
