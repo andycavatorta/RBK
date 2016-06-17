@@ -13,8 +13,9 @@ else:
     import RPi_stub.GPIO as GPIO
 
 INTRA_WORD_TIMING = 0.01 # SECONDS
-TX_PINS = [2,3,14,4,15,18,17,27,23,24,10,9,25,11,8,7,5,6,12,13,16,19,20,26] # pin 22 is wired but not used
-DATA_READY_PIN = 21
+#TX_PINS = [2,3,14,4,15,18,17,27,23,24,10,9,25,11,8,7,5,6,12,13,16,19,20,26] # pin 22 is wired but not used
+TX_PINS = [2,3,14,4,15,18,17,27,23,24,10,9,25,11,8,7,5,6,12,13,16,19,20] # pin 22 is wired but not used
+DATA_READY_PIN = 26
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(DATA_READY_PIN,GPIO.OUT)

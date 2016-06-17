@@ -18,6 +18,7 @@ def processError(err_t):
 		print "processError:", err_t[2], err_t[1]
 
 stat_t = githubSync.main(BASE_PATH)
+print repr(stat_t)
 processError(stat_t)
 
 with open(COMMON_PATH + 'settings.json', 'r') as f:

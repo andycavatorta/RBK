@@ -119,12 +119,11 @@ class Channel(threading.Thread):
         if freq_b:
             modeSelector_bin_str = "0"
             osc_bin_str = '{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq))
-            padding_bin_str = "0"
-            x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str, padding_bin_str)))
+            x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
         if ds_b:
             modeSelector_bin_str = "1"
             dutyCycle_bin_str = '{0:07b}'.format(int(max(0,int(self.dutyCycle*1.024)-1)))
-            padding_bin_str = "00000000000"
+            padding_bin_str = "0000000000"
             x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
     def enqueue(self, params):
         self.queue.append(params)
