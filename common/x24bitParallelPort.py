@@ -14,8 +14,13 @@ else:
 
 INTRA_WORD_TIMING = 1.1 # SECONDS
 #TX_PINS = [2,3,14,4,15,18,17,27,23,24,10,9,25,11,8,7,5,6,12,13,16,19,20,26] # pin 22 is wired but not used
-TX_PINS = [3,14,4,15,18,17,27,23,24,10,9,25,11,8,7,5,6,12,13,16,19,20,26] # pin 22 is wired but not used
-DATA_READY_PIN = 21
+#TX_PINS = [14,4,15,18,17,27,23,24,10,9,25,11,8,7,5,6,12,13,16,19,20,26,21] # pin 22 is wired but not used
+TX_PINS = [21,26,20,19,16,13,12,6,5,7,8,11,25,9,10,24,23,27,17,18,15,4,14] # pin 22 is wired but not used
+
+
+
+
+DATA_READY_PIN = 3
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(DATA_READY_PIN,GPIO.OUT)
