@@ -71,8 +71,8 @@ FPGA_CLOCK_SPEED_ORIG = 50000000 # Hz
 FPGA_CLOCK_DIVISION_FACTOR = 10
 FPGA_CLOCK_SPEED_DIVIDED = FPGA_CLOCK_SPEED_ORIG/FPGA_CLOCK_DIVISION_FACTOR
 
-FREQ_MIN = 110.0 # Hz
-FREQ_MAX = 30007.0 # Hz
+FREQ_MIN = 22.50 # Hz
+FREQ_MAX = 735200.0 # Hz
 
 class Channel(threading.Thread):
     def __init__(self, channel):
@@ -123,7 +123,7 @@ class Channel(threading.Thread):
         if ds_b:
             modeSelector_bin_str = "1"
 
-            dutyCycle_bin_str = "00011" if self.dutyCycle else '{0:05b}'.format(int(max(0,int(self.dutyCycle*0.32)-1))) 
+            dutyCycle_bin_str = "000011" if self.dutyCycle else '{0:06b}'.format(int(max(0,int(self.dutyCycle*0.32)-1))) 
 
             padding_bin_str = "000000000000"
             x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
