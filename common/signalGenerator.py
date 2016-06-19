@@ -119,7 +119,7 @@ class Channel(threading.Thread):
         if freq_b:
             modeSelector_bin_str = "0"
             osc_bin_str = '{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq))
-            x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
+            x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
         if ds_b:
             modeSelector_bin_str = "1"
 
