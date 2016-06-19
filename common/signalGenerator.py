@@ -115,16 +115,16 @@ class Channel(threading.Thread):
             self.freq = float(frequency)
             self.sendStateToFPGA(1,0) 
     def sendStateToFPGA(self, freq_b, ds_b):
+
         channel_bin_str = '{0:05b}'.format(self.channel)
+        print self.channel, channel_bin_str
         if freq_b:
             modeSelector_bin_str = "0"
             osc_bin_str = '{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq))
             x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
         if ds_b:
             modeSelector_bin_str = "1"
-
             dutyCycle_bin_str = "000011" if self.dutyCycle else '{0:06b}'.format(int(max(0,int(self.dutyCycle*0.32)-1))) 
-
             padding_bin_str = "000000000000"
             x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
     def enqueue(self, params):
