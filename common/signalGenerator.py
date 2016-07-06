@@ -117,7 +117,7 @@ class Channel(threading.Thread):
             self.sendStateToFPGA(1,0) 
     def sendStateToFPGA(self, freq_b, ds_b):
 
-        channel_bin_str = '{0:05b}'.format(self.channel)
+        channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
         #print self.channel, channel_bin_str
         if freq_b:
             modeSelector_bin_str = "0"

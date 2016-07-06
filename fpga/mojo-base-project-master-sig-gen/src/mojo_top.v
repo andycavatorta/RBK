@@ -90,8 +90,9 @@ reg [pwmBitWidth:0] incoming_pwm_reg = 0;
 reg [oscBitWidth:0] incoming_osc_reg = 0;
 reg [channelBitWidth:0] incoming_channel_reg = 0;
 
-assign led[pwmBitWidth:0] = incoming_pwm_reg;
+assign led[channelBitWidth:0] = incoming_channel_reg;
 //assign led[6] = parallel_in[23];
+assign led[5] = 1'bz;
 assign led[6] = 1'bz;
 assign led[7] = parallel_in[0];
 //assign led[7:0] = parallel_in[7:0];
