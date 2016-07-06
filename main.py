@@ -33,6 +33,3 @@ else:
 	sys.path.append(CLIENT_PATH)
 	import client_main
 	
-
-
-
