@@ -69,7 +69,7 @@ import x24bitParallelPort
 FREQ_DIGITAL_DEFAULT = 10000.0 # Hz
 FPGA_CLOCK_SPEED_ORIG = 50000000 # Hz
 FPGA_CLOCK_DIVISION_FACTOR = 16
-MYSTERY_FACTOR = 1.0
+MYSTERY_FACTOR = 0.94
 FPGA_CLOCK_SPEED_DIVIDED = FPGA_CLOCK_SPEED_ORIG/(FPGA_CLOCK_DIVISION_FACTOR/MYSTERY_FACTOR)  #781250
 
 FREQ_MIN = 22.50 # Hz
@@ -118,7 +118,7 @@ class Channel(threading.Thread):
     def sendStateToFPGA(self, freq_b, ds_b):
 
         channel_bin_str = '{0:05b}'.format(self.channel)
-        print self.channel, channel_bin_str
+        #print self.channel, channel_bin_str
         if freq_b:
             modeSelector_bin_str = "0"
             osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1]

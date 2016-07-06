@@ -120,7 +120,7 @@ def menuFreq(params):
         params["frequency"] = input_f
         goodValue = True
         osc_bin_str = ('{0:017b}'.format(int(signalGenerator.FPGA_CLOCK_SPEED_DIVIDED / input_f)))[::-1]
-        print input_f, "rounded to", signalGenerator.FPGA_CLOCK_SPEED_DIVIDED / int(osc_bin_str[::-1], 2) 
+        print input_f, "Hz rounded to", signalGenerator.FPGA_CLOCK_SPEED_DIVIDED / int(osc_bin_str[::-1], 2), "Hz"
 
     except Exception as e:
       print "menuFreq:invalid value:", input
