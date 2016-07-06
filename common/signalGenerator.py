@@ -123,8 +123,8 @@ class Channel(threading.Thread):
             modeSelector_bin_str = "0"
             osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1]
 
-            print self.freq, int(osc_bin_str, 2) * FPGA_CLOCK_SPEED_DIVIDED
-            print self.freq, int(osc_bin_str[::-1], 2) * FPGA_CLOCK_SPEED_DIVIDED
+            print self.freq, FPGA_CLOCK_SPEED_DIVIDED / int(osc_bin_str, 2)  
+            print self.freq, FPGA_CLOCK_SPEED_DIVIDED / int(osc_bin_str[::-1], 2) 
             # print"--->",FPGA_CLOCK_SPEED_DIVIDED,self.freq,osc_bin_str
             #osc_bin_str = '{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq))
 
