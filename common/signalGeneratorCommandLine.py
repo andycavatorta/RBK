@@ -25,7 +25,6 @@ CRLF = "\n"
 def display(msg):
   sys.stdout.write("%s"%(msg))
 
-
 def menuChannel():
   while True:
     params = {}
@@ -120,12 +119,14 @@ def menuFreq(params):
       if signalGenerator.FREQ_MIN <= input_f <= signalGenerator.FREQ_MAX:
         params["frequency"] = input_f
         goodValue = True
+        osc_bin_str = ('{0:017b}'.format(int(signalGenerator.FPGA_CLOCK_SPEED_DIVIDED / input_f)))[::-1]
+        print input_f, "rounded to", FPGA_CLOCK_SPEED_DIVIDED / int(osc_bin_str[::-1], 2) 
+
     except Exception as e:
       print "menuFreq:invalid value:", input
       print traceback.print_exc()
   return 
   
-
 def menuPWM(params):
   goodValue = False
   while goodValue == False:
@@ -141,6 +142,3 @@ def menuPWM(params):
   return 
 
 menuChannel()
-
-
-
