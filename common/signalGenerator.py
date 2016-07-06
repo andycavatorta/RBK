@@ -123,7 +123,9 @@ class Channel(threading.Thread):
             modeSelector_bin_str = "0"
             osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1]
 
-            print"--->",FPGA_CLOCK_SPEED_DIVIDED,self.freq,osc_bin_str
+            print int(osc_bin_str, 2)
+            print int(osc_bin_str[::-1], 2)
+            # print"--->",FPGA_CLOCK_SPEED_DIVIDED,self.freq,osc_bin_str
             #osc_bin_str = '{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq))
 
             x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
