@@ -161,6 +161,10 @@ def install_mojo(ser, bitstream, verbose, no_verify, ram):
             print 'Flash and local bitstream are a match.'
         elif ret != bits:
             print 'Flash and local bitstream do not match.'
+            print '=======================================returned value:'
+            print repr(ret)
+            print '=======================================bits value:'
+            print repr(bits)
             sys.exit(1)
     if not ram:
         ser.write('L')
