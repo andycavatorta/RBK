@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/opt/mojo/mojo-base-project-master/syn/avr_interface.ncd
+OUTFILE=/opt/mojo/mojo-base-project-master/syn/avr_interface.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/opt/mojo/mojo-base-project-master/syn
+LICENSE=WebPack
+USER_INFO=175790318_0_0_108

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/andy/Dropbox/projects/current/RBK/fpga/mojo-base-project-master-sig-gen/syn/mojo_top.ncd
+OUTFILE=/home/andy/Dropbox/projects/current/RBK/fpga/mojo-base-project-master-sig-gen/syn/mojo_top.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/home/andy/Dropbox/projects/current/RBK/fpga/mojo-base-project-master-sig-gen/syn
+LICENSE=WebPack
+USER_INFO=175790318_0_0_378
