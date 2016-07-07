@@ -66,7 +66,7 @@ def main():
 
     #Serial code
     try:
-        ser = serial.Serial(args.mojo_tty, 19200, timeout=10)
+        ser = serial.Serial(args.mojo_tty, 9600, timeout=10)
     except:
         print 'No serial port found named ' + args.mojo_tty
         sys.exit(1)
@@ -162,9 +162,9 @@ def install_mojo(ser, bitstream, verbose, no_verify, ram):
         elif ret != bits:
             print 'Flash and local bitstream do not match.'
             #print '=======================================returned value:'
-            print repr(ret)
+            #print repr(ret)
             #print '=======================================bits value:'
-            print repr(bits)
+            #print repr(bits)
             sys.exit(1)
     if not ram:
         ser.write('L')
