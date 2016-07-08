@@ -9,6 +9,7 @@
 ###           at the top of the source tree.
 ###-------------------------------------------------------------------------
 
+import commands
 import time
 import sys
 import argparse
@@ -67,6 +68,7 @@ def main():
     #Serial code
     try:
         ser = serial.Serial(args.mojo_tty, 9600, timeout=10)
+        commands.getstatusoutput("stty -F /dev/mojo 9600 isig icanon iexten echo echoe echok echoctl echoke opost icrnl")
     except:
         print 'No serial port found named ' + args.mojo_tty
         sys.exit(1)
