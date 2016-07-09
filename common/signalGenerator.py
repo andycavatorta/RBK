@@ -106,7 +106,7 @@ class Channel(threading.Thread):
             else:
                 if self.lowFreqSineActive:
                     print ">>> 3"
-                    self.lowFreqSineToggle = !self.lowFreqSineToggle
+                    self.lowFreqSineToggle = not self.lowFreqSineToggle
                     self.digital(self.lowFreqSineToggle)
                     time.sleep(self.lowFreqSinePeriod)
                 else:
