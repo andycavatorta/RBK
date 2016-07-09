@@ -101,7 +101,7 @@ class Channel(threading.Thread):
                     else:
                         print ">>> 2"
                         self.lowFreqSineActive = True
-                        self.lowFreqSinePeriod = 1.0/params["frequency"]
+                        self.lowFreqSinePeriod = 0.5/params["frequency"]
                 time.sleep(0.01)
             else:
                 if self.lowFreqSineActive:
