@@ -1,0 +1,24 @@
+
+
+
+network discovery and config
+automatic git update
+package management
+logging system
+load code based on hostname
+top-level multiprocessing manager
+
+clients:
+    receive and parse OSC:
+        can this be moved from code into a config file?
+        or make code as easy to read as a config file
+    FPGA:
+        signal generator
+        parallel communication
+    MIDI:
+
+    Motor Controller:
+
+ipblink
+
+
