@@ -1,9 +1,27 @@
 
 
+packageManager
+    automatic git update
+    versions and script execution
+
+
+
+logging
+    status dashboard
+
+
+networking
+    structure:
+        many hosts
+        one server
+            vimina
+
+    broadcast and discovery
+
+    
+
 
 network discovery and config
-automatic git update
-package management
 logging system
 load code based on hostname
 top-level multiprocessing manager
@@ -20,5 +38,4 @@ clients:
     Motor Controller:
 
 ipblink
-
 

@@ -3,11 +3,11 @@
 import threading
 import time
 
-TIMER_INTERVAL = 0.00001
-
 class Timer(threading.Thread):
   def __init__(self):
     threading.Thread.__init__(self)
+    self.fineInterval = 0.0001
+    self.courseInterval = 0.001
     self.timers = []
 
   def register(self,ref,ms):
@@ -24,7 +24,7 @@ class Timer(threading.Thread):
     total = 0.0
     while True:
         thistime = time.time()
-        if lasttime + 0.001 < thistime:
+        if lasttime + self.courseInterval < thistime:
             iterations += 1
             total += (thistime - lasttime)
             lasttime = thistime
@@ -32,7 +32,7 @@ class Timer(threading.Thread):
                 if lasttime > timer[2]:
                     timer[2] = lasttime + timer[1]
                     timer[0]() # this function must take no time
-        time.sleep(TIMER_INTERVAL)
+        time.sleep(self.fineInterval)
     print repr(total / iterations)
 timer = Timer()
 timer.start()
