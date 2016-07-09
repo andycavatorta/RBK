@@ -84,6 +84,7 @@ class Channel(threading.Thread):
         self.queue = []
         self.lowFreqSineToggle = False
         self.lowFreqSinePeriod = 0.0
+        self.lowFreqSineDutyCycle = 0.0
         self.lowFreqSineActive = False
     def run(self):
         while True:
@@ -99,13 +100,18 @@ class Channel(threading.Thread):
                         self.squareWave(params["frequency"],params["duty cycle"])
                     else:
                         self.lowFreqSineActive = True
-                        self.lowFreqSinePeriod = 0.5/params["frequency"]
+                        self.lowFreqSinePeriod = params["frequency"]
+                        self.lowFreqSineDutyCycle = params["duty cycle"]
                 time.sleep(0.01)
             else:
                 if self.lowFreqSineActive:
+                    if self.lowFreqSineToggle:
+                        self.digital(True)
+                        time.sleep(self.lowFreqSinePeriod * (self.lowFreqSineDutyCycle/100))
+                    else:
+                        self.digital(False)
+                        time.sleep(self.lowFreqSinePeriod * ( 1- (self.lowFreqSineDutyCycle/100) ) )
                     self.lowFreqSineToggle = not self.lowFreqSineToggle
-                    self.digital(self.lowFreqSineToggle)
-                    time.sleep(self.lowFreqSinePeriod)
                 else:
                     time.sleep(0.01)
     def pulse(self,pulselength):
