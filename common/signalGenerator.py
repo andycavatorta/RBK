@@ -95,17 +95,14 @@ class Channel(threading.Thread):
                     self.digital(params["bool"])
                 if params["function"] == "square wave":
                     if params["frequency"] >= 22.5:
-                        print ">>> 1"
                         self.lowFreqSineActive = False
                         self.squareWave(params["frequency"],params["duty cycle"])
                     else:
-                        print ">>> 2"
                         self.lowFreqSineActive = True
                         self.lowFreqSinePeriod = 0.5/params["frequency"]
                 time.sleep(0.01)
             else:
                 if self.lowFreqSineActive:
-                    print ">>> 3"
                     self.lowFreqSineToggle = not self.lowFreqSineToggle
                     self.digital(self.lowFreqSineToggle)
                     time.sleep(self.lowFreqSinePeriod)
