@@ -45,9 +45,9 @@ def versionPickle(version=None):
 
 def githubSync():
     cmd = "cd %s && git pull -q --all -p" % (BASE_PATH)
-    runBashCommand(None,cmd)
+    runBashCommand(0,cmd)
 
-def runBashCommand(v=0,cmd):
+def runBashCommand(v,cmd):
     status, output = commands.getstatusoutput(cmd)
     bashLogger(v, cmd)
     bashLogger(v, output)
