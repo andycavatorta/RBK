@@ -106,10 +106,12 @@ class Channel(threading.Thread):
             else:
                 if self.lowFreqSineActive:
                     if self.lowFreqSineToggle:
-                        self.digital(True)
+                        if self.lowFreqSineDutyCycle > 0:
+                            self.digital(True)
                         time.sleep(self.lowFreqSinePeriod * (self.lowFreqSineDutyCycle/100.0))
                     else:
-                        self.digital(False)
+                        if self.lowFreqSineDutyCycle < 100:
+                            self.digital(False)
                         time.sleep(self.lowFreqSinePeriod * ( 1- (self.lowFreqSineDutyCycle/100.0) ) )
                     self.lowFreqSineToggle = not self.lowFreqSineToggle
                 else:
