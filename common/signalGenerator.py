@@ -100,7 +100,7 @@ class Channel(threading.Thread):
                         self.squareWave(params["frequency"],params["duty cycle"])
                     else:
                         self.lowFreqSineActive = True
-                        self.lowFreqSinePeriod = params["frequency"]
+                        self.lowFreqSinePeriod = 1.0/params["frequency"]
                         self.lowFreqSineDutyCycle = params["duty cycle"]
                 time.sleep(0.01)
             else:
