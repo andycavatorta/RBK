@@ -10,8 +10,12 @@ BASHLOG_PATH = False
 COMMON_PATH = False
 ERRORLOGGER = False
 
-def bashLogger(msg):
-    print repr(msg)
+
+def bashLogger(version,msg):
+    path = "%s%s"%(BASHLOG_PATH,"bash.log")
+    line = "echo %s, %s >> %s" % (version,msg.replace('"','\\"'),path)
+    commands.getstatusoutput(line)
+    print repr(path)
 
 def runBashScripts(versionFromPickle):
     import upgradeScripts
@@ -20,8 +24,8 @@ def runBashScripts(versionFromPickle):
     for version in v_l:
         if float(version) >= versionFromPickle:
             for script in upgradeScripts.scripts[version]:
-                bashLogger(script)
-                bashLogger(commands.getstatusoutput(script))
+                bashLogger(version, script)
+                bashLogger(version, commands.getstatusoutput(script))
     return float(version)
 
 def versionPickle(version=None):
@@ -74,4 +78,3 @@ def update(basePath, dataPath, bashLogPath, commonPath, errorlogger):
 
 def reset(version=0.01):
     versionPickle(version) # reset to the beginning
-    
