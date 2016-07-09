@@ -24,8 +24,9 @@ def runBashScripts(versionFromPickle):
     for version in v_l:
         if float(version) >= versionFromPickle:
             for script in upgradeScripts.scripts[version]:
-                bashLogger(version, script)
-                bashLogger(version, commands.getstatusoutput(script))
+                runBashCommand(version, script)
+                #bashLogger(version, script)
+                #bashLogger(version, commands.getstatusoutput(script))
     return float(version)
 
 def versionPickle(version=None):
@@ -42,19 +43,14 @@ def versionPickle(version=None):
         pickle.dump(version, pfile)
         return version
 
-def bashLogger(msg_l):
-    print msg_l
-
 def githubSync():
     cmd = "cd %s && git pull -q --all -p" % (BASE_PATH)
-    runBashCommand(cmd)
+    runBashCommand(None,cmd)
 
-def runBashCommand(cmd):
+def runBashCommand(v=0,cmd):
     status, output = commands.getstatusoutput(cmd)
-    if status == 0:
-        bashLogger(["info", cmd, output])
-    else:
-        bashLogger(["error", cmd, output])
+    bashLogger(v, cmd)
+    bashLogger(v, output)
 
 def update(basePath, dataPath, bashLogPath, commonPath, errorlogger):
     global BASE_PATH
