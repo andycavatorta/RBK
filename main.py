@@ -13,24 +13,24 @@ LOG_PATH = "%s/logs/" % (BASE_PATH )
 sys.path.append(BASE_PATH)
 sys.path.append(COMMON_PATH)
 
-import githubSync
 import packageManager
+import errorlog as elog
 
 SETTINGS = {} # overwritten below
 
 """ START GLOBAL SYSTEMS """
 
-def errorlogger(err_t):
-    if err_t[0] > 0:
-        print "errorlogger:", err_t[2], err_t[1]
+try:
+	packageManager.update(
+	    BASE_PATH,
+	    DATA_PATH,
+	    LOG_PATH,
+	    COMMON_PATH,
+	    errorlogger
+	)
 
-packageManager.update(
-    BASE_PATH,
-    DATA_PATH,
-    LOG_PATH,
-    COMMON_PATH,
-    errorlogger
-)
+except:
+	elog.elog.logerror()
 
 """ FETCH NEW PYTHON CODE """
 
