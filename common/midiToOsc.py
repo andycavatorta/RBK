@@ -159,6 +159,56 @@ ccMap = {
     127:"Poly_mode_on",
 }
 
+notesStandardMap = {
+    35:"bass_drum2",
+    36:"bass_drum",
+    37:"side_stick",
+    38:"snare_drum1",
+    39:"hand_clap",
+    40:"snare_drum2",
+    41:"low_tom2",
+    42:"closed_hihat",
+    43:"low_tom1",
+    44:"pedal_hihat",
+    45:"mid_tom2",
+    46:"open_hihat",
+    47:"mid_tom1",
+    48:"high_tom2",
+    49:"crash_cymbal1",
+    50:"high_tom1",
+    51:"ride_cymbal1",
+    52:"chinese_cymbal",
+    53:"ride_bell",
+    54:"tambourine",
+    55:"splash_cymbal",
+    56:"cowbell",
+    57:"crash_cymbal2",
+    58:"vibra_slap",
+    59:"ride_cymbal2",
+    60:"high_bongo",
+    61:"low_bongo",
+    62:"mute_high_conga",
+    63:"open_high_conga",
+    64:"low_conga",
+    65:"high_timbale",
+    66:"low_timbale",
+    67:"high_agogo",
+    68:"low_agogo",
+    69:"cabasa",
+    70:"maracas",
+    71:"short_whistle",
+    72:"long_whistle",
+    73:"short_guiro",
+    74:"long_guiro",
+    75:"claves",
+    76:"high_woodblock",
+    77:"low_woodblock",
+    78:"mute_cuica",
+    79:"open_cuica",
+    80:"mute_triangle",
+    81:"open_triangle"
+}
+
 def makePitch(midiNoteNumber, cents_int=0):
     pitch = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"][midiNoteNumber%12]
     octave = int(math.floor(midiNoteNumber/12)-1)
@@ -207,6 +257,16 @@ def convert(devicename, status, channel, data1=None, data2=None):
         "data2":data2
     }
     if status in ["note_off","note_on"]:
+        if status == "note_on":
+            if data1['midi'] not in notesStandardMap:
+                pass
+            else:
+                status = "sound/%s/bang" % (notesStandardMap[int(data1['midi'])])
+        else:
+            if data1['midi'] not in notesStandardMap:
+                pass
+            else:
+                status = "sound/%s/off" % (notesStandardMap[int(data1['midi'])])
         params = {
             "channel":channel,
             "pitch":data1,

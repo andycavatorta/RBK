@@ -17,6 +17,7 @@ import os
 import rtmidi  #https://github.com/SpotlightKid/python-rtmidi
 import socket
 import sys
+import datetime
 
 BASE_PATH = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]
 CLIENT_PATH = "%s/client/" % (BASE_PATH )
@@ -57,6 +58,7 @@ statusMap = {
     254:"active_sensing",
     255:"sys_reset",
 }
+
 
 def midiEventCallback(devicename, msgAndTime_t, data=None):
     print "vimina/main midiEventCallback", devicename, msgAndTime_t, data

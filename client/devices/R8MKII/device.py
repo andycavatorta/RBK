@@ -9,104 +9,13 @@ midi_out = mido.open_output(oNames[1])
 
 
 # creating OSC endpoint methds
-
-def sound_0_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=40, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_1_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=41, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_2_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=42, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_3_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=43, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_4_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=44, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_5_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=45, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_6_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=46, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_7_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=47, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_8_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=48, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_9_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=49, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_10_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=50, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_11_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=51, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_12_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=52, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_13_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=53, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_14_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=54, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_15_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=55, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_16_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=56, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_17_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=57, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_18_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=58, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_19_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=59, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_20_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=60, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_21_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=61, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_22_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=62, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_23_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=63, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_24_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=64, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_25_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=65, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_26_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=66, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_27_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=67, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_28_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=68, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_29_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=69, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_30_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=70, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-def sound_31_bang(params):
-    midi_out.send(mido.Message('note_on', channel = 9, note=71, velocity=int(params["dynamics"]["amplitude"]*127)))
-    pass
-
+def play_sound(path,params):
+    split_path = path.split('/')
+    print split_path
+    if split_path[4] == "bang":
+        midi_out.send(mido.Message('note_on', channel = int(params['channel']), note = int(pathToMethod_d[path]), velocity=int(params["dynamics"]["amplitude"]*127)))
+    else:
+        pass
 def sound_off(params):
     pass
 
@@ -143,7 +52,10 @@ def ping(params):
 
 def handleNOSC(nosc_d):
     try:
-        pathToMethod_d[nosc_d["innerpath"]](nosc_d["params"])
+        category = nosc_d['innerpath'].split('/')
+        if category[2] == "sound":
+            play_sound(nosc_d["innerpath"],nosc_d["params"])
+        # pathToMethod_d[nosc_d["innerpath"]](nosc_d["params"])
     except Exception as e:
         traceback.print_exc()
         print "device: path not found", e
@@ -151,84 +63,113 @@ def handleNOSC(nosc_d):
 def init():
     pass
 
-
 pathToMethod_d = {
-    "/sound/0/bang":sound_0_bang,
-    "/sound/1/bang":sound_1_bang,
-    "/sound/2/bang":sound_2_bang,
-    "/sound/3/bang":sound_3_bang,
-    "/sound/4/bang":sound_4_bang,
-    "/sound/5/bang":sound_5_bang,
-    "/sound/6/bang":sound_6_bang,
-    "/sound/7/bang":sound_7_bang,
-    "/sound/8/bang":sound_8_bang,
-    "/sound/9/bang":sound_9_bang,
-    "/sound/10/bang":sound_10_bang,
-    "/sound/11/bang":sound_11_bang,
-    "/sound/12/bang":sound_12_bang,
-    "/sound/13/bang":sound_13_bang,
-    "/sound/14/bang":sound_14_bang,
-    "/sound/15/bang":sound_15_bang,
-    "/sound/16/bang":sound_16_bang,
-    "/sound/17/bang":sound_17_bang,
-    "/sound/18/bang":sound_18_bang,
-    "/sound/19/bang":sound_19_bang,
-    "/sound/20/bang":sound_20_bang,
-    "/sound/21/bang":sound_21_bang,
-    "/sound/22/bang":sound_22_bang,
-    "/sound/23/bang":sound_23_bang,
-    "/sound/24/bang":sound_24_bang,
-    "/sound/25/bang":sound_25_bang,
-    "/sound/26/bang":sound_26_bang,
-    "/sound/27/bang":sound_27_bang,
-    "/sound/28/bang":sound_28_bang,
-    "/sound/29/bang":sound_29_bang,
-    "/sound/30/bang":sound_30_bang,
-    "/sound/31/bang":sound_31_bang,
+    "/R8MKII/sound/bass_drum2/bang":35,
+    "/R8MKII/sound/bass_drum/bang":36,
+    "/R8MKII/sound/side_stick/bang":37,
+    "/R8MKII/sound/snare_drum1/bang":38,
+    "/R8MKII/sound/hand_clap/bang":39,
+    "/R8MKII/sound/snare_drum2/bang":40,
+    "/R8MKII/sound/low_tom2/bang":41,
+    "/R8MKII/sound/closed_hihat/bang":42,
+    "/R8MKII/sound/low_tom1/bang":43,
+    "/R8MKII/sound/pedal_hihat/bang":44,
+    "/R8MKII/sound/mid_tom2/bang":45,
+    "/R8MKII/sound/open_hihat/bang":46,
+    "/R8MKII/sound/mid_tom1/bang":47,
+    "/R8MKII/sound/high_tom2/bang":48,
+    "/R8MKII/sound/crash_cymbal/bang":49,
+    "/R8MKII/sound/high_tom1/bang":50,
+    "/R8MKII/sound/ride_cymbal1/bang":51,
+    "/R8MKII/sound/chinese_cymbal/bang":52,
+    "/R8MKII/sound/ride_bell/bang":53,
+    "/R8MKII/sound/tambourine/bang":54,
+    "/R8MKII/sound/splash_cymbal/bang":55,
+    "/R8MKII/sound/cowbell/bang":56,
+    "/R8MKII/sound/crash_cymbal2/bang":57,
+    "/R8MKII/sound/vibra_slap/bang":58,
+    "/R8MKII/sound/ride_cymbal2/bang":59,
+    "/R8MKII/sound/high_bongo/bang":60,
+    "/R8MKII/sound/low_bongo/bang":61,
+    "/R8MKII/sound/mute_high_conga/bang":62,
+    "/R8MKII/sound/open_high_conga/bang":63,
+    "/R8MKII/sound/low_conga/bang":64,
+    "/R8MKII/sound/high_timbale/bang":65,
+    "/R8MKII/sound/low_timbale/bang":66,
+    "/R8MKII/sound/high_agogo/bang":67,
+    "/R8MKII/sound/low_agogo/bang":68,
+    "/R8MKII/sound/cabasa/bang":69,
+    "/R8MKII/sound/maracas/bang":70,
+    "/R8MKII/sound/short_whistle/bang":71,
+    "/R8MKII/sound/long_whistle/bang":72,
+    "/R8MKII/sound/short_guiro/bang":73,
+    "/R8MKII/sound/long_guiro/bang":74,
+    "/R8MKII/sound/claves/bang":75,
+    "/R8MKII/sound/high_woodblock/bang":76,
+    "/R8MKII/sound/low_woodblock/bang":77,
+    "/R8MKII/sound/mute_cuica/bang":78,
+    "/R8MKII/sound/open_cuica/bang":79,
+    "/R8MKII/sound/mute_triangle/bang":80,
+    "/R8MKII/sound/open_triangle/bang":81,
 
-    "/sound/0/off":sound_off,
-    "/sound/1/off":sound_off,
-    "/sound/2/off":sound_off,
-    "/sound/3/off":sound_off,
-    "/sound/4/off":sound_off,
-    "/sound/5/off":sound_off,
-    "/sound/6/off":sound_off,
-    "/sound/7/off":sound_off,
-    "/sound/8/off":sound_off,
-    "/sound/9/off":sound_off,
-    "/sound/10/off":sound_off,
-    "/sound/11/off":sound_off,
-    "/sound/12/off":sound_off,
-    "/sound/13/off":sound_off,
-    "/sound/14/off":sound_off,
-    "/sound/15/off":sound_off,
-    "/sound/16/off":sound_off,
-    "/sound/17/off":sound_off,
-    "/sound/18/off":sound_off,
-    "/sound/19/off":sound_off,
-    "/sound/20/off":sound_off,
-    "/sound/21/off":sound_off,
-    "/sound/22/off":sound_off,
-    "/sound/23/off":sound_off,
-    "/sound/24/off":sound_off,
-    "/sound/25/off":sound_off,
-    "/sound/26/off":sound_off,
-    "/sound/27/off":sound_off,
-    "/sound/28/off":sound_off,
-    "/sound/29/off":sound_off,
-    "/sound/30/off":sound_off,
-    "/sound/31/off":sound_off,
-
-    "/system/power/on/":system_power_on,
-    "/system/power/off":system_power_off,
-    "/system/clock/1/":system_clock_1,
-    "/system/clock/2/":system_clock_2,
-    "/system/clock/3/":system_clock_3,
-    "/system/clock/4/":system_clock_4,
-    "/system/miditest":system_miditest_start,
-    "/system/midipanic":system_midipanic,
-    "/system/ping":ping,
-    "/system/ping/":ping,
-    "/ping":ping,
-    "/ping/":ping,
+    "/R8MKII/sound/bass_drum2/off":35,
+    "/R8MKII/sound/bass_drum/off":36,
+    "/R8MKII/sound/side_stick/off":37,
+    "/R8MKII/sound/snare_drum1/off":38,
+    "/R8MKII/sound/hand_clap/off":39,
+    "/R8MKII/sound/snare_drum2/off":40,
+    "/R8MKII/sound/low_tom2offg":41,
+    "/R8MKII/sound/closed_hihat/off":42,
+    "/R8MKII/sound/low_tom1/off":43,
+    "/R8MKII/sound/pedal_hihat/off":44,
+    "/R8MKII/sound/mid_tom2/off":45,
+    "/R8MKII/sound/open_hihat/off":46,
+    "/R8MKII/sound/mid_tom1/off":47,
+    "/R8MKII/sound/high_tom2/off":48,
+    "/R8MKII/sound/crash_cymbal/off":49,
+    "/R8MKII/sound/high_tom1/off":50,
+    "/R8MKII/sound/ride_cymbal1/off":51,
+    "/R8MKII/sound/chinese_cymbal/off":52,
+    "/R8MKII/sound/ride_bell/off":53,
+    "/R8MKII/sound/tambourine/off":54,
+    "/R8MKII/sound/splash_cymbal/off":55,
+    "/R8MKII/sound/cowbell/off":56,
+    "/R8MKII/sound/crash_cymbal2/off":57,
+    "/R8MKII/sound/vibra_slap/off":58,
+    "/R8MKII/sound/ride_cymbal2/off":59,
+    "/R8MKII/sound/high_bongo/off":60,
+    "/R8MKII/sound/low_bongo/off":61,
+    "/R8MKII/sound/mute_high_conga/off":62,
+    "/R8MKII/sound/open_high_conga/off":63,
+    "/R8MKII/sound/low_conga/off":64,
+    "/R8MKII/sound/high_timbale/off":65,
+    "/R8MKII/sound/low_timbale/off":66,
+    "/R8MKII/sound/high_agogo/off":67,
+    "/R8MKII/sound/low_agogo/off":68,
+    "/R8MKII/sound/cabasa/off":69,
+    "/R8MKII/sound/maracas/off":70,
+    "/R8MKII/sound/short_whistle/off":71,
+    "/R8MKII/sound/long_whistle/off":72,
+    "/R8MKII/sound/short_guiro/off":73,
+    "/R8MKII/sound/long_guiro/off":74,
+    "/R8MKII/sound/claves/off":75,
+    "/R8MKII/sound/high_woodblock/off":76,
+    "/R8MKII/sound/low_woodblock/off":77,
+    "/R8MKII/sound/mute_cuica/off":78,
+    "/R8MKII/sound/open_cuica/off":79,
+    "/R8MKII/sound/mute_triangle/off":80,
+    "/R8MKII/sound/open_triangle/off":81
 }
+
+#     "/system/power/on/":system_power_on,
+#     "/system/power/off":system_power_off,
+#     "/system/clock/1/":system_clock_1,
+#     "/system/clock/2/":system_clock_2,
+#     "/system/clock/3/":system_clock_3,
+#     "/system/clock/4/":system_clock_4,
+#     "/system/miditest":system_miditest_start,
+#     "/system/midipanic":system_midipanic,
+#     "/system/ping":ping,
+#     "/system/ping/":ping,
+#     "/ping":ping,
+#     "/ping/":ping,
