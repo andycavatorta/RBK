@@ -1,5 +1,4 @@
 BOARD = ""
-BCM = ""
 OUT = ""
 PUD_UP = ""
 PUD_DOWN = ""
