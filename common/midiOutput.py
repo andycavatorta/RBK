@@ -1,4 +1,5 @@
 import mido
+import numbers
 
 class Midi_Output():
     def __init__(self):
@@ -15,7 +16,7 @@ class Midi_Output():
             pitchbend = None
             velocity = None
             if data1 is None: # get pitch data from params
-                velocity = params["pitch"]["midi"]
+                pitch = params["pitch"]["midi"]
                 if params["pitch"]["cents"] != 0.0:
                     pitchbend = (data1 * 127 / 200) + 64
             elif isinstance(data1, numbers.Real):
@@ -46,7 +47,8 @@ class Midi_Output():
             else:
                 return
             if data2 is None: # get amplitude data from params
-                velocity = params["dynamics"]["amplitude"]
+                velocity = params["dynamics"]["amplitude"]*127
+                print 'VELOCITY ', velocity
             elif isinstance(data1, numbers.Real):
                 velocity = data2
             elif isinstance(data2, dict):
@@ -75,7 +77,7 @@ class Midi_Output():
             else:
                 return
             if pitch is not None and velocity is not None:
-                self.midi_out.send(mido.Message('note_on', channel=channel, note=pitch, velocity=velocity))
+                self.midi_out.send(mido.Message('note_on', channel=int(channel), note=int(pitch), velocity=int(velocity)))
             if pitchbend is not None:
                 self.midi_out.send(mido.Message('pitchwheel', channel=channel, pitch=pitchbend))
 

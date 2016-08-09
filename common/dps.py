@@ -27,7 +27,7 @@ HEARTBEAT = 2.0 # seconds
 condition = threading.Condition()
 pubsocket = None
 subs_instance = None
-device = None
+osc_handler = None
 
 
 class PubSocket():
@@ -361,10 +361,12 @@ def init_caller(hostname, pubPort, mcast_grp, mcast_port, recv_port, callback, i
 #### GLOBAL INIT ####
 #####################
 
-def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGroup, mcastPort, mcastPort2, rspnsPort, rspnsPort2, dvc=None):
+def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGroup, mcastPort, mcastPort2, rspnsPort, rspnsPort2, oschandler=None):
     global pubsub_api
     global ROLE
     ROLE = role
+    global osc_handler
+    osc_handler = oschandler
 
     if role == "dashboard":
         pubsub_api = init(subscribernames, hostname, role, pubPort2, recvCallback, netStateCallback)
@@ -372,8 +374,6 @@ def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGro
         pubsub_api = init(subscribernames, hostname, role, pubPort, recvCallback,netStateCallback)
 
     if role == "client":
-        global device
-        device = dvc
         global pubsub_api2
         pubsub_api2 = init(subscribernames, hostname, role, pubPort2, recvCallback, netStateCallback)
 
@@ -397,7 +397,7 @@ def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGro
 def recvCallback(topic, msg):
     print "recvCallback", repr(topic), repr(msg)
     if ROLE == "client":
-        device.handleNOSC(nerveOSC.parse(msg))
+        osc_handler(nerveOSC.parse(msg))
 
 def netStateCallback(hostname, connected, role, pubPort):
     print "netStateCallback", hostname, connected, pubPort

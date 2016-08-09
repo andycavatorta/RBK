@@ -326,4 +326,5 @@ mapping = {
     ),
     "/sound/open_triangle/off":(
         ("MIDI", {"channel":1, "pitch":81, "status":"note_off"})
-    )
+    ),
+}
