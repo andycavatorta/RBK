@@ -86,9 +86,7 @@ try:
                 category = msg['innerpath'].split('/')
                 if category[2] == "sound":
                     new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
-                    print new_path
                     mapped = mapping.mapping[new_path]
-                    print 'AEEEE ',mapped
                     midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
             except Exception as e:
                 traceback.print_exc()

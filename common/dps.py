@@ -100,10 +100,10 @@ class Subscriptions(threading.Thread):
         for topic in topics_t:
             topic = topic.decode('ascii')
             self.socket.setsockopt_string(zmq.SUBSCRIBE, topic)
-        if topics_v != None:
+        if topics_v is not None:
             topics_v = topics_v.decode('ascii')
             self.socket.setsockopt_string(zmq.SUBSCRIBE, topics_v)
-        if topic_osc != None:
+        if topic_osc is not None:
             topic_osc = topic_osc.decode('ascii')
             self.socket.setsockopt_string(zmq.SUBSCRIBE, topic_osc)
         self.subscriptions[hostname].setConnected(ip, self.publish_port)
@@ -150,14 +150,14 @@ class CheckHeartbeats(threading.Thread):
                 subs_instance = self.subscriptions_instance
             for hostname, subscriber in subs:#self.subscriptions_instance.getSubscriptions().iteritems():
                 stat = subscriber.testConnection()
-                if stat == True:
+                if stat is True:
                     self.subscriptions_instance.netStateCallback(hostname, True, self.role, self.pubPort)
                     if self.pubPort == 10002:
                         pubsocket.send("DASHBOARD", "server connected")
                     else:
                         pubsocket.send("DASHBOARD", "dashboard connected")
                         if ROLE == 'client':
-                            if subs_instance != None:
+                            if subs_instance is not None:
                                 subs_instance.printSubscriptions()
                     
                 if stat == False:

@@ -20,7 +20,7 @@ sys.path.append(BASE_PATH)
 sys.path.append(COMMON_PATH)
 sys.path.append(SERVER_PATH)
 
-import signalGenerator
+import signalOutput
 
 CRLF = "\n"
 
@@ -119,7 +119,7 @@ class CommandLine_Funcs(multiprocessing.Process):
 
   # def menuValues(self,params):
   #   self.params = params
-  #   self.states = signalGenerator.channels.getStates()
+  #   self.states = signalOutput.channels.getStates()
   #   for i in range(len(self.states)):
   #     print "ch:", i, self.states[i][0],"Hz,", self.states[i][1], "%"
   #   #print states
@@ -128,15 +128,15 @@ class CommandLine_Funcs(multiprocessing.Process):
     self.params = params
     self.goodValue = False
     while self.goodValue == False:
-      self.display("Enter a frequency in Hz (%f-%f):" % (signalGenerator.FREQ_MIN,signalGenerator.FREQ_MAX))
+      self.display("Enter a frequency in Hz (%f-%f):" % (signalOutput.FREQ_MIN,signalOutput.FREQ_MAX))
       self.input_raw = sys.stdin.readline()
       try:
         self.input_f = float(self.input_raw[:-1])
-        if signalGenerator.FREQ_MIN <= self.input_f <= signalGenerator.FREQ_MAX:
+        if signalOutput.FREQ_MIN <= self.input_f <= signalOutput.FREQ_MAX:
           self.params["frequency"] = self.input_f
           self.goodValue = True
-          self.osc_bin_str = ('{0:017b}'.format(int(signalGenerator.FPGA_CLOCK_SPEED_DIVIDED / self.input_f)))[::-1]
-          print self.input_f, "Hz rounded to", signalGenerator.FPGA_CLOCK_SPEED_DIVIDED / int(self.osc_bin_str[::-1], 2), "Hz"
+          self.osc_bin_str = ('{0:017b}'.format(int(signalOutput.FPGA_CLOCK_SPEED_DIVIDED / self.input_f)))[::-1]
+          print self.input_f, "Hz rounded to", signalOutput.FPGA_CLOCK_SPEED_DIVIDED / int(self.osc_bin_str[::-1], 2), "Hz"
 
       except Exception as e:
         print "menuFreq:invalid value:", input
