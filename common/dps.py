@@ -9,6 +9,7 @@ import time
 import zmq
 import yaml
 import os
+import imp
 import sys
 import datetime
 from sys import platform as _platform
@@ -409,7 +410,12 @@ def netStateCallback(hostname, connected, role, pubPort):
 
 def serverFoundCallback(msg,pubPort,hostname, id_num):
     if id_num == 0:
-        pubsub_api["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname),socket.gethostname())
+        SPECIFIC_PATH =  "%s/client/devices/%s" % (BASE_PATH,socket.gethostname())
+        instruments = imp.load_source('mapping', '%s/mapping.py'%(SPECIFIC_PATH))
+        for instrument in instruments.instruments:
+            instrumentName = "%s%s" % (socket.gethostname(),instrument)
+            print 'DENTRO: ', instrumentName
+            pubsub_api["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname),instrumentName)
     else:
         pubsub_api2["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname), None, "DASHBOARD")
 

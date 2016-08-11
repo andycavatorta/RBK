@@ -105,7 +105,7 @@ try:
         import vimina
         def osc_handler(msg):
             pass
-
+    print 'subscribers: ', subscribernames
 
     dps.init_networking(
         subscribernames,

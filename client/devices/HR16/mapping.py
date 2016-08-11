@@ -1,3 +1,10 @@
+instruments = (
+    "_system",
+    "_general",
+    "_native",
+    "_drums",
+    "_metal"
+)
 mapping = {
     "/sound/bass_drum2/bang":(
         ("MIDI", {"channel":1, "pitch":35 ,"status":"note_on"})
