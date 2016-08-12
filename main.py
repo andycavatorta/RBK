@@ -88,6 +88,10 @@ try:
                     new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
                     mapped = mapping.mapping[new_path]
                     midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
+                elif category[2] == "control_change":
+                    new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
+                    mapped = mapping.mapping[new_path]
+                    midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
             except Exception as e:
                 traceback.print_exc()
                 print "device: path not found", e

@@ -124,7 +124,8 @@ class Midi_Output():
             self.midi_out.send(mido.Message('polytouch', channel=channel, note=data1, value=data2))
 
         if status == "control_change": # channel
-            self.midi_out.send(mido.Message('control_change', channel=channel, control=data1, value=data2))
+            print channel
+            self.midi_out.send(mido.Message('control_change', channel=int(channel), control=int(data1), value=int(data2)))
 
         if status == "program_change": # channel, program
             self.midi_out.send(mido.Message('program_change', channel=channel, program=data1))
