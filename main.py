@@ -16,7 +16,8 @@ import socket
 #BASE_PATH = "/home/pi/nervebox_2/" if PI_NATIVE else "/home/stella/Dropbox/projects/current/nervebox_2/" 
 HOSTNAME = socket.gethostname()
 #HOSTNAME = "R8MKII"
-BASE_PATH = "%s/%s" % (os.path.split(os.path.dirname(os.path.realpath(__file__)))[0], os.path.split(os.path.dirname(os.path.realpath(__file__)))[1])
+#BASE_PATH = "%s/%s" % (os.path.split(os.path.dirname(os.path.realpath(__file__)))[0], os.path.split(os.path.dirname(os.path.realpath(__file__)))[1])
+BASE_PATH = "%s/%s" % os.path.split(os.path.dirname(os.path.realpath(__file__)))
 CLIENT_PATH = "%s/client/" % (BASE_PATH )
 DEVICES_PATH = "%s/client/devices/" % (BASE_PATH )
 COMMON_PATH = "%s/common/" % (BASE_PATH )
