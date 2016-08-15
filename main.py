@@ -25,6 +25,8 @@ COMMON_PATH = "%s/common/" % (BASE_PATH )
 HOST_SPECIFIC_PATH = "%s/client/devices/%s/" % (BASE_PATH, HOSTNAME)
 SERVER_PATH = "%s/server/" % (BASE_PATH )
 STORE_PATH = "%s/store/" % SERVER_PATH
+DATA_PATH = "%s/data/" % (BASE_PATH )
+LOG_PATH = "%s/logs/" % (BASE_PATH )
 clientnames = ("blueberrypie","blackberrypie")
 ROLE = sys.argv[1]
 print HOST_SPECIFIC_PATH
@@ -71,7 +73,26 @@ try:
     #
     #MAPPING = MAPPINGS["MAPPINGS"]["default"] # todo: the mapping name will have to be dynamically updated
 
+    ######################
+    ##### GITHUB SYNC ####
+    ######################
 
+    import githubSync
+    import packageManager
+
+    ### START GLOBAL SYSTEMS ###
+
+    packageManager.update(
+        BASE_PATH,
+        DATA_PATH,
+        LOG_PATH,
+        COMMON_PATH
+    )
+
+    ### FETCH NEW PYTHON CODE ###
+
+    stat_t = githubSync.main(BASE_PATH)
+    print repr(stat_t)
 
     ######################
     ##### NETWORKING #####

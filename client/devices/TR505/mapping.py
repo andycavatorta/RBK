@@ -1,10 +1,15 @@
 instruments = (
     "_system",
     "_general",
-    "_native",
-    "_drums",
-    "_metal"
+    "_kick",
+    "_snare",
+    "_tom",
+    "_hihat",
+    "_cymbal",
+    "_percussion",
+    "_miscellaneous"
 )
+
 
 mapping = {
     "/sound/tom_1/bang":(
@@ -124,5 +129,68 @@ mapping = {
     ),
     "/sound/perc_4/off":(
         ("MIDI", {"channel":1, "pitch":68 ,"status":"note_off"})
+    ),
+
+    ##### KICK ######
+
+    "_kick/sound/kick_1/bang":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
+    ),
+    "_kick/sound/kick_1/off":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
+    ),
+
+    ##### SNARE ######
+
+    "_snare/sound/snare_1/bang":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
+    ),
+    "_snare/sound/snare_1/off":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
+    ),
+
+    ##### TOM ######
+
+    "_tom/sound/tom_1/bang":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
+    ),
+    "_tom/sound/tom_1/off":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
+    ),
+
+    ##### HIHAT ######
+
+    "_hihat/sound/hihat_1/bang":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
+    ),
+    "_hihat/sound/hihat_1/off":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
+    ),
+
+    ##### CYMBAL ######
+
+    "_cymbal/sound/cymbal_1/bang":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
+    ),
+    "_cymbal/sound/cymbal_1/off":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
+    ),
+
+    ##### PERCUSSION ######
+
+    "_percussion/sound/percussion_1/bang":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
+    ),
+    "_percussion/sound/percussion_1/off":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
+    ),
+
+    ##### MISCELLANEOUS ######
+
+    "_miscellaneous/sound/miscellaneous_1/bang":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
+    ),
+    "_miscellaneous/sound/miscellaneous_1/off":(
+        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
     ),
 }
