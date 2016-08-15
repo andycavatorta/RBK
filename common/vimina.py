@@ -18,6 +18,7 @@ import rtmidi  #https://github.com/SpotlightKid/python-rtmidi
 import socket
 import sys
 import datetime
+import imp
 
 BASE_PATH = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]
 CLIENT_PATH = "%s/client/" % (BASE_PATH )
@@ -31,7 +32,7 @@ import dps
 ###############################
 
 deviceNames = filter(lambda x: os.path.isdir(os.path.join(DEVICES_PATH, x)), os.listdir(DEVICES_PATH))
-
+instrumentNames = []
 
 statusMap = {
     128:"note_off",
@@ -64,7 +65,6 @@ def midiEventCallback(devicename, msgAndTime_t, data=None):
     print "vimina/main midiEventCallback", devicename, msgAndTime_t, data
     event, deltatime = msgAndTime_t
 
-
     if event[0] < 0xF0:
         channel = (event[0] & 0xF) + 1
         status_int = event[0] & 0xF0
@@ -85,11 +85,19 @@ def midiEventCallback(devicename, msgAndTime_t, data=None):
 
 # following MIDI functions should be moved into common module
 def createVirtualPort(devicename):
+    print devicename
     midiin = rtmidi.MidiIn()
     vp = midiin.open_virtual_port(devicename)
     midiin.set_callback((lambda event, data: midiEventCallback(devicename, event, data)))
     return vp
 
-virtualPorts = map(createVirtualPort, deviceNames)
+for device in deviceNames:
+    SPECIFIC_PATH =  "%s/client/devices/%s" % (BASE_PATH,device)
+    instruments = imp.load_source('mapping', '%s/mapping.py'%(SPECIFIC_PATH))
+    for subinstrument in instruments.instruments:
+        instrumentname = "%s%s" % (device, subinstrument)
+        instrumentNames.append(instrumentname)
 
+
+virtualPorts = map(createVirtualPort, instrumentNames)
 print virtualPorts

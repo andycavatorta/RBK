@@ -9,6 +9,7 @@ import time
 import threading
 import sys
 import socket
+import traceback
 #import errorlog as elog
 
 # constants
@@ -26,6 +27,7 @@ SERVER_PATH = "%s/server/" % (BASE_PATH )
 STORE_PATH = "%s/store/" % SERVER_PATH
 clientnames = ("blueberrypie","blackberrypie")
 ROLE = sys.argv[1]
+print HOST_SPECIFIC_PATH
 possible_responses = ["client", "server", "dashboard"]
 while ROLE not in possible_responses:
     ROLE = raw_input('Please type dashboard, client or server: ')
@@ -44,19 +46,13 @@ sys.path.append(SERVER_PATH)
 sys.path.append(HOST_SPECIFIC_PATH)
 
 print "path append ok"
-
-device = None
-
 print os.path.split(os.path.dirname(os.path.realpath(__file__)))
 
 try:
     # import local modules
     import dps
     import nerveOSC
-    if ROLE == "client":
-        device = __import__('device')
-        device.init()
-    else:
+    if ROLE != "client":
         import parseOsc
         import midiToOsc
         import midiDeviceManager
@@ -86,11 +82,21 @@ try:
         import mapping  # host-specific mapping
         import midiOutput
         midi_output = midiOutput.Midi_Output()
-        print mapping
-        #def osc_handler(msg):
+        def osc_handler(msg):
+            try:
+                category = msg['innerpath'].split('/')
+                if category[2] == "sound":
+                    new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
+                    mapped = mapping.mapping[new_path]
+                    midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
+                elif category[2] == "control_change":
+                    new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
+                    mapped = mapping.mapping[new_path]
+                    midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
+            except Exception as e:
+                traceback.print_exc()
+                print "device: path not found", e
 
-
-            
 
     else:
         subscribernames = filter(lambda x: os.path.isdir(os.path.join(DEVICES_PATH, x)), os.listdir(DEVICES_PATH))
@@ -104,7 +110,7 @@ try:
         import vimina
         def osc_handler(msg):
             pass
-
+    print 'subscribers: ', subscribernames
 
     dps.init_networking(
         subscribernames,
@@ -117,7 +123,7 @@ try:
         SETTINGS["discovery_multicastPort2"],
         SETTINGS["discovery_responsePort"],
         SETTINGS["discovery_responsePort2"],
-        device
+        osc_handler
     )
 
 except Exception as e:

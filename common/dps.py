@@ -9,6 +9,7 @@ import time
 import zmq
 import yaml
 import os
+import imp
 import sys
 import datetime
 from sys import platform as _platform
@@ -27,7 +28,7 @@ HEARTBEAT = 2.0 # seconds
 condition = threading.Condition()
 pubsocket = None
 subs_instance = None
-device = None
+osc_handler = None
 
 
 class PubSocket():
@@ -100,10 +101,10 @@ class Subscriptions(threading.Thread):
         for topic in topics_t:
             topic = topic.decode('ascii')
             self.socket.setsockopt_string(zmq.SUBSCRIBE, topic)
-        if topics_v != None:
+        if topics_v is not None:
             topics_v = topics_v.decode('ascii')
             self.socket.setsockopt_string(zmq.SUBSCRIBE, topics_v)
-        if topic_osc != None:
+        if topic_osc is not None:
             topic_osc = topic_osc.decode('ascii')
             self.socket.setsockopt_string(zmq.SUBSCRIBE, topic_osc)
         self.subscriptions[hostname].setConnected(ip, self.publish_port)
@@ -150,14 +151,14 @@ class CheckHeartbeats(threading.Thread):
                 subs_instance = self.subscriptions_instance
             for hostname, subscriber in subs:#self.subscriptions_instance.getSubscriptions().iteritems():
                 stat = subscriber.testConnection()
-                if stat == True:
+                if stat is True:
                     self.subscriptions_instance.netStateCallback(hostname, True, self.role, self.pubPort)
                     if self.pubPort == 10002:
                         pubsocket.send("DASHBOARD", "server connected")
                     else:
                         pubsocket.send("DASHBOARD", "dashboard connected")
                         if ROLE == 'client':
-                            if subs_instance != None:
+                            if subs_instance is not None:
                                 subs_instance.printSubscriptions()
                     
                 if stat == False:
@@ -361,10 +362,12 @@ def init_caller(hostname, pubPort, mcast_grp, mcast_port, recv_port, callback, i
 #### GLOBAL INIT ####
 #####################
 
-def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGroup, mcastPort, mcastPort2, rspnsPort, rspnsPort2, dvc=None):
+def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGroup, mcastPort, mcastPort2, rspnsPort, rspnsPort2, oschandler=None):
     global pubsub_api
     global ROLE
     ROLE = role
+    global osc_handler
+    osc_handler = oschandler
 
     if role == "dashboard":
         pubsub_api = init(subscribernames, hostname, role, pubPort2, recvCallback, netStateCallback)
@@ -372,8 +375,6 @@ def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGro
         pubsub_api = init(subscribernames, hostname, role, pubPort, recvCallback,netStateCallback)
 
     if role == "client":
-        global device
-        device = dvc
         global pubsub_api2
         pubsub_api2 = init(subscribernames, hostname, role, pubPort2, recvCallback, netStateCallback)
 
@@ -397,7 +398,7 @@ def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGro
 def recvCallback(topic, msg):
     print "recvCallback", repr(topic), repr(msg)
     if ROLE == "client":
-        device.handleNOSC(nerveOSC.parse(msg))
+        osc_handler(nerveOSC.parse(msg))
 
 def netStateCallback(hostname, connected, role, pubPort):
     print "netStateCallback", hostname, connected, pubPort
@@ -409,7 +410,12 @@ def netStateCallback(hostname, connected, role, pubPort):
 
 def serverFoundCallback(msg,pubPort,hostname, id_num):
     if id_num == 0:
-        pubsub_api["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname),socket.gethostname())
+        SPECIFIC_PATH =  "%s/client/devices/%s" % (BASE_PATH,socket.gethostname())
+        instruments = imp.load_source('mapping', '%s/mapping.py'%(SPECIFIC_PATH))
+        for instrument in instruments.instruments:
+            instrumentName = "%s%s" % (socket.gethostname(),instrument)
+            print 'DENTRO: ', instrumentName
+            pubsub_api["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname),instrumentName)
     else:
         pubsub_api2["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname), None, "DASHBOARD")
 
