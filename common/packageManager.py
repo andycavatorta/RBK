@@ -52,7 +52,7 @@ def runBashCommand(v,cmd):
     bashLogger(v, cmd)
     bashLogger(v, output)
 
-def update(basePath, dataPath, bashLogPath, commonPath):
+def update(basePath, dataPath, bashLogPath, commonPath, errorlogger):
     global BASE_PATH
     BASE_PATH = basePath
     global DATA_PATH
@@ -62,8 +62,8 @@ def update(basePath, dataPath, bashLogPath, commonPath):
     global COMMON_PATH
     COMMON_PATH = commonPath
 
-    # global ERRORLOGGER
-    # ERRORLOGGER = errorlogger
+    global ERRORLOGGER
+    ERRORLOGGER = errorlogger
     sys.path.append(COMMON_PATH)
     # fetch latest code from GitHub
     githubSync()

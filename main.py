@@ -63,7 +63,7 @@ try:
     # load config
     with open(COMMON_PATH + 'settings.json', 'r') as f:
         SETTINGS = json.load(f)
-        
+
     print "load config ok"
 
     ######################
@@ -75,13 +75,18 @@ try:
     import githubSync
     import packageManager
 
+    def errorlogger(err_t):
+        if err_t[0] > 0:
+            print "errorlogger:", err_t[2], err_t[1]
+
     ### START GLOBAL SYSTEMS ###
 
     packageManager.update(
         BASE_PATH,
         DATA_PATH,
         LOG_PATH,
-        COMMON_PATH
+        COMMON_PATH,
+        errorlogger
     )
 
     ### FETCH NEW PYTHON CODE ###
