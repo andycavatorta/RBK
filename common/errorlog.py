@@ -2,6 +2,8 @@ import logging
 import smtplib
 from email.mime.text import MIMEText
 
+#CHEGUEI AQUI#
+
 class Errorlog():
 
 	def __init__(self):
