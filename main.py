@@ -16,8 +16,6 @@ import traceback
 #PI_NATIVE = os.uname()[4].startswith("arm") # TRUE if running on RPi
 #BASE_PATH = "/home/pi/nervebox_2/" if PI_NATIVE else "/home/stella/Dropbox/projects/current/nervebox_2/" 
 HOSTNAME = socket.gethostname()
-#HOSTNAME = "R8MKII"
-#BASE_PATH = "%s/%s" % (os.path.split(os.path.dirname(os.path.realpath(__file__)))[0], os.path.split(os.path.dirname(os.path.realpath(__file__)))[1])
 BASE_PATH = "%s/%s" % os.path.split(os.path.dirname(os.path.realpath(__file__)))
 CLIENT_PATH = "%s/client/" % (BASE_PATH )
 DEVICES_PATH = "%s/client/devices/" % (BASE_PATH )
@@ -65,17 +63,14 @@ try:
     # load config
     with open(COMMON_PATH + 'settings.json', 'r') as f:
         SETTINGS = json.load(f)
-
-    #with open(COMMON_PATH + 'mappings.json', 'r') as f:
-    #    MAPPINGS = json.load(f)
-    #
-    #print "load config ok"
-    #
-    #MAPPING = MAPPINGS["MAPPINGS"]["default"] # todo: the mapping name will have to be dynamically updated
+        
+    print "load config ok"
 
     ######################
     ##### GITHUB SYNC ####
     ######################
+
+    print "starting github sync..."
 
     import githubSync
     import packageManager
@@ -93,6 +88,8 @@ try:
 
     stat_t = githubSync.main(BASE_PATH)
     print repr(stat_t)
+
+    print "github sync ok"
 
     ######################
     ##### NETWORKING #####
