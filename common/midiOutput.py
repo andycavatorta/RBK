@@ -134,7 +134,7 @@ class Midi_Output():
             self.midi_out.send(mido.Message('aftertouch', channel=channel, value=data1))
 
         if status == "pitch_wheel": # channel, pitch
-            self.midi_out.send(mido.Message('pitchwheel', channel=int(channel), pitch=int(data1/40)))
+            self.midi_out.send(mido.Message('pitchwheel', channel=int(channel), pitch=int(data1/30)))
 
         if status == "sysex": # channel, 
             self.midi_out.send(mido.Message('sysex', data=data1))
