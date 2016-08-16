@@ -135,7 +135,7 @@ class Midi_Output():
 
         if status == "pitch_wheel":
             print data1 # channel, pitch
-            self.midi_out.send(mido.Message('pitchwheel', channel=int(channel), pitch=int(data1/20)))
+            self.midi_out.send(mido.Message('pitchwheel', channel=int(channel), pitch=int(data1/5)))
 
         if status == "sysex": # channel, 
             self.midi_out.send(mido.Message('sysex', data=data1))
