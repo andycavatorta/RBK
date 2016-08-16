@@ -122,17 +122,15 @@ try:
 
 
     else:
+        import vimina
+        def osc_handler(msg):
+            pass
         subscribernames = filter(lambda x: os.path.isdir(os.path.join(DEVICES_PATH, x)), os.listdir(DEVICES_PATH))
         subscribernames.append("nervebox2")
         subscribernames.append(HOSTNAME)
 
     print "subscribernames ok"
     print "initializing network..."
-
-    if ROLE == 'server': 
-        import vimina
-        def osc_handler(msg):
-            pass
     print 'subscribers: ', subscribernames
 
     dps.init_networking(
