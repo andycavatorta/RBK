@@ -343,6 +343,10 @@ mapping = {
         ("MIDI", {"channel":1, "cc":16, "status":"control_change"})
     ),
 
+    "_general/pitch_wheel":(
+        ("MIDI", {"status":"pitch_wheel"})
+    ),
+
     ##### KICK ######
 
     "_kick/sound/kick_1/bang":(

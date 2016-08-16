@@ -115,7 +115,6 @@ try:
                 elif category[2] == "control_change":
                     midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
                 elif category[2] == "pitch_wheel":
-                    print 'UEBA'
                     midi_output.send_midi(None, mapped[1]['status'],msg['params']['channel'], msg['params']['value'])
             except Exception as e:
                 traceback.print_exc()
