@@ -122,6 +122,10 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":77 ,"status":"note_off"})
     ),
 
+    "_general/pitch_wheel":(
+        ("MIDI", {"status":"pitch_wheel"})
+    ),
+
     ##### KICK ######
 
     "_kick/sound/kick_1/bang":(

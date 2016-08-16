@@ -429,6 +429,10 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":36, "status":"note_off"})
     ),
 
+    "_kick/control_change":(
+        ("MIDI", {"channel":1, "cc":16, "status":"control_change"})
+    ),
+
     ##### SNARE ######
 
     "_snare/sound/snare_1/bang":(
@@ -570,6 +574,10 @@ mapping = {
     "_snare/sound/snare_20/off":(
         ("MIDI", {"channel":1, "pitch":40, "status":"note_off"})
     ),
+
+    "_snare/control_change":(
+        ("MIDI", {"channel":1, "cc":16, "status":"control_change"})
+    ),
     ##### TOM ######
 
     "_tom/sound/tom_1/bang":(
@@ -613,6 +621,10 @@ mapping = {
     "_tom/sound/tom_6/off":(
         ("MIDI", {"channel":1, "pitch":50, "status":"note_off"})
     ),
+
+    "_tom/control_change":(
+        ("MIDI", {"channel":1, "cc":16, "status":"control_change"})
+    ),
     ##### HIHAT ######
 
     "_hihat/sound/hihat_1/bang":(
@@ -634,6 +646,10 @@ mapping = {
     ),
     "_hihat/sound/hihat_3/off":(
         ("MIDI", {"channel":1, "pitch":46, "status":"note_off"})
+    ),
+
+    "_hihat/control_change":(
+        ("MIDI", {"channel":1, "cc":16, "status":"control_change"})
     ),
 
     ##### CYMBAL ######
@@ -692,6 +708,10 @@ mapping = {
     ),
     "_cymbal/sound/cymbal_8/off":(
         ("MIDI", {"channel":1, "pitch":97, "status":"note_off"})
+    ),
+
+    "_cymbal/control_change":(
+        ("MIDI", {"channel":1, "cc":16, "status":"control_change"})
     ),
 
     ##### PERCUSSION ######
@@ -808,6 +828,10 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":96, "status":"note_off"})
     ),
 
+    "_percussion/control_change":(
+        ("MIDI", {"channel":1, "cc":16, "status":"control_change"})
+    ),
+
     ##### MISCELLANEOUS ######
 
     "_miscellaneous/sound/miscellaneous_1/bang":(
@@ -836,6 +860,10 @@ mapping = {
     ),
     "_miscellaneous/sound/miscellaneous_4/off":(
         ("MIDI", {"channel":1, "pitch":30, "status":"note_off"})
+    ),
+
+    "_miscellaneous/control_change":(
+        ("MIDI", {"channel":1, "cc":16, "status":"control_change"})
     ),
 
 }
