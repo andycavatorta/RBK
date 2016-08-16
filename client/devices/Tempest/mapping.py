@@ -116,10 +116,10 @@ mapping = {
     ),
 
     "_general/sound/low_woodblock/bang":(
-        ("MIDI", {"channel":1, "pitch":77 ,"status":"note_on"})
+        ("MIDI", {"channel":1, "pitch":127 ,"status":"note_on"})
     ),
     "_general/sound/low_woodblock/off":(
-        ("MIDI", {"channel":1, "pitch":77 ,"status":"note_off"})
+        ("MIDI", {"channel":1, "pitch":127 ,"status":"note_off"})
     ),
 
     "_general/pitch_wheel":(
