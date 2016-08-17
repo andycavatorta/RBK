@@ -53,9 +53,7 @@ class Bip(multiprocessing.Process):
 		map(self._blinkNumber, range(len(self.ipAddress)))
 		time.sleep(2)
 		self._startStop()
-try:
-	p = Bip()
-	p.daemon = True
-	p.start()
-except Exception as e:
-	print e
+
+p = Bip()
+p.daemon = True
+p.start()

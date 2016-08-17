@@ -90,11 +90,9 @@ try:
     )
 
     ### FETCH NEW PYTHON CODE ###
-    try:
-        stat_t = githubSync.main(BASE_PATH)
-        print repr(stat_t)
-    except Exception as e:
-        print 'NOPE ', e
+
+    stat_t = githubSync.main(BASE_PATH)
+    print repr(stat_t)
 
     print "github sync ok"
 
