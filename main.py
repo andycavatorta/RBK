@@ -90,9 +90,11 @@ try:
     )
 
     ### FETCH NEW PYTHON CODE ###
-
-    stat_t = githubSync.main(BASE_PATH)
-    print repr(stat_t)
+    try:
+        stat_t = githubSync.main(BASE_PATH)
+        print repr(stat_t)
+    except Exception as e:
+        print 'NOPE ', e
 
     print "github sync ok"
 
@@ -102,7 +104,7 @@ try:
 
     if ROLE == "client":
         subscribernames = ["nervebox"]
-        #import blinkip
+        import blinkip
         import mapping  # host-specific mapping
         import midiOutput
         midi_output = midiOutput.Midi_Output()
