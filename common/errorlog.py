@@ -18,7 +18,7 @@ class Errorlog():
 	def logerror(self):
 		self.logger.exception("ERROR:")
 
-	def setEmail(self, frm, to, filename, user, pwd, server):
+	def set_email(self, frm, to, filename, user, pwd, server):
 		self.fromaddr = frm
 		self.toaddrs  = to
 		fp = open(filename, 'rb')
@@ -30,7 +30,7 @@ class Errorlog():
 		self.username = user
 		self.password = pwd
 		self.server = smtplib.SMTP(server)
-	def sendEmail(self):
+	def send_email(self):
 		self.server.starttls()
 		self.server.ehlo()
 		self.server.login(self.username,self.password)

@@ -65,7 +65,7 @@ class DeviceTracker(threading.Thread):
             timestamp_f = self.timestampToFloat(timestamp_str)
             date_str = tokens[-4:-3][0]
             deviceName = self.matchDeviceNameByTimestamp(timestamp_f)
-            if deviceName != None:
+            if deviceName is not None:
                 self.addDevice(filename, deviceName)
 
     def addDevice(self, deviceId, deviceName):

@@ -28,7 +28,7 @@ LOG_PATH = "%s/logs/" % (BASE_PATH )
 clientnames = ("blueberrypie","blackberrypie")
 ROLE = sys.argv[1]
 print HOST_SPECIFIC_PATH
-possible_responses = ["client", "server", "dashboard"]
+possible_responses = set(["client", "server", "dashboard"])
 while ROLE not in possible_responses:
     ROLE = raw_input('Please type dashboard, client or server: ')
 if ROLE == "server":
@@ -102,6 +102,7 @@ try:
 
     if ROLE == "client":
         subscribernames = ["nervebox"]
+        import blinkip
         import mapping  # host-specific mapping
         import midiOutput
         midi_output = midiOutput.Midi_Output()

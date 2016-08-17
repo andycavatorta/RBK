@@ -1,8 +1,11 @@
 import time
 import netifaces as ni
 import commands
+import multiprocessing
 
-class Bip():
+class Bip(multiprocessing.Process):
+	def __init__(self):
+        multiprocessing.Process.__init__(self) 
 
 	def _ledonoff(self,interval, rep):	
 		for x in range(rep):
@@ -42,7 +45,7 @@ class Bip():
 		print len(self.ipAddress)
 		map(self._castInt, range(len(self.ipAddress)))
 
-	def start(self):
+	def run(self):
 		self._init()
 		self._startStop()
 		time.sleep(2)
@@ -50,4 +53,5 @@ class Bip():
 		time.sleep(2)
 		self._startStop()
 
-bip = Bip()
+p = Bip()
+p.start()

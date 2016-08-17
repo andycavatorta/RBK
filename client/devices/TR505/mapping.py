@@ -1,13 +1,13 @@
 instruments = (
     "_system",
     "_general",
-    "_kick",
-    "_snare",
-    "_tom",
-    "_hihat",
-    "_cymbal",
-    "_percussion",
-    "_miscellaneous"
+    # "_kick",
+    # "_snare",
+    # "_tom",
+    # "_hihat",
+    # "_cymbal",
+    # "_percussion",
+    # "_miscellaneous"
 )
 
 
