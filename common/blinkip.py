@@ -9,8 +9,10 @@ class Bip(multiprocessing.Process):
 
 	def _ledonoff(self,interval, rep):	
 		for x in range(rep):
+			print 'LED ON'
 			commands.getstatusoutput('echo 1 >/sys/class/leds/led0/brightness')
-			time.sleep(interval) 
+			time.sleep(interval)
+			print 'LED OFF' 
 			commands.getstatusoutput('echo 0 >/sys/class/leds/led0/brightness')
 			time.sleep(interval)
 	def _blinkNumber(self,character):
