@@ -5,7 +5,7 @@ import multiprocessing
 
 class Bip(multiprocessing.Process):
 	def __init__(self):
-        multiprocessing.Process.__init__(self) 
+		multiprocessing.Process.__init__(self) 
 
 	def _ledonoff(self,interval, rep):	
 		for x in range(rep):
