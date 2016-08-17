@@ -71,30 +71,32 @@ try:
     ######################
 
     print "starting github sync..."
+    try:
+        import githubSync
+        import packageManager
 
-    import githubSync
-    import packageManager
+        def errorlogger(err_t):
+            if err_t[0] > 0:
+                print "errorlogger:", err_t[2], err_t[1]
 
-    def errorlogger(err_t):
-        if err_t[0] > 0:
-            print "errorlogger:", err_t[2], err_t[1]
+        ### START GLOBAL SYSTEMS ###
 
-    ### START GLOBAL SYSTEMS ###
+        packageManager.update(
+            BASE_PATH,
+            DATA_PATH,
+            LOG_PATH,
+            COMMON_PATH,
+            errorlogger
+        )
 
-    packageManager.update(
-        BASE_PATH,
-        DATA_PATH,
-        LOG_PATH,
-        COMMON_PATH,
-        errorlogger
-    )
+        ### FETCH NEW PYTHON CODE ###
 
-    ### FETCH NEW PYTHON CODE ###
+        stat_t = githubSync.main(BASE_PATH)
+        print repr(stat_t)
 
-    stat_t = githubSync.main(BASE_PATH)
-    print repr(stat_t)
-
-    print "github sync ok"
+        print "github sync ok"
+    except Exception as e:
+        print e
 
     ######################
     ##### NETWORKING #####
