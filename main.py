@@ -71,32 +71,30 @@ try:
     ######################
 
     print "starting github sync..."
-    try:
-        import githubSync
-        import packageManager
 
-        def errorlogger(err_t):
-            if err_t[0] > 0:
-                print "errorlogger:", err_t[2], err_t[1]
+    import githubSync
+    import packageManager
 
-        ### START GLOBAL SYSTEMS ###
+    def errorlogger(err_t):
+        if err_t[0] > 0:
+            print "errorlogger:", err_t[2], err_t[1]
 
-        packageManager.update(
-            BASE_PATH,
-            DATA_PATH,
-            LOG_PATH,
-            COMMON_PATH,
-            errorlogger
-        )
+    ### START GLOBAL SYSTEMS ###
 
-        ### FETCH NEW PYTHON CODE ###
+    packageManager.update(
+        BASE_PATH,
+        DATA_PATH,
+        LOG_PATH,
+        COMMON_PATH,
+        errorlogger
+    )
 
-        stat_t = githubSync.main(BASE_PATH)
-        print repr(stat_t)
+    ### FETCH NEW PYTHON CODE ###
 
-        print "github sync ok"
-    except Exception as e:
-        print e
+    stat_t = githubSync.main(BASE_PATH)
+    print repr(stat_t)
+
+    print "github sync ok"
 
     ######################
     ##### NETWORKING #####
@@ -104,7 +102,7 @@ try:
 
     if ROLE == "client":
         subscribernames = ["nervebox"]
-        import blinkip
+        #import blinkip
         import mapping  # host-specific mapping
         import midiOutput
         midi_output = midiOutput.Midi_Output()
