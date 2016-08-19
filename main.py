@@ -39,7 +39,8 @@ if ROLE == "dashboard":
 print 'role: ', ROLE
 print 'paths loaded'
 
-if ROLE == 'client':
+if ROLE == "client":
+    print 'here'
     while commands.getoutput('cat /sys/class/net/wlan0/carrier') == '0':
         time.sleep(5)
         print 'sleeping...'
