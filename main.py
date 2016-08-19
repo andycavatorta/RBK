@@ -50,7 +50,7 @@ print os.path.split(os.path.dirname(os.path.realpath(__file__)))
 import network_info
 
 def pauseUntilOnline():
-    for i in range(10):
+    while True:
         if network_info.getOnlineStatus():
             break
         else:
