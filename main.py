@@ -10,8 +10,6 @@ import threading
 import sys
 import socket
 import traceback
-import netifaces as ni
-import commands
 #import errorlog as elog
 # constants
 #PI_NATIVE = os.uname()[4].startswith("arm") # TRUE if running on RPi
@@ -48,6 +46,17 @@ sys.path.append(HOST_SPECIFIC_PATH)
 
 print "path append ok"
 print os.path.split(os.path.dirname(os.path.realpath(__file__)))
+
+import network_info
+
+def pauseUntilOnline():
+    for i in range(10):
+        if network_info.getOnlineStatus():
+            break
+        else:
+            time.sleep(1)
+
+pauseUntilOnline();
 
 try:
     # import local modules
