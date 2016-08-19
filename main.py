@@ -39,6 +39,11 @@ if ROLE == "dashboard":
 print 'role: ', ROLE
 print 'paths loaded'
 
+if ROLE == 'client':
+    while commands.getoutput('cat /sys/class/net/wlan0/carrier') == '0':
+        time.sleep(5)
+        print 'sleeping...'
+
 # local paths
 sys.path.append(BASE_PATH)
 sys.path.append(COMMON_PATH)
@@ -66,10 +71,6 @@ try:
         SETTINGS = json.load(f)
 
     print "load config ok"
-
-    if ROLE == 'client':
-        while commands.getoutput('cat /sys/class/net/wlan0/carrier') == '0':
-            time.sleep(5)
 
     ######################
     ##### GITHUB SYNC ####
