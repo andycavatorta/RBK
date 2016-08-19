@@ -291,7 +291,7 @@ class CallerSend(threading.Thread):
         self.mcast_port = mcast_port
         self.mcast_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
         self.mcast_sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 32)
-        # self.mcast_sock.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', 1, 0))
+        self.mcast_sock.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', 1, 0))
         self.msg_d = {"ip":localIP,"hostname":localHostname}
         self.msg_json = json.dumps(self.msg_d)
         self.mcast_msg = self.msg_json
