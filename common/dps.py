@@ -36,7 +36,7 @@ class PubSocket():
         self.port = port
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.PUB)
-        # self.socket.setsockopt(zmq.LINGER, 0)
+        self.socket.setsockopt(zmq.LINGER, 0)
         self.socket.bind("tcp://*:%s" % port)
     def send(self, topic, msg):
         self.socket.send_string("%s %s" % (topic, msg))
@@ -76,7 +76,7 @@ class Subscriptions(threading.Thread):
         self.role = role
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.SUB)
-        # self.socket.setsockopt(zmq.LINGER, 0)
+        self.socket.setsockopt(zmq.LINGER, 0)
         self.recvCallback = recvCallback
         # subscription tracking details
         self.subscriptions = {}
@@ -224,7 +224,7 @@ class Responder(threading.Thread):
         self.callback = callback
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        # self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', 1, 0))
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', 1, 0))
         self.sock.bind((listener_grp, listener_port))
         self.mreq = struct.pack("4sl", socket.inet_aton(listener_grp), socket.INADDR_ANY)
         self.sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, self.mreq)
@@ -318,7 +318,7 @@ class CallerRecv(threading.Thread):
         self.callerSend = callerSend
         self.listen_context = zmq.Context()
         self.listen_sock = self.listen_context.socket(zmq.PAIR)
-        # self.listen_sock.setsockopt(zmq.LINGER, 0)
+        self.listen_sock.setsockopt(zmq.LINGER, 0)
         self.listen_sock.bind("tcp://*:%d" % recv_port)
         print "CallerRecv listening on port %d" % (recv_port)
     def run(self):
