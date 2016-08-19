@@ -10,8 +10,9 @@ import threading
 import sys
 import socket
 import traceback
+import netifaces as ni
+import commands
 #import errorlog as elog
-
 # constants
 #PI_NATIVE = os.uname()[4].startswith("arm") # TRUE if running on RPi
 #BASE_PATH = "/home/pi/nervebox_2/" if PI_NATIVE else "/home/stella/Dropbox/projects/current/nervebox_2/" 
@@ -65,6 +66,10 @@ try:
         SETTINGS = json.load(f)
 
     print "load config ok"
+
+    if ROLE == 'client':
+        while commands.getoutput('cat /sys/class/net/wlan0/carrier') == '0':
+            time.sleep(5)
 
     ######################
     ##### GITHUB SYNC ####
