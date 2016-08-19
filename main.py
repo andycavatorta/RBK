@@ -52,8 +52,10 @@ import network_info
 def pauseUntilOnline():
     while True:
         if network_info.getOnlineStatus():
+            "got connection!"
             break
         else:
+            print "waiting for connection..."
             time.sleep(1)
 
 pauseUntilOnline();
