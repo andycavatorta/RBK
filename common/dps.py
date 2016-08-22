@@ -207,8 +207,8 @@ def getLocalIP():
         interfaceName = "en0"
     else:
         interfaceName = "wlan0"
-    netifaces.ifaddresses(interfaceName)
-    return netifaces.ifaddresses(interfaceName)[2][0]['addr']
+    return netifaces.ifaddresses(interfaceName)[netifaces.AF_INET][0]['addr']
+    # return netifaces.ifaddresses(interfaceName)[2][0]['addr']
 
 #####################
 ##### RESPONDER #####

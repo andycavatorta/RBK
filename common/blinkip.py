@@ -31,16 +31,14 @@ class Bip(multiprocessing.Process):
 
 	def _init(self):
 		if commands.getoutput('cat /sys/class/net/eth0/carrier') == '1':
-			ni.ifaddresses('eth0')
-			self.ipAddress = ni.ifaddresses('eth0')[2][0]['addr']
-			print self.ipAddress
+			interfaceName = "eth0"
 		elif commands.getoutput('cat /sys/class/net/wlan0/carrier') == '1':
+			interfaceName = "wlan0"
 			ni.ifaddresses('wlan0')
-			self.ipAddress = ni.ifaddresses('wlan0')[2][0]['addr']
-			print self.ipAddress
 		else:
 			print "Not connected"
 			self._ledonoff(0.1, 30)
+		self.ipAddress = ni.ifaddresses(interfaceName)[ni.AF_INET][0]['addr']
 		self.ipAddress = list(self.ipAddress)
 		print len(self.ipAddress)
 		map(self._castInt, range(len(self.ipAddress)))
