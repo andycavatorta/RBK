@@ -7,11 +7,11 @@ import socket
 
 def getLocalIp():
     try:
-        return netifaces.ifaddresses("wlan0")[2][0]['addr']
+        return netifaces.ifaddresses("wlan0")[netifaces.AF_INET][0]['addr']
     except Exception as e:
         pass
     try:
-        return netifaces.ifaddresses("eth0")[2][0]['addr']
+        return netifaces.ifaddresses("eth0")[netifaces.AF_INET][0]['addr']
     except Exception as e:
         pass
     return False
