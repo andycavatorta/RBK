@@ -321,7 +321,7 @@ class CallerRecv(threading.Thread):
         self.callerSend = callerSend
         self.listen_context = zmq.Context()
         self.listen_sock = self.listen_context.socket(zmq.PAIR)
-        # self.listen_sock.setsockopt(zmq.LINGER, 0)
+        self.listen_sock.setsockopt(zmq.LINGER, 0)
         self.listen_sock.bind("tcp://*:%d" % recv_port)
         print "CallerRecv listening on port %d" % (recv_port)
     def run(self):
