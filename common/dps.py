@@ -124,7 +124,7 @@ class Subscriptions(threading.Thread):
     def run(self):
         while True:
             msg_str = self.socket.recv()
-            # print msg_str
+            #print msg_str
             topic, msg = msg_str.split(' ', 1)
             if topic == "__heartbeat__":
                 self.recordHeartbeat(msg)
@@ -163,14 +163,12 @@ class CheckHeartbeats(threading.Thread):
                     
                 if stat == False:
                     self.subscriptions_instance.netStateCallback(hostname, False, self.role, self.pubPort)
-                    pubsocket.close()
                     if self.pubPort == 10002:
                         pubsocket.send("DASHBOARD", "server disconnected")
             time.sleep(HEARTBEAT)
 
 def sendHeartbeats(pubsocket, heartbeatMsg):
     while True:
-        print 'sending heartbeat: ', heartbeatMsg
         pubsocket.send("__heartbeat__", heartbeatMsg)
         # pubsocket.send("DASHBOARD", heartbeatMsg)
         time.sleep(HEARTBEAT/2)
