@@ -113,7 +113,6 @@ class Subscriptions(threading.Thread):
 
     def disconnectSubscription(self, hostname):
         self.netStateCallback(hostname, False, self.role, self.publish_port)
-        self.socket.close()
     def printSubscriptions(self):
         pubsocket.send("DASHBOARD", self.subscriptions)
     def getSubscriptions(self):
@@ -164,6 +163,7 @@ class CheckHeartbeats(threading.Thread):
                     
                 if stat == False:
                     self.subscriptions_instance.netStateCallback(hostname, False, self.role, self.pubPort)
+                    pubsocket.close()
                     if self.pubPort == 10002:
                         pubsocket.send("DASHBOARD", "server disconnected")
             time.sleep(HEARTBEAT)
