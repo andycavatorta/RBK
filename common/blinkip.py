@@ -34,7 +34,6 @@ class Bip(multiprocessing.Process):
 			interfaceName = "eth0"
 		elif commands.getoutput('cat /sys/class/net/wlan0/carrier') == '1':
 			interfaceName = "wlan0"
-			ni.ifaddresses('wlan0')
 		else:
 			print "Not connected"
 			self._ledonoff(0.1, 30)
