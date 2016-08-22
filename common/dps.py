@@ -169,6 +169,7 @@ class CheckHeartbeats(threading.Thread):
 
 def sendHeartbeats(pubsocket, heartbeatMsg):
     while True:
+        print 'sending heartbeat: ', heartbeatMsg
         pubsocket.send("__heartbeat__", heartbeatMsg)
         # pubsocket.send("DASHBOARD", heartbeatMsg)
         time.sleep(HEARTBEAT/2)
