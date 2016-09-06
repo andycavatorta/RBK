@@ -212,6 +212,7 @@ def getLocalIP():
         except Exception as e:
             print 'broadcast not available...'
         else:
+            print 'found connection returning ip: %s' % (netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr'])
             return netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr']
     # if _platform == "darwin":
     #     interfaceName = "en0"
