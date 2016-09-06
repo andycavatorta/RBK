@@ -4,19 +4,16 @@ import netifaces
 import urllib2
 import socket
 
+interfaces = netifaces.interfaces()
 
 def getLocalIp():
-    try:
-        return netifaces.ifaddresses("eth0")[netifaces.AF_INET][0]['addr']
-    except Exception as e:
-        print 'ethernet not available...'
-        pass
-    try:
-        print 'trying wifi...'
-        return netifaces.ifaddresses("wlan0")[netifaces.AF_INET][0]['addr']
-    except Exception as e:
-        pass
-    return False
+    for interface in interfaces:
+        try:
+            test = netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['broadcast']
+        except Exception as e:
+            print 'broadcast not available...'
+        else:
+            return netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr']
 
 def getGlobalIp():
     try:

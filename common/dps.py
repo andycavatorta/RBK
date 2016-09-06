@@ -203,19 +203,29 @@ def init(subscribernames,localName, role, publish_port, recvCallback,netStateCal
 #####################
 
 def getLocalIP():
-    if _platform == "darwin":
-        interfaceName = "en0"
-    else:
-        interfaceName = "wlan0"
-    try:
-        return netifaces.ifaddresses('eth0')[netifaces.AF_INET][0]['addr']
-    except Exception as e:
-        print 'ethernet not available...'
-    try:
-        print 'trying wifi...'
-        return netifaces.ifaddresses(interfaceName)[netifaces.AF_INET][0]['addr']
-    except Exception as e:
-        print "error getting local IP..."
+    
+    interfaces = netifaces.interfaces()
+
+    for interface in interfaces:
+        try:
+            test = netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['broadcast']
+        except Exception as e:
+            print 'broadcast not available...'
+        else:
+            return netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr']
+    # if _platform == "darwin":
+    #     interfaceName = "en0"
+    # else:
+    #     interfaceName = "wlan0"
+    # try:
+    #     return netifaces.ifaddresses('eth0')[netifaces.AF_INET][0]['addr']
+    # except Exception as e:
+    #     print 'ethernet not available...'
+    # try:
+    #     print 'trying wifi...'
+    #     return netifaces.ifaddresses(interfaceName)[netifaces.AF_INET][0]['addr']
+    # except Exception as e:
+    #     print "error getting local IP..."
     # return netifaces.ifaddresses(interfaceName)[2][0]['addr']
 
 #####################
