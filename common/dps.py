@@ -119,7 +119,7 @@ class Subscriptions(threading.Thread):
         return self.subscriptions
     def recordHeartbeat(self, hostname):
         # print repr(self.subscriptions), hostname
-        print 'hearbeat',(hostname)
+        print 'heartbeat',(hostname)
         self.subscriptions[hostname].setHeartbeat()
     def run(self):
         while True:
