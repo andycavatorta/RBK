@@ -3,19 +3,19 @@ Extended Midi
 
 MIDI notes not in the standard map:
 
-bass_drum3 : 15
-snare_drum3 : 16
-closed_hihat2 : 17
-open_hihat2 : 18
-bass_drum4 : 19
-snare_drum4 : 20
-low_tom3 : 21
-high_tom3 : 22
-bass_drum5: 23
-snare_drum5 : 24
-closed_hihat3 : 25
-open_hihat3 : 26
-hiq : 27
-hand_clap2 : 28
-sc_high : 29
-sc_low : 30
+bass_drum3 : 15 *
+snare_drum3 : 16 *
+closed_hihat2 : 17 *
+open_hihat2 : 18 *
+bass_drum4 : 19 *
+snare_drum4 : 20 *
+low_tom3 : 21 *
+high_tom3 : 22 *
+bass_drum5: 23 *
+snare_drum5 : 24 *
+closed_hihat3 : 25 *
+open_hihat3 : 26 *
+hiq : 27 *
+hand_clap2 : 28 *
+sc_high : 29 *
+sc_low : 30 *
