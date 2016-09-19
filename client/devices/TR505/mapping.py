@@ -68,10 +68,10 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":48 ,"status":"note_off"})
     ),
 
-    "_general/sound/crash_cymbal/bang":(
+    "_general/sound/crash_cymbal1/bang":(
         ("MIDI", {"channel":1, "pitch":49 ,"status":"note_on"})
     ),
-    "_general/sound/crash_cymbal/off":(
+    "_general/sound/crash_cymbal1/off":(
         ("MIDI", {"channel":1, "pitch":49 ,"status":"note_off"})
     ),
 
@@ -89,10 +89,10 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":62 ,"status":"note_off"})
     ),
 
-    "_general/sound/low_conga/bang":(
+    "_general/sound/open_high_conga/bang":(
         ("MIDI", {"channel":1, "pitch":63 ,"status":"note_on"})
     ),
-    "_general/sound/low_conga/off":(
+    "_general/sound/open_high_conga/off":(
         ("MIDI", {"channel":1, "pitch":63 ,"status":"note_off"})
     ),
 
