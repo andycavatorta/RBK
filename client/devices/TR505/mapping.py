@@ -5,10 +5,10 @@ instruments = (
 
 
 mapping = {
-    "_general/sound/bass_drum/bang":(
+    "_general/sound/bass_drum2/bang":(
         ("MIDI", {"channel":1, "pitch":35 ,"status":"note_on"})
     ),
-    "_general/sound/bass_drum/off":(
+    "_general/sound/bass_drum2/off":(
         ("MIDI", {"channel":1, "pitch":35 ,"status":"note_off"})
     ),
 
@@ -33,10 +33,10 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":39 ,"status":"note_off"})
     ),
 
-    "_general/sound/low_tom1/bang":(
+    "_general/sound/low_tom2/bang":(
         ("MIDI", {"channel":1, "pitch":41 ,"status":"note_on"})
     ),
-    "_general/sound/low_tom1/off":(
+    "_general/sound/low_tom2/off":(
         ("MIDI", {"channel":1, "pitch":41 ,"status":"note_off"})
     ),
 
@@ -47,10 +47,10 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":42 ,"status":"note_off"})
     ),
 
-    "_general/sound/mid_tom1/bang":(
+    "_general/sound/mid_tom2/bang":(
         ("MIDI", {"channel":1, "pitch":45 ,"status":"note_on"})
     ),
-    "_general/sound/mid_tom1/off":(
+    "_general/sound/mid_tom2/off":(
         ("MIDI", {"channel":1, "pitch":45 ,"status":"note_off"})
     ),
 
@@ -61,10 +61,10 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":46 ,"status":"note_off"})
     ),
 
-    "_general/sound/high_tom1/bang":(
+    "_general/sound/high_tom2/bang":(
         ("MIDI", {"channel":1, "pitch":48 ,"status":"note_on"})
     ),
-    "_general/sound/high_tom1/off":(
+    "_general/sound/high_tom2/off":(
         ("MIDI", {"channel":1, "pitch":48 ,"status":"note_off"})
     ),
 
