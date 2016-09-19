@@ -117,4 +117,8 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":68 ,"status":"note_off"})
     ),
 
+    "_general/pitch_wheel":(
+        ("MIDI", {"status":"pitch_wheel"})
+    ),
+
 }
