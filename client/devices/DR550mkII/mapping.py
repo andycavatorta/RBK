@@ -110,10 +110,10 @@ mapping = {
         ("MIDI", {"channel":1, "pitch":48 ,"status":"note_off"})
     ),
 
-    "_general/sound/crash_cymbal/bang":(
+    "_general/sound/crash_cymbal1/bang":(
         ("MIDI", {"channel":1, "pitch":49 ,"status":"note_on"})
     ),
-    "_general/sound/crash_cymbal/off":(
+    "_general/sound/crash_cymbal1/off":(
         ("MIDI", {"channel":1, "pitch":49 ,"status":"note_off"})
     ),
 

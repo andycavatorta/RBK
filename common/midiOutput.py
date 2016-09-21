@@ -6,8 +6,12 @@ class Midi_Output():
         #self.error_logger = error_logger
         oNames = mido.get_output_names()
         
-        self.midi_out = mido.open_output(oNames[0])
-
+        try:
+            self.midi_out = mido.open_output("MIDISPORT 2x2 Anniv MIDI 1")
+        except Exception as e:
+            print 'trying uno...'
+        else:
+            self.midi_out = mido.open_output("USB Uno MIDI Interface MIDI 1")
 
     def send_midi(self, params, status, channel, data1=None, data2=None):
         if status == "note_on": # channel, pitch, velocity
