@@ -3,14 +3,15 @@ import numbers
 
 class Midi_Output():
     def __init__(self):
-        #self.error_logger = error_logger
         oNames = mido.get_output_names()
         
         try:
             self.midi_out = mido.open_output('USB Uno MIDI Interface MIDI 1')
+            print "MIDI out is: ", self.midi_out
         except Exception as e:
             print 'trying 2x2..'
             self.midi_out = mido.open_output(oNames[0])
+            print "MIDI out is: ", self.midi_out
 
         print self.midi_out
 
