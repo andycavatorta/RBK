@@ -7,13 +7,11 @@ class Midi_Output():
         
         try:
             self.midi_out = mido.open_output('USB Uno MIDI Interface MIDI 1')
-            print "MIDI out is: ", self.midi_out
         except Exception as e:
             print 'trying 2x2..'
             self.midi_out = mido.open_output(oNames[0])
-            print "MIDI out is: ", self.midi_out
 
-        print self.midi_out
+        print "MIDI out is: ", self.midi_out
 
 
     def send_midi(self, params, status, channel, data1=None, data2=None):
