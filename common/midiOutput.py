@@ -10,11 +10,10 @@ class Midi_Output():
         except Exception as e:
             print e
             print ">>>>>>>>> ", self.midi_out
-            mido.close()
         try:
             self.midi_out = mido.open_output(oNames[1])
         except Exception as e:
-            print e
+            print "aqui"
         print self.midi_out
 
 
