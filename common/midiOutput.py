@@ -9,6 +9,7 @@ class Midi_Output():
             self.midi_out = mido.open_output('USB Uno MIDI Interface MIDI 1')
         except Exception as e:
             print e
+            print ">>>>>>>>> ", self.midi_out
         try:
             self.midi_out = mido.open_output(oNames[1])
         except Exception as e:
