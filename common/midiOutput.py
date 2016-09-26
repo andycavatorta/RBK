@@ -11,8 +11,6 @@ class Midi_Output():
             print 'trying 2x2..'
             self.midi_out = mido.open_output(oNames[0])
 
-        print "MIDI out is: ", self.midi_out
-
 
     def send_midi(self, params, status, channel, data1=None, data2=None):
         if status == "note_on": # channel, pitch, velocity
