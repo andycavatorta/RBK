@@ -7,10 +7,12 @@ class Midi_Output():
         
         try:
             self.midi_out = mido.open_output('USB Uno MIDI Interface MIDI 1')
+            print self.midi_out
         except Exception as e:
             print 'trying 2x2..'
         try:
             self.midi_out = mido.open_output(oNames[0])
+            print self.midi_out
         except Exception as e:
             print 'no MIDI interface connected!'
 
