@@ -4,6 +4,7 @@ import numbers
 class Midi_Output():
     def __init__(self):
         oNames = mido.get_output_names()
+        self.midi_out = ""
         
         try:
             self.midi_out = mido.open_output('USB Uno MIDI Interface MIDI 1')
