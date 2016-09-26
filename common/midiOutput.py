@@ -5,15 +5,11 @@ class Midi_Output():
     def __init__(self):
         oNames = mido.get_output_names()
 
-        try:
+        if "USB Uno MIDI Interface MIDI 1" in oNames:
             self.midi_out = mido.open_output('USB Uno MIDI Interface MIDI 1')
-        except Exception as e:
-            print e
-            print ">>>>>>>>> ", self.midi_out
-        try:
+        else:
             self.midi_out = mido.open_output(oNames[1])
-        except Exception as e:
-            print "aqui"
+            
         print self.midi_out
 
 
