@@ -11,7 +11,7 @@ class Midi_Output():
         except Exception as e:
             print 'trying 2x2..'
         try:
-            self.midi_out = mido.open_output(oNames[0])
+            self.midi_out = mido.open_output(oNames[1])
             print self.midi_out
         except Exception as e:
             print 'no MIDI interface connected!'
