@@ -10,11 +10,13 @@ class Midi_Output():
             print self.midi_out
         except Exception as e:
             print 'trying 2x2..'
+            self.midi_out.close()
         try:
             self.midi_out = mido.open_output(oNames[1])
             print self.midi_out
         except Exception as e:
             print 'no MIDI interface connected!'
+            self.midi_out.close()
 
 
     def send_midi(self, params, status, channel, data1=None, data2=None):
