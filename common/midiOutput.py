@@ -8,8 +8,8 @@ class Midi_Output():
         if "USB Uno MIDI Interface MIDI 1" in oNames:
             self.midi_out = mido.open_output('USB Uno MIDI Interface MIDI 1')
         else:
-            self.midi_out = mido.open_output(oNames[1])
-            
+            self.midi_out = mido.open_output(oNames[0])
+
         print self.midi_out
 
 
