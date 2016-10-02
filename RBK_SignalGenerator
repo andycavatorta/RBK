@@ -2,5 +2,5 @@
 set -m
 sudo pkill python
 fg
-cd /home/pi/joao/RBK/common
+cd /home/pi/RBK/common
 sudo python signalOutput.py
