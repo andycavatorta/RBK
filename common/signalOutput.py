@@ -128,7 +128,7 @@ class Channel_Process(multiprocessing.Process):
                             time.sleep(0.01)
 
             def pulse(self,pulselength):
-                print 'executing pulse'
+                # print 'executing pulse'
                 self.dutyCycle = 100.0
                 self.sendStateToFPGA(0,1)
                 time.sleep(pulselength)
@@ -136,12 +136,12 @@ class Channel_Process(multiprocessing.Process):
                 self.sendStateToFPGA(0,1)
 
             def digital(self,bool):
-                print 'executing digital'
+                # print 'executing digital'
                 self.dutyCycle = 100.0 if bool else 0.0
                 self.sendStateToFPGA(0,1)
 
             def squareWave(self,frequency,dutyCycle):
-                print 'executing square wave'
+                # print 'executing square wave'
                 if self.dutyCycle != dutyCycle:
                     self.dutyCycle = float(dutyCycle)
                     self.sendStateToFPGA(0,1)    
