@@ -117,6 +117,8 @@ try:
         import blinkip
         import mapping  # host-specific mapping
         import midiOutput
+        import signalOutput
+        signal_output = signalOutput.Channels()
         midi_output = midiOutput.Midi_Output()
         def osc_handler(msg):
             try:
@@ -124,12 +126,26 @@ try:
                 new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
                 mapped = mapping.mapping[new_path]
                 if category[2] == "sound":
-                    print "AOIJDOSAJDOASJDOAJDA ", msg
-                    midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
+                    if mapped[0] == "MIDI":
+                        midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
+                    elif mapped[0] in ("pulse","square_wave","digital"):
+                        signal_output.enqueue(mapped[1])
                 elif category[2] == "control_change":
                     midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
                 elif category[2] == "pitch_wheel":
                     midi_output.send_midi(None, mapped[1]['status'],msg['params']['channel'], msg['params']['value'])
+                elif category[2] == "start":
+                    if mapped[0] in ("pulse","square_wave","digital"):
+                        signal_output.enqueue(mapped[1])
+                elif category[2] == "master_volume":
+                    if mapped[0] in ("pulse","square_wave","digital"):
+                        signal_output.enqueue(mapped[1])
+                elif category[2] == "int_ext":
+                    if mapped[0] in ("pulse","square_wave","digital"):
+                        signal_output.enqueue(mapped[1])
+                elif category[2] == "timing_clock":
+                    if mapped[0] in ("pulse","square_wave","digital"):
+                        signal_output.enqueue(mapped[1])
             except Exception as e:
                 traceback.print_exc()
                 print "device: path not found", e

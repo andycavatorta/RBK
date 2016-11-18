@@ -20,7 +20,7 @@ sys.path.append(BASE_PATH)
 sys.path.append(COMMON_PATH)
 sys.path.append(SERVER_PATH)
 
-import signalOutput
+import signalOutputProcess
 
 CRLF = "\n"
 
