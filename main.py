@@ -124,6 +124,7 @@ try:
                 new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
                 mapped = mapping.mapping[new_path]
                 if category[2] == "sound":
+                    print "AOIJDOSAJDOASJDOAJDA ", msg
                     midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
                 elif category[2] == "control_change":
                     midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
