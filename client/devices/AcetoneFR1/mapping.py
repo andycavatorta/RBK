@@ -10,7 +10,7 @@ mapping = {
         ("pulse", {"channel":16, "function": "pulse", "value":36 })
     ),
     "_general/sound/bass_drum/off":(
-        ("digital", {"channel":21, "function": "digital", "value":1 }})
+        ("digital", {"channel":21, "function": "digital", "value":1 })
     ),
 
     "_general/sound/snare_drum1/bang":(
@@ -31,14 +31,14 @@ mapping = {
         ("pulse", {"channel":17, "function": "pulse", "value":49 })
     ),
     "_general/sound/crash_cymbal1/off":(
-        ("digital", {"channel":20, "function": "digital", "value":1 }})
+        ("digital", {"channel":20, "function": "digital", "value":1 })
     ),
 
     "_general/sound/cowbell/bang":(
         ("pulse", {"channel":11, "function": "pulse", "value":56 })
     ),
     "_general/sound/cowbell/off":(
-        ("digital", {"channel":18, "function": "digital", "value":1 }})
+        ("digital", {"channel":18, "function": "digital", "value":1 })
     ),
 
     "_general/sound/high_bongo/bang":(
@@ -66,7 +66,7 @@ mapping = {
         ("pulse", {"channel":12, "function": "pulse", "value":75 })
     ),
     "_general/sound/claves/off":(
-        ("digital", {"channel":19, "function": "digital", "value":1 }})
+        ("digital", {"channel":19, "function": "digital", "value":1 })
     ),
 
     "_general/sound/maracas/bang":(
