@@ -76,26 +76,47 @@ mapping = {
     #     ("digital", {"channel":1, "value":70, "status":"note_off"})
     # ),
 
-    ##### SYSTEM ######
-
-    "_system/start":(
-        ("digital", {"channel":2, "function": "digital", "bool":1})
-    ),
-
-    "_system/start":(
-        ("digital", {"channel":2, "function": "digital", "bool":0})
-    ),
-
-    "_system/master_volume":(
+    "_general/control_change/Main_Volume":(
         ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000, "duty":50.0})
     ),
 
-    "_system/int_ext":(
+    "_general/control_change/start":(
+        ("digital", {"channel":2, "function": "digital", "bool":1})
+    ),
+
+    "_general/control_change/stop":(
+        ("digital", {"channel":2, "function": "digital", "bool":0})
+    ),
+
+    "_general/control_change/int_ext":(
         ("digital", {"channel":14, "function": "digital", "bool":1})
     ),
 
-    "_system/timing_clock":(
+    "_general/control_change/timing_clock":(
         ("square_wave", {"channel":14, "function": "square_wave", "frequency":40, "duty":50.0})
     ),
+
+
+    ##### SYSTEM ######
+
+    # "_system/start":(
+    #     ("digital", {"channel":2, "function": "digital", "bool":1})
+    # ),
+
+    # "_system/start":(
+    #     ("digital", {"channel":2, "function": "digital", "bool":0})
+    # ),
+
+    # "_system/master_volume":(
+    #     ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000, "duty":50.0})
+    # ),
+
+    # "_system/int_ext":(
+    #     ("digital", {"channel":14, "function": "digital", "bool":1})
+    # ),
+
+    # "_system/timing_clock":(
+    #     ("square_wave", {"channel":14, "function": "square_wave", "frequency":40, "duty":50.0})
+    # ),
 
 }
