@@ -129,10 +129,12 @@ try:
                     if mapped[0] == "MIDI":
                         midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
                     elif mapped[0] in ("pulse","square_wave","digital"):
-                        print 'pulse sq wv or digital'
                         signal_output.enqueue(mapped[1])
                 elif category[2] == "control_change":
-                    midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
+                    if mapped[0] == "MIDI":
+                        midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
+                    elif mapped[0] in ("pulse","square_wave","digital"):
+                        signal_output.enqueue(mapped[1])
                 elif category[2] == "pitch_wheel":
                     midi_output.send_midi(None, mapped[1]['status'],msg['params']['channel'], msg['params']['value'])
                 elif category[2] == "start":
