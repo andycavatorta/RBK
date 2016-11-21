@@ -7,70 +7,70 @@ instruments = (
 
 mapping = {
     "_general/sound/bass_drum/bang":(
-        ("pulse", {"channel":16, "function": "pulse", "value":36 })
+        ("pulse", {"channel":16, "function": "pulse", "pulselength":36 })
     ),
     "_general/sound/bass_drum/off":(
         ("digital", {"channel":21, "function": "digital", "value":1 })
     ),
 
     "_general/sound/snare_drum1/bang":(
-        ("pulse", {"channel":4, "function": "pulse", "value":38 })
+        ("pulse", {"channel":4, "function": "pulse", "pulselength":38 })
     ),
     # "_general/sound/snare_drum1/off":(
     #     ("digital", {"channel":1, "value":38 ,"status":"note_off"})
     # ),
 
     "_general/sound/snare_drum2/bang":(
-        ("pulse", {"channel":7, "function": "pulse", "value":40 })
+        ("pulse", {"channel":7, "function": "pulse", "pulselength":40 })
     ),
     # "_general/sound/snare_drum2/off":(
     #     ("digital", {"channel":1, "value":40 ,"status":"note_off"})
     # ),
 
     "_general/sound/crash_cymbal1/bang":(
-        ("pulse", {"channel":17, "function": "pulse", "value":49 })
+        ("pulse", {"channel":17, "function": "pulse", "pulselength":49 })
     ),
     "_general/sound/crash_cymbal1/off":(
         ("digital", {"channel":20, "function": "digital", "value":1 })
     ),
 
     "_general/sound/cowbell/bang":(
-        ("pulse", {"channel":11, "function": "pulse", "value":56 })
+        ("pulse", {"channel":11, "function": "pulse", "pulselength":56 })
     ),
     "_general/sound/cowbell/off":(
         ("digital", {"channel":18, "function": "digital", "value":1 })
     ),
 
     "_general/sound/high_bongo/bang":(
-        ("pulse", {"channel":10, "function": "pulse", "value":60 })
+        ("pulse", {"channel":10, "function": "pulse", "pulselength":60 })
     ),
     # "_general/sound/high_bongo/off":(
     #     ("digital", {"channel":1, "value":60 ,"status":"note_off"})
     # ),
 
     "_general/sound/low_bongo/bang":(
-        ("pulse", {"channel":9, "function": "pulse", "value":61 })
+        ("pulse", {"channel":9, "function": "pulse", "pulselength":61 })
     ),
     # "_general/sound/low_bongo/off":(
     #     ("digital", {"channel":1, "value":61 ,"status":"note_off"})
     # ),
 
     "_general/sound/low_conga/bang":(
-        ("pulse", {"channel":8, "function": "pulse", "value":64 })
+        ("pulse", {"channel":8, "function": "pulse", "pulselength":64 })
     ),
     # "_general/sound/low_conga/off":(
     #     ("digital", {"channel":1, "value":64 ,"status":"note_off"})
     # ),
 
     "_general/sound/claves/bang":(
-        ("pulse", {"channel":12, "function": "pulse", "value":75 })
+        ("pulse", {"channel":12, "function": "pulse", "pulselength":75 })
     ),
     "_general/sound/claves/off":(
         ("digital", {"channel":19, "function": "digital", "value":1 })
     ),
 
     "_general/sound/maracas/bang":(
-        ("pulse", {"channel":13, "function": "pulse", "value":70,})
+        ("pulse", {"channel":13, "function": "pulse", "pulselength":70,})
     ),
     # "_general/sound/maracas/off":(
     #     ("digital", {"channel":1, "value":70, "status":"note_off"})
