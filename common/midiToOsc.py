@@ -587,6 +587,7 @@ def convert(devicename, status, channel, data1=None, data2=None):
             "channel":channel
         }
     if status =="control_change":
+        status = "control_change/%s" % (ccMap[int(data1[0])])
         params = {
             "channel":channel,
             "type":data1,
