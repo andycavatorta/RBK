@@ -134,22 +134,9 @@ try:
                     if mapped[0] == "MIDI":
                         midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
                     elif mapped[0] in ("pulse","square_wave","digital"):
+                        print "HEREEEEEEEEOEKEOK EOK OKEOKE OEK OEK E"
                         if mapped[0] == "square_wave":
                             mapped[1]['duty cycle'] = msg['params']['value']
-                        signal_output.enqueue(mapped[1])
-                elif category[2] == "pitch_wheel":
-                    midi_output.send_midi(None, mapped[1]['status'],msg['params']['channel'], msg['params']['value'])
-                elif category[2] == "start":
-                    if mapped[0] in ("pulse","square_wave","digital"):
-                        signal_output.enqueue(mapped[1])
-                elif category[2] == "master_volume":
-                    if mapped[0] in ("pulse","square_wave","digital"):
-                        signal_output.enqueue(mapped[1])
-                elif category[2] == "int_ext":
-                    if mapped[0] in ("pulse","square_wave","digital"):
-                        signal_output.enqueue(mapped[1])
-                elif category[2] == "timing_clock":
-                    if mapped[0] in ("pulse","square_wave","digital"):
                         signal_output.enqueue(mapped[1])
             except Exception as e:
                 traceback.print_exc()
