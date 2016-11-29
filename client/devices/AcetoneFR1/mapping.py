@@ -92,7 +92,7 @@ mapping = {
         ("digital", {"channel":14, "function": "digital", "bool":1})
     ),
 
-    "_general/control_change/timing_clock":(
+    "_general/control_change/clock":(
         ("square_wave", {"channel":15, "function": "square_wave", "frequency":40})
     ),
 
