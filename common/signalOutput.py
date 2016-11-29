@@ -167,6 +167,7 @@ class Channels():
             ch.start()
 
     def enqueue(self,receivedData):
+        print "GOT DATA"
         self.receivedData = receivedData
         self.channels_l[self.receivedData["channel"]].enqueue(self.receivedData)
 
