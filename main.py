@@ -137,6 +137,7 @@ try:
                         if mapped[0] == "square_wave":
                             print "HEREEEEEEEEOEKEOK EOK OKEOKE OEK OEK E"
                             mapped[1]['duty cycle'] = msg['params']['value']
+                            print mapped[1]
                         signal_output.enqueue(mapped[1])
             except Exception as e:
                 traceback.print_exc()
