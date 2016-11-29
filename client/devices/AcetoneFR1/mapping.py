@@ -9,9 +9,9 @@ mapping = {
     "_general/sound/bass_drum/bang":(
         ("pulse", {"channel":16, "function": "pulse", "pulselength":0.25 })
     ),
-    "_general/sound/bass_drum/off":(
-        ("digital", {"channel":21, "function": "digital", "bool":1 })
-    ),
+    # "_general/sound/bass_drum/off":(
+    #     ("digital", {"channel":21, "function": "digital", "bool":1 })
+    # ),
 
     "_general/sound/snare_drum1/bang":(
         ("pulse", {"channel":4, "function": "pulse", "pulselength":0.25 })
@@ -30,16 +30,16 @@ mapping = {
     "_general/sound/crash_cymbal1/bang":(
         ("pulse", {"channel":17, "function": "pulse", "pulselength":0.25 })
     ),
-    "_general/sound/crash_cymbal1/off":(
-        ("digital", {"channel":20, "function": "digital", "bool":1 })
-    ),
+    # "_general/sound/crash_cymbal1/off":(
+    #     ("digital", {"channel":20, "function": "digital", "bool":1 })
+    # ),
 
     "_general/sound/cowbell/bang":(
         ("pulse", {"channel":11, "function": "pulse", "pulselength":0.25 })
     ),
-    "_general/sound/cowbell/off":(
-        ("digital", {"channel":18, "function": "digital", "bool":1 })
-    ),
+    # "_general/sound/cowbell/off":(
+    #     ("digital", {"channel":18, "function": "digital", "bool":1 })
+    # ),
 
     "_general/sound/high_bongo/bang":(
         ("pulse", {"channel":10, "function": "pulse", "pulselength":0.25 })
@@ -65,9 +65,9 @@ mapping = {
     "_general/sound/claves/bang":(
         ("pulse", {"channel":12, "function": "pulse", "pulselength":0.25 })
     ),
-    "_general/sound/claves/off":(
-        ("digital", {"channel":19, "function": "digital", "bool":1 })
-    ),
+    # "_general/sound/claves/off":(
+    #     ("digital", {"channel":19, "function": "digital", "bool":1 })
+    # ),
 
     "_general/sound/maracas/bang":(
         ("pulse", {"channel":13, "function": "pulse", "pulselength":0.25,})
@@ -77,7 +77,7 @@ mapping = {
     # ),
 
     "_general/control_change/Main_Volume":(
-        ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000, "duty":50.0})
+        ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000})
     ),
 
     "_general/control_change/start":(
@@ -93,7 +93,7 @@ mapping = {
     ),
 
     "_general/control_change/timing_clock":(
-        ("square_wave", {"channel":14, "function": "square_wave", "frequency":40, "duty":50.0})
+        ("square_wave", {"channel":15, "function": "square_wave", "frequency":40})
     ),
 
 

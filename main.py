@@ -134,6 +134,8 @@ try:
                     if mapped[0] == "MIDI":
                         midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
                     elif mapped[0] in ("pulse","square_wave","digital"):
+                        if mapped[0] == "square_wave":
+                            mapped[1]['duty cycle'] = msg['params']['value']
                         signal_output.enqueue(mapped[1])
                 elif category[2] == "pitch_wheel":
                     midi_output.send_midi(None, mapped[1]['status'],msg['params']['channel'], msg['params']['value'])
