@@ -94,7 +94,7 @@ class Channel(threading.Thread):
                 if params["function"] == "digital":
                     print "FUNCTION IS DIGITAL"
                     self.digital(params["bool"])
-                if params["function"] == "square wave":
+                if params["function"] == "square_wave":
                     print "FUNCTION IS SQ WAVE"
                     if params["frequency"] >= 22.5:
                         self.lowFreqSineActive = False
