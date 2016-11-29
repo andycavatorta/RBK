@@ -134,8 +134,8 @@ try:
                     if mapped[0] == "MIDI":
                         midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
                     elif mapped[0] in ("pulse","square_wave","digital"):
-                        print "HEREEEEEEEEOEKEOK EOK OKEOKE OEK OEK E"
                         if mapped[0] == "square_wave":
+                            print "HEREEEEEEEEOEKEOK EOK OKEOKE OEK OEK E"
                             mapped[1]['duty cycle'] = msg['params']['value']
                         signal_output.enqueue(mapped[1])
             except Exception as e:
