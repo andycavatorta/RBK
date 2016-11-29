@@ -3,4 +3,4 @@ set -m
 sudo pkill python
 fg
 cd /home/pi/RBK/common
-sudo python signalOutput.py
+sudo python signalOutputProcess.py
