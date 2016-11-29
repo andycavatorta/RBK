@@ -89,13 +89,10 @@ class Channel(threading.Thread):
             if len(self.queue) > 0:
                 params = self.queue.pop(0)
                 if params["function"] == "pulse":
-                    print "FUNCTION IS PULSE"
                     self.pulse(params["pulselength"])
                 if params["function"] == "digital":
-                    print "FUNCTION IS DIGITAL"
                     self.digital(params["bool"])
                 if params["function"] == "square_wave":
-                    print "FUNCTION IS SQ WAVE"
                     if params["frequency"] >= 22.5:
                         self.lowFreqSineActive = False
                         self.squareWave(params["frequency"],params["duty cycle"])
@@ -170,9 +167,7 @@ class Channels():
             ch.start()
 
     def enqueue(self,receivedData):
-        print "GOT DATA"
         self.receivedData = receivedData
-        print self.receivedData
         self.channels_l[self.receivedData["channel"]].enqueue(self.receivedData)
 
     def getStates(self):
