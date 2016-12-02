@@ -56,7 +56,7 @@ def main():
                        const=True, default=False,
                        help='Erase flash on Mojo.')
     parser.add_argument('-d', '--device', dest='mojo_tty', action='store',
-                       default='/dev/mojo',
+                       default='/dev/ttyACM0',
                         help='Address of the serial port for the mojo [Default: %(default)s]') 
 
     args = parser.parse_args()
@@ -68,8 +68,8 @@ def main():
     #Serial code
     try:
         ser = serial.Serial(args.mojo_tty, 19200, timeout=10)
-        print "stty=", repr(commands.getstatusoutput("stty -F /dev/mojo"))
-        #commands.getstatusoutput("stty -F /dev/mojo 9600 isig icanon iexten echo echoe echok echoctl echoke opost icrnl")
+        print "stty=", repr(commands.getstatusoutput("stty -F /dev/ttyACM0"))
+        #commands.getstatusoutput("stty -F /dev/ttyACM0 9600 isig icanon iexten echo echoe echok echoctl echoke opost icrnl")
 
     except:
         print 'No serial port found named ' + args.mojo_tty
