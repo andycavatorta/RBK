@@ -136,7 +136,7 @@ class Channel_Process(multiprocessing.Process):
                 self.sendStateToFPGA(0,1)
 
             def digital(self,bool):
-                print 'executing digital'
+                # print 'executing digital'
                 self.dutyCycle = 100.0 if bool else 0.0
                 self.sendStateToFPGA(0,1)
 
