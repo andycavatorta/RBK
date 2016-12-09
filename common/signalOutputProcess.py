@@ -103,7 +103,7 @@ class Channel_Process(multiprocessing.Process):
                         if params["function"] == "digital":
                             self.digital(params["bool"])
                         if params["function"] == "square wave":
-                            if params["frequency"] >= 10.5:
+                            if params["frequency"] >= 22.5:
                                 self.lowFreqSineActive = False
                                 self.squareWave(params["frequency"],params["duty cycle"])
                             else:
@@ -135,9 +135,9 @@ class Channel_Process(multiprocessing.Process):
                 self.dutyCycle = 0.0
                 self.sendStateToFPGA(0,1)
 
-            def digital(self,bool):
+            def digital(self,booly):
                 # print 'executing digital'
-                self.dutyCycle = 100.0 if bool else 0.0
+                self.dutyCycle = 100.0 if booly else 0.0
                 self.sendStateToFPGA(0,1)
 
             def squareWave(self,frequency,dutyCycle):
