@@ -525,7 +525,7 @@ def convert(devicename, status, channel, data1=None, data2=None):
         "data2":data2
     }
     if status in ["note_off","note_on"]:
-        if status == "note_on":
+        if status == "note_on" and data2 != 0:
             if data1['midi'] not in mapper:
                 pass
             else:
