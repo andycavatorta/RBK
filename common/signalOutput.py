@@ -107,18 +107,18 @@ class Channel(threading.Thread):
                         if self.lowFreqSineDutyCycle > 0:
                             self.digital(True)
                         time.sleep(self.lowFreqSinePeriod * (self.lowFreqSineDutyCycle/100.0))
-                        self.lowFreqSineActive = False
+                        # self.lowFreqSineActive = False
                     else:
                         if self.lowFreqSineDutyCycle < 100:
                             self.digital(False)
                         time.sleep(self.lowFreqSinePeriod * ( 1 - (self.lowFreqSineDutyCycle/100.0) ) )
-                        self.lowFreqSineActive = False
+                        # self.lowFreqSineActive = False
                     self.lowFreqSineToggle = not self.lowFreqSineToggle
                 else:
                     time.sleep(0.01)
 
     def pulse(self,pulselength):
-        print 'Pulse | length: ', pulselength
+        # print 'Pulse | length: ', pulselength
         self.dutyCycle = 100.0
         self.sendStateToFPGA(0,1)
         time.sleep(pulselength)
@@ -126,12 +126,12 @@ class Channel(threading.Thread):
         self.sendStateToFPGA(0,1)
 
     def digital(self,bool):
-        print "Digital | Bool: ", bool
+        # print "Digital | Bool: ", bool
         self.dutyCycle = 100.0 if bool else 0.0
         self.sendStateToFPGA(0,1)
 
     def squareWave(self,frequency,dutyCycle):
-        print 'Square Wave | frequency: %s, duty: %s' % (frequency, dutyCycle)
+        # print 'Square Wave | frequency: %s, duty: %s' % (frequency, dutyCycle)
         if self.dutyCycle != dutyCycle:
             self.dutyCycle = float(dutyCycle)
             self.sendStateToFPGA(0,1)    
