@@ -107,7 +107,7 @@ class Channel(threading.Thread):
                         if self.lowFreqSineDutyCycle > 0:
                             self.digital(True)
                         time.sleep(self.lowFreqSinePeriod * (self.lowFreqSineDutyCycle/100.0))
-                        # self.lowFreqSineActive = False
+                        self.lowFreqSineActive = False
                     else:
                         if self.lowFreqSineDutyCycle < 100:
                             self.digital(False)
