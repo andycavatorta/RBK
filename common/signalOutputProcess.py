@@ -147,7 +147,8 @@ class Channel_Process(multiprocessing.Process):
                     self.sendStateToFPGA(0,1)    
                 if self.freq != frequency:
                     self.freq = float(frequency)
-                    self.sendStateToFPGA(1,0) 
+                    self.sendStateToFPGA(1,0)
+    
 
             def sendStateToFPGA(self, freq_b, ds_b):
                 channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
@@ -157,7 +158,7 @@ class Channel_Process(multiprocessing.Process):
                     x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
                 if ds_b:
                     modeSelector_bin_str = "1"
-                    dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int(max(0,int(self.dutyCycle*0.32)-1)))[::-1]
+                    dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int((self.dutyCycle*0.64)+0.5))[::-1]
                     # print dutyCycle_bin_str
                     # print int((self.dutyCycle*0.32)-1)
                     padding_bin_str = "000000000000"
