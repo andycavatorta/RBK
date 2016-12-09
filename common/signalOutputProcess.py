@@ -103,7 +103,7 @@ class Channel_Process(multiprocessing.Process):
                         if params["function"] == "digital":
                             self.digital(params["bool"])
                         if params["function"] == "square wave":
-                            if params["frequency"] >= 22.5:
+                            if params["frequency"] >= 10.5:
                                 self.lowFreqSineActive = False
                                 self.squareWave(params["frequency"],params["duty cycle"])
                             else:
