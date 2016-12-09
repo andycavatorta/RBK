@@ -157,7 +157,7 @@ class Channel_Process(multiprocessing.Process):
                     x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
                 if ds_b:
                     modeSelector_bin_str = "1"
-                    dutyCycle_bin_str = "00000011" if self.dutyCycle > 99 else '{0:08b}'.format(int(self.dutyCycle))[::-1]
+                    dutyCycle_bin_str = "00000011" if self.dutyCycle > 99 else '{:08b}'.format(int(self.dutyCycle))
                     padding_bin_str = "000000000"
                     print int(self.dutyCycle)
                     print dutyCycle_bin_str
