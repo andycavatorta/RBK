@@ -82,7 +82,7 @@ clock_divider clock_divider_instance(clk,clk_div);
 
 // bit widths for data types
 parameter pwmBitWidth = 6;
-parameter oscBitWidth = 16;
+parameter oscBitWidth = 17;
 parameter channelBitWidth = 5;
 
 // temp registers for incoming data
