@@ -151,7 +151,7 @@ class Channel_Process(multiprocessing.Process):
     
 
             def sendStateToFPGA(self, freq_b, ds_b):
-                channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
+                channel_bin_str = '{:05b}'.format(self.channel)
                 if freq_b:
                     modeSelector_bin_str = "0"
                     osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1] 
