@@ -164,7 +164,7 @@ class Channel_Process(multiprocessing.Process):
                     print channel_bin_str
                     print int((self.dutyCycle*0.64)+0.5)
                     # print int((self.dutyCycle*0.32)-1)
-                    padding_bin_str = "0000000000"
+                    padding_bin_str = "000000000000"
                     print list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str))
                     x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
 
