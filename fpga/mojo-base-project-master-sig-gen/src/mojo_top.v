@@ -81,9 +81,9 @@ wire clk_div;
 clock_divider clock_divider_instance(clk,clk_div);
 
 // bit widths for data types
-parameter pwmBitWidth = 6;
-parameter oscBitWidth = 17;
-parameter channelBitWidth = 5;
+parameter pwmBitWidth = 5;
+parameter oscBitWidth = 16;
+parameter channelBitWidth = 4;
 
 // temp registers for incoming data
 reg [pwmBitWidth:0] incoming_pwm_reg = 0;
@@ -213,6 +213,16 @@ begin
 		incoming_pwm_reg[4] <= parallel_in[13];
 		incoming_pwm_reg[5] <= parallel_in[12];
 		incoming_pwm_reg[6] <= parallel_in[11];
+		incoming_pwm_reg[7] <= parallel_in[10];
+		incoming_pwm_reg[8] <= parallel_in[9];
+		incoming_pwm_reg[9] <= parallel_in[8];
+		incoming_pwm_reg[10] <= parallel_in[7];
+		incoming_pwm_reg[11] <= parallel_in[6];
+		incoming_pwm_reg[12] <= parallel_in[5];
+		incoming_pwm_reg[13] <= parallel_in[4];
+		incoming_pwm_reg[14] <= parallel_in[3];
+		incoming_pwm_reg[15] <= parallel_in[2];
+		incoming_pwm_reg[16] <= parallel_in[1];
 		end
 end
 
