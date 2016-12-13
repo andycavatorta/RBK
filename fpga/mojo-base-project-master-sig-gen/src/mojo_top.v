@@ -212,7 +212,6 @@ begin
 		incoming_pwm_reg[3] <= parallel_in[14];
 		incoming_pwm_reg[4] <= parallel_in[13];
 		incoming_pwm_reg[5] <= parallel_in[12];
-		//incoming_pwm_reg[6] <= parallel_in[11];
 		end
 end
 
