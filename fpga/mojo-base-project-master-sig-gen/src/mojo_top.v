@@ -206,23 +206,12 @@ begin
 		incoming_channel_reg[2] <= parallel_in[20];
 		incoming_channel_reg[3] <= parallel_in[19];
 		incoming_channel_reg[4] <= parallel_in[18];
-		incoming_pwm_reg[0] <= parallel_in[17];
-		incoming_pwm_reg[1] <= parallel_in[16];
-		incoming_pwm_reg[2] <= parallel_in[15];
-		incoming_pwm_reg[3] <= parallel_in[14];
-		incoming_pwm_reg[4] <= parallel_in[13];
-		incoming_pwm_reg[5] <= parallel_in[12];
-		incoming_pwm_reg[6] <= parallel_in[11];
-		incoming_pwm_reg[7] <= parallel_in[10];
-		incoming_pwm_reg[8] <= parallel_in[9];
-		incoming_pwm_reg[9] <= parallel_in[8];
-		incoming_pwm_reg[10] <= parallel_in[7];
-		incoming_pwm_reg[11] <= parallel_in[6];
-		incoming_pwm_reg[12] <= parallel_in[5];
-		incoming_pwm_reg[13] <= parallel_in[4];
-		incoming_pwm_reg[14] <= parallel_in[3];
-		incoming_pwm_reg[15] <= parallel_in[2];
-		incoming_pwm_reg[16] <= parallel_in[1];
+		incoming_pwm_reg[1] <= parallel_in[17];
+		incoming_pwm_reg[2] <= parallel_in[16];
+		incoming_pwm_reg[3] <= parallel_in[15];
+		incoming_pwm_reg[4] <= parallel_in[14];
+		incoming_pwm_reg[5] <= parallel_in[13];
+		incoming_pwm_reg[6] <= parallel_in[12];
 		end
 end
 
