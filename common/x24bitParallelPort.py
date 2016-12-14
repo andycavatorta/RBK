@@ -28,7 +28,7 @@ def send(word_bin_a): # word_ba must be 23 bit-characters long
     GPIO.output(DATA_READY_PIN  ,0)
     word_bin_a += [0] * (len(TX_PINS) - len(word_bin_a)) # pad word_bin_a with zeroes
     for i in range(len(TX_PINS)):
-        print "x24ParallalPort.send ", i, TX_PINS[i], int(word_bin_a[i])
+        # print "x24ParallalPort.send ", i, TX_PINS[i], int(word_bin_a[i])
         GPIO.output(TX_PINS[i],int(word_bin_a[i]))
     #time.sleep(INTRA_WORD_TIMING) # this is a cheap-ass solution.  But it's simple and efficient.  Could replace with threads and queues in the future.
     GPIO.output(DATA_READY_PIN,1)
@@ -40,4 +40,4 @@ def send(word_bin_a): # word_ba must be 23 bit-characters long
         GPIO.output(TX_PINS[i],int(word_bin_a[i]))
     #time.sleep(INTRA_WORD_TIMING) # this is a cheap-ass solution.  But it's simple and efficient.  Could replace with threads and queues in the future.
     GPIO.output(DATA_READY_PIN,1)
-    #print "x24ParallalPort.send word sent", word_bin_a
+    print "x24ParallalPort.send word sent", word_bin_a
