@@ -17,6 +17,8 @@ TX_PINS = [26,20,19,16,13,6,12,5,7,11,8,9,25,10,24,22,23,27,17,18,15,4,14] # pin
 
 DATA_READY_PIN = 3
 
+print len(TX_PINS)
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(DATA_READY_PIN,GPIO.OUT)
 for pin in TX_PINS:
