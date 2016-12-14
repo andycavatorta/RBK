@@ -17,8 +17,6 @@ TX_PINS = [26,20,19,16,13,6,12,5,7,11,8,9,25,10,24,22,23,27,17,18,15,4,14] # pin
 
 DATA_READY_PIN = 3
 
-print len(TX_PINS)
-
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(DATA_READY_PIN,GPIO.OUT)
 for pin in TX_PINS:
@@ -30,7 +28,7 @@ def send(word_bin_a): # word_ba must be 23 bit-characters long
     GPIO.output(DATA_READY_PIN  ,0)
     word_bin_a += [0] * (len(TX_PINS) - len(word_bin_a)) # pad word_bin_a with zeroes
     for i in range(len(TX_PINS)):
-        #print "x24ParallalPort.send ", i, TX_PINS[i], int(word_bin_a[i])
+        print "x24ParallalPort.send ", i, TX_PINS[i], int(word_bin_a[i])
         GPIO.output(TX_PINS[i],int(word_bin_a[i]))
     #time.sleep(INTRA_WORD_TIMING) # this is a cheap-ass solution.  But it's simple and efficient.  Could replace with threads and queues in the future.
     GPIO.output(DATA_READY_PIN,1)
