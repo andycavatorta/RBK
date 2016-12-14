@@ -191,14 +191,14 @@ WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved
     Found 6-bit register for signal <channel_00_pwm_reg>.
     Found 17-bit register for signal <channel_00_osc_reg>.
     Found 5-bit register for signal <incoming_channel_reg>.
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 69
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 70
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 71
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 71
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 71
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 71
-    Found 1-bit tristate buffer for signal <led<5>> created at line 96
-    Found 1-bit tristate buffer for signal <led<6>> created at line 97
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 68
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 69
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 70
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 70
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 70
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 70
+    Found 1-bit tristate buffer for signal <led<5>> created at line 95
+    Found 1-bit tristate buffer for signal <led<6>> created at line 96
     Summary:
 	inferred 580 D-type flip-flop(s).
 	inferred   8 Tristate(s).
@@ -623,12 +623,12 @@ parallel_in<0> |    3.570|         |         |         |
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.42 secs
+Total CPU time to Xst completion: 7.63 secs
  
 --> 
 
 
-Total memory usage is 424736 kilobytes
+Total memory usage is 424756 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    6 (   0 filtered)
