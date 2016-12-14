@@ -3,18 +3,18 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 Command Line: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
 ise -dd _ngo -nt timestamp -uc
-/home/andy/Dropbox/projects/current/RBK/fpga/mojo-base-project-master-sig-gen/sr
-c/mojo.ucf -p xc6slx9-tqg144-2 mojo_top.ngc mojo_top.ngd
+/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/src/mojo.ucf -p
+xc6slx9-tqg144-2 mojo_top.ngc mojo_top.ngd
 
 Reading NGO file
-"/home/andy/Dropbox/projects/current/RBK/fpga/mojo-base-project-master-sig-gen/s
-yn/mojo_top.ngc" ...
+"/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/syn/mojo_top.n
+gc" ...
 Gathering constraint information from source properties...
 Done.
 
 Annotating constraints to design from ucf file
-"/home/andy/Dropbox/projects/current/RBK/fpga/mojo-base-project-master-sig-gen/s
-rc/mojo.ucf" ...
+"/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/src/mojo.ucf"
+...
 Resolving constraint associations...
 Checking Constraint Associations...
 Done...
@@ -32,10 +32,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 418828 kilobytes
+Total memory usage is 425320 kilobytes
 
 Writing NGD file "mojo_top.ngd" ...
-Total REAL time to NGDBUILD completion:  9 sec
-Total CPU time to NGDBUILD completion:   8 sec
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   3 sec
 
 Writing NGDBUILD log file "mojo_top.bld"...

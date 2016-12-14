@@ -23,7 +23,7 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 <msg type="warning" file="MapLib" num="701" delta="old" >Signal <arg fmt="%s" index="1">led&lt;6&gt;</arg> connected to top level port <arg fmt="%s" index="2">led&lt;6&gt;</arg> has been removed.
 </msg>
 
-<msg type="warning" file="MapLib" num="701" delta="new" >Signal <arg fmt="%s" index="1">led&lt;5&gt;</arg> connected to top level port <arg fmt="%s" index="2">led&lt;5&gt;</arg> has been removed.
+<msg type="warning" file="MapLib" num="701" delta="old" >Signal <arg fmt="%s" index="1">led&lt;5&gt;</arg> connected to top level port <arg fmt="%s" index="2">led&lt;5&gt;</arg> has been removed.
 </msg>
 
 <msg type="warning" file="MapLib" num="701" delta="old" >Signal <arg fmt="%s" index="1">spi_channel&lt;3&gt;</arg> connected to top level port <arg fmt="%s" index="2">spi_channel&lt;3&gt;</arg> has been removed.
