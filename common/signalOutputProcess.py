@@ -110,7 +110,7 @@ class Channel_Process(multiprocessing.Process):
                                 self.lowFreqSineActive = True
                                 self.lowFreqSinePeriod = 1.0/params["frequency"]
                                 self.lowFreqSineDutyCycle = params["duty cycle"]
-                        # time.sleep(0.01)
+                        time.sleep(0.01)
                     else:
                         if self.lowFreqSineActive:
                             if self.lowFreqSineToggle:
@@ -129,6 +129,7 @@ class Channel_Process(multiprocessing.Process):
 
             def pulse(self,pulselength):
                 # print 'executing pulse'
+                self.freq = float(FREQ_DIGITAL_DEFAULT)
                 self.dutyCycle = 100.0
                 self.sendStateToFPGA(0,1)
                 time.sleep(pulselength)
@@ -137,6 +138,7 @@ class Channel_Process(multiprocessing.Process):
 
             def digital(self,bool):
                 # print 'executing digital'
+                self.freq = float(FREQ_DIGITAL_DEFAULT)
                 self.dutyCycle = 100.0 if bool else 0.0
                 self.sendStateToFPGA(0,1)
 
@@ -160,7 +162,7 @@ class Channel_Process(multiprocessing.Process):
                 if ds_b:
                     modeSelector_bin_str = "1"
                     # dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int(max(0,int(self.dutyCycle*0.32)-1)))[::-1]
-                    dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int((self.dutyCycle*1.28)+0.5))[::-1]
+                    dutyCycle_bin_str = "111111" if self.dutyCycle > 99 else '{0:06b}'.format(int((self.dutyCycle*1.28)+0.5))[::-1]
                     # print dutyCycle_bin_str
                     # print channel_bin_str
                     # print int((self.dutyCycle*0.64)+0.5)
