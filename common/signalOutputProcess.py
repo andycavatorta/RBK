@@ -123,6 +123,7 @@ class Channel_Process(multiprocessing.Process):
                                 time.sleep(self.lowFreqSinePeriod * ( 1- (self.lowFreqSineDutyCycle/100.0) ) )
                             self.lowFreqSineToggle = not self.lowFreqSineToggle
                         else:
+                            print "HERE"
                             time.sleep(0.01)
 
             def pulse(self,pulselength):
