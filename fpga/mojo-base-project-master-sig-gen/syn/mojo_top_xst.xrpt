@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Xst" timeStamp="Thu Dec 15 15:54:54 2016">
+  <application stringID="Xst" timeStamp="Thu Dec 15 16:05:30 2016">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -45,7 +45,7 @@
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="Intel(R) Core(TM) i7-4960HQ CPU @ 2.60GHz"/>
-          <item stringID="speed" value="3626.492 MHz"/>
+          <item stringID="speed" value="3697.382 MHz"/>
         </row>
       </table>
     </section>
@@ -135,18 +135,18 @@
         <item stringID="XST_TOP_LEVEL_OUTPUT_FILE_NAME" value="mojo_top.ngc"/>
       </section>
       <section stringID="XST_PRIMITIVE_AND_BLACK_BOX_USAGE">
-        <item dataType="int" stringID="XST_BELS" value="5994">
+        <item dataType="int" stringID="XST_BELS" value="5986">
           <item dataType="int" stringID="XST_GND" value="1"/>
           <item dataType="int" stringID="XST_INV" value="41"/>
           <item dataType="int" stringID="XST_LUT1" value="416"/>
-          <item dataType="int" stringID="XST_LUT2" value="1138"/>
-          <item dataType="int" stringID="XST_LUT3" value="82"/>
+          <item dataType="int" stringID="XST_LUT2" value="1186"/>
+          <item dataType="int" stringID="XST_LUT3" value="34"/>
           <item dataType="int" stringID="XST_LUT4" value="1121"/>
           <item dataType="int" stringID="XST_LUT5" value="17"/>
           <item dataType="int" stringID="XST_LUT6" value="457"/>
           <item dataType="int" stringID="XST_MUXCY" value="1600"/>
           <item dataType="int" stringID="XST_VCC" value="1"/>
-          <item dataType="int" stringID="XST_XORCY" value="1120"/>
+          <item dataType="int" stringID="XST_XORCY" value="1112"/>
         </item>
         <item dataType="int" stringID="XST_FLIPFLOPSLATCHES" value="938">
           <item dataType="int" stringID="XST_FD" value="453"/>
