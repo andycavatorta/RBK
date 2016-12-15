@@ -14,7 +14,7 @@ always @(posedge clk_div) osc_counter <= (osc_counter >= osc_reg)?1'b0:osc_count
 
 //always @(posedge clk_div) squareWaveOut_reg <= (osc_counter >= osc_reg * pwm_reg / pwmDivision)?1'b0:1'b1;
 
-always @(posedge clk_div) squareWaveOut_reg <= (osc_counter >= osc_reg * pwm_reg / 64)?1'b0:1'b1;
+always @(posedge clk_div) squareWaveOut_reg <= (osc_counter >= osc_reg * pwm_reg / 32)?1'b0:1'b1;
 
 assign pwm_osc_out = squareWaveOut_reg;
 
