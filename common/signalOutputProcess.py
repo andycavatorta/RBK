@@ -129,7 +129,7 @@ class Channel_Process(multiprocessing.Process):
 
             def pulse(self,pulselength):
                 # print 'executing pulse'
-                self.freq = 0.0
+                self.freq = float(FREQ_DIGITAL_DEFAULT)
                 self.sendStateToFPGA(1,0)
                 self.dutyCycle = 100.0
                 self.sendStateToFPGA(0,1)
@@ -139,7 +139,7 @@ class Channel_Process(multiprocessing.Process):
 
             def digital(self,bool):
                 # print 'executing digital'
-                self.freq = 0.0
+                self.freq = float(FREQ_DIGITAL_DEFAULT)
                 self.sendStateToFPGA(1,0)
                 self.dutyCycle = 100.0 if bool else 0.0
                 self.sendStateToFPGA(0,1)
