@@ -161,7 +161,7 @@ class Channel_Process(multiprocessing.Process):
                 if ds_b:
                     modeSelector_bin_str = "1"
                     # dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int(max(0,int(self.dutyCycle*0.32)-1)))[::-1]
-                    dutyCycle_bin_str = "10000010" if self.dutyCycle > 99 else '{0:06b}'.format(int((self.dutyCycle*1.28)))[::-1]
+                    dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int((self.dutyCycle*1.28)))[::-1]
                     print dutyCycle_bin_str
                     # print channel_bin_str
                     # print int((self.dutyCycle*0.64)+0.5)
