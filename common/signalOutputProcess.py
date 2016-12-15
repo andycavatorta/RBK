@@ -157,7 +157,7 @@ class Channel_Process(multiprocessing.Process):
                     osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1]
                     print int(FPGA_CLOCK_SPEED_DIVIDED/self.freq)
                     x24bitParallelPort.send(list("%s%s%s0" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
-                    # print list("%s%s%s0" % (modeSelector_bin_str, channel_bin_str, osc_bin_str))
+                    print list("%s%s%s0" % (modeSelector_bin_str, channel_bin_str, osc_bin_str))
                 if ds_b:
                     modeSelector_bin_str = "1"
                     # dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int(max(0,int(self.dutyCycle*0.32)-1)))[::-1]
