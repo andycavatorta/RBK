@@ -110,7 +110,7 @@ class Channel_Process(multiprocessing.Process):
                                 self.lowFreqSineActive = True
                                 self.lowFreqSinePeriod = 1.0/params["frequency"]
                                 self.lowFreqSineDutyCycle = params["duty cycle"]
-                        time.sleep(0.01)
+                        # time.sleep(0.01)
                     else:
                         if self.lowFreqSineActive:
                             if self.lowFreqSineToggle:
