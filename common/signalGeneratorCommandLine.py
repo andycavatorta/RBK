@@ -133,7 +133,7 @@ class CommandLine_Funcs(multiprocessing.Process):
       try:
         self.input_f = float(self.input_raw[:-1])
         if signalOutputProcess.FREQ_MIN <= self.input_f <= signalOutputProcess.FREQ_MAX:
-          self.params["frequency"] = int(signalOutputProcess.FPGA_CLOCK_SPEED_DIVIDED / self.input_f)
+          self.params["frequency"] = self.input_f
           self.goodValue = True
           self.osc_bin_str = ('{0:017b}'.format(int(signalOutputProcess.FPGA_CLOCK_SPEED_DIVIDED / self.input_f)))[::-1]
           print self.input_f, "Hz rounded to", signalOutputProcess.FPGA_CLOCK_SPEED_DIVIDED / int(self.osc_bin_str[::-1], 2), "Hz"
