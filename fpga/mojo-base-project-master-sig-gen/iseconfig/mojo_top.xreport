@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2016-12-19T15:16:47</DateModified>
+  <DateModified>2016-12-19T15:28:04</DateModified>
   <ModuleName>mojo_top</ModuleName>
   <SummaryTimeStamp>2016-06-16T12:30:21</SummaryTimeStamp>
   <SavedFilePath>/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/iseconfig/mojo_top.xreport</SavedFilePath>
