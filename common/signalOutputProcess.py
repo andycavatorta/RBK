@@ -161,7 +161,7 @@ class Channel_Process(multiprocessing.Process):
                     # dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int(max(0,int(self.dutyCycle*0.32)-1)))[::-1]
                     dutyCycle_bin_str = "1111111" if self.dutyCycle > 99 else '{0:06b}'.format(int((self.dutyCycle*0.64)+0.5))[::-1]
                     print "Input: ", self.dutyCycle
-                    print "After conversion: ", (self.dutyCycle*0.64)+0.5)
+                    print "After conversion: ", (self.dutyCycle*0.64)+0.5
                     print "Integer: ", int((self.dutyCycle*0.64)+0.5))
                     print "Binary sent: ", dutyCycle_bin_str
                     padding_bin_str = "00000000000"
