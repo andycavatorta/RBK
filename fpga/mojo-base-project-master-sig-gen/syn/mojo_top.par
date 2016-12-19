@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Joao-Macbook-Ubuntu::  Mon Dec 19 15:28:56 2016
+Joao-Macbook-Ubuntu::  Mon Dec 19 15:32:30 2016
 
 par -w -intstyle ise -ol high -mt off mojo_top_map.ncd mojo_top.ncd
 mojo_top.pcf 
@@ -40,12 +40,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   736 out of   1,430   51%
+  Number of occupied Slices:                   735 out of   1,430   51%
   Number of MUXCYs used:                     1,888 out of   2,860   66%
-  Number of LUT Flip Flop pairs used:        2,561
-    Number with an unused Flip Flop:         1,622 out of   2,561   63%
-    Number with an unused LUT:                  35 out of   2,561    1%
-    Number of fully used LUT-FF pairs:         904 out of   2,561   35%
+  Number of LUT Flip Flop pairs used:        2,556
+    Number with an unused Flip Flop:         1,617 out of   2,556   63%
+    Number with an unused LUT:                  30 out of   2,556    1%
+    Number of fully used LUT-FF pairs:         909 out of   2,556   35%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -103,29 +103,29 @@ WARNING:Par:288 - The signal spi_mosi_IBUF has no load.  PAR will not attempt to
 Starting Router
 
 
-Phase  1  : 12358 unrouted;      REAL time: 3 secs 
+Phase  1  : 12309 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 9126 unrouted;      REAL time: 3 secs 
+Phase  2  : 9077 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 3460 unrouted;      REAL time: 5 secs 
+Phase  3  : 3433 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 3460 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  4  : 3433 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
 
 Updating file: mojo_top.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
 Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 Total REAL time to Router completion: 7 secs 
-Total CPU time to Router completion: 6 secs 
+Total CPU time to Router completion: 7 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -143,11 +143,11 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|     led_7_OBUF_BUFG | BUFGMUX_X2Y12| No   |  171 |  0.698     |  2.089      |
-+---------------------+--------------+------+------+------------+-------------+
-|        clk_div_BUFG |  BUFGMUX_X2Y3| No   |  144 |  0.119     |  1.510      |
+|     led_7_OBUF_BUFG | BUFGMUX_X2Y12| No   |  171 |  0.699     |  2.090      |
 +---------------------+--------------+------+------+------------+-------------+
 |           clk_BUFGP | BUFGMUX_X2Y11| No   |    1 |  0.000     |  1.402      |
++---------------------+--------------+------+------+------------+-------------+
+|        clk_div_BUFG |  BUFGMUX_X2Y3| No   |  144 |  0.120     |  1.511      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -167,7 +167,7 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |    17.159ns|     2.841ns|       0|           0
+  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |    17.103ns|     2.897ns|       0|           0
    50%                                      | HOLD        |     0.434ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
