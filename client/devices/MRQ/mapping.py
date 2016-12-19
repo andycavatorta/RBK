@@ -1,196 +1,82 @@
 instruments = (
     "_system",
     "_general",
-    # "_kick",
-    # "_snare",
-    # "_tom",
-    # "_hihat",
-    # "_cymbal",
-    # "_percussion",
-    # "_miscellaneous"
+    #"_miscellaneous"
 )
 
 
 mapping = {
-    "/sound/tom_1/bang":(
-        ("MIDI", {"channel":1, "pitch":48 ,"status":"note_on"})
+    "_general/sound/bass_drum/bang":(
+        ("pulse", {"channel":4, "function": "pulse", "pulselength":0.02 })
     ),
-    "/sound/tom_1/off":(
-        ("MIDI", {"channel":1, "pitch":48 ,"status":"note_off"})
+    # "_general/sound/bass_drum/off":(
+    #     ("digital", {"channel":21, "function": "digital", "bool":1 })
+    # ),
+
+    "_general/sound/snare_drum1/bang":(
+        ("pulse", {"channel":5, "function": "pulse", "pulselength":0.02 })
+    ),
+    # "_general/sound/snare_drum1/off":(
+    #     ("digital", {"channel":1, "value":38 ,"status":"note_off"})
+    # ),
+
+    "_general/sound/snare_drum2/bang":(
+        ("pulse", {"channel":13, "function": "pulse", "pulselength":0.02 })
     ),
 
-    "/sound/tom_2/bang":(
-        ("MIDI", {"channel":1, "pitch":48 ,"status":"note_on"})
-    ),
-    "/sound/tom_2/off":(
-        ("MIDI", {"channel":1, "pitch":48 ,"status":"note_off"})
+    "_general/sound/snare_drum2/off":(
+        ("digital", {"channel":23, "value":40 ,"status":"note_off"})
     ),
 
-    "/sound//bang":(
-        ("MIDI", {"channel":1, "pitch":45 ,"status":"note_on"})
-    ),
-    "/sound//off":(
-        ("MIDI", {"channel":1, "pitch":45 ,"status":"note_off"})
+    "_general/sound/high_woodblock/bang":(
+        ("pulse", {"channel":9, "function": "pulse", "pulselength":0.02 })
     ),
 
-    "/sound/tom_3/bang":(
-        ("MIDI", {"channel":1, "pitch":41 ,"status":"note_on"})
-    ),
-    "/sound/tom_3/off":(
-        ("MIDI", {"channel":1, "pitch":41 ,"status":"note_off"})
+    "_general/sound/high_bongo/bang":(
+        ("pulse", {"channel":7, "function": "pulse", "pulselength":0.02 })
     ),
 
-    "/sound/tom_4/bang":(
-        ("MIDI", {"channel":1, "pitch":63 ,"status":"note_on"})
-    ),
-    "/sound/tom_4/off":(
-        ("MIDI", {"channel":1, "pitch":63 ,"status":"note_off"})
+    "_general/control_change/Main_volume":(
+        ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000})
     ),
 
-    "/sound/ride/bang":(
-        ("MIDI", {"channel":1, "pitch":51 ,"status":"note_on"})
-    ),
-    "/sound/ride/off":(
-        ("MIDI", {"channel":1, "pitch":51 ,"status":"note_off"})
+    "_general/control_change/start":(
+        ("digital", {"channel":1, "function": "digital", "bool":1})
     ),
 
-    "/sound/crash/bang":(
-        ("MIDI", {"channel":1, "pitch":49 ,"status":"note_on"})
-    ),
-    "/sound/crash/off":(
-        ("MIDI", {"channel":1, "pitch":49 ,"status":"note_off"})
+    "_general/control_change/stop":(
+        ("digital", {"channel":1, "function": "digital", "bool":0})
     ),
 
-    "/sound/perc_1/bang":(
-        ("MIDI", {"channel":1, "pitch":65 ,"status":"note_on"})
-    ),
-    "/sound/perc_1/off":(
-        ("MIDI", {"channel":1, "pitch":65 ,"status":"note_off"})
+    "_general/control_change/int_ext":(
+        ("digital", {"channel":0, "function": "digital", "bool":1})
     ),
 
-    "/sound/perc_2/bang":(
-        ("MIDI", {"channel":1, "pitch":62 ,"status":"note_on"})
-    ),
-    "/sound/perc_2/off":(
-        ("MIDI", {"channel":1, "pitch":62 ,"status":"note_off"})
+    "_general/control_change/clock":(
+        ("square_wave", {"channel":2, "function": "square_wave", "frequency":40})
     ),
 
-    "/sound/kick/bang":(
-        ("MIDI", {"channel":1, "pitch":35 ,"status":"note_on"})
-    ),
-    "/sound/kick/off":(
-        ("MIDI", {"channel":1, "pitch":35 ,"status":"note_off"})
-    ),
 
-    "/sound/snare/bang":(
-        ("MIDI", {"channel":1, "pitch":38 ,"status":"note_on"})
-    ),
-    "/sound/snare/off":(
-        ("MIDI", {"channel":1, "pitch":38 ,"status":"note_off"})
-    ),
+    ##### SYSTEM ######
 
-    "/sound/closed_hat/bang":(
-        ("MIDI", {"channel":1, "pitch":42 ,"status":"note_on"})
-    ),
-    "/sound/closed_hat/off":(
-        ("MIDI", {"channel":1, "pitch":42 ,"status":"note_off"})
-    ),
+    # "_system/start":(
+    #     ("digital", {"channel":2, "function": "digital", "bool":1})
+    # ),
 
-    "/sound/mid_hat/bang":(
-        ("MIDI", {"channel":1, "pitch":44 ,"status":"note_on"})
-    ),
-    "/sound/mid_hat/off":(
-        ("MIDI", {"channel":1, "pitch":44 ,"status":"note_off"})
-    ),
+    # "_system/start":(
+    #     ("digital", {"channel":2, "function": "digital", "bool":0})
+    # ),
 
-    "/sound/open_hat/bang":(
-        ("MIDI", {"channel":1, "pitch":46 ,"status":"note_on"})
-    ),
-    "/sound/open_hat/off":(
-        ("MIDI", {"channel":1, "pitch":46 ,"status":"note_off"})
-    ),
+    # "_system/master_volume":(
+    #     ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000, "duty":50.0})
+    # ),
 
-    "/sound/claps/bang":(
-        ("MIDI", {"channel":1, "pitch":39 ,"status":"note_on"})
-    ),
-    "/sound/clapsperc_3/off":(
-        ("MIDI", {"channel":1, "pitch":39 ,"status":"note_off"})
-    ),
+    # "_system/int_ext":(
+    #     ("digital", {"channel":14, "function": "digital", "bool":1})
+    # ),
 
-    "/sound/perc_3/bang":(
-        ("MIDI", {"channel":1, "pitch":67 ,"status":"note_on"})
-    ),
-    "/sound/perc_3/off":(
-        ("MIDI", {"channel":1, "pitch":67 ,"status":"note_off"})
-    ),
+    # "_system/timing_clock":(
+    #     ("square_wave", {"channel":14, "function": "square_wave", "frequency":40, "duty":50.0})
+    # ),
 
-    "/sound/perc_4/bang":(
-        ("MIDI", {"channel":1, "pitch":68 ,"status":"note_on"})
-    ),
-    "/sound/perc_4/off":(
-        ("MIDI", {"channel":1, "pitch":68 ,"status":"note_off"})
-    ),
-
-    ##### KICK ######
-
-    "_kick/sound/kick_1/bang":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
-    ),
-    "_kick/sound/kick_1/off":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
-    ),
-
-    ##### SNARE ######
-
-    "_snare/sound/snare_1/bang":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
-    ),
-    "_snare/sound/snare_1/off":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
-    ),
-
-    ##### TOM ######
-
-    "_tom/sound/tom_1/bang":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
-    ),
-    "_tom/sound/tom_1/off":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
-    ),
-
-    ##### HIHAT ######
-
-    "_hihat/sound/hihat_1/bang":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
-    ),
-    "_hihat/sound/hihat_1/off":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
-    ),
-
-    ##### CYMBAL ######
-
-    "_cymbal/sound/cymbal_1/bang":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
-    ),
-    "_cymbal/sound/cymbal_1/off":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
-    ),
-
-    ##### PERCUSSION ######
-
-    "_percussion/sound/percussion_1/bang":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
-    ),
-    "_percussion/sound/percussion_1/off":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
-    ),
-
-    ##### MISCELLANEOUS ######
-
-    "_miscellaneous/sound/miscellaneous_1/bang":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_on"})
-    ),
-    "_miscellaneous/sound/miscellaneous_1/off":(
-        ("MIDI", {"channel":1, "pitch":79, "status":"note_off"})
-    ),
 }
