@@ -8,13 +8,11 @@ module pwm_osc(
 );
 reg squareWaveOut_reg = 1'b1;
 reg [16:0] osc_counter = 1'b1;
-//parameter pwmDivision = 7'b1111111;
 
+begin
 always @(posedge clk_div) osc_counter <= (osc_counter >= osc_reg)?1'b0:osc_counter + 1'b1;
-
-//always @(posedge clk_div) squareWaveOut_reg <= (osc_counter >= osc_reg * pwm_reg / pwmDivision)?1'b0:1'b1;
-
 always @(posedge clk_div) squareWaveOut_reg <= (osc_counter >= osc_reg * pwm_reg / 32)?1'b0:1'b1;
+end
 
 assign pwm_osc_out = squareWaveOut_reg;
 
