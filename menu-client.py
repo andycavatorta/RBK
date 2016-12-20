@@ -29,6 +29,7 @@ def first_choice():
 def performance_mode():
   try:
     import main
+    main.ROLE = "client"
   except Exception as e:
     print e
 
