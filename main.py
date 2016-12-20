@@ -25,7 +25,10 @@ STORE_PATH = "%s/store/" % SERVER_PATH
 DATA_PATH = "%s/data/" % (BASE_PATH )
 LOG_PATH = "%s/logs/" % (BASE_PATH )
 clientnames = ("blueberrypie","blackberrypie")
-ROLE = sys.argv[1]
+try:
+    ROLE = sys.argv[1]
+except:
+    ROLE = raw_input('Please type dashboard, client or server: ')
 print HOST_SPECIFIC_PATH
 possible_responses = set(["client", "server", "dashboard"])
 while ROLE not in possible_responses:
