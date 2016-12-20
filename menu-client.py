@@ -1,4 +1,5 @@
 import os
+import sys
 
 BASE_PATH = "%s/%s" % os.path.split(os.path.dirname(os.path.realpath(__file__)))
 COMMON_PATH = "%s/common/" % (BASE_PATH )
