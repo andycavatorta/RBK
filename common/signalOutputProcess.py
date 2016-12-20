@@ -202,6 +202,14 @@ class Channel_Process(multiprocessing.Process):
         channels = Channels(self.conn)
         getdata = getData(self.conn)
 
+def init():
+    a,b = Pipe()
+    process1 = Channel_Process(a)
+    process2 = sgcl.CommandLine_Funcs(b)
+    process1.start()
+    process2.start()
+    process2.menuChannel()
+
 
 if __name__ == '__main__':
     a,b = Pipe()
