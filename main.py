@@ -92,6 +92,7 @@ try:
 
     def errorlogger(err_t):
         if err_t[0] > 0:
+            pass
             # print "errorlogger:", err_t[2], err_t[1]
 
     ### START GLOBAL SYSTEMS ###
