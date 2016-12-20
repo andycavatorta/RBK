@@ -1,5 +1,6 @@
 import os
 import sys
+import subprocess
 
 BASE_PATH = "%s/%s" % os.path.split(os.path.dirname(os.path.realpath(__file__)))
 COMMON_PATH = "%s/common/" % (BASE_PATH )
@@ -28,7 +29,7 @@ def first_choice():
 def performance_mode():
   print "Executing performance"
   try:
-    execfile("main.py"[client])
+    subprocess.call(['./main.py', "-client"])
   except Exception as e:
     print e
 
