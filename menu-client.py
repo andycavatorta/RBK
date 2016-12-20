@@ -26,7 +26,11 @@ def first_choice():
       print "menuChannel:please enter a number between 0 and 23:"
 
 def performance_mode():
-  execfile(main.py -client)
+  print "Executing performance"
+  try:
+    execfile(main.py -client)
+  except Exception as e:
+    print e
 
 def signal_generator():
   sop.init()
