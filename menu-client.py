@@ -28,7 +28,7 @@ def first_choice():
 def performance_mode():
   print "Executing performance"
   try:
-    execfile("main.py -client")
+    execfile("main.py", -client)
   except Exception as e:
     print e
 
