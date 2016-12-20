@@ -7,6 +7,9 @@ sys.path.append(COMMON_PATH)
 
 import signalOutputProcess as sop
 
+def display(msg):
+  sys.stdout.write("%s"%(msg))
+
 def first_choice():
   answers = ["Performance", "Signal Generator"]
   while True:
