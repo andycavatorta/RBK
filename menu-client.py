@@ -29,7 +29,7 @@ def first_choice():
 def performance_mode():
   print "Executing performance"
   try:
-    subprocess.call(['./main.py', "client"])
+    subprocess.call(['main.py', "client"])
   except Exception as e:
     print e
 
