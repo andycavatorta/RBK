@@ -172,5 +172,6 @@ try:
     )
 
 except Exception as e:
+    pass
     # print e
     #elog.elog.logerror()
