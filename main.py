@@ -37,8 +37,8 @@ if ROLE == "server":
     HOSTNAME = "**SERVER**"
 if ROLE == "dashboard":
     HOSTNAME = "**DASHBOARD**"
-print 'role: ', ROLE
-print 'paths loaded'
+# print 'role: ', ROLE
+# print 'paths loaded'
 
 # local paths
 sys.path.append(BASE_PATH)
@@ -47,18 +47,18 @@ sys.path.append(CLIENT_PATH)
 sys.path.append(SERVER_PATH)
 sys.path.append(HOST_SPECIFIC_PATH)
 
-print "path append ok"
-print os.path.split(os.path.dirname(os.path.realpath(__file__)))
+# print "path append ok"
+# print os.path.split(os.path.dirname(os.path.realpath(__file__)))
 
 import network_info
 
 def pauseUntilOnline():
     while True:
         if network_info.getOnlineStatus():
-            "got connection!"
+            # print "got connection!"
             break
         else:
-            print "waiting for connection..."
+            # print "waiting for connection..."
             time.sleep(1)
 
 pauseUntilOnline();
@@ -73,26 +73,26 @@ try:
         import midiDeviceManager
         import midiserver
 
-    print "import local modules ok"
+    # print "import local modules ok"
 
     # load config
     with open(COMMON_PATH + 'settings.json', 'r') as f:
         SETTINGS = json.load(f)
 
-    print "load config ok"
+    # print "load config ok"
 
     ######################
     ##### GITHUB SYNC ####
     ######################
 
-    print "starting github sync..."
+    # print "starting github sync..."
 
     import githubSync
     import packageManager
 
     def errorlogger(err_t):
         if err_t[0] > 0:
-            print "errorlogger:", err_t[2], err_t[1]
+            # print "errorlogger:", err_t[2], err_t[1]
 
     ### START GLOBAL SYSTEMS ###
 
@@ -107,9 +107,9 @@ try:
     ### FETCH NEW PYTHON CODE ###
 
     stat_t = githubSync.main(BASE_PATH)
-    print repr(stat_t)
+    # print repr(stat_t)
 
-    print "github sync ok"
+    # print "github sync ok"
 
     ######################
     ##### NETWORKING #####
@@ -142,7 +142,7 @@ try:
                         signal_output.enqueue(mapped[1])
             except Exception as e:
                 traceback.print_exc()
-                print "device: path not found", e
+                # print "device: path not found", e
 
 
     else:
@@ -153,9 +153,9 @@ try:
         subscribernames.append("nervebox2")
         subscribernames.append(HOSTNAME)
 
-    print "subscribernames ok"
-    print "initializing network..."
-    print 'subscribers: ', subscribernames
+    # print "subscribernames ok"
+    # print "initializing network..."
+    # print 'subscribers: ', subscribernames
 
     dps.init_networking(
         subscribernames,
@@ -172,5 +172,5 @@ try:
     )
 
 except Exception as e:
-    print e
+    # print e
     #elog.elog.logerror()
