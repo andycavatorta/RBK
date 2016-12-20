@@ -29,7 +29,8 @@ try:
     ROLE = sys.argv[1]
 except:
     ROLE = raw_input('Please type dashboard, client or server: ')
-print HOST_SPECIFIC_PATH
+# print HOST_SPECIFIC_PATH
+print "Executing performance mode..."
 possible_responses = set(["client", "server", "dashboard"])
 while ROLE not in possible_responses:
     ROLE = raw_input('Please type dashboard, client or server: ')
