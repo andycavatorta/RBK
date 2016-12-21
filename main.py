@@ -138,7 +138,7 @@ try:
                         midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
                     elif mapped[0] in ("pulse","square_wave","digital"):
                         if mapped[0] == "square_wave":
-                            mapped[1]['duty cycle'] = msg['params']['value']
+                            mapped[1]['duty cycle'] = int(((msg['params']['value'])/1.27)+0.5)
                         signal_output.enqueue(mapped[1])
             except Exception as e:
                 traceback.print_exc()

@@ -81,6 +81,7 @@ def midiEventCallback(devicename, msgAndTime_t, data=None):
 
     osc_msg = midiToOsc.convert(devicename, status, channel, data1, data2) # convert MIDI so OSC
     print osc_msg
+
     dps.pubsub_api["publish"](devicename, osc_msg)
 
 # following MIDI functions should be moved into common module
