@@ -46,4 +46,4 @@ class Dashboard(threading.Thread):
 dashboard = Dashboard()
 dashboard.daemon = True
 dashboard.start()
-dashboard.menu_dashboard()
+dashboard.menu_dashboard
