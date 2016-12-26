@@ -1,16 +1,16 @@
 import os
 import sys
-import threading
+from threading import Thread
 import dps
 import signalOutputProcess as sop
 
-class Dashboard(threading.Thread):
+class Dashboard(Thread):
   def __init__(self):
-    threading.Thread.__init__(self) 
+    Thread.__init__(self) 
 
   def run(self):
-    print "Run"
-    pass
+    while True:
+      print "Run"
 
   def display(self, msg):
     self.msg = msg
@@ -45,4 +45,4 @@ class Dashboard(threading.Thread):
 
 dashboard = Dashboard()
 dashboard.start()
-dashboard.menu_dashboard()
+# dashboard.menu_dashboard()
