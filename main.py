@@ -155,7 +155,7 @@ try:
 
     print "subscribernames ok"
     print "initializing network..."
-    print 'subscribers: ', subscribernames
+    # print 'subscribers: ', subscribernames
 
     dps.init_networking(
         subscribernames,
@@ -170,6 +170,10 @@ try:
         SETTINGS["discovery_responsePort2"],
         osc_handler
     )
+
+    if ROLE == "dashboard":
+        import dashboardMenu as dbm
+        dbm.dashboard.menu_dashboard()
 
 except Exception as e:
     print e
