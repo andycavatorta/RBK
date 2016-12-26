@@ -1,6 +1,5 @@
 import sys
 import threading
-import signalOutputProcess as sop
 
 class Collector(threading.Thread):
   def __init__(self):

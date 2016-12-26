@@ -163,6 +163,10 @@ try:
         subscribernames = filter(lambda x: os.path.isdir(os.path.join(DEVICES_PATH, x)), os.listdir(DEVICES_PATH))
         subscribernames.append("nervebox2")
         subscribernames.append(HOSTNAME)
+        import collectorModule
+        collector = collectorModule.Collector()
+        collector.start()
+
 
     # print "subscribernames ok"
     # print "initializing network..."
