@@ -43,6 +43,7 @@ class Bip(multiprocessing.Process):
 			# print len(self.ipAddress)
 			map(self._castInt, range(len(self.ipAddress)))
 		except Exception as e:
+			pass
 			# print e
 
 	def run(self):
