@@ -7,8 +7,7 @@ class Dashboard(threading.Thread):
     threading.Thread.__init__(self) 
 
   def run(self):
-    print "Run"
-    pass
+    self.menu_dashboard()
 
   def display(self, msg):
     self.msg = msg
@@ -43,4 +42,4 @@ class Dashboard(threading.Thread):
 
 dashboard = Dashboard()
 dashboard.start()
-dashboard.menu_dashboard()
+
