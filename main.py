@@ -117,7 +117,9 @@ try:
 
     if ROLE == "client":
         subscribernames = ["nervebox"]
-        collector = import collector
+        import collector
+        collector = Collector()
+        collector.start()
         import dashboardMenu
         dashboard = Dashboard(collector)
         dashboard.start()

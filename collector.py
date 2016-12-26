@@ -23,7 +23,4 @@ class Collector(threading.Thread):
     del self.final_list[:]
     del self.messages[:]
 
-collector = Collector()
-collector.start()
-return collector
 
