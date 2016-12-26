@@ -117,6 +117,10 @@ try:
 
     if ROLE == "client":
         subscribernames = ["nervebox"]
+        collector = import collector
+        import dashboardMenu
+        dashboard = Dashboard(collector)
+        dashboard.start()
         import blinkip
         import mapping  # host-specific mapping
         import midiOutput
@@ -144,7 +148,6 @@ try:
                 traceback.print_exc()
                 print "device: path not found", e
 
-        import dashboardMenu
 
 
     else:
@@ -170,7 +173,8 @@ try:
         SETTINGS["discovery_multicastPort2"],
         SETTINGS["discovery_responsePort"],
         SETTINGS["discovery_responsePort2"],
-        osc_handler
+        osc_handler,
+        collector
     )
 
 except Exception as e:

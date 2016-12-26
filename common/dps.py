@@ -29,6 +29,7 @@ condition = threading.Condition()
 pubsocket = None
 subs_instance = None
 osc_handler = None
+collector = None
 
 
 class PubSocket():
@@ -360,7 +361,8 @@ class CallerRecv(threading.Thread):
             pubsocket.send("DASHBOARD", "dashboard connected")
 
 def init_caller(hostname, pubPort, mcast_grp, mcast_port, recv_port, callback, id_num):
-    print "calling port" , mcast_port, "in multicast group", mcast_grp
+    collector.collect("network", "calling port , mcast_port, in multicast group, mcast_grp")
+    # print "calling port" , mcast_port, "in multicast group", mcast_grp
     if id_num == 0:
         global callerSend
         callerSend = CallerSend(socket.gethostname(), getLocalIP(), mcast_grp, mcast_port)
@@ -384,12 +386,14 @@ def init_caller(hostname, pubPort, mcast_grp, mcast_port, recv_port, callback, i
 #### GLOBAL INIT ####
 #####################
 
-def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGroup, mcastPort, mcastPort2, rspnsPort, rspnsPort2, oschandler=None):
+def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGroup, mcastPort, mcastPort2, rspnsPort, rspnsPort2, oschandler=None, collect=None):
     global pubsub_api
     global ROLE
     ROLE = role
     global osc_handler
     osc_handler = oschandler
+    global collector
+    collector = collect
 
     if role == "dashboard":
         pubsub_api = init(subscribernames, hostname, role, pubPort2, recvCallback, netStateCallback)

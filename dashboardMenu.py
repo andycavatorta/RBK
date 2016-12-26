@@ -3,8 +3,9 @@ import threading
 import signalOutputProcess as sop
 
 class Dashboard(threading.Thread):
-  def __init__(self):
+  def __init__(self, collect):
     threading.Thread.__init__(self) 
+    self.collector = collect
 
   def run(self):
     self.menu_dashboard()
@@ -38,8 +39,6 @@ class Dashboard(threading.Thread):
 
 
   def performance_mode(self):
-    pass
+    self.collector.get("network")
 
-dashboard = Dashboard()
-dashboard.start()
 
