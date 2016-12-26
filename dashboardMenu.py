@@ -1,15 +1,15 @@
 import os
 import sys
-import threading
+import multiprocessing
 import dps
 import signalOutputProcess as sop
 
-class Dashboard(threading.Thread):
+class Dashboard(multiprocessing.Process):
   def __init__(self):
-    threading.Thread.__init__(self) 
+    multiprocessing.Process.__init__(self) 
 
   def run(self):
-    pass
+    self.menu_dashboard()
 
   def display(self, msg):
     self.msg = msg
