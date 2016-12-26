@@ -30,6 +30,7 @@ class Dashboard(threading.Thread):
       input = sys.stdin.readline()
       try:
         self.fmap[input[:-1]]()
+        self.goodValue = True
       except Exception as e:
         print "menu_dashboard: invalid value:", input
 
@@ -46,4 +47,4 @@ class Dashboard(threading.Thread):
 
 dashboard = Dashboard()
 dashboard.start()
-dashboard.menu_dashboard
+dashboard.menu_dashboard()
