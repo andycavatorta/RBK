@@ -325,7 +325,7 @@ class CallerSend(threading.Thread):
         while True:
             if not self.serverFound_b:
                 try: 
-                    print "calling to",self.mcast_grp, self.mcast_port
+                    # print "calling to",self.mcast_grp, self.mcast_port
                     self.mcast_sock.sendto(self.mcast_msg, (self.mcast_grp, self.mcast_port))
                 except Exception as e:
                     print 'DISCONNECTED'
