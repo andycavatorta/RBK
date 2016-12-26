@@ -18,7 +18,7 @@ class Collector(threading.Thread):
 
   def get(self, _filter):
     self.filter = _filter
-    self.final_list = [self.t for self.t in self.messages if t[0].startswith(self.filter)]
+    self.final_list = [self.t for self.t in self.messages if self.t[0].startswith(self.filter)]
     print self.final_list
     del self.final_list[:]
     del self.messages[:]
