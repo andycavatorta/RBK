@@ -21,8 +21,6 @@ class Dashboard(threading.Thread):
       "s":self.signal_generator,
       "p":self.performance_mode
     }  
-    self.goodValue = False
-    # while self.goodValue == False:
     print "** Dashboard Mode **"
     self.display("Select a function:\n")
     self.display("  s - Signal Generator\n")
@@ -30,20 +28,20 @@ class Dashboard(threading.Thread):
     input = sys.stdin.readline()
     try:
       self.fmap[input[:-1]]()
-      self.goodValue = True
     except Exception as e:
       print "menu_dashboard: invalid value:", input
 
   def signal_generator(self):
     try:
       sop.init()
+      self.menu_dashboard()
     except Exception as e:
       print e
       self.menu_dashboard()
 
 
   def performance_mode(self):
-    pass
+    self.menu_dashboard()
 
 dashboard = Dashboard()
 dashboard.start()
