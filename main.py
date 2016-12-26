@@ -121,6 +121,8 @@ try:
         import mapping  # host-specific mapping
         import midiOutput
         import signalOutput
+        import dashboardMenu as dbm
+        dbm.dashboard.menu_dashboard()
         signal_output = signalOutput.Channels()
         midi_output = midiOutput.Midi_Output()
         def osc_handler(msg):
@@ -170,10 +172,6 @@ try:
         SETTINGS["discovery_responsePort2"],
         osc_handler
     )
-
-    if ROLE == "dashboard":
-        import dashboardMenu as dbm
-        dbm.dashboard.menu_dashboard()
 
 except Exception as e:
     print e
