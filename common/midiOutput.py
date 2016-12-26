@@ -10,7 +10,7 @@ class Midi_Output():
         else:
             self.midi_out = mido.open_output(oNames[0])
 
-        print self.midi_out
+        # print self.midi_out
 
 
     def send_midi(self, params, status, channel, data1=None, data2=None):

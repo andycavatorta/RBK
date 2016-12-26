@@ -176,7 +176,7 @@ def sendHeartbeats(pubsocket, heartbeatMsg):
 def init(subscribernames,localName, role, publish_port, recvCallback,netStateCallback):
     #pubsocket = PubSocket(publish_port, localName)
     #pubsocket.start()
-    print 'starting pubsub...'
+    # print 'starting pubsub...'
     global pubsocket
     pubsocket = PubSocket(publish_port)
     subscriptions = Subscriptions(condition, subscribernames, role, publish_port, recvCallback, netStateCallback)
@@ -210,9 +210,10 @@ def getLocalIP():
         try:
             test = netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['broadcast']
         except Exception as e:
-            print 'broadcast not available...'
+            pass
+            # print 'broadcast not available...'
         else:
-            print 'found connection returning ip: %s' % (netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr'])
+            # print 'found connection returning ip: %s' % (netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr'])
             return netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr']
     # if _platform == "darwin":
     #     interfaceName = "en0"
@@ -321,7 +322,7 @@ class CallerSend(threading.Thread):
         while True:
             if not self.serverFound_b:
                 try: 
-                    print "calling to",self.mcast_grp, self.mcast_port
+                    # print "calling to",self.mcast_grp, self.mcast_port
                     self.mcast_sock.sendto(self.mcast_msg, (self.mcast_grp, self.mcast_port))
                 except Exception as e:
                     print 'DISCONNECTED'
@@ -339,28 +340,28 @@ class CallerRecv(threading.Thread):
         self.listen_sock = self.listen_context.socket(zmq.PAIR)
         self.listen_sock.setsockopt(zmq.LINGER, 0)
         self.listen_sock.bind("tcp://*:%d" % recv_port)
-        print "CallerRecv listening on port %d" % (recv_port)
+        # print "CallerRecv listening on port %d" % (recv_port)
     def run(self):
         #print "CallerRecv run"
-        print "discovery CallerRecv 1"
+        # print "discovery CallerRecv 1"
         msg_json = self.listen_sock.recv()
         #print ">>>>>>>>>>", msg_json
-        print "discovery CallerRecv 2"
+        # print "discovery CallerRecv 2"
         msg_d = yaml.safe_load(msg_json)
-        print ">>>>>>>>>>>>>> %s" % (msg_d)
-        print "discovery CallerRecv 3"
+        # print ">>>>>>>>>>>>>> %s" % (msg_d)
+        # print "discovery CallerRecv 3"
         self.callback(msg_d,self.pubPort,msg_d['hostname'],self.id_num)
         # to do: test the connection
-        print "discovery CallerRecv 4"
+        # print "discovery CallerRecv 4"
         self.callerSend.setServerFound(True)
-        print "discovery CallerRecv 5"
+        # print "discovery CallerRecv 5"
         if self.pubPort == 10002:
             pubsocket.send("DASHBOARD", "server connected")
         else:
             pubsocket.send("DASHBOARD", "dashboard connected")
 
 def init_caller(hostname, pubPort, mcast_grp, mcast_port, recv_port, callback, id_num):
-    print "calling port" , mcast_port, "in multicast group", mcast_grp
+    # print "calling port" , mcast_port, "in multicast group", mcast_grp
     if id_num == 0:
         global callerSend
         callerSend = CallerSend(socket.gethostname(), getLocalIP(), mcast_grp, mcast_port)
@@ -436,7 +437,7 @@ def serverFoundCallback(msg,pubPort,hostname, id_num):
         instruments = imp.load_source('mapping', '%s/mapping.py'%(SPECIFIC_PATH))
         for instrument in instruments.instruments:
             instrumentName = "%s%s" % (socket.gethostname(),instrument)
-            print 'DENTRO: ', instrumentName
+            # print 'DENTRO: ', instrumentName
             pubsub_api["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname),instrumentName)
     else:
         pubsub_api2["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname), None, "DASHBOARD")

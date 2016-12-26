@@ -47,7 +47,7 @@ class Bip(multiprocessing.Process):
 
 	def run(self):
 		self._init()
-		print 'starting blink ip...'
+		# print 'starting blink ip...'
 		self._startStop()
 		time.sleep(2)
 		map(self._blinkNumber, range(len(self.ipAddress)))

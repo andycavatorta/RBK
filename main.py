@@ -79,13 +79,13 @@ try:
     with open(COMMON_PATH + 'settings.json', 'r') as f:
         SETTINGS = json.load(f)
 
-    print "load config ok"
+    # print "load config ok"
 
     ######################
     ##### GITHUB SYNC ####
     ######################
 
-    print "starting github sync..."
+    # print "starting github sync..."
 
     import githubSync
     import packageManager
@@ -109,7 +109,7 @@ try:
     stat_t = githubSync.main(BASE_PATH)
     print repr(stat_t)
 
-    print "github sync ok"
+    # print "github sync ok"
 
     ######################
     ##### NETWORKING #####
@@ -154,8 +154,8 @@ try:
         subscribernames.append("nervebox2")
         subscribernames.append(HOSTNAME)
 
-    print "subscribernames ok"
-    print "initializing network..."
+    # print "subscribernames ok"
+    # print "initializing network..."
     # print 'subscribers: ', subscribernames
 
     dps.init_networking(
