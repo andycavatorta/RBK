@@ -364,7 +364,7 @@ class CallerRecv(threading.Thread):
             pubsocket.send("DASHBOARD", "dashboard connected")
 
 def init_caller(hostname, pubPort, mcast_grp, mcast_port, recv_port, callback, id_num):
-    collector.collect("network", "calling port , %s, in multicast group, %s" % (mcast_port, mcast_grp))
+    collector.collect(("network", "calling port , %s, in multicast group, %s" % (mcast_port, mcast_grp)))
     # print "calling port" , mcast_port, "in multicast group", mcast_grp
     if id_num == 0:
         global callerSend
