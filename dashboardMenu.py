@@ -22,17 +22,17 @@ class Dashboard(threading.Thread):
       "p":self.performance_mode
     }  
     self.goodValue = False
-    while self.goodValue == False:
-      print "** Dashboard Mode **"
-      self.display("Select a function:\n")
-      self.display("  s - Signal Generator\n")
-      self.display("  p - Performance Mode\n")
-      input = sys.stdin.readline()
-      try:
-        self.fmap[input[:-1]]()
-        self.goodValue = True
-      except Exception as e:
-        print "menu_dashboard: invalid value:", input
+    # while self.goodValue == False:
+    print "** Dashboard Mode **"
+    self.display("Select a function:\n")
+    self.display("  s - Signal Generator\n")
+    self.display("  p - Performance Mode\n")
+    input = sys.stdin.readline()
+    try:
+      self.fmap[input[:-1]]()
+      self.goodValue = True
+    except Exception as e:
+      print "menu_dashboard: invalid value:", input
 
   def signal_generator(self):
     try:
