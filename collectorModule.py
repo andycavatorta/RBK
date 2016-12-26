@@ -11,7 +11,7 @@ class Collector(threading.Thread):
   def run(self):
     pass
 
-  def collect(self, _type , _msg):
+  def collect(self,_type, _msg):
     self.msg = _msg
     self.type = _type
     self.messages.append((self.type,self.msg)) 

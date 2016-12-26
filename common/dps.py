@@ -177,7 +177,7 @@ def sendHeartbeats(pubsocket, heartbeatMsg):
 def init(subscribernames,localName, role, publish_port, recvCallback,netStateCallback):
     #pubsocket = PubSocket(publish_port, localName)
     #pubsocket.start()
-    collector.collect(("network","starting pubsub"))
+    collector.collect("network","starting pubsub")
     # print 'starting pubsub...'
     global pubsocket
     pubsocket = PubSocket(publish_port)
@@ -215,7 +215,7 @@ def getLocalIP():
             pass
             # print 'broadcast not available...'
         else:
-            collector.collect(("network","found connection returning ip: %s" % (netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr'])))
+            collector.collect("network","found connection returning ip: %s" % (netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr']))
             # print 'found connection returning ip: %s' % (netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr'])
             return netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr']
     # if _platform == "darwin":
@@ -364,7 +364,7 @@ class CallerRecv(threading.Thread):
             pubsocket.send("DASHBOARD", "dashboard connected")
 
 def init_caller(hostname, pubPort, mcast_grp, mcast_port, recv_port, callback, id_num):
-    collector.collect(("network", "calling port , %s, in multicast group, %s" % (mcast_port, mcast_grp)))
+    collector.collect("network", "calling port , %s, in multicast group, %s" % (mcast_port, mcast_grp))
     # print "calling port" , mcast_port, "in multicast group", mcast_grp
     if id_num == 0:
         global callerSend
