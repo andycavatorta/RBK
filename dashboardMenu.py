@@ -48,7 +48,7 @@ class Dashboard(threading.Thread):
       self.display("Filter by: network, MIDI, pulse, square_wave, digital, all:\n")
       self.input_raw = sys.stdin.readline()
       try:
-        self.input_f = float(self.input_raw[:-1])
+        self.input_f = self.input_raw[:-1]
         self.collector.get(self.input_f)
         self.goodValue = True
       except Exception as e:
