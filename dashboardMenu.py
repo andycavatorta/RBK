@@ -41,7 +41,7 @@ class Dashboard(threading.Thread):
 
 
   def performance_mode(self):
-    self.menu_dashboard()
+    pass
 
 dashboard = Dashboard()
 dashboard.start()
