@@ -19,7 +19,8 @@ class Dashboard(threading.Thread):
       "s":self.signal_generator,
       "p":self.performance_mode
     }
-    while True:  
+    self.goodValue = False
+    while self.goodValue == False:  
       print "** Dashboard Mode **"
       self.display("Select a function:\n")
       self.display("  s - Signal Generator\n")
@@ -27,21 +28,31 @@ class Dashboard(threading.Thread):
       self.input = sys.stdin.readline()
       try:
         self.fmap[self.input[:-1]]()
+        self.goodValue = True
       except Exception as e:
         print "menu_dashboard: invalid value:", self.input
 
   def signal_generator(self):
-    try:
-      sop.init()
-      self.menu_dashboard()
-    except Exception as e:
-      print e
-      self.menu_dashboard()
+    self.goodValue = False
+    while self.goodValue == False:
+      try:
+        sop.init()
+        self.goodValue = True
+      except Exception as e:
+        print e
+        self.goodValue = True
 
   def performance_mode(self):
-    try:
-      self.collector.get("network")
-    except Exception as e:
-      print e
+    self.goodValue = False
+    while self.goodValue == False:
+      self.display("Filter by: network, MIDI, pulse, square_wave, digital, all")
+      self.input_raw = sys.stdin.readline()
+      try:
+        self.input_f = float(self.input_raw[:-1])
+        self.collector.get(self.input_f)
+        self.goodValue = True
+      except Exception as e:
+        print "menuPWM:invalid value:", input
+    return 
 
 

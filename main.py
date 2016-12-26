@@ -137,15 +137,19 @@ try:
                 if category[2] == "sound":
                     if mapped[0] == "MIDI":
                         midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
+                        collector.collect("MIDI", "%s,%s,%s,%s" % (msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch']))
                     elif mapped[0] in ("pulse","square_wave","digital"):
                         signal_output.enqueue(mapped[1])
+                        collector.collect(mapped[0], "%s,%s,%s,%s" % (msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch']))
                 elif category[2] == "control_change":
                     if mapped[0] == "MIDI":
                         midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
+                        collector.collect("MIDI", "%s,%s,%s,%s" % (mapped[1]['cc'], mapped[1]['status'], mapped[1]['channel'], msg['params']['value']))
                     elif mapped[0] in ("pulse","square_wave","digital"):
                         if mapped[0] == "square_wave":
                             mapped[1]['duty cycle'] = int(((msg['params']['value'])/1.27)+0.5)
                         signal_output.enqueue(mapped[1])
+                        collector.collect(mapped[0], "%s" % (mapped[1]))
             except Exception as e:
                 traceback.print_exc()
                 print "device: path not found", e
