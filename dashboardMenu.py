@@ -3,7 +3,7 @@ import sys
 import threading
 import signalOutputProcess as sop
 
-class Dashboard(Thread):
+class Dashboard(threading.Thread):
   def __init__(self):
     threading.Thread.__init__(self) 
 
