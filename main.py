@@ -116,7 +116,6 @@ try:
     ######################
 
     if ROLE == "client":
-        import dashboardMenu
         subscribernames = ["nervebox"]
         import blinkip
         import mapping  # host-specific mapping
@@ -144,6 +143,8 @@ try:
             except Exception as e:
                 traceback.print_exc()
                 print "device: path not found", e
+
+        import dashboardMenu
 
 
     else:
