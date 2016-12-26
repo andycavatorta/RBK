@@ -23,11 +23,11 @@ class Dashboard(threading.Thread):
     self.display("Select a function:\n")
     self.display("  s - Signal Generator\n")
     self.display("  p - Performance Mode\n")
-    input = sys.stdin.readline()
+    self.input = sys.stdin.readline()
     try:
-      self.fmap[input[:-1]]()
+      self.fmap[self.input[:-1]]()
     except Exception as e:
-      print "menu_dashboard: invalid value:", input
+      print "menu_dashboard: invalid value:", self.input
 
   def signal_generator(self):
     try:
