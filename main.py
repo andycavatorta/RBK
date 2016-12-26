@@ -121,7 +121,7 @@ try:
         collector = collectorModule.Collector()
         collector.start()
         import dashboardMenu
-        dashboard = Dashboard(collector)
+        dashboard = dashboardMenu.Dashboard(collector)
         dashboard.start()
         import blinkip
         import mapping  # host-specific mapping
