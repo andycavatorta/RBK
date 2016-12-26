@@ -152,7 +152,7 @@ try:
                         collector.collect(mapped[0], "%s" % (mapped[1]))
             except Exception as e:
                 traceback.print_exc()
-                print "device: path not found", e
+                # print "device: path not found", e
 
 
 
