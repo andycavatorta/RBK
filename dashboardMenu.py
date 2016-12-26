@@ -44,3 +44,4 @@ class Dashboard(threading.Thread):
     pass
 
 dashboard = Dashboard()
+dashboard.start()
