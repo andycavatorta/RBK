@@ -427,7 +427,7 @@ def init_networking(subscribernames, hostname, role, pubPort, pubPort2, mcastGro
 def recvCallback(topic, msg):
     print "recvCallback", repr(topic), repr(msg)
     if ROLE == "client":
-        # osc_handler(nerveOSC.parse(msg))
+        osc_handler(nerveOSC.parse(msg))
 
 def netStateCallback(hostname, connected, role, pubPort):
     print "netStateCallback", hostname, connected, pubPort
