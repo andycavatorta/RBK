@@ -430,7 +430,7 @@ def recvCallback(topic, msg):
         osc_handler(nerveOSC.parse(msg))
 
 def netStateCallback(hostname, connected, role, pubPort):
-    print "netStateCallback", hostname, connected, pubPort
+    # print "netStateCallback", hostname, connected, pubPort
     if role == "client":
         if pubPort == 10002:
             callerSend.setServerFound(connected)
@@ -443,7 +443,7 @@ def serverFoundCallback(msg,pubPort,hostname, id_num):
         instruments = imp.load_source('mapping', '%s/mapping.py'%(SPECIFIC_PATH))
         for instrument in instruments.instruments:
             instrumentName = "%s%s" % (socket.gethostname(),instrument)
-            print 'DENTRO: ', instrumentName
+            # print 'DENTRO: ', instrumentName
             pubsub_api["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname),instrumentName)
     else:
         pubsub_api2["subscribe"](msg["hostname"],msg["ip"],pubPort, ("__heartbeat__", hostname), None, "DASHBOARD")

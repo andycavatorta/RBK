@@ -151,7 +151,8 @@ try:
                         signal_output.enqueue(mapped[1])
                         collector.collect(mapped[0], "%s" % (mapped[1]))
             except Exception as e:
-                traceback.print_exc()
+                pass
+                # traceback.print_exc()
                 # print "device: path not found", e
 
 
