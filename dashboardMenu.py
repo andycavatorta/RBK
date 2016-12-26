@@ -9,7 +9,7 @@ class Dashboard(multiprocessing.Process):
     multiprocessing.Process.__init__(self) 
 
   def run(self):
-    self.menu_dashboard()
+    pass
 
   def display(self, msg):
     self.msg = msg
@@ -46,3 +46,4 @@ class Dashboard(multiprocessing.Process):
 dashboard = Dashboard()
 dashboard.daemon = True
 dashboard.start()
+dashboard.menu_dashboard()
