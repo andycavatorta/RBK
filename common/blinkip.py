@@ -35,15 +35,15 @@ class Bip(multiprocessing.Process):
 		elif commands.getoutput('cat /sys/class/net/wlan0/carrier') == '1':
 			interfaceName = "wlan0"
 		else:
-			print "Not connected"
+			# print "Not connected"
 			self._ledonoff(0.1, 30)
 		try:
 			self.ipAddress = ni.ifaddresses(interfaceName)[ni.AF_INET][0]['addr']
 			self.ipAddress = list(self.ipAddress)
-			print len(self.ipAddress)
+			# print len(self.ipAddress)
 			map(self._castInt, range(len(self.ipAddress)))
 		except Exception as e:
-			print e
+			# print e
 
 	def run(self):
 		self._init()
