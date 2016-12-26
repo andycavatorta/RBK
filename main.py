@@ -116,12 +116,12 @@ try:
     ######################
 
     if ROLE == "client":
+        import dashboardMenu
         subscribernames = ["nervebox"]
         import blinkip
         import mapping  # host-specific mapping
         import midiOutput
         import signalOutput
-        import dashboardMenu
         signal_output = signalOutput.Channels()
         midi_output = midiOutput.Midi_Output()
         def osc_handler(msg):

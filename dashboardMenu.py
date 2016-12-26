@@ -9,6 +9,7 @@ class Dashboard(threading.Thread):
     threading.Thread.__init__(self) 
 
   def run(self):
+    print "Run"
     pass
 
   def display(self, msg):
@@ -18,7 +19,7 @@ class Dashboard(threading.Thread):
   def menu_dashboard(self):
     self.fmap = {
       "s":self.signal_generator,
-      "p":self.peroformance_mode
+      "p":self.performance_mode
     }  
     self.goodValue = False
     while self.goodValue == False:
@@ -40,10 +41,9 @@ class Dashboard(threading.Thread):
       self.menu_dashboard()
 
 
-  def peroformance_mode(self):
+  def performance_mode(self):
     pass
 
 dashboard = Dashboard()
-dashboard.daemon = True
 dashboard.start()
 dashboard.menu_dashboard
