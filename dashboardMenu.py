@@ -38,8 +38,10 @@ class Dashboard(threading.Thread):
       print e
       self.menu_dashboard()
 
-
   def performance_mode(self):
-    self.collector.get("network")
+    try:
+      self.collector.get("network")
+    except Exception as e:
+      print e
 
 
