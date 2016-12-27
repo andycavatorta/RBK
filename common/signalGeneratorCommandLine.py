@@ -38,13 +38,14 @@ class CommandLine_Funcs(multiprocessing.Process):
     sys.stdout.write("%s"%(self.msg))
 
   def menuChannel(self):
-    while True:
+    self.exit = None
+    while not self.exit == "?":
       self.params = {}
       self.display("Select a channel (0-23) or '?' to exit:")
       self.input_raw = sys.stdin.readline()
       try:
         if self.input_raw == "?":
-          break
+          self.exit == "?"
         else:
           self.input_int = self.input_raw[:-1]
           if 0<= self.input_int <=23:
