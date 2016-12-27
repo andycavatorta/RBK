@@ -93,7 +93,6 @@ class Dashboard(threading.Thread):
         self.input_f = self.input_raw[:-1]
         self.collector.get(self.input_f)
         if self.break_value == '?':
-          print "HERE"
           self.key.join()
           self.goodValue = True
           break
