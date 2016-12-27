@@ -84,7 +84,7 @@ class Dashboard(threading.Thread):
       try:
         self.input_f = self.input_raw[:-1]
         self.collector.get(self.input_f)
-        if self.input_f == '?'
+        if self.input_f == '?':
           self.goodValue = True
       except Exception as e:
         print "live_mode:invalid value:", input
