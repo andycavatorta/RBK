@@ -46,4 +46,10 @@ class Collector(threading.Thread):
     del self.final_osc[:]
     del self.osc_messages[:]
 
+  def clear_all(self):
+    del self.final_list[:]
+    del self.messages[:]
+    del self.final_osc[:]
+    del self.osc_messages[:]
+
 

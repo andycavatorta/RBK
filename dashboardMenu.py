@@ -94,6 +94,7 @@ class Dashboard(threading.Thread):
         self.collector.get(self.input_f)
         if self.break_value == '?':
           self.key.join()
+          self.collector.clear_all()
           self.goodValue = True
           break
       except Exception as e:
