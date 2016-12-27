@@ -78,9 +78,9 @@ class Dashboard(threading.Thread):
 
   def key_poll(self):
     self.input_raw = sys.stdin.readline()
-    self.input_f = self.input_raw[:-1]
-    print "activated, returning: ", self.input_f
-    return self.input_f
+    self.input_k = self.input_raw[:-1]
+    print "activated, returning: ", self.input_k
+    return self.input_k
 
   def live_mode(self):
     self.goodValue = False
@@ -96,7 +96,6 @@ class Dashboard(threading.Thread):
         self.collector.get(self.input_f)
         if self.key == '?':
           print "HERE"
-          self.key.join()
           self.goodValue = True
           break
       except Exception as e:
