@@ -60,11 +60,10 @@ class Dashboard(threading.Thread):
   def raw_osc(self):
     self.goodValue = False
     while self.goodValue == False:
-      self.display("Filter by: osc:\n")
+      self.display("Filter by osc:\n")
       self.input_raw = sys.stdin.readline()
       try:
         self.input_f = self.input_raw[:-1]
-        print self.input_f
         self.collector.get_osc(self.input_f)
         self.goodValue = True
 

@@ -34,16 +34,16 @@ class Collector(threading.Thread):
     del self.final_list[:]
     del self.messages[:]
 
-    def get_osc(self, _filter):
-      self.filter = _filter
-      if self.filter == "all":
-        for element in self.osc_messages:
-          print element
-      else:
-        self.final_osc = [self.t for self.t in self.messages if self.t[0].startswith(self.filter)]
-        for element in self.final_osc:
-          print element
-      del self.final_osc[:]
-      del self.messages[:]
+  def get_osc(self, _filter):
+    self.filter = _filter
+    if self.filter == "all":
+      for element in self.osc_messages:
+        print element
+    else:
+      self.final_osc = [self.t for self.t in self.messages if self.t[0].startswith(self.filter)]
+      for element in self.final_osc:
+        print element
+    del self.final_osc[:]
+    del self.messages[:]
 
 
