@@ -77,10 +77,10 @@ class Dashboard(threading.Thread):
 
   def live_mode(self):
     self.goodValue = False
+    self.display("Filter by: network, MIDI, pulse, square_wave, digital, all\n")
+    self.display("Type '?' and hit Enter anytime to exit:\n")
+    self.input_raw = sys.stdin.readline()
     while self.goodValue == False:
-      self.display("Filter by: network, MIDI, pulse, square_wave, digital, all\n")
-      self.display("Type '?' and hit Enter anytime to exit:\n")
-      self.input_raw = sys.stdin.readline()
       try:
         self.input_f = self.input_raw[:-1]
         self.collector.get(self.input_f)
