@@ -48,6 +48,7 @@ class CommandLine_Funcs(multiprocessing.Process):
           print "exiting"
           self.exit == "exit"
         else:
+          print "else.."
           self.input_int = self.input_raw[:-1]
           if 0<= self.input_int <=23:
             self.params["channel"] = self.input_int
