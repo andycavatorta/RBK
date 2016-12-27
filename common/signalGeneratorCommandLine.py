@@ -46,7 +46,7 @@ class CommandLine_Funcs(multiprocessing.Process):
         if self.input_raw[:-1] == "?":
           break
         else:
-          self.input_int = self.input_raw[:-1]
+          self.input_int = int(self.input_raw[:-1])
           if 0<= self.input_int <=23:
             self.params["channel"] = self.input_int
             self.menuFunction(self.params)
