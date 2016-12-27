@@ -39,6 +39,7 @@ class CommandLine_Funcs(multiprocessing.Process):
 
   def menuChannel(self):
     self.exit = None
+    print "beginning"
     while not self.exit == "?":
       self.params = {}
       self.display("Select a channel (0-23) or '?' to exit:")
