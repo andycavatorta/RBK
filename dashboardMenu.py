@@ -1,12 +1,12 @@
 import sys
 import threading
 import signalOutputProcess as sop
-from multiprocessing.pool import ThreadPool
 
 class Dashboard(threading.Thread):
   def __init__(self, collect):
     threading.Thread.__init__(self) 
     self.collector = collect
+    self.break_value = None
 
   def run(self):
     self.menu_dashboard()
@@ -78,24 +78,23 @@ class Dashboard(threading.Thread):
 
   def key_poll(self):
     self.input_raw = sys.stdin.readline()
-    self.input_k = self.input_raw[:-1]
-    print "activated, returning: ", self.input_k
-    return self.input_k
+    self.input_f = self.input_raw[:-1]
+    self.break_value = self.input_f
 
   def live_mode(self):
     self.goodValue = False
     self.display("Filter by: network, MIDI, pulse, square_wave, digital, all\n")
     self.display("Type '?' and hit Enter anytime to exit:\n")
     self.input_raw = sys.stdin.readline()
-    self.pool = ThreadPool(processes=1)
-    self.async_result = pool.apply_async(self.key_poll)
-    self.key = self.async_result.get()
+    self.key = threading.Thread(target=self.key_poll)
+    self.key.start()
     while self.goodValue == False:
       try:
         self.input_f = self.input_raw[:-1]
         self.collector.get(self.input_f)
-        if self.key == '?':
+        if self.break_value == '?':
           print "HERE"
+          self.key.join()
           self.goodValue = True
           break
       except Exception as e:
