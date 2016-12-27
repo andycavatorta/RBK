@@ -44,7 +44,7 @@ class CommandLine_Funcs(multiprocessing.Process):
       self.input_raw = sys.stdin.readline()
       try:
         if self.input_raw != "?":
-          print "HERE"
+          print self.input_raw
           self.input_int = int(self.input_raw[:-1])
         else:
           self.input_int = self.input_raw[:-1]
