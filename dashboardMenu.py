@@ -73,19 +73,27 @@ class Dashboard(threading.Thread):
 
       except Exception as e:
         print "raw_osc:invalid value:", input
-    return 
+    return
+
+  def key_poll(self):
+    self.input_raw = sys.stdin.readline()
+    self.input_f = self.input_raw[:-1]
+    return self.input_f
 
   def live_mode(self):
     self.goodValue = False
     self.display("Filter by: network, MIDI, pulse, square_wave, digital, all\n")
     self.display("Type '?' and hit Enter anytime to exit:\n")
     self.input_raw = sys.stdin.readline()
+    self.key = threading.Thread(target=self.key_poll)
+    self.key.start()
     while self.goodValue == False:
       try:
         self.input_f = self.input_raw[:-1]
         self.collector.get(self.input_f)
-        if self.input_f == '?':
+        if self.key == '?':
           self.goodValue = True
+          self.key.join()
       except Exception as e:
         print "live_mode:invalid value:", input
     return
