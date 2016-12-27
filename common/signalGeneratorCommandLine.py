@@ -45,6 +45,7 @@ class CommandLine_Funcs(multiprocessing.Process):
       self.input_raw = sys.stdin.readline()
       try:
         if self.input_raw == "?":
+          print "exiting"
           self.exit == "?"
         else:
           self.input_int = self.input_raw[:-1]
