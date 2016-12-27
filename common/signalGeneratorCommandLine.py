@@ -40,13 +40,15 @@ class CommandLine_Funcs(multiprocessing.Process):
   def menuChannel(self):
     while True:
       self.params = {}
-      self.display("Select a channel (0-23):")
+      self.display("Select a channel (0-23) - ? to exit:")
       self.input_raw = sys.stdin.readline()
       try:
         self.input_int = int(self.input_raw[:-1])
         if 0<= self.input_int <=23:
           self.params["channel"] = self.input_int
           self.menuFunction(self.params)
+        if self.input_raw == "?":
+          break
       except Exception as e:
         print "menuChannel:please enter a number between 0 and 23:"
 
