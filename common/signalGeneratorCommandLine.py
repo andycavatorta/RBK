@@ -44,6 +44,7 @@ class CommandLine_Funcs(multiprocessing.Process):
       self.display("Select a channel (0-23) or '?' to exit:")
       self.input_raw = sys.stdin.readline()
       try:
+        print self.input_raw=="exit"
         if self.input_raw == "exit":
           print "exiting"
           self.exit == "exit"
