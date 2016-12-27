@@ -20,7 +20,7 @@ class Dashboard(threading.Thread):
       "p":self.performance_mode
     }
     self.goodValue = False
-    while self.goodValue == False:  
+    while True:  
       print "** Dashboard Mode **"
       self.display("Select a function:\n")
       self.display("  s - Signal Generator\n")
