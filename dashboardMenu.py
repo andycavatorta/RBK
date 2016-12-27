@@ -64,6 +64,7 @@ class Dashboard(threading.Thread):
       self.input_raw = sys.stdin.readline()
       try:
         self.input_f = self.input_raw[:-1]
+        print self.input_f
         self.collector.get_osc(self.input_f)
         self.goodValue = True
 
