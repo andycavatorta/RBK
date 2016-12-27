@@ -50,6 +50,7 @@ class CommandLine_Funcs(multiprocessing.Process):
         if self.input_raw == "?":
           break
       except Exception as e:
+        print e
         print "menuChannel:please enter a number between 0 and 23:"
 
   def menuFunction(self,params):
