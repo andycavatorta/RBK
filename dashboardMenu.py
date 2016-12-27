@@ -92,8 +92,8 @@ class Dashboard(threading.Thread):
       try:
         self.input_f = self.input_raw[:-1]
         self.collector.get(self.input_f)
-        print self.key
-        if self.key == '?':
+        self.key_return = self.key.key_poll
+        if self.key_return == '?':
           print "HERE"
           self.key.join()
           self.goodValue = True
