@@ -48,6 +48,7 @@ class CommandLine_Funcs(multiprocessing.Process):
         if self.input_raw[:-1] == "?":
           print "exiting"
           self.exit == "?"
+          break
         else:
           print "else.."
           self.input_int = self.input_raw[:-1]
