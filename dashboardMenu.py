@@ -78,7 +78,7 @@ class Dashboard(threading.Thread):
   def key_poll(self):
     self.input_raw = sys.stdin.readline()
     self.input_f = self.input_raw[:-1]
-    print "acitvated, returning: ", self.input_f
+    print "activated, returning: ", self.input_f
     return self.input_f
 
   def live_mode(self):
@@ -92,6 +92,7 @@ class Dashboard(threading.Thread):
       try:
         self.input_f = self.input_raw[:-1]
         self.collector.get(self.input_f)
+        print self.key
         if self.key == '?':
           print "HERE"
           self.key.join()
