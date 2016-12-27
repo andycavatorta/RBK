@@ -83,6 +83,7 @@ class Dashboard(threading.Thread):
 
   def live_mode(self):
     self.goodValue = False
+    self.break_value = None
     self.display("Filter by: network, MIDI, pulse, square_wave, digital, all\n")
     self.display("Type '?' and hit Enter anytime to exit:\n")
     self.input_raw = sys.stdin.readline()
@@ -96,7 +97,6 @@ class Dashboard(threading.Thread):
           self.key.join()
           self.collector.clear_all()
           self.goodValue = True
-          break
       except Exception as e:
         print "live_mode:invalid value:", input
     return
