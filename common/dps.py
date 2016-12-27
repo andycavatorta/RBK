@@ -428,7 +428,7 @@ def recvCallback(topic, msg):
     # print "recvCallback", repr(topic), repr(msg)
     if ROLE == "client":
         osc_handler(nerveOSC.parse(msg))
-        collector.collect_osc("osc","%s %s" % (repr(topic),repr(msg)))
+        collector.collect_osc("osc",repr(msg))
 
 def netStateCallback(hostname, connected, role, pubPort):
     # print "netStateCallback", hostname, connected, pubPort
