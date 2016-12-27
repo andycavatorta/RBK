@@ -58,16 +58,16 @@ class Dashboard(threading.Thread):
     return
 
     def raw_osc(self):
-    self.goodValue = False
-    while self.goodValue == False:
-      self.display("Filter by: network, MIDI, pulse, square_wave, digital, all - '?' to exit:\n")
-      self.input_raw = sys.stdin.readline()
-      try:
-        self.input_f = self.input_raw[:-1]
-        self.collector.get_osc(self.input_f)
-        self.goodValue = True
-      except Exception as e:
-        print "performance_mode:invalid value:", input
-    return 
+      self.goodValue = False
+      while self.goodValue == False:
+        self.display("Filter by: network, MIDI, pulse, square_wave, digital, all - '?' to exit:\n")
+        self.input_raw = sys.stdin.readline()
+        try:
+          self.input_f = self.input_raw[:-1]
+          self.collector.get_osc(self.input_f)
+          self.goodValue = True
+        except Exception as e:
+          print "performance_mode:invalid value:", input
+      return 
 
 
