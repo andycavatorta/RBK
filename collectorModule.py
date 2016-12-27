@@ -34,7 +34,7 @@ class Collector(threading.Thread):
     del self.final_list[:]
     del self.messages[:]
 
-  def get_osc(self, _filter):
+  def get_osc(self, _filter="all"):
     self.filter = _filter
     if self.filter == "all":
       for element in self.osc_messages:
@@ -44,6 +44,6 @@ class Collector(threading.Thread):
       for element in self.final_osc:
         print element
     del self.final_osc[:]
-    del self.messages[:]
+    del self.osc_messages[:]
 
 

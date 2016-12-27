@@ -21,8 +21,10 @@ class Dashboard(threading.Thread):
       "o":self.raw_osc
     }
     self.goodValue = False
-    while True:  
+    while True: 
+      print "********************" 
       print "** Dashboard Mode **"
+      print "********************\n"
       self.display("Select a function:\n")
       self.display("  s - Signal Generator\n")
       self.display("  p - Performance Mode\n")
@@ -60,11 +62,11 @@ class Dashboard(threading.Thread):
   def raw_osc(self):
     self.goodValue = False
     while self.goodValue == False:
-      self.display("Filter by osc:\n")
-      self.input_raw = sys.stdin.readline()
+      # self.display("Filter by osc:\n")
+      # self.input_raw = sys.stdin.readline()
       try:
-        self.input_f = self.input_raw[:-1]
-        self.collector.get_osc(self.input_f)
+        # self.input_f = self.input_raw[:-1]
+        self.collector.get_osc()
         self.goodValue = True
 
       except Exception as e:
