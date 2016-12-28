@@ -36,7 +36,7 @@ mapping = {
         ("pulse", {"channel":7, "function": "pulse", "pulselength":0.02 })
     ),
 
-    "_general/control_change/Main_volume":(
+    "_general/control_change/Main_Volume":(
         ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000})
     ),
 

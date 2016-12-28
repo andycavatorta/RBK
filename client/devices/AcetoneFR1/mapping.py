@@ -76,7 +76,7 @@ mapping = {
     #     ("digital", {"channel":1, "value":70, "status":"note_off"})
     # ),
 
-    "_general/control_change/Main_volume":(
+    "_general/control_change/Main_Volume":(
         ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000})
     ),
 
