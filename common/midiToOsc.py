@@ -141,7 +141,7 @@ ccMap = {
     109:"sweep",
     110:"lfo_rate",
     111:"lfo_depth",
-    112:"Undefined",
+    112:"start_stop",
     113:"Undefined",
     114:"Undefined",
     115:"Undefined",

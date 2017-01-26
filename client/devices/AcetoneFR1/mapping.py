@@ -80,16 +80,12 @@ mapping = {
         ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000})
     ),
 
-    "_general/control_change/start":(
-        ("digital", {"channel":1, "function": "digital", "bool":1})
-    ),
-
-    "_general/control_change/stop":(
-        ("digital", {"channel":1, "function": "digital", "bool":0})
+    "_general/control_change/start_stop":(
+        ("digital", {"channel":1, "function": "digital"})
     ),
 
     "_general/control_change/int_ext":(
-        ("digital", {"channel":00, "function": "digital", "bool":1})
+        ("digital", {"channel":00, "function": "digital"})
     ),
 
     "_general/control_change/clock":(
