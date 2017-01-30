@@ -119,6 +119,7 @@ class Channel(threading.Thread):
 
     def pulse(self,pulselength):
         # print 'Pulse | length: ', pulselength
+        self.freq = 10000.0
         self.dutyCycle = 100.0
         self.sendStateToFPGA(0,1)
         time.sleep(pulselength)
@@ -127,6 +128,7 @@ class Channel(threading.Thread):
 
     def digital(self,bool):
         # print "Digital | Bool: ", bool
+        self.freq = 10000.0
         self.dutyCycle = 100.0 if bool else 0.0
         self.sendStateToFPGA(0,1)
 
