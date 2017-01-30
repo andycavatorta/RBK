@@ -70,7 +70,7 @@ mapping = {
     # ),
 
     "_general/sound/maracas/bang":(
-        ("pulse", {"channel":23, "function": "pulse", "pulselength":0.2,})
+        ("pulse", {"channel":23, "function": "pulse", "pulselength":0.2 })
     ),
     # "_general/sound/maracas/off":(
     #     ("digital", {"channel":1, "value":70, "status":"note_off"})
