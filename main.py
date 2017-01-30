@@ -149,11 +149,10 @@ try:
                         if mapped[0] == "square_wave":
                             mapped[1]['duty cycle'] = int(((msg['params']['value'])/1.27)+0.5)
                         elif mapped[0] == "digital":
-                            if mapped[1]['bool'] not in mapped[1]:
-                                if msg['params']['value'] < 64:
-                                    mapped[1]['bool'] = 0
-                                else:
-                                    mapped[1]['bool'] = 1
+                            if msg['params']['value'] < 64:
+                                mapped[1]['bool'] = 0
+                            else:
+                                mapped[1]['bool'] = 1
                         signal_output.enqueue(mapped[1])
                         collector.collect(mapped[0], "%s" % (mapped[1]))
             except Exception as e:
