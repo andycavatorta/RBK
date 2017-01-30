@@ -77,7 +77,7 @@ class Channel(threading.Thread):
         threading.Thread.__init__(self) 
         self.channel = channel
         self.freq = float(FREQ_DIGITAL_DEFAULT)
-        self.dutyCycle = 50.0
+        self.dutyCycle = 0.0
         self.queue = []
         self.lowFreqSineToggle = False
         self.lowFreqSinePeriod = 0.0
@@ -119,6 +119,7 @@ class Channel(threading.Thread):
 
     def pulse(self,pulselength):
         # print 'Pulse | length: ', pulselength
+        self.sendStateToFPGA(1,0)
         self.dutyCycle = 100.0
         self.sendStateToFPGA(0,1)
         time.sleep(pulselength)
@@ -127,6 +128,7 @@ class Channel(threading.Thread):
 
     def digital(self,bool):
         # print "Digital | Bool: ", bool
+        self.sendStateToFPGA(1,0)
         self.dutyCycle = 100.0 if bool else 0.0
         self.sendStateToFPGA(0,1)
 
