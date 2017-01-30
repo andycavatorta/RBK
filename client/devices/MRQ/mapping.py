@@ -21,11 +21,13 @@ mapping = {
     # ),
 
     "_general/sound/snare_drum2/bang":(
-        ("pulse", {"channel":13, "function": "pulse", "pulselength":0.5 })
+        ("digital", {"channel":13, "function": "digital", "bool":1 }),
+        ("digital", {"channel":23,"function": "digital", "bool":0})
     ),
 
     "_general/sound/snare_drum2/off":(
-        ("digital", {"channel":23, "function": "digital", "bool":1})
+        ("digital", {"channel":23, "function": "digital", "bool":1}),
+        ("digital", {"channel":13, "function": "digital", "bool":0 })
     ),
 
     "_general/sound/high_woodblock/bang":(
@@ -37,7 +39,7 @@ mapping = {
     ),
 
     "_general/control_change/Main_Volume":(
-        ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000})
+        ("square_wave_duty", {"channel":3, "function": "square_wave", "frequency":30000})
     ),
 
     "_general/control_change/start_stop":(

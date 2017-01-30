@@ -139,8 +139,9 @@ try:
                         midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
                         collector.collect("MIDI", "%s,%s,%s,%s" % (msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch']))
                     elif mapped[0] in ("pulse","square_wave","digital"):
-                        signal_output.enqueue(mapped[1])
-                        collector.collect(mapped[0], "%s" % (mapped[1])) #%s,%s,%s % (msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch']))
+                        for signal in mapped:
+                            signal_output.enqueue(signal[1])
+                            collector.collect(signal[0], "%s" % (signal[1])) #%s,%s,%s % (msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch']))
                 elif category[2] == "control_change":
                     if mapped[0] == "MIDI":
                         midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
