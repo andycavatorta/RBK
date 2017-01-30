@@ -21,13 +21,11 @@ mapping = {
     # ),
 
     "_general/sound/snare_drum2/bang":(
-        ("digital", {"channel":13, "function": "digital", "bool":1 }),
-        ("digital", {"channel":23,"function": "digital", "bool":0})
+        ("digital", {"channel":13, "function": "digital", "bool":1 }, {"channel":23,"function": "digital", "bool":0})
     ),
 
     "_general/sound/snare_drum2/off":(
-        ("digital", {"channel":23, "function": "digital", "bool":1}),
-        ("digital", {"channel":13, "function": "digital", "bool":0 })
+        ("digital", {"channel":23, "function": "digital", "bool":1}, {"channel":13, "function": "digital", "bool":0  })
     ),
 
     "_general/sound/high_woodblock/bang":(
