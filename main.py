@@ -148,25 +148,25 @@ try:
                     if device_mapping[0] == "MIDI":
                         midi_output.send_midi(None, device_mapping[1]['status'],device_mapping[1]['channel'], device_mapping[1]['cc'], msg['params']['value'])
                         collector.collect("MIDI", "%s,%s,%s,%s" % (device_mapping[1]['cc'], device_mapping[1]['status'], device_mapping[1]['channel'], msg['params']['value']))
-                elif device_mapping[0] == "signal":
-                    iterate_device_mapping = iter(device_mapping)
-                    next(iterate_device_mapping)
-                    for signal in iterate_device_mapping:
-                        print repr(signal)
-                        if signal['function'] == "square_wave":
-                            if signal['duty_cycle'] is None:
-                                print "there"
-                                signal['duty_cycle'] = ((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/127)+signal['duty_min_max'][0])
-                            elif signal['frequency'] is None:
-                                print "here"
-                                signal['frequency'] = ((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/127)+signal['freq_min_max'][0]) 
-                        elif signal['function'] == "digital":
-                            if msg['params']['value'] < 64:
-                                signal['bool'] = 0
-                            else:
-                                signal['bool'] = 1
-                        signal_output.enqueue(signal)
-                        collector.collect(device_mapping[0], "%s" % (signal))
+                    elif device_mapping[0] == "signal":
+                        iterate_device_mapping = iter(device_mapping)
+                        next(iterate_device_mapping)
+                        for signal in iterate_device_mapping:
+                            print repr(signal)
+                            if signal['function'] == "square_wave":
+                                if signal['duty_cycle'] is None:
+                                    print "there"
+                                    signal['duty_cycle'] = ((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/127)+signal['duty_min_max'][0])
+                                elif signal['frequency'] is None:
+                                    print "here"
+                                    signal['frequency'] = ((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/127)+signal['freq_min_max'][0]) 
+                            elif signal['function'] == "digital":
+                                if msg['params']['value'] < 64:
+                                    signal['bool'] = 0
+                                else:
+                                    signal['bool'] = 1
+                            signal_output.enqueue(signal)
+                            collector.collect(device_mapping[0], "%s" % (signal))
             except Exception as e:
                 pass
                 # traceback.print_exc()
