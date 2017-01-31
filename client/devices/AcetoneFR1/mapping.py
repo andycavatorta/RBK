@@ -82,7 +82,7 @@ mapping = {
     # ),
 
     "_general/control_change/Main_Volume":(
-        ("signal", {"channel":3, "function": "square_wave", "frequency":30000, "duty_cycle":None, "freq_min_max":(1,1), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
+        ("signal", {"channel":3, "function": "square_wave", "frequency":30000, "duty_cycle":0, "freq_min_max":(1,1), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
     "_general/control_change/start_stop":(
@@ -94,7 +94,7 @@ mapping = {
     ),
 
     "_general/control_change/clock":(
-        ("signal", {"channel":02, "function": "square_wave", "frequency":None, "duty_cycle":50.0, "freq_min_max":(9,40), "duty_min_max":(1,1), "variable_key":"frequency"})
+        ("signal", {"channel":02, "function": "square_wave", "frequency":0, "duty_cycle":50.0, "freq_min_max":(9,40), "duty_min_max":(1,1), "variable_key":"frequency"})
     ),
 
 }

@@ -138,7 +138,7 @@ try:
                     if device_mapping[0] == "MIDI":
                         midi_output.send_midi(msg['params'], device_mapping[1]['status'], device_mapping[1]['channel'], device_mapping[1]['pitch'])
                         collector.collect("MIDI", "%s,%s,%s,%s" % (msg['params'], device_mapping[1]['status'], device_mapping[1]['channel'], device_mapping[1]['pitch']))
-                    elif device_mapping[0] in ("pulse","square_wave","digital"):
+                    elif device_mapping[0] == "signal":
                         iterate_device_mapping = iter(device_mapping)
                         next(iterate_device_mapping)
                         for signal in iterate_device_mapping:
