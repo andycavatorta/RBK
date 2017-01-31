@@ -153,8 +153,10 @@ try:
                     next(iterate_device_mapping)
                     for signal in iterate_device_mapping:
                         if signal['function'] == "square_wave":
-                            duty_cycle = ((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/127)+signal['duty_min_max'][0])
-                            frequency = ((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/127)+signal['freq_min_max'][0]) 
+                            if signal['duty_cycle'] is None:
+                                signal['duty_cycle'] = ((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/127)+signal['duty_min_max'][0])
+                            elif signal['frequency'] is None:
+                                signal['frequency'] = ((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/127)+signal['freq_min_max'][0]) 
                         elif signal['function'] == "digital":
                             if msg['params']['value'] < 64:
                                 signal['bool'] = 0
