@@ -7,49 +7,49 @@ instruments = (
 
 mapping = {
     "_general/sound/bass_drum/bang":(
-        ("pulse", {"channel":4, "function": "pulse", "pulselength":0.02 })
+        ("signal", {"channel":4, "function": "pulse", "pulselength":0.02 })
     ),
     # "_general/sound/bass_drum/off":(
     #     ("digital", {"channel":21, "function": "digital", "bool":1 })
     # ),
 
     "_general/sound/snare_drum1/bang":(
-        ("pulse", {"channel":5, "function": "pulse", "pulselength":0.02 })
+        ("signal", {"channel":5, "function": "pulse", "pulselength":0.02 })
     ),
     # "_general/sound/snare_drum1/off":(
     #     ("digital", {"channel":1, "value":38 ,"status":"note_off"})
     # ),
 
     "_general/sound/snare_drum2/bang":(
-        ("digital", {"channel":13, "function": "digital", "bool":1 }, {"channel":23,"function": "digital", "bool":0})
+        ("signal", {"channel":13, "function": "digital", "bool":1 }, {"channel":23,"function": "digital", "bool":0})
     ),
 
     "_general/sound/snare_drum2/off":(
-        ("digital", {"channel":23, "function": "digital", "bool":1}, {"channel":13, "function": "digital", "bool":0  })
+        ("signal", {"channel":23, "function": "digital", "bool":1}, {"channel":13, "function": "digital", "bool":0  })
     ),
 
     "_general/sound/high_woodblock/bang":(
-        ("pulse", {"channel":9, "function": "pulse", "pulselength":0.02 })
+        ("signal", {"channel":9, "function": "pulse", "pulselength":0.02 })
     ),
 
     "_general/sound/high_bongo/bang":(
-        ("pulse", {"channel":7, "function": "pulse", "pulselength":0.02 })
+        ("signal", {"channel":7, "function": "pulse", "pulselength":0.02 })
     ),
 
     "_general/control_change/Main_Volume":(
-        ("square_wave_duty", {"channel":3, "function": "square_wave", "frequency":30000})
+        ("signal", {"channel":3, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":(1,1), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
     "_general/control_change/start_stop":(
-        ("digital", {"channel":1, "function": "digital"})
+        ("signal", {"channel":1, "function": "digital"})
     ),
 
     "_general/control_change/int_ext":(
-        ("digital", {"channel":0, "function": "digital"})
+        ("signal", {"channel":0, "function": "digital"})
     ),
 
     "_general/control_change/clock":(
-        ("square_wave", {"channel":2, "function": "square_wave", "frequency":11})
+        ("signal", {"channel":2, "function": "square_wave", "frequency":0, "duty cycle":50.0, "freq_min_max":(2,22), "duty_min_max":(1,1), "variable_key":"frequency"})
     ),
 
 

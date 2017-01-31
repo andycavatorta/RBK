@@ -13,31 +13,31 @@ instruments = (
 
 mapping = {
     "_general/sound/bass_drum/bang":(
-        ("pulse", {"channel":10, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":10, "function": "pulse", "pulselength":0.2 })
     ),
 
     "_general/control_change/sensitivity":(
-        ("square_wave", {"channel":12, "function": "square_wave", "frequency":30000})
+        ("signal", {"channel":12, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":(1,1), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
     "_general/control_change/pitch":(
-        ("square_wave", {"channel":14, "function": "square_wave", "frequency":30000})
+        ("signal", {"channel":14, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":(1,1), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
     "_general/control_change/decay":(
-        ("square_wave", {"channel":16, "function": "square_wave", "frequency":30000})
+        ("signal", {"channel":16, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":(1,1), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
     "_general/control_change/sweep":(
-        ("square_wave", {"channel":18, "function": "square_wave", "frequency":30000})
+        ("signal", {"channel":18, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":(1,1), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
     "_general/control_change/lfo_rate":(
-        ("square_wave", {"channel":20, "function": "square_wave", "frequency":30000})
+        ("signal", {"channel":20, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":(1,1), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
     "_general/control_change/lfo_depth":(
-        ("square_wave", {"channel":22, "function": "square_wave", "frequency":30000})
+        ("signal", {"channel":22, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":(1,1), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
     ##### SYSTEM ######
