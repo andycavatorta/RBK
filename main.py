@@ -133,38 +133,39 @@ try:
             try:
                 category = msg['innerpath'].split('/')
                 new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
-                mapped = mapping.mapping[new_path]
+                device_mapping = mapping.mapping[new_path]
                 if category[2] == "sound":
-                    if mapped[0] == "MIDI":
-                        midi_output.send_midi(msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch'])
-                        collector.collect("MIDI", "%s,%s,%s,%s" % (msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch']))
-                    elif mapped[0] in ("pulse","square_wave","digital"):
-                        iterate_mapped = iter(mapped)
-                        next(iterate_mapped)
-                        for signal in iterate_mapped:
+                    if device_mapping[0] == "MIDI":
+                        midi_output.send_midi(msg['params'], device_mapping[1]['status'], device_mapping[1]['channel'], device_mapping[1]['pitch'])
+                        collector.collect("MIDI", "%s,%s,%s,%s" % (msg['params'], device_mapping[1]['status'], device_mapping[1]['channel'], device_mapping[1]['pitch']))
+                    elif device_mapping[0] in ("pulse","square_wave","digital"):
+                        iterate_device_mapping = iter(device_mapping)
+                        next(iterate_device_mapping)
+                        for signal in iterate_device_mapping:
                             signal_output.enqueue(signal)
-                            collector.collect(mapped[0], "%s" % (signal)) #%s,%s,%s % (msg['params'], mapped[1]['status'], mapped[1]['channel'], mapped[1]['pitch']))
+                            collector.collect(device_mapping[0], "%s" % (signal)) #%s,%s,%s % (msg['params'], device_mapping[1]['status'], device_mapping[1]['channel'], device_mapping[1]['pitch']))
                 elif category[2] == "control_change":
-                    if mapped[0] == "MIDI":
-                        midi_output.send_midi(None, mapped[1]['status'],mapped[1]['channel'], mapped[1]['cc'], msg['params']['value'])
-                        collector.collect("MIDI", "%s,%s,%s,%s" % (mapped[1]['cc'], mapped[1]['status'], mapped[1]['channel'], msg['params']['value']))
-                    elif mapped[0] in ("pulse","square_wave","digital"):
-                        if mapped[0] == "square_wave":
-                            mapped[1]['duty cycle'] = int(((msg['params']['value'])/1.27)+0.5)
-                        elif mapped[0] == "digital":
+                    if device_mapping[0] == "MIDI":
+                        midi_output.send_midi(None, device_mapping[1]['status'],device_mapping[1]['channel'], device_mapping[1]['cc'], msg['params']['value'])
+                        collector.collect("MIDI", "%s,%s,%s,%s" % (device_mapping[1]['cc'], device_mapping[1]['status'], device_mapping[1]['channel'], msg['params']['value']))
+                elif device_mapping[0] == "signal":
+                    iterate_device_mapping = iter(device_mapping)
+                    next(iterate_device_mapping)
+                    for signal in iterate_device_mapping:
+                        if signal['function'] == "square_wave":
+                            duty_cycle = ((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/127)+signal['duty_min_max'][0])
+                            frequency = ((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/127)+signal['freq_min_max'][0]) 
+                        elif signal['function'] == "digital":
                             if msg['params']['value'] < 64:
-                                mapped[1]['bool'] = 0
+                                signal['bool'] = 0
                             else:
-                                mapped[1]['bool'] = 1
-                        signal_output.enqueue(mapped[1])
-                        collector.collect(mapped[0], "%s" % (mapped[1]))
+                                signal['bool'] = 1
+                        signal_output.enqueue(signal)
+                        collector.collect(device_mapping[0], "%s" % (signal))
             except Exception as e:
                 pass
                 # traceback.print_exc()
                 # print "device: path not found", e
-
-
-
     else:
         import vimina
         def osc_handler(msg):
