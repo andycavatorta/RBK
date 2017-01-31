@@ -52,7 +52,7 @@ class Dashboard(threading.Thread):
   def performance_mode(self):
     self.goodValue = False
     while self.goodValue == False:
-      self.display("Filter by: network, MIDI, pulse, square_wave, digital, all:\n")
+      self.display("Filter by: network, MIDI, signal, all:\n")
       self.input_raw = sys.stdin.readline()
       try:
         self.input_f = self.input_raw[:-1]
