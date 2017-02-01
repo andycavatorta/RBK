@@ -209,7 +209,9 @@ class Channel_Process(multiprocessing.Process):
 
 def init():
     a,b = Pipe()
+    global process1
     process1 = Channel_Process(a)
+    global process2
     process2 = sgcl.CommandLine_Funcs(b)
     process1.start()
     process2.start()
