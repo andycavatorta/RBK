@@ -84,7 +84,7 @@ class Dashboard(threading.Thread):
   def live_mode(self):
     self.goodValue = False
     self.break_value = None
-    self.display("Filter by: network, MIDI, pulse, square_wave, digital, all\n")
+    self.display("Filter by: network, MIDI, signal, all\n")
     self.display("Type '?' and hit Enter anytime to exit:\n")
     self.input_raw = sys.stdin.readline()
     self.key = threading.Thread(target=self.key_poll)
