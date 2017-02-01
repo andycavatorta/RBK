@@ -342,13 +342,9 @@ def convert(devicename, status, channel, data1=None, data2=None):
         if status == "control_change/master_tempo_ub":
             global master_tempo_ub
             master_tempo_ub = '{0:06b}'.format(data2)
-            print master_tempo_ub
         elif status == "control_change/master_tempo_lb":
-            print master_tempo_ub
             master_tempo_lb = '{0:06b}'.format(data2)
-            print master_tempo_lb
             master_tempo = "%s%s" % (master_tempo_ub,master_tempo_lb)
-            print master_tempo
             status = "control_change/master_tempo"
             params = {
                 "channel":channel,
@@ -363,5 +359,4 @@ def convert(devicename, status, channel, data1=None, data2=None):
             }
 
     params_j = json.dumps(params, separators=(',', ':'))
-    print "uepa"
     return "/%s/%s %s" % (devicename,status, params_j)

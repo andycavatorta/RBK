@@ -127,8 +127,7 @@ try:
         import mapping  # host-specific mapping
         import midiOutput
         import signalOutput
-        signal_output = signalOutput.Channel_Process()
-        signal_output.start()
+        signal_output = signalOutput.Channels()
         midi_output = midiOutput.Midi_Output()
         def osc_handler(msg):
             scale_max = 127
@@ -160,9 +159,9 @@ try:
                         for signal in iterate_device_mapping:
                             if signal['function'] == "square_wave":
                                 if signal['variable_key'] is "duty_cycle":
-                                    signal['duty cycle'] = (msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/scale_max)+signal['duty_min_max'][0]
+                                    signal['duty cycle'] = float((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/scale_max)+signal['duty_min_max'][0])
                                 elif signal['variable_key'] is "frequency":
-                                    signal['frequency'] = (msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/scale_max)+signal['freq_min_max'][0]
+                                    signal['frequency'] = float((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/scale_max)+signal['freq_min_max'][0]) 
                             elif signal['function'] == "digital":
                                 if msg['params']['value'] < 64:
                                     signal['bool'] = 0
