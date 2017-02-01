@@ -127,7 +127,8 @@ try:
         import mapping  # host-specific mapping
         import midiOutput
         import signalOutput
-        signal_output = signalOutput.Channels()
+        signal_output = signalOutput.Channel_Process()
+        signal_output.start()
         midi_output = midiOutput.Midi_Output()
         def osc_handler(msg):
             scale_max = 127
