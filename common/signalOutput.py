@@ -62,7 +62,7 @@ import os
 import signalGeneratorCommandLine as sgcl
 
 
-FREQ_DIGITAL_DEFAULT = 1000 # Hz
+FREQ_DIGITAL_DEFAULT = 10000.0 # Hz
 FPGA_CLOCK_SPEED_ORIG = 50000000 # Hz
 FPGA_CLOCK_DIVISION_FACTOR = 16
 MYSTERY_FACTOR = 0.94
@@ -119,7 +119,7 @@ class Channel(threading.Thread):
 
     def pulse(self,pulselength):
         # print 'Pulse | length: ', pulselength
-        self.sendStateToFPGA(1,0)
+        # self.sendStateToFPGA(1,0)
         self.dutyCycle = 100.0
         self.sendStateToFPGA(0,1)
         time.sleep(pulselength)
@@ -128,7 +128,7 @@ class Channel(threading.Thread):
 
     def digital(self,bool):
         # print "Digital | Bool: ", bool
-        self.sendStateToFPGA(1,0)
+        # self.sendStateToFPGA(1,0)
         self.dutyCycle = 100.0 if bool else 0.0
         self.sendStateToFPGA(0,1)
 
