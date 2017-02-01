@@ -340,10 +340,10 @@ def convert(devicename, status, channel, data1=None, data2=None):
     if status =="control_change":
         status = "control_change/%s" % (ccMap[int(data1[0])])
         if status == "control_change/master_tempo_ub":
-            master_tempo_ub = data2
+            master_tempo_ub = "{0:#b}".format(data2)
         elif status == "control_change/master_tempo_lb":
-            master_tempo_lb = data2
-            master_tempo = (master_tempo_ub<<8 | master_tempo_lb)
+            master_tempo_lb = "{0:#b}".format(data2)
+            master_tempo = (master_tempo_ub<<7 | master_tempo_lb)
             status = "control_change/master_tempo"
             params = {
                 "channel":channel,
