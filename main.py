@@ -130,7 +130,7 @@ try:
         signal_output = signalOutput.Channels()
         midi_output = midiOutput.Midi_Output()
         def osc_handler(msg):
-            midi_bytes = 127
+            scale_max = 127
             try:
                 category = msg['innerpath'].split('/')
                 new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
@@ -153,15 +153,15 @@ try:
                         iterate_device_mapping = iter(device_mapping)
                         next(iterate_device_mapping)
                         if category[3] == "master_tempo":
-                            midi_bytes = 255
+                            scale_max = 16384
                         else:
-                            midi_bytes = 127
+                            scale_max = 127
                         for signal in iterate_device_mapping:
                             if signal['function'] == "square_wave":
                                 if signal['variable_key'] is "duty_cycle":
-                                    signal['duty cycle'] = float((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/midi_bytes)+signal['duty_min_max'][0])
+                                    signal['duty cycle'] = float((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/scale_max)+signal['duty_min_max'][0])
                                 elif signal['variable_key'] is "frequency":
-                                    signal['frequency'] = float((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/midi_bytes)+signal['freq_min_max'][0]) 
+                                    signal['frequency'] = float((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/scale_max)+signal['freq_min_max'][0]) 
                             elif signal['function'] == "digital":
                                 if msg['params']['value'] < 64:
                                     signal['bool'] = 0

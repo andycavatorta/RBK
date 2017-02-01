@@ -344,6 +344,7 @@ def convert(devicename, status, channel, data1=None, data2=None):
         elif status == "control_change/master_tempo_lb":
             master_tempo_lb = data2
             master_tempo = (master_tempo_ub<<8 | master_tempo_lb)
+            status = "control_change/master_tempo"
             params = {
                 "channel":channel,
                 "type":"master_tempo",
