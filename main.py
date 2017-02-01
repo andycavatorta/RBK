@@ -154,9 +154,9 @@ try:
                         for signal in iterate_device_mapping:
                             if signal['function'] == "square_wave":
                                 if signal['variable_key'] is "duty_cycle":
-                                    signal['duty cycle'] = ((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/127)+signal['duty_min_max'][0])
+                                    signal['duty cycle'] = float((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/127)+signal['duty_min_max'][0])
                                 elif signal['variable_key'] is "frequency":
-                                    signal['frequency'] = ((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/127)+signal['freq_min_max'][0]) 
+                                    signal['frequency'] = float((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/127)+signal['freq_min_max'][0]) 
                             elif signal['function'] == "digital":
                                 if msg['params']['value'] < 64:
                                     signal['bool'] = 0
