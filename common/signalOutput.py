@@ -119,18 +119,18 @@ class Channel(threading.Thread):
 
     def pulse(self,pulselength):
         # print 'Pulse | length: ', pulselength
-        self.sendStateToFPGA(1,0)
         self.dutyCycle = 100.0
         self.sendStateToFPGA(0,1)
         time.sleep(pulselength)
         self.dutyCycle = 0.0
         self.sendStateToFPGA(0,1)
+        self.sendStateToFPGA(1,0)
 
     def digital(self,bool):
         # print "Digital | Bool: ", bool
-        self.sendStateToFPGA(1,0)
         self.dutyCycle = 100.0 if bool else 0.0
         self.sendStateToFPGA(0,1)
+        self.sendStateToFPGA(1,0)
 
     def squareWave(self,frequency,dutyCycle):
         # print 'Square Wave | frequency: %s, duty: %s' % (frequency, dutyCycle)
