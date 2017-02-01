@@ -223,6 +223,8 @@ def makePitch(midiNoteNumber, cents_int=0):
         'midi':midiNoteNumber
     }
 
+master_tempo_ub = 0
+
 def convert(devicename, status, channel, data1=None, data2=None):
     print devicename
     if "_general" in devicename:
@@ -242,8 +244,6 @@ def convert(devicename, status, channel, data1=None, data2=None):
     elif "_miscellaneous" in devicename:
         mapper = miscellaneousMap
 
-    master_tempo_ub = 0
-    master_tempo_lb = 0
     #### PARSE MIDI ####
     """
     if event[0] < 0xF0:
@@ -340,15 +340,20 @@ def convert(devicename, status, channel, data1=None, data2=None):
     if status =="control_change":
         status = "control_change/%s" % (ccMap[int(data1[0])])
         if status == "control_change/master_tempo_ub":
-            master_tempo_ub = "{0:#b}".format(data2)
+            global master_tempo_ub
+            master_tempo_ub = '{0:06b}'.format(data2)
+            print master_tempo_ub
         elif status == "control_change/master_tempo_lb":
-            master_tempo_lb = "{0:#b}".format(data2)
-            master_tempo = (master_tempo_ub<<7 | master_tempo_lb)
+            print master_tempo_ub
+            master_tempo_lb = '{0:06b}'.format(data2)
+            print master_tempo_lb
+            master_tempo = "%s%s" % (master_tempo_ub,master_tempo_lb)
+            print master_tempo
             status = "control_change/master_tempo"
             params = {
                 "channel":channel,
                 "type":"master_tempo",
-                "value": int(master_tempo)
+                "value": int(master_tempo,2)
             }
         else:
             params = {
