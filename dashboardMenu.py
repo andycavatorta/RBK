@@ -20,8 +20,7 @@ class Dashboard(threading.Thread):
       "s":self.signal_generator,
       "p":self.performance_mode,
       "o":self.raw_osc,
-      "l":self.live_mode,
-      "k":self.kill_sop
+      "l":self.live_mode
     }
     self.goodValue = False
     while True: 
@@ -33,7 +32,6 @@ class Dashboard(threading.Thread):
       self.display("  p - Performance Mode\n")
       self.display("  o - Raw Osc Msgs\n")
       self.display("  l - Live Mode\n")
-      self.display("  k - Kill Signal Generator\n")
       self.input = sys.stdin.readline()
       try:
         self.fmap[self.input[:-1]]()
@@ -50,10 +48,6 @@ class Dashboard(threading.Thread):
       except Exception as e:
         print e
         self.goodValue = True
-
-  def kill_sop(self):
-    sop.process1.join()
-    sop.process2.join()
 
   def performance_mode(self):
     self.goodValue = False
