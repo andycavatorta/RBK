@@ -145,7 +145,6 @@ class Channel(threading.Thread):
     def sendStateToFPGA(self, freq_b, ds_b):
         channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
         if freq_b:
-            print self.freq
             modeSelector_bin_str = "0"
             osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1]
             x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
