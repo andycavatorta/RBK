@@ -166,7 +166,7 @@ class Channel_Process(multiprocessing.Process):
                     # print "After conversion: ", (self.dutyCycle*0.64)+0.5
                     # print "Integer: ", int((self.dutyCycle*0.64)+0.5)
                     # print "Binary sent: ", dutyCycle_bin_str
-                    padding_bin_str = "00000000000"
+                    padding_bin_str = "000000000000"
                     x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
 
             def enqueue(self, params):
