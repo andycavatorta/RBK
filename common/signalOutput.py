@@ -119,19 +119,19 @@ class Channel(threading.Thread):
 
     def pulse(self,pulselength):
         # print 'Pulse | length: ', pulselength
+        self.freq = FREQ_DIGITAL_DEFAULT
         self.dutyCycle = 100.0
         self.sendStateToFPGA(0,1)
         time.sleep(pulselength)
         self.dutyCycle = 0.0
         self.sendStateToFPGA(0,1)
-        self.freq = FREQ_DIGITAL_DEFAULT
         self.sendStateToFPGA(1,0)
 
     def digital(self,bool):
         # print "Digital | Bool: ", bool
+        self.freq = FREQ_DIGITAL_DEFAULT
         self.dutyCycle = 100.0 if bool else 0.0
         self.sendStateToFPGA(0,1)
-        self.freq = FREQ_DIGITAL_DEFAULT
         self.sendStateToFPGA(1,0)
 
 
@@ -147,6 +147,7 @@ class Channel(threading.Thread):
     def sendStateToFPGA(self, freq_b, ds_b):
         channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
         if freq_b:
+            print self.freq
             modeSelector_bin_str = "0"
             osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1]
             x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
