@@ -52,8 +52,8 @@ class Dashboard(threading.Thread):
         self.goodValue = True
 
   def kill_sop(self):
-    sop.join()
-    self.menu_dashboard()
+    sop.process1.join()
+    sop.process2.join()
 
   def performance_mode(self):
     self.goodValue = False
