@@ -52,6 +52,10 @@ mapping = {
         ("signal", {"channel":2, "function": "square_wave", "frequency":0, "duty cycle":50.0, "freq_min_max":(2,22), "duty_min_max":(0,100), "variable_key":"frequency"})
     ),
 
+    "_general/control_change/master_tempo":(
+        ("signal", {"channel":2, "function": "square_wave", "frequency":0, "duty cycle":50.0, "freq_min_max":(2,22), "duty_min_max":(0,100), "variable_key":"frequency"})
+    ),
+
 
     ##### SYSTEM ######
 

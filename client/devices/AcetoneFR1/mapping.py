@@ -97,4 +97,8 @@ mapping = {
         ("signal", {"channel":02, "function": "square_wave", "frequency":0, "duty cycle":50.0, "freq_min_max":(9,40), "duty_min_max":(1,1), "variable_key":"frequency"})
     ),
 
+    "_general/control_change/master_tempo":(
+        ("signal", {"channel":02, "function": "square_wave", "frequency":0, "duty cycle":50.0, "freq_min_max":(9,40), "duty_min_max":(1,1), "variable_key":"frequency"})
+    ),
+
 }
