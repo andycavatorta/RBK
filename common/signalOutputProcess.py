@@ -212,6 +212,10 @@ def init():
     process2.start()
     process2.menuChannel()
 
+def join():
+    process1.join()
+    process2.join()
+
 
 if __name__ == '__main__':
     a,b = Pipe()
