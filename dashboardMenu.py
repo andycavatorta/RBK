@@ -53,7 +53,7 @@ class Dashboard(threading.Thread):
 
   def kill_sop(self):
     sop.join()
-    break
+    self.menu_dashboard()
 
   def performance_mode(self):
     self.goodValue = False
