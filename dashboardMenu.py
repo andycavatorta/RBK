@@ -52,6 +52,7 @@ class Dashboard(threading.Thread):
         self.goodValue = True
 
   def kill_sop(self):
+    print 'here'
     sop.join()
 
   def performance_mode(self):
