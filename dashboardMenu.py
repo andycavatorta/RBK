@@ -33,7 +33,7 @@ class Dashboard(threading.Thread):
       self.display("  p - Performance Mode\n")
       self.display("  o - Raw Osc Msgs\n")
       self.display("  l - Live Mode\n")
-      self.display("  k - Kill Signal Generator")
+      self.display("  k - Kill Signal Generator\n")
       self.input = sys.stdin.readline()
       try:
         self.fmap[self.input[:-1]]()
