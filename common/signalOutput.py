@@ -78,8 +78,6 @@ class Channel_Process(multiprocessing.Process):
         self.channels = None
 
     def run(self):
-        pass   
-
 
         class Channel(threading.Thread):
             def __init__(self,channel):
@@ -192,7 +190,7 @@ class Channel_Process(multiprocessing.Process):
                 for ch in self.channels_l:
                     states.append(ch.getState())
                 return states
-    self.channels = Channels()
+        self.channels = Channels()
 
 process = Channel_Process()
 process.start()
