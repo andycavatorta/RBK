@@ -126,7 +126,7 @@ try:
         import blinkip
         import mapping  # host-specific mapping
         import midiOutput
-        import signalOutput
+        import signalOutput as signal_output
         # signal_output = signalOutput.Channels()
         midi_output = midiOutput.Midi_Output()
         def osc_handler(msg):
