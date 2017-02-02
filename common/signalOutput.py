@@ -195,4 +195,4 @@ class Channel_Process(multiprocessing.Process):
 
 
 process = Channel_Process()
-channels = process.start()
+tchan = process.start()
