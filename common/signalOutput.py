@@ -115,7 +115,6 @@ class Channel_Process(multiprocessing.Process):
                         if self.lowFreqSineActive:
                             if self.lowFreqSineToggle:
                                 if self.lowFreqSineDutyCycle > 0:
-                                    print "calling digital"
                                     self.digital(True)
                                 time.sleep(self.lowFreqSinePeriod * (self.lowFreqSineDutyCycle/100.0))
                                 # self.lowFreqSineActive = False
@@ -165,7 +164,6 @@ class Channel_Process(multiprocessing.Process):
                     x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
 
             def enqueue(self, params):
-                print "enqueue do canal"
                 self.params = params
                 self.queue.append(self.params)
 
@@ -188,7 +186,6 @@ class Channel_Process(multiprocessing.Process):
                     ch.start()
 
             def enqueue(self,receivedData):
-                print "enqueue: ", receivedData
                 self.receivedData = receivedData
                 self.channels_l[self.receivedData["channel"]].enqueue(self.receivedData)
 
