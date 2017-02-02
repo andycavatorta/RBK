@@ -60,6 +60,7 @@ import time
 import x24bitParallelPort
 import os
 import signalGeneratorCommandLine as sgcl
+import multiprocessing
 
 
 FREQ_DIGITAL_DEFAULT = 10000.0 # Hz
