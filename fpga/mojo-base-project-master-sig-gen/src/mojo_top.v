@@ -81,7 +81,7 @@ wire clk_div;
 clock_divider clock_divider_instance(clk,clk_div);
 
 // bit widths for data types
-parameter pwmBitWidth = 5;
+parameter pwmBitWidth = 6;
 parameter oscBitWidth = 16;
 parameter channelBitWidth = 4;
 
@@ -212,6 +212,7 @@ begin
 		incoming_pwm_reg[3] <= parallel_in[14];
 		incoming_pwm_reg[4] <= parallel_in[13];
 		incoming_pwm_reg[5] <= parallel_in[12];
+		incoming_pwm_reg[6] <= parallel_in[11];
 		end
 end
 

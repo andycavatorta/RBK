@@ -131,7 +131,7 @@ Elaborating module <pwm_osc>.
 
 Synthesizing Unit <mojo_top>.
     Related source file is "/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/src/mojo_top.v".
-        pwmBitWidth = 5
+        pwmBitWidth = 6
         oscBitWidth = 16
         channelBitWidth = 4
 WARNING:Xst:647 - Input <cclk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -141,54 +141,54 @@ WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and
 WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 17-bit register for signal <incoming_osc_reg>.
-    Found 6-bit register for signal <incoming_pwm_reg>.
-    Found 6-bit register for signal <channel_23_pwm_reg>.
+    Found 7-bit register for signal <incoming_pwm_reg>.
+    Found 7-bit register for signal <channel_23_pwm_reg>.
     Found 17-bit register for signal <channel_23_osc_reg>.
-    Found 6-bit register for signal <channel_22_pwm_reg>.
+    Found 7-bit register for signal <channel_22_pwm_reg>.
     Found 17-bit register for signal <channel_22_osc_reg>.
-    Found 6-bit register for signal <channel_21_pwm_reg>.
+    Found 7-bit register for signal <channel_21_pwm_reg>.
     Found 17-bit register for signal <channel_21_osc_reg>.
-    Found 6-bit register for signal <channel_20_pwm_reg>.
+    Found 7-bit register for signal <channel_20_pwm_reg>.
     Found 17-bit register for signal <channel_20_osc_reg>.
-    Found 6-bit register for signal <channel_19_pwm_reg>.
+    Found 7-bit register for signal <channel_19_pwm_reg>.
     Found 17-bit register for signal <channel_19_osc_reg>.
-    Found 6-bit register for signal <channel_18_pwm_reg>.
+    Found 7-bit register for signal <channel_18_pwm_reg>.
     Found 17-bit register for signal <channel_18_osc_reg>.
-    Found 6-bit register for signal <channel_17_pwm_reg>.
+    Found 7-bit register for signal <channel_17_pwm_reg>.
     Found 17-bit register for signal <channel_17_osc_reg>.
-    Found 6-bit register for signal <channel_16_pwm_reg>.
+    Found 7-bit register for signal <channel_16_pwm_reg>.
     Found 17-bit register for signal <channel_16_osc_reg>.
-    Found 6-bit register for signal <channel_15_pwm_reg>.
+    Found 7-bit register for signal <channel_15_pwm_reg>.
     Found 17-bit register for signal <channel_15_osc_reg>.
-    Found 6-bit register for signal <channel_14_pwm_reg>.
+    Found 7-bit register for signal <channel_14_pwm_reg>.
     Found 17-bit register for signal <channel_14_osc_reg>.
-    Found 6-bit register for signal <channel_13_pwm_reg>.
+    Found 7-bit register for signal <channel_13_pwm_reg>.
     Found 17-bit register for signal <channel_13_osc_reg>.
-    Found 6-bit register for signal <channel_12_pwm_reg>.
+    Found 7-bit register for signal <channel_12_pwm_reg>.
     Found 17-bit register for signal <channel_12_osc_reg>.
-    Found 6-bit register for signal <channel_11_pwm_reg>.
+    Found 7-bit register for signal <channel_11_pwm_reg>.
     Found 17-bit register for signal <channel_11_osc_reg>.
-    Found 6-bit register for signal <channel_10_pwm_reg>.
+    Found 7-bit register for signal <channel_10_pwm_reg>.
     Found 17-bit register for signal <channel_10_osc_reg>.
-    Found 6-bit register for signal <channel_09_pwm_reg>.
+    Found 7-bit register for signal <channel_09_pwm_reg>.
     Found 17-bit register for signal <channel_09_osc_reg>.
-    Found 6-bit register for signal <channel_08_pwm_reg>.
+    Found 7-bit register for signal <channel_08_pwm_reg>.
     Found 17-bit register for signal <channel_08_osc_reg>.
-    Found 6-bit register for signal <channel_07_pwm_reg>.
+    Found 7-bit register for signal <channel_07_pwm_reg>.
     Found 17-bit register for signal <channel_07_osc_reg>.
-    Found 6-bit register for signal <channel_06_pwm_reg>.
+    Found 7-bit register for signal <channel_06_pwm_reg>.
     Found 17-bit register for signal <channel_06_osc_reg>.
-    Found 6-bit register for signal <channel_05_pwm_reg>.
+    Found 7-bit register for signal <channel_05_pwm_reg>.
     Found 17-bit register for signal <channel_05_osc_reg>.
-    Found 6-bit register for signal <channel_04_pwm_reg>.
+    Found 7-bit register for signal <channel_04_pwm_reg>.
     Found 17-bit register for signal <channel_04_osc_reg>.
-    Found 6-bit register for signal <channel_03_pwm_reg>.
+    Found 7-bit register for signal <channel_03_pwm_reg>.
     Found 17-bit register for signal <channel_03_osc_reg>.
-    Found 6-bit register for signal <channel_02_pwm_reg>.
+    Found 7-bit register for signal <channel_02_pwm_reg>.
     Found 17-bit register for signal <channel_02_osc_reg>.
-    Found 6-bit register for signal <channel_01_pwm_reg>.
+    Found 7-bit register for signal <channel_01_pwm_reg>.
     Found 17-bit register for signal <channel_01_osc_reg>.
-    Found 6-bit register for signal <channel_00_pwm_reg>.
+    Found 7-bit register for signal <channel_00_pwm_reg>.
     Found 17-bit register for signal <channel_00_osc_reg>.
     Found 5-bit register for signal <incoming_channel_reg>.
     Found 1-bit tristate buffer for signal <spi_miso> created at line 68
@@ -200,7 +200,7 @@ WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved
     Found 1-bit tristate buffer for signal <led<5>> created at line 95
     Found 1-bit tristate buffer for signal <led<6>> created at line 96
     Summary:
-	inferred 580 D-type flip-flop(s).
+	inferred 605 D-type flip-flop(s).
 	inferred   8 Tristate(s).
 Unit <mojo_top> synthesized.
 
@@ -221,9 +221,9 @@ Synthesizing Unit <pwm_osc>.
     Found 1-bit register for signal <squareWaveOut_reg>.
     Found 17-bit register for signal <osc_counter>.
     Found 17-bit adder for signal <osc_counter[16]_GND_11_o_add_2_OUT> created at line 13.
-    Found 17x6-bit multiplier for signal <n0016> created at line 14.
+    Found 17x7-bit multiplier for signal <n0016> created at line 14.
     Found 17-bit comparator greater for signal <n0000> created at line 13
-    Found 17-bit comparator greater for signal <osc_reg[16]_INV_1_o> created at line 14
+    Found 18-bit comparator greater for signal <osc_reg[16]_INV_1_o> created at line 14
     Summary:
 	inferred   1 Multiplier(s).
 	inferred   1 Adder/Subtractor(s).
@@ -236,7 +236,7 @@ HDL Synthesis Report
 
 Macro Statistics
 # Multipliers                                          : 24
- 17x6-bit multiplier                                   : 24
+ 17x7-bit multiplier                                   : 24
 # Adders/Subtractors                                   : 25
  17-bit adder                                          : 24
  6-bit adder                                           : 1
@@ -244,9 +244,11 @@ Macro Statistics
  1-bit register                                        : 24
  17-bit register                                       : 49
  5-bit register                                        : 1
- 6-bit register                                        : 26
+ 6-bit register                                        : 1
+ 7-bit register                                        : 25
 # Comparators                                          : 50
- 17-bit comparator greater                             : 48
+ 17-bit comparator greater                             : 24
+ 18-bit comparator greater                             : 24
  6-bit comparator greater                              : 2
 # Tristates                                            : 8
  1-bit tristate buffer                                 : 8
@@ -271,14 +273,15 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # Multipliers                                          : 24
- 17x6-bit multiplier                                   : 24
+ 17x7-bit multiplier                                   : 24
 # Counters                                             : 25
  17-bit up counter                                     : 24
  6-bit up counter                                      : 1
-# Registers                                            : 604
- Flip-Flops                                            : 604
+# Registers                                            : 629
+ Flip-Flops                                            : 629
 # Comparators                                          : 50
- 17-bit comparator greater                             : 48
+ 17-bit comparator greater                             : 24
+ 18-bit comparator greater                             : 24
  6-bit comparator greater                              : 2
 
 =========================================================================
@@ -291,7 +294,7 @@ Optimizing unit <mojo_top> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 53.
+Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 59.
 FlipFlop incoming_channel_reg_0 has been replicated 3 time(s)
 INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_0 connected to a primary input has been replicated
 FlipFlop incoming_channel_reg_1 has been replicated 3 time(s)
@@ -314,8 +317,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 938
- Flip-Flops                                            : 938
+# Registers                                            : 947
+ Flip-Flops                                            : 947
 
 =========================================================================
 
@@ -338,21 +341,21 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 5986
+# BELS                             : 6514
 #      GND                         : 1
 #      INV                         : 41
-#      LUT1                        : 416
-#      LUT2                        : 1186
-#      LUT3                        : 34
-#      LUT4                        : 1121
+#      LUT1                        : 440
+#      LUT2                        : 1178
+#      LUT3                        : 186
+#      LUT4                        : 1129
 #      LUT5                        : 17
-#      LUT6                        : 457
-#      MUXCY                       : 1600
+#      LUT6                        : 465
+#      MUXCY                       : 1768
 #      VCC                         : 1
-#      XORCY                       : 1112
-# FlipFlops/Latches                : 938
+#      XORCY                       : 1288
+# FlipFlops/Latches                : 947
 #      FD                          : 453
-#      FDE                         : 479
+#      FDE                         : 488
 #      FDR                         : 6
 # Clock Buffers                    : 3
 #      BUFG                        : 2
@@ -371,15 +374,15 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             933  out of  11440     8%  
- Number of Slice LUTs:                 3272  out of   5720    57%  
-    Number used as Logic:              3272  out of   5720    57%  
+ Number of Slice Registers:             942  out of  11440     8%  
+ Number of Slice LUTs:                 3456  out of   5720    60%  
+    Number used as Logic:              3456  out of   5720    60%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3351
-   Number with an unused Flip Flop:    2418  out of   3351    72%  
-   Number with an unused LUT:            79  out of   3351     2%  
-   Number of fully used LUT-FF pairs:   854  out of   3351    25%  
+ Number of LUT Flip Flop pairs used:   3536
+   Number with an unused Flip Flop:    2594  out of   3536    73%  
+   Number with an unused LUT:            80  out of   3536     2%  
+   Number of fully used LUT-FF pairs:   862  out of   3536    24%  
    Number of unique control sets:        23
 
 IO Utilization: 
@@ -412,7 +415,7 @@ Clock Information:
 -----------------------------------+--------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                | Load  |
 -----------------------------------+--------------------------------------+-------+
-parallel_in<0>                     | IBUF+BUFG                            | 516   |
+parallel_in<0>                     | IBUF+BUFG                            | 525   |
 clk_div(clk_div1:O)                | BUFG(*)(pwm_osc_23/squareWaveOut_reg)| 432   |
 clk                                | BUFGP                                | 6     |
 -----------------------------------+--------------------------------------+-------+
@@ -429,7 +432,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 3.800ns (Maximum Frequency: 263.158MHz)
-   Minimum input arrival time before clock: 4.002ns
+   Minimum input arrival time before clock: 4.036ns
    Maximum output required time after clock: 4.118ns
    Maximum combinational path delay: 4.921ns
 
@@ -439,8 +442,8 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'parallel_in<0>'
-  Clock period: 3.570ns (frequency: 280.143MHz)
-  Total number of paths / destination ports: 3720 / 1312
+  Clock period: 3.570ns (frequency: 280.104MHz)
+  Total number of paths / destination ports: 3792 / 1344
 -------------------------------------------------------------------------
 Delay:               3.570ns (Levels of Logic = 1)
   Source:            incoming_channel_reg_1 (FF)
@@ -452,9 +455,9 @@ Delay:               3.570ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q             336   0.525   2.717  incoming_channel_reg_1 (incoming_channel_reg_1)
-     LUT6:I2->O            1   0.254   0.000  channel_06_osc_reg_0_dpot (channel_06_osc_reg_0_dpot)
-     FDE:D                     0.074          channel_06_osc_reg_0
+     FD:C->Q             341   0.525   2.717  incoming_channel_reg_1 (incoming_channel_reg_1)
+     LUT6:I2->O            1   0.254   0.000  channel_18_pwm_reg_0_dpot (channel_18_pwm_reg_0_dpot)
+     FDE:D                     0.074          channel_18_pwm_reg_0
     ----------------------------------------
     Total                      3.570ns (0.853ns logic, 2.717ns route)
                                        (23.9% logic, 76.1% route)
@@ -515,9 +518,9 @@ Delay:               2.983ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'parallel_in<0>'
-  Total number of paths / destination ports: 67 / 67
+  Total number of paths / destination ports: 69 / 69
 -------------------------------------------------------------------------
-Offset:              4.002ns (Levels of Logic = 2)
+Offset:              4.036ns (Levels of Logic = 2)
   Source:            parallel_in<23> (PAD)
   Destination:       incoming_osc_reg_0 (FF)
   Destination Clock: parallel_in<0> rising
@@ -526,12 +529,12 @@ Offset:              4.002ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             7   1.328   0.909  parallel_in_23_IBUF (parallel_in_23_IBUF)
+     IBUF:I->O             8   1.328   0.943  parallel_in_23_IBUF (parallel_in_23_IBUF)
      INV:I->O             17   0.255   1.208  parallel_in<23>_inv1_INV_0 (parallel_in<23>_inv)
      FDE:CE                    0.302          incoming_osc_reg_0
     ----------------------------------------
-    Total                      4.002ns (1.885ns logic, 2.117ns route)
-                                       (47.1% logic, 52.9% route)
+    Total                      4.036ns (1.885ns logic, 2.151ns route)
+                                       (46.7% logic, 53.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'parallel_in<0>'
@@ -608,7 +611,7 @@ Clock to Setup on destination clock clk_div
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
 clk_div        |    3.800|         |         |         |
-parallel_in<0> |    8.057|         |         |         |
+parallel_in<0> |    8.059|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock parallel_in<0>
@@ -622,13 +625,13 @@ parallel_in<0> |    3.570|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.32 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.71 secs
  
 --> 
 
 
-Total memory usage is 424760 kilobytes
+Total memory usage is 420260 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    6 (   0 filtered)

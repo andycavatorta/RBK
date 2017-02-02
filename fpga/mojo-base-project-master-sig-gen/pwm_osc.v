@@ -2,7 +2,7 @@
 
 module pwm_osc(
   input clk_div,
-  input [5:0] pwm_reg,
+  input [6:0] pwm_reg,
   input [16:0] osc_reg,
   output pwm_osc_out
 );
