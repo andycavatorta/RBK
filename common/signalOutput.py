@@ -61,6 +61,7 @@ import x24bitParallelPort
 import os
 import signalGeneratorCommandLine as sgcl
 import multiprocessing
+from multiprocessing import Pipe
 
 
 FREQ_DIGITAL_DEFAULT = 10000.0 # Hz
@@ -73,17 +74,17 @@ FREQ_MIN = 1.0 # Hz
 FREQ_MAX = 735200.0 # Hz
 
 class Channel_Process(multiprocessing.Process):
-    def __init__(self):
-        multiprocessing.Process.__init__(self)
-        self.channels = None 
+    def __init__(self,conn):
+        multiprocessing.Process.__init__(self) 
+        self.conn = conn
 
     def run(self):
-        self.channels = self.init()
+        pass    
 
-    def init(self):
         class Channel(threading.Thread):
-            def __init__(self,channel):
+            def __init__(self,channel,conn):
                 threading.Thread.__init__(self) 
+                self.conn = conn
                 self.channel = channel
                 self.freq = float(FREQ_DIGITAL_DEFAULT)
                 self.dutyCycle = 0.0
@@ -94,7 +95,6 @@ class Channel_Process(multiprocessing.Process):
                 self.lowFreqSineActive = False
                 
             def run(self):
-                self.sendStateToFPGA(1,0)
                 while True:
                     if len(self.queue) > 0:
                         params = self.queue.pop(0)
@@ -102,7 +102,7 @@ class Channel_Process(multiprocessing.Process):
                             self.pulse(params["pulselength"])
                         if params["function"] == "digital":
                             self.digital(params["bool"])
-                        if params["function"] == "square_wave":
+                        if params["function"] == "square wave":
                             if params["frequency"] >= 22.5:
                                 self.lowFreqSineActive = False
                                 self.squareWave(params["frequency"],params["duty cycle"])
@@ -121,14 +121,14 @@ class Channel_Process(multiprocessing.Process):
                             else:
                                 if self.lowFreqSineDutyCycle < 100:
                                     self.digital(False)
-                                time.sleep(self.lowFreqSinePeriod * ( 1 - (self.lowFreqSineDutyCycle/100.0) ) )
+                                time.sleep(self.lowFreqSinePeriod * ( 1- (self.lowFreqSineDutyCycle/100.0) ) )
                                 # self.lowFreqSineActive = False
                             self.lowFreqSineToggle = not self.lowFreqSineToggle
                         else:
                             time.sleep(0.01)
 
             def pulse(self,pulselength):
-                # print 'Pulse | length: ', pulselength
+                # print 'executing pulse'
                 self.dutyCycle = 100.0
                 self.sendStateToFPGA(0,1)
                 time.sleep(pulselength)
@@ -137,48 +137,57 @@ class Channel_Process(multiprocessing.Process):
                 self.sendStateToFPGA(1,0)
 
             def digital(self,bool):
-                # print "Digital | Bool: ", bool
+                # print 'executing digital'
                 self.dutyCycle = 100.0 if bool else 0.0
                 self.sendStateToFPGA(0,1)
-                # self.sendStateToFPGA(1,0)
-
+                self.sendStateToFPGA(1,0)
 
             def squareWave(self,frequency,dutyCycle):
-                print 'Square Wave | frequency: %s, duty: %s' % (frequency, dutyCycle)
+                # print 'executing square wave'
                 if self.dutyCycle != dutyCycle:
                     self.dutyCycle = float(dutyCycle)
                     self.sendStateToFPGA(0,1)    
-                # if self.freq != frequency:
-                self.freq = float(frequency)
-                self.sendStateToFPGA(1,0) 
+                if self.freq != frequency:
+                    self.freq = float(frequency)
+                    self.sendStateToFPGA(1,0)
+    
 
             def sendStateToFPGA(self, freq_b, ds_b):
                 channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
                 if freq_b:
                     modeSelector_bin_str = "0"
                     osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1]
-                    # print "channel: %s | freq: %s " % (self.channel, self.freq)
-                    x24bitParallelPort.send(list("%s%s%s0" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
+                    x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
                 if ds_b:
                     modeSelector_bin_str = "1"
                     # dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int(max(0,int(self.dutyCycle*0.32)-1)))[::-1]
                     dutyCycle_bin_str = "1111111" if self.dutyCycle > 99 else '{0:07b}'.format(int((self.dutyCycle*0.64)+0.5))[::-1]
+                    # print "Input: ", self.dutyCycle
+                    # print "After conversion: ", (self.dutyCycle*0.64)+0.5
+                    # print "Integer: ", int((self.dutyCycle*0.64)+0.5)
+                    # print "Binary sent: ", dutyCycle_bin_str
                     padding_bin_str = "00000000000"
-                    # print "channel: %s | duty: %s " % (self.channel, self.dutyCycle)
                     x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
 
             def enqueue(self, params):
-                print "HERE!!!"
                 self.params = params
                 self.queue.append(self.params)
 
             def getState(self):
                 return [self.freq, self.dutyCycle]
                 
+        class getData():
+            def __init__(self,conn):
+                self.conn = conn
+                while True:
+                    self.receivedData = self.conn.recv()
+                    channels.enqueue(self.receivedData)
+
 
         class Channels():
-            def __init__(self):
-                self.channels_l = [ Channel(x) for x in range(24) ]
+            def __init__(self,conn):
+                self.conn = conn
+                self.channels_l = [ Channel(x,self.conn) for x in range(24) ]
                 for ch in self.channels_l:
                     ch.start()
 
@@ -192,12 +201,11 @@ class Channel_Process(multiprocessing.Process):
                     states.append(ch.getState())
                 return states
 
-        channels = Channels()
-        return channels
+        channels = Channels(self.conn)
+        getdata = getData(self.conn)
 
-
-
-
-process = Channel_Process()
-process.start()
-print process.channels
+def init():
+    a,b = Pipe()
+    process = Channel_Process(a)
+    process1.start()
+    return b

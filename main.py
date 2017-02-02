@@ -127,6 +127,7 @@ try:
         import mapping  # host-specific mapping
         import midiOutput
         import signalOutput as signal_output
+        conn = signal_output.init()
         # signal_output = signalOutput.Channels()
         midi_output = midiOutput.Midi_Output()
         def osc_handler(msg):
@@ -143,7 +144,8 @@ try:
                         iterate_device_mapping = iter(device_mapping)
                         next(iterate_device_mapping)
                         for signal in iterate_device_mapping:
-                            signal_output.channels.enqueue(signal)
+                            # signal_output.process.channels.enqueue(signal)
+                            conn.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal)) #%s,%s,%s % (msg['params'], device_mapping[1]['status'], device_mapping[1]['channel'], device_mapping[1]['pitch']))
                 elif category[2] == "control_change":
                     if device_mapping[0] == "MIDI":
@@ -168,7 +170,8 @@ try:
                                 else:
                                     signal['bool'] = 1
                             print "antes do process"
-                            signal_output.channels.enqueue(signal)
+                            # signal_output.process.channels.enqueue(signal)
+                            conn.send(signal)
                             print "depois do process"
                             collector.collect(device_mapping[0], "%s" % (signal))
             except Exception as e:
