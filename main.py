@@ -172,7 +172,7 @@ try:
                             print "depois do process"
                             collector.collect(device_mapping[0], "%s" % (signal))
             except Exception as e:
-                pass
+                print e
                 # traceback.print_exc()
                 # print "device: path not found", e
     else:
