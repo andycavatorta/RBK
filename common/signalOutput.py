@@ -178,7 +178,7 @@ class Channel_Process(multiprocessing.Process):
 
     class Channels():
         def __init__(self):
-            self.channels_l = [ Channel(x) for x in range(24) ]
+            self.channels_l = [ self.Channel(x) for x in range(24) ]
             for ch in self.channels_l:
                 ch.start()
 
