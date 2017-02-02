@@ -62,7 +62,7 @@ import os
 import signalGeneratorCommandLine as sgcl
 
 
-FREQ_DIGITAL_DEFAULT = 20000.0 # Hz
+FREQ_DIGITAL_DEFAULT = 10000.0 # Hz
 FPGA_CLOCK_SPEED_ORIG = 50000000 # Hz
 FPGA_CLOCK_DIVISION_FACTOR = 16
 MYSTERY_FACTOR = 0.94
@@ -138,9 +138,9 @@ class Channel(threading.Thread):
         if self.dutyCycle != dutyCycle:
             self.dutyCycle = float(dutyCycle)
             self.sendStateToFPGA(0,1)    
-        if self.freq != frequency:
-            self.freq = float(frequency)
-            self.sendStateToFPGA(1,0) 
+        # if self.freq != frequency:
+        self.freq = float(frequency)
+        self.sendStateToFPGA(1,0) 
 
     def sendStateToFPGA(self, freq_b, ds_b):
         channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
