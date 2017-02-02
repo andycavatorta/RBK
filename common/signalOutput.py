@@ -192,7 +192,8 @@ class Channel_Process(multiprocessing.Process):
                     states.append(ch.getState())
                 return states
 
-        return channels = Channels()
+        channels = Channels()
+        return channels
 
 
 
