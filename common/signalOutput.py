@@ -74,11 +74,10 @@ FREQ_MAX = 735200.0 # Hz
 
 class Channel_Process(multiprocessing.Process):
     def __init__(self):
-        multiprocessing.Process.__init__(self)
-        self.channels = None 
+        multiprocessing.Process.__init__(self) 
 
     def run(self):
-        self.channels = self.Channels()
+        pass
 
     class Channel(threading.Thread):
         def __init__(self,channel):
@@ -178,7 +177,7 @@ class Channel_Process(multiprocessing.Process):
 
     class Channels():
         def __init__(self):
-            self.channels_l = [ self.Channel(x) for x in range(24) ]
+            self.channels_l = [ Channel(x) for x in range(24) ]
             for ch in self.channels_l:
                 ch.start()
 
@@ -191,6 +190,7 @@ class Channel_Process(multiprocessing.Process):
             for ch in self.channels_l:
                 states.append(ch.getState())
             return states
+    channels = Channels()
 
 
 
