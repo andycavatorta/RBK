@@ -169,10 +169,8 @@ try:
                                     signal['bool'] = 0
                                 else:
                                     signal['bool'] = 1
-                            print "antes do process"
                             # signal_output.process.channels.enqueue(signal)
                             conn.send(signal)
-                            print "depois do process"
                             collector.collect(device_mapping[0], "%s" % (signal))
             except Exception as e:
                 print e

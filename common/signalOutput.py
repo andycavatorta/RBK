@@ -143,11 +143,11 @@ class Channel_Process(multiprocessing.Process):
                 self.sendStateToFPGA(1,0)
 
             def squareWave(self,frequency,dutyCycle):
-                # print 'executing square wave'
+                print 'executing square wave'
                 if self.dutyCycle != dutyCycle:
                     self.dutyCycle = float(dutyCycle)
                     self.sendStateToFPGA(0,1)    
-                if self.freq != frequency:
+                # if self.freq != frequency:
                     self.freq = float(frequency)
                     self.sendStateToFPGA(1,0)
     
@@ -192,6 +192,7 @@ class Channel_Process(multiprocessing.Process):
                     ch.start()
 
             def enqueue(self,receivedData):
+                print "enqueue: ", receivedData
                 self.receivedData = receivedData
                 self.channels_l[self.receivedData["channel"]].enqueue(self.receivedData)
 
