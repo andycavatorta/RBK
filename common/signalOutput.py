@@ -192,7 +192,7 @@ class Channel_Process(multiprocessing.Process):
                 for ch in self.channels_l:
                     states.append(ch.getState())
                 return states
-        self.channels = Channels()
+    self.channels = Channels()
 
 process = Channel_Process()
 process.start()
