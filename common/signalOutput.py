@@ -78,7 +78,9 @@ class Channel_Process(multiprocessing.Process):
         self.channels = None 
 
     def run(self):
+        self.channels = self.init()
 
+    def init(self):
         class Channel(threading.Thread):
             def __init__(self,channel):
                 threading.Thread.__init__(self) 
@@ -174,7 +176,6 @@ class Channel_Process(multiprocessing.Process):
                 return [self.freq, self.dutyCycle]
                 
 
-
         class Channels():
             def __init__(self):
                 self.channels_l = [ Channel(x) for x in range(24) ]
@@ -190,8 +191,9 @@ class Channel_Process(multiprocessing.Process):
                 for ch in self.channels_l:
                     states.append(ch.getState())
                 return states
-        self.channels = Channels()
-        print self.channels
+
+        return channels = Channels()
+
 
 
 
