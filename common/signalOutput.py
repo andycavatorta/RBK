@@ -170,6 +170,7 @@ class Channel_Process(multiprocessing.Process):
                     x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
 
             def enqueue(self, params):
+                print "enqueue do canal"
                 self.params = params
                 self.queue.append(self.params)
 
