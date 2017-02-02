@@ -101,4 +101,3 @@ for device in deviceNames:
 
 
 virtualPorts = map(createVirtualPort, instrumentNames)
-print virtualPorts

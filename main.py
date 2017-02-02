@@ -171,7 +171,7 @@ try:
                             signal_output.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal))
             except Exception as e:
-                print e
+                pass
                 # traceback.print_exc()
                 # print "device: path not found", e
     else:
