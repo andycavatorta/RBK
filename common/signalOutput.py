@@ -98,6 +98,7 @@ class Channel_Process(multiprocessing.Process):
                 while True:
                     if len(self.queue) > 0:
                         params = self.queue.pop(0)
+                        print params
                         if params["function"] == "pulse":
                             self.pulse(params["pulselength"])
                         if params["function"] == "digital":
