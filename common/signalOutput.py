@@ -191,9 +191,7 @@ class Channel_Process(multiprocessing.Process):
                     states.append(ch.getState())
                 return states
         self.channels = Channels()
-
-    def add_to_queue(self,data):
-        self.channels.enqueue(data)
+        print self.channels
 
 
 
