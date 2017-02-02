@@ -200,3 +200,4 @@ class Channel_Process(multiprocessing.Process):
 
 process = Channel_Process()
 process.start()
+print process.channels
