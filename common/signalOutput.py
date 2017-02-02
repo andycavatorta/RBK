@@ -98,7 +98,6 @@ class Channel_Process(multiprocessing.Process):
                 while True:
                     if len(self.queue) > 0:
                         params = self.queue.pop(0)
-                        print "AWUEAWEUWA", params
                         if params["function"] == "pulse":
                             self.pulse(params["pulselength"])
                         if params["function"] == "digital":
@@ -138,13 +137,12 @@ class Channel_Process(multiprocessing.Process):
                 self.sendStateToFPGA(1,0)
 
             def digital(self,bool):
-                # print 'executing digital'
+                print 'executing digital'
                 self.dutyCycle = 100.0 if bool else 0.0
                 self.sendStateToFPGA(0,1)
                 self.sendStateToFPGA(1,0)
 
             def squareWave(self,frequency,dutyCycle):
-                print 'executing square wave'
                 if self.dutyCycle != dutyCycle:
                     self.dutyCycle = float(dutyCycle)
                     self.sendStateToFPGA(0,1)    
@@ -163,7 +161,7 @@ class Channel_Process(multiprocessing.Process):
                     modeSelector_bin_str = "1"
                     # dutyCycle_bin_str = "000011" if self.dutyCycle > 99 else '{0:06b}'.format(int(max(0,int(self.dutyCycle*0.32)-1)))[::-1]
                     dutyCycle_bin_str = "1111111" if self.dutyCycle > 99 else '{0:07b}'.format(int((self.dutyCycle*0.64)+0.5))[::-1]
-                    # print "Input: ", self.dutyCycle
+                    print "Input: ", self.dutyCycle
                     # print "After conversion: ", (self.dutyCycle*0.64)+0.5
                     # print "Integer: ", int((self.dutyCycle*0.64)+0.5)
                     # print "Binary sent: ", dutyCycle_bin_str
