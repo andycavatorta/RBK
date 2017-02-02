@@ -207,5 +207,5 @@ class Channel_Process(multiprocessing.Process):
 def init():
     a,b = Pipe()
     process = Channel_Process(a)
-    process1.start()
+    process.start()
     return b
