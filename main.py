@@ -59,7 +59,7 @@ import time
 
 def pauseUntilstdout():
     while True:
-        if os.isatty(sys.stdout.fileno()):
+        if sys.stdin.isatty():
             print "terminal connected"
             break
         else:
