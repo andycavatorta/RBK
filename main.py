@@ -57,6 +57,16 @@ import network_info
 import sys
 import time
 
+def pauseUntilstdout():
+    while True:
+        if os.isatty(sys.stdin.fileno()):
+            print "terminal connected"
+            break
+        else:
+            print "waiting for terminal..."
+            time.sleep(1)
+
+pauseUntilstdout()
 
 def pauseUntilOnline():
     while True:
