@@ -54,6 +54,20 @@ print os.path.split(os.path.dirname(os.path.realpath(__file__)))
 
 import network_info
 
+import sys
+import time
+
+def pauseUntilstdout():
+    while True:
+        if sys.stdout.isatty():
+            print "terminal connected"
+            break
+        else:
+            print "waiting for terminal..."
+            time.sleep(1)
+
+pauseUntilstdout()
+
 def pauseUntilOnline():
     while True:
         if network_info.getOnlineStatus():
@@ -63,7 +77,7 @@ def pauseUntilOnline():
             print "waiting for connection..."
             time.sleep(1)
 
-pauseUntilOnline();
+pauseUntilOnline()
 
 try:
     # import local modules
