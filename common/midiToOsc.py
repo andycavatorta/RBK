@@ -223,7 +223,27 @@ def makePitch(midiNoteNumber, cents_int=0):
         'midi':midiNoteNumber
     }
 
-master_tempo_ub = 0
+def tempo_calculation(tempo_list):
+    tempo = "%s%s" % (tempo_list["upper_byte"],tempo_list["lower_byte"])
+    modifier = modifier_calculation(modifier_list)
+    master_tempo = int(tempo,2) * modifier
+    print "Tempo: %s | Modifier: %s | Master Tempo: %s" % (int(tempo,2), modifier, master_tempo)
+    return [float(master_tempo),modifier]
+
+def modifier_calculation(modifier_list):
+    tempo_modifier = modifier_list["numerator"]/modifier_list["denominator"]
+    print "Numerator: %s | Denominator: %s | Total: %s" % (modifier_list["numerator"],modifier_list["denominator"],tempo_modifier)
+    return float(tempo_modifier)
+
+tempo_list = {
+    "upper_byte": 0,
+    "lower_byte": 0
+}
+
+modifier_list = {
+    "numerator":1.0,
+    "denominator":1.0
+}
 
 def convert(devicename, status, channel, data1=None, data2=None):
     print devicename
@@ -243,6 +263,7 @@ def convert(devicename, status, channel, data1=None, data2=None):
         mapper = percussionMap
     elif "_miscellaneous" in devicename:
         mapper = miscellaneousMap
+
 
     #### PARSE MIDI ####
     """
@@ -269,6 +290,7 @@ def convert(devicename, status, channel, data1=None, data2=None):
     channel = str(channel)
     #data1 = str(data1)
     #data2 = str(data2)
+
     #### CREATE OSC ####
     params = {
         "channel":channel, 
@@ -340,16 +362,40 @@ def convert(devicename, status, channel, data1=None, data2=None):
     if status =="control_change":
         status = "control_change/%s" % (ccMap[int(data1[0])])
         if status == "control_change/master_tempo_ub":
-            global master_tempo_ub
             master_tempo_ub = '{0:06b}'.format(data2)
+            tempo_list["upper_byte"] = master_tempo_ub
         elif status == "control_change/master_tempo_lb":
             master_tempo_lb = '{0:06b}'.format(data2)
-            master_tempo = "%s%s" % (master_tempo_ub,master_tempo_lb)
+            tempo_list["lower_byte"] = master_tempo_lb
+            master_tempo = tempo_calculation(tempo_list)
             status = "control_change/master_tempo"
             params = {
                 "channel":channel,
-                "type":"master_tempo",
-                "value": int(master_tempo,2)
+                "type": "master_tempo",
+                "value": master_tempo[0],
+                "modifier": master_tempo[1]
+            }
+        elif status == "control_change/tempo_mod_numerator":
+            tempo_mod_numerator = int(data2)
+            modifier_list["numerator"] = tempo_mod_numerator
+            master_tempo = tempo_calculation(tempo_list)
+            status = "control_change/master_tempo"
+            params = {
+                "channel":channel,
+                "type": "master_tempo",
+                "value": master_tempo[0],
+                "modifier": master_tempo[1]
+            }
+        elif status == "control_change/tempo_mod_denominator":
+            tempo_mod_denominator = int(data2)
+            modifier_list["denominator"] = tempo_mod_denominator
+            master_tempo = tempo_calculation(tempo_list)
+            status = "control_change/master_tempo"
+            params = {
+                "channel":channel,
+                "type": "master_tempo",
+                "value": master_tempo[0],
+                "modifier": master_tempo[1]
             }
         else:
             params = {
