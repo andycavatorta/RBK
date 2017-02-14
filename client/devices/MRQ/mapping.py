@@ -25,7 +25,7 @@ mapping = {
     ),
 
     "_general/sound/snare_drum2/off":(
-        ("signal", {"channel":23, "function": "digital", "bool":1}, {"channel":13, "function": "digital", "bool":0  })
+        ("signal", {"channel":23, "function": "digital", "bool":1}, {"channel":13, "function": "digital", "bool":0})
     ),
 
     "_general/sound/high_woodblock/bang":(
@@ -40,9 +40,17 @@ mapping = {
         ("signal", {"channel":3, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":(30000,30000), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
-    "_general/control_change/start_stop":(
-        ("signal", {"channel":1, "function": "digital"})
+    # "_general/control_change/start_stop":(
+    #     ("signal", {"channel":1, "function": "digital"})
+    # ),
+    "_general/control_change/start":(
+        ("signal", {"channel":1, "function": "digital", "bool":1}, {"channel":19, "function": "digital", "bool":0})
     ),
+
+    "_general/control_change/stop":(
+        ("signal", {"channel":1, "function": "digital", "bool":0}, {"channel":19, "function": "digital", "bool":1})
+    ),
+
 
     "_general/control_change/int_ext":(
         ("signal", {"channel":0, "function": "digital"})

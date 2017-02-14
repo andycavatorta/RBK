@@ -138,6 +138,7 @@ try:
         midi_output = midiOutput.Midi_Output()
         def osc_handler(msg):
             scale_max = 127
+            scale_min = 0
             try:
                 category = msg['innerpath'].split('/')
                 new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
@@ -160,20 +161,22 @@ try:
                         iterate_device_mapping = iter(device_mapping)
                         next(iterate_device_mapping)
                         if category[3] == "master_tempo":
-                            scale_max = 16384 * msg['params']['modifier']
+                            scale_max = 999 * msg['params']['modifier']
+                            scale_min = 20 * msg['params']['modifier']
                         else:
                             scale_max = 127
                         for signal in iterate_device_mapping:
                             if signal['function'] == "square_wave":
                                 if signal['variable_key'] is "duty_cycle":
-                                    signal['duty cycle'] = float((msg['params']['value']*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/scale_max)+signal['duty_min_max'][0])
+                                    signal['duty cycle'] = float((msg['params']['value']-scale_min*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/scale_max-scale_min)+signal['duty_min_max'][0])
                                 elif signal['variable_key'] is "frequency":
                                     signal['frequency'] = float((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/scale_max)+signal['freq_min_max'][0]) 
                             elif signal['function'] == "digital":
-                                if msg['params']['value'] < 64:
-                                    signal['bool'] = 0
-                                else:
-                                    signal['bool'] = 1
+                                if "bool" not in signal:
+                                    if msg['params']['value'] < 64:
+                                        signal['bool'] = 0
+                                    else:
+                                        signal['bool'] = 1
                             signal_output.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal))
             except Exception as e:

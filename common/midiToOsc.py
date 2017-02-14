@@ -224,16 +224,21 @@ def makePitch(midiNoteNumber, cents_int=0):
     }
 
 def tempo_calculation(tempo_list):
-    tempo = "%s%s" % (tempo_list["upper_byte"],tempo_list["lower_byte"])
+    tempo_string = "%s%s" % (tempo_list["upper_byte"],tempo_list["lower_byte"])
+    tempo_int = int(tempo_string,2)
     modifier = modifier_calculation(modifier_list)
-    master_tempo = int(tempo,2) * modifier
-    print "Tempo: %s | Modifier: %s | Master Tempo: %s" % (int(tempo,2), modifier, master_tempo)
+    tempo_after_formula = tempo_int * 979/16383 + 20
+    master_tempo = tempo_after_formula * modifier
+    print "Tempo: %s | Modifier: %s | Master Tempo: %s" % (tempo_after_formula, modifier, master_tempo)
     return [float(master_tempo),modifier]
 
 def modifier_calculation(modifier_list):
-    tempo_modifier = modifier_list["numerator"]/modifier_list["denominator"]
+    tempo_string = "%s%s" % (modifier_list["numerator"],modifier_list["denominator"])
+    tempo_int = int(tempo_string,2)
+    print tempo_int
+    tempo_modifier = float(pow(tempo_int/16383.0, 4.322)*1999.95+0.05)
     print "Numerator: %s | Denominator: %s | Total: %s" % (modifier_list["numerator"],modifier_list["denominator"],tempo_modifier)
-    return float(tempo_modifier)
+    return float(tempo_modifier/100.0)
 
 tempo_list = {
     "upper_byte": 0,
@@ -241,8 +246,8 @@ tempo_list = {
 }
 
 modifier_list = {
-    "numerator":1.0,
-    "denominator":1.0
+    "numerator":1,
+    "denominator":1
 }
 
 def convert(devicename, status, channel, data1=None, data2=None):
@@ -362,10 +367,10 @@ def convert(devicename, status, channel, data1=None, data2=None):
     if status =="control_change":
         status = "control_change/%s" % (ccMap[int(data1[0])])
         if status == "control_change/master_tempo_ub":
-            master_tempo_ub = '{0:06b}'.format(data2)
+            master_tempo_ub = '{0:07b}'.format(data2)
             tempo_list["upper_byte"] = master_tempo_ub
         elif status == "control_change/master_tempo_lb":
-            master_tempo_lb = '{0:06b}'.format(data2)
+            master_tempo_lb = '{0:07b}'.format(data2)
             tempo_list["lower_byte"] = master_tempo_lb
             master_tempo = tempo_calculation(tempo_list)
             status = "control_change/master_tempo"
@@ -376,7 +381,8 @@ def convert(devicename, status, channel, data1=None, data2=None):
                 "modifier": master_tempo[1]
             }
         elif status == "control_change/tempo_mod_numerator":
-            tempo_mod_numerator = int(data2)
+            # tempo_mod_numerator = int(data2)
+            tempo_mod_numerator = '{0:07b}'.format(data2)
             modifier_list["numerator"] = tempo_mod_numerator
             master_tempo = tempo_calculation(tempo_list)
             status = "control_change/master_tempo"
@@ -387,7 +393,8 @@ def convert(devicename, status, channel, data1=None, data2=None):
                 "modifier": master_tempo[1]
             }
         elif status == "control_change/tempo_mod_denominator":
-            tempo_mod_denominator = int(data2)
+            # tempo_mod_denominator = int(data2)
+            tempo_mod_denominator = '{0:07b}'.format(data2)
             modifier_list["denominator"] = tempo_mod_denominator
             master_tempo = tempo_calculation(tempo_list)
             status = "control_change/master_tempo"
