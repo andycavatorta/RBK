@@ -175,8 +175,10 @@ try:
                                 if "bool" not in signal:
                                     if msg['params']['value'] < 64:
                                         if "inverse" in signal:
+                                            print "HERE"
                                             signal['bool'] = 1
                                         else:
+                                            print "THERE"
                                             signal['bool'] = 0
                                     else:
                                         if "inverse" in signal:
