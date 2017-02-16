@@ -173,6 +173,7 @@ try:
                                     signal['frequency'] = float((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/scale_max)+signal['freq_min_max'][0]) 
                             elif signal['function'] == "digital":
                                 if "bool" not in signal:
+                                    print "AQUI PORRA"
                                     if msg['params']['value'] < 64:
                                         signal['bool'] = 0
                                     else:
