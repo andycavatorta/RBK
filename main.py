@@ -173,13 +173,19 @@ try:
                                     signal['frequency'] = float((msg['params']['value']*(signal['freq_min_max'][1]-signal['freq_min_max'][0])/scale_max)+signal['freq_min_max'][0]) 
                             elif signal['function'] == "digital":
                                 if "bool" not in signal:
-                                    print "AQUI PORRA"
                                     if msg['params']['value'] < 64:
-                                        signal['bool'] = 0
+                                        if "inverse" in signal:
+                                            signal['bool'] = 1
+                                        else:
+                                            signal['bool'] = 0
                                     else:
-                                        signal['bool'] = 1
+                                        if "inverse" in signal:
+                                            signal['bool'] = 0
+                                        else:
+                                            signal['bool'] = 1
                             signal_output.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal))
+                            signal.pop('bool', None)
             except Exception as e:
                 pass
                 # traceback.print_exc()
