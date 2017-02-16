@@ -174,17 +174,9 @@ try:
                             elif signal['function'] == "digital":
                                 if "bool" not in signal:
                                     if msg['params']['value'] < 64:
-                                        if "inverse" in signal:
-                                            print "HERE"
-                                            signal['bool'] = 1
-                                        else:
-                                            print "THERE"
-                                            signal['bool'] = 0
+                                        signal['bool'] = 0
                                     else:
-                                        if "inverse" in signal:
-                                            signal['bool'] = 0
-                                        else:
-                                            signal['bool'] = 1
+                                        signal['bool'] = 1
                             signal_output.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal))
             except Exception as e:
