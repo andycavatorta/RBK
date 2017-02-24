@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: mojo_top.prj
@@ -221,11 +221,12 @@ Synthesizing Unit <pwm_osc>.
     Found 1-bit register for signal <squareWaveOut_reg>.
     Found 17-bit register for signal <osc_counter>.
     Found 17-bit adder for signal <osc_counter[16]_GND_11_o_add_2_OUT> created at line 13.
-    Found 17x7-bit multiplier for signal <n0016> created at line 14.
+    Found 17x3-bit multiplier for signal <osc_counter[16]_PWR_3_o_MuLt_6_OUT> created at line 14.
+    Found 17x7-bit multiplier for signal <n0018> created at line 14.
     Found 17-bit comparator greater for signal <n0000> created at line 13
-    Found 18-bit comparator greater for signal <osc_reg[16]_INV_1_o> created at line 14
+    Found 20-bit comparator greater for signal <GND_11_o_INV_1_o> created at line 14
     Summary:
-	inferred   1 Multiplier(s).
+	inferred   2 Multiplier(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred  18 D-type flip-flop(s).
 	inferred   2 Comparator(s).
@@ -235,7 +236,8 @@ Unit <pwm_osc> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Multipliers                                          : 24
+# Multipliers                                          : 48
+ 17x3-bit multiplier                                   : 24
  17x7-bit multiplier                                   : 24
 # Adders/Subtractors                                   : 25
  17-bit adder                                          : 24
@@ -248,7 +250,7 @@ Macro Statistics
  7-bit register                                        : 25
 # Comparators                                          : 50
  17-bit comparator greater                             : 24
- 18-bit comparator greater                             : 24
+ 20-bit comparator greater                             : 24
  6-bit comparator greater                              : 2
 # Tristates                                            : 8
  1-bit tristate buffer                                 : 8
@@ -272,7 +274,8 @@ Unit <pwm_osc> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Multipliers                                          : 24
+# Multipliers                                          : 48
+ 17x3-bit multiplier                                   : 24
  17x7-bit multiplier                                   : 24
 # Counters                                             : 25
  17-bit up counter                                     : 24
@@ -281,7 +284,7 @@ Macro Statistics
  Flip-Flops                                            : 629
 # Comparators                                          : 50
  17-bit comparator greater                             : 24
- 18-bit comparator greater                             : 24
+ 20-bit comparator greater                             : 24
  6-bit comparator greater                              : 2
 
 =========================================================================
@@ -294,16 +297,16 @@ Optimizing unit <mojo_top> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 59.
-FlipFlop incoming_channel_reg_0 has been replicated 3 time(s)
+Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 67.
+FlipFlop incoming_channel_reg_0 has been replicated 1 time(s)
 INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_0 connected to a primary input has been replicated
-FlipFlop incoming_channel_reg_1 has been replicated 3 time(s)
+FlipFlop incoming_channel_reg_1 has been replicated 1 time(s)
 INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_1 connected to a primary input has been replicated
 FlipFlop incoming_channel_reg_2 has been replicated 2 time(s)
 INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_2 connected to a primary input has been replicated
-FlipFlop incoming_channel_reg_3 has been replicated 2 time(s)
+FlipFlop incoming_channel_reg_3 has been replicated 1 time(s)
 INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_3 connected to a primary input has been replicated
-FlipFlop incoming_channel_reg_4 has been replicated 1 time(s)
+FlipFlop incoming_channel_reg_4 has been replicated 2 time(s)
 INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_4 connected to a primary input has been replicated
 FlipFlop incoming_channel_reg_4 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop incoming_channel_reg_3 has been replicated 1 time(s) to handle iob=true attribute.
@@ -317,8 +320,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 947
- Flip-Flops                                            : 947
+# Registers                                            : 943
+ Flip-Flops                                            : 943
 
 =========================================================================
 
@@ -341,20 +344,20 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 6514
+# BELS                             : 7684
 #      GND                         : 1
-#      INV                         : 41
-#      LUT1                        : 440
-#      LUT2                        : 1178
-#      LUT3                        : 186
-#      LUT4                        : 1129
-#      LUT5                        : 17
-#      LUT6                        : 465
-#      MUXCY                       : 1768
+#      INV                         : 38
+#      LUT1                        : 464
+#      LUT2                        : 1562
+#      LUT3                        : 138
+#      LUT4                        : 1153
+#      LUT5                        : 41
+#      LUT6                        : 414
+#      MUXCY                       : 2176
 #      VCC                         : 1
-#      XORCY                       : 1288
-# FlipFlops/Latches                : 947
-#      FD                          : 453
+#      XORCY                       : 1696
+# FlipFlops/Latches                : 943
+#      FD                          : 449
 #      FDE                         : 488
 #      FDR                         : 6
 # Clock Buffers                    : 3
@@ -374,15 +377,15 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             942  out of  11440     8%  
- Number of Slice LUTs:                 3456  out of   5720    60%  
-    Number used as Logic:              3456  out of   5720    60%  
+ Number of Slice Registers:             938  out of  11440     8%  
+ Number of Slice LUTs:                 3810  out of   5720    66%  
+    Number used as Logic:              3810  out of   5720    66%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3536
-   Number with an unused Flip Flop:    2594  out of   3536    73%  
-   Number with an unused LUT:            80  out of   3536     2%  
-   Number of fully used LUT-FF pairs:   862  out of   3536    24%  
+ Number of LUT Flip Flop pairs used:   3929
+   Number with an unused Flip Flop:    2991  out of   3929    76%  
+   Number with an unused LUT:           119  out of   3929     3%  
+   Number of fully used LUT-FF pairs:   819  out of   3929    20%  
    Number of unique control sets:        23
 
 IO Utilization: 
@@ -415,7 +418,7 @@ Clock Information:
 -----------------------------------+--------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                | Load  |
 -----------------------------------+--------------------------------------+-------+
-parallel_in<0>                     | IBUF+BUFG                            | 525   |
+parallel_in<0>                     | IBUF+BUFG                            | 521   |
 clk_div(clk_div1:O)                | BUFG(*)(pwm_osc_23/squareWaveOut_reg)| 432   |
 clk                                | BUFGP                                | 6     |
 -----------------------------------+--------------------------------------+-------+
@@ -431,7 +434,7 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 3.800ns (Maximum Frequency: 263.158MHz)
+   Minimum period: 4.325ns (Maximum Frequency: 231.216MHz)
    Minimum input arrival time before clock: 4.036ns
    Maximum output required time after clock: 4.118ns
    Maximum combinational path delay: 4.921ns
@@ -442,57 +445,67 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'parallel_in<0>'
-  Clock period: 3.570ns (frequency: 280.104MHz)
-  Total number of paths / destination ports: 3792 / 1344
+  Clock period: 4.325ns (frequency: 231.216MHz)
+  Total number of paths / destination ports: 3741 / 1344
 -------------------------------------------------------------------------
-Delay:               3.570ns (Levels of Logic = 1)
-  Source:            incoming_channel_reg_1 (FF)
-  Destination:       channel_23_osc_reg_0 (FF)
+Delay:               4.325ns (Levels of Logic = 1)
+  Source:            incoming_channel_reg_3_1 (FF)
+  Destination:       channel_03_osc_reg_0 (FF)
   Source Clock:      parallel_in<0> rising
   Destination Clock: parallel_in<0> rising
 
-  Data Path: incoming_channel_reg_1 to channel_23_osc_reg_0
+  Data Path: incoming_channel_reg_3_1 to channel_03_osc_reg_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q             341   0.525   2.717  incoming_channel_reg_1 (incoming_channel_reg_1)
-     LUT6:I2->O            1   0.254   0.000  channel_18_pwm_reg_0_dpot (channel_18_pwm_reg_0_dpot)
-     FDE:D                     0.074          channel_18_pwm_reg_0
+     FD:C->Q              71   0.525   1.984  incoming_channel_reg_3_1 (incoming_channel_reg_3_1)
+     LUT5:I4->O           19   0.254   1.260  _n02641 (_n0264)
+     FDE:CE                    0.302          channel_03_osc_reg_0
     ----------------------------------------
-    Total                      3.570ns (0.853ns logic, 2.717ns route)
-                                       (23.9% logic, 76.1% route)
+    Total                      4.325ns (1.081ns logic, 3.244ns route)
+                                       (25.0% logic, 75.0% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_div'
-  Clock period: 3.800ns (frequency: 263.158MHz)
-  Total number of paths / destination ports: 18360 / 432
+  Clock period: 4.301ns (frequency: 232.504MHz)
+  Total number of paths / destination ports: 41112 / 432
 -------------------------------------------------------------------------
-Delay:               3.800ns (Levels of Logic = 11)
+Delay:               4.301ns (Levels of Logic = 21)
   Source:            pwm_osc_23/osc_counter_1 (FF)
-  Destination:       pwm_osc_23/osc_counter_1 (FF)
+  Destination:       pwm_osc_23/squareWaveOut_reg (FF)
   Source Clock:      clk_div rising
   Destination Clock: clk_div rising
 
-  Data Path: pwm_osc_23/osc_counter_1 to pwm_osc_23/osc_counter_1
+  Data Path: pwm_osc_23/osc_counter_1 to pwm_osc_23/squareWaveOut_reg
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               5   0.525   1.117  pwm_osc_23/osc_counter_1 (pwm_osc_23/osc_counter_1)
-     LUT4:I0->O            0   0.254   0.000  pwm_osc_23/Mcompar_n0000_lutdi (pwm_osc_23/Mcompar_n0000_lutdi)
-     MUXCY:DI->O           1   0.181   0.000  pwm_osc_23/Mcompar_n0000_cy<0> (pwm_osc_23/Mcompar_n0000_cy<0>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mcompar_n0000_cy<1> (pwm_osc_23/Mcompar_n0000_cy<1>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mcompar_n0000_cy<2> (pwm_osc_23/Mcompar_n0000_cy<2>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mcompar_n0000_cy<3> (pwm_osc_23/Mcompar_n0000_cy<3>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mcompar_n0000_cy<4> (pwm_osc_23/Mcompar_n0000_cy<4>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mcompar_n0000_cy<5> (pwm_osc_23/Mcompar_n0000_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mcompar_n0000_cy<6> (pwm_osc_23/Mcompar_n0000_cy<6>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mcompar_n0000_cy<7> (pwm_osc_23/Mcompar_n0000_cy<7>)
-     MUXCY:CI->O          17   0.023   1.209  pwm_osc_23/Mcompar_n0000_cy<8> (pwm_osc_23/Mcompar_n0000_cy<8>)
-     LUT2:I1->O            1   0.254   0.000  pwm_osc_23/osc_counter_1_rstpot (pwm_osc_23/osc_counter_1_rstpot)
-     FD:D                      0.074          pwm_osc_23/osc_counter_1
+     FD:C->Q               5   0.525   0.949  pwm_osc_23/osc_counter_1 (pwm_osc_23/osc_counter_1)
+     LUT2:I0->O            1   0.250   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_lut<2> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_lut<2>)
+     MUXCY:S->O            1   0.215   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<2> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<3> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<4> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<5> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<6> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<7> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<8> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<9> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<10> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<11> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<12> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<13> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<13>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<14> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<14>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<15> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<15>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<16> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<16>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<17> (pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_cy<17>)
+     XORCY:CI->O           2   0.206   1.002  pwm_osc_23/Mmult_osc_counter[16]_PWR_3_o_MuLt_6_OUT_Madd_xor<18> (pwm_osc_23/osc_counter[16]_PWR_3_o_MuLt_6_OUT<18>)
+     LUT4:I0->O            1   0.254   0.000  pwm_osc_23/Mcompar_GND_11_o_INV_1_o_lut<8> (pwm_osc_23/Mcompar_GND_11_o_INV_1_o_lut<8>)
+     MUXCY:S->O            1   0.215   0.000  pwm_osc_23/Mcompar_GND_11_o_INV_1_o_cy<8> (pwm_osc_23/Mcompar_GND_11_o_INV_1_o_cy<8>)
+     MUXCY:CI->O           1   0.262   0.000  pwm_osc_23/Mcompar_GND_11_o_INV_1_o_cy<8>_inv1_cy (pwm_osc_23/GND_11_o_INV_1_o)
+     FD:D                      0.074          pwm_osc_23/squareWaveOut_reg
     ----------------------------------------
-    Total                      3.800ns (1.474ns logic, 2.326ns route)
-                                       (38.8% logic, 61.2% route)
+    Total                      4.301ns (2.350ns logic, 1.951ns route)
+                                       (54.6% logic, 45.4% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
@@ -518,7 +531,7 @@ Delay:               2.983ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'parallel_in<0>'
-  Total number of paths / destination ports: 69 / 69
+  Total number of paths / destination ports: 65 / 65
 -------------------------------------------------------------------------
 Offset:              4.036ns (Levels of Logic = 2)
   Source:            parallel_in<23> (PAD)
@@ -541,15 +554,15 @@ Timing constraint: Default OFFSET OUT AFTER for Clock 'parallel_in<0>'
   Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
 Offset:              4.118ns (Levels of Logic = 1)
-  Source:            incoming_channel_reg_4_2 (FF)
+  Source:            incoming_channel_reg_4_3 (FF)
   Destination:       led<4> (PAD)
   Source Clock:      parallel_in<0> rising
 
-  Data Path: incoming_channel_reg_4_2 to led<4>
+  Data Path: incoming_channel_reg_4_3 to led<4>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               1   0.525   0.681  incoming_channel_reg_4_2 (incoming_channel_reg_4_2)
+     FD:C->Q               1   0.525   0.681  incoming_channel_reg_4_3 (incoming_channel_reg_4_3)
      OBUF:I->O                 2.912          led_4_OBUF (led<4>)
     ----------------------------------------
     Total                      4.118ns (3.437ns logic, 0.681ns route)
@@ -610,8 +623,8 @@ Clock to Setup on destination clock clk_div
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_div        |    3.800|         |         |         |
-parallel_in<0> |    8.059|         |         |         |
+clk_div        |    4.301|         |         |         |
+parallel_in<0> |    8.082|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock parallel_in<0>
@@ -619,19 +632,19 @@ Clock to Setup on destination clock parallel_in<0>
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-parallel_in<0> |    3.570|         |         |         |
+parallel_in<0> |    4.325|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.71 secs
+Total CPU time to Xst completion: 8.09 secs
  
 --> 
 
 
-Total memory usage is 420260 kilobytes
+Total memory usage is 427164 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    6 (   0 filtered)

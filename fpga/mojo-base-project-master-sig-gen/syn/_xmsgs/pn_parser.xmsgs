@@ -8,7 +8,28 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/clock_divider.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/pwm_osc.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/src/avr_interface.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/src/cclk_detector.v&quot; into library work</arg>
+</msg>
+
 <msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/src/mojo_top.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/src/serial_rx.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/src/serial_tx.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/src/spi_slave.v&quot; into library work</arg>
 </msg>
 
 </messages>
