@@ -7,14 +7,14 @@ instruments = (
 
 mapping = {
     "_general/sound/bass_drum/bang":(
-        ("signal", {"channel":4, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":4, "function": "digital" })
     ),
     "_general/control_change/acetone_bass_off":(
         ("signal", {"channel":14, "function": "digital"})
     ),
 
     "_general/sound/snare_drum1/bang":(
-        ("signal", {"channel":5, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":5, "function": "digital" })
     ),
 
     # "_general/sound/snare_drum1/off":(
@@ -29,21 +29,21 @@ mapping = {
     ),
 
     "_general/sound/crash_cymbal1/bang":(
-        ("signal", {"channel":6, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":6, "function": "digital" })
     ),
     "_general/control_change/acetone_cymbal_off":(
         ("signal", {"channel":12, "function": "digital"})
     ),
 
     "_general/sound/cowbell/bang":(
-        ("signal", {"channel":19, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":19, "function": "digital" })
     ),
     "_general/control_change/acetone_cowbell_off":(
         ("signal", {"channel":8, "function": "digital"})
     ),
 
     "_general/sound/high_bongo/bang":(
-        ("signal", {"channel":17, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":17, "function": "digital" })
     ),
 
     # "_general/sound/high_bongo/off":(
@@ -51,7 +51,7 @@ mapping = {
     # ),
 
     "_general/sound/low_bongo/bang":(
-        ("signal", {"channel":15, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":15, "function": "digital" })
     ),
 
     # "_general/sound/low_bongo/off":(
@@ -59,7 +59,7 @@ mapping = {
     # ),
 
     "_general/sound/low_conga/bang":(
-        ("signal", {"channel":13, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":13, "function": "digital" })
     ),
 
     # "_general/sound/low_conga/off":(
@@ -67,14 +67,14 @@ mapping = {
     # ),
 
     "_general/sound/claves/bang":(
-        ("signal", {"channel":21, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":21, "function": "digital" })
     ),
     "_general/control_change/acetone_claves_off":(
         ("signal", {"channel":10, "function": "digital"})
     ),
 
     "_general/sound/maracas/bang":(
-        ("signal", {"channel":23, "function": "pulse", "pulselength":0.2})
+        ("signal", {"channel":23, "function": "digital"})
     ),
 
     # "_general/sound/maracas/off":(
