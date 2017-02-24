@@ -7,14 +7,22 @@ instruments = (
 
 mapping = {
     "_general/sound/bass_drum/bang":(
-        ("signal", {"channel":4, "function": "digital" })
+        ("signal", {"channel":4, "function": "digital", "bool": 1 })
     ),
+    "_general/sound/bass_drum/off":(
+        ("signal", {"channel":4, "function": "digital", "bool": 0 })
+    ),
+
     "_general/control_change/acetone_bass_off":(
         ("signal", {"channel":14, "function": "digital"})
     ),
 
     "_general/sound/snare_drum1/bang":(
-        ("signal", {"channel":5, "function": "digital" })
+        ("signal", {"channel":5, "function": "digital", "bool":1 })
+    ),
+
+    "_general/sound/snare_drum1/off":(
+        ("signal", {"channel":5, "function": "digital", "bool":0 })
     ),
 
     # "_general/sound/snare_drum1/off":(
@@ -29,29 +37,44 @@ mapping = {
     ),
 
     "_general/sound/crash_cymbal1/bang":(
-        ("signal", {"channel":6, "function": "digital" })
+        ("signal", {"channel":6, "function": "digital", "bool": 1 })
     ),
+
+    "_general/sound/crash_cymbal1/off":(
+        ("signal", {"channel":6, "function": "digital", "bool":0 })
+    ),
+
     "_general/control_change/acetone_cymbal_off":(
         ("signal", {"channel":12, "function": "digital"})
     ),
 
     "_general/sound/cowbell/bang":(
-        ("signal", {"channel":19, "function": "digital" })
+        ("signal", {"channel":19, "function": "digital", "bool": 1 })
     ),
+
+    "_general/sound/cowbell/off":(
+        ("signal", {"channel":19, "function": "digital", "bool": 0 })
+    ),
+
+
     "_general/control_change/acetone_cowbell_off":(
         ("signal", {"channel":8, "function": "digital"})
     ),
 
     "_general/sound/high_bongo/bang":(
-        ("signal", {"channel":17, "function": "digital" })
+        ("signal", {"channel":17, "function": "digital", "bool": 1 })
     ),
 
-    # "_general/sound/high_bongo/off":(
-    #     ("digital", {"channel":1, "value":60 ,"status":"note_off"})
-    # ),
+    "_general/sound/high_bongo/off":(
+        ("signal", {"channel":17, "function": "digital", "bool": 0 })
+    ),
 
     "_general/sound/low_bongo/bang":(
-        ("signal", {"channel":15, "function": "digital" })
+        ("signal", {"channel":15, "function": "digital", "bool": 1 })
+    ),
+
+    "_general/sound/low_bongo/off":(
+        ("signal", {"channel":15, "function": "digital", "bool": 0 })
     ),
 
     # "_general/sound/low_bongo/off":(
@@ -59,7 +82,11 @@ mapping = {
     # ),
 
     "_general/sound/low_conga/bang":(
-        ("signal", {"channel":13, "function": "digital" })
+        ("signal", {"channel":13, "function": "digital", "bool": 1 })
+    ),
+
+    "_general/sound/low_conga/off":(
+        ("signal", {"channel":13, "function": "digital", "bool": 0 })
     ),
 
     # "_general/sound/low_conga/off":(
@@ -67,14 +94,24 @@ mapping = {
     # ),
 
     "_general/sound/claves/bang":(
-        ("signal", {"channel":21, "function": "digital" })
+        ("signal", {"channel":21, "function": "digital", "bool": 1 })
     ),
+
+    "_general/sound/claves/off":(
+        ("signal", {"channel":21, "function": "digital", "bool": 0 })
+    ),
+
+
     "_general/control_change/acetone_claves_off":(
         ("signal", {"channel":10, "function": "digital"})
     ),
 
     "_general/sound/maracas/bang":(
-        ("signal", {"channel":23, "function": "digital"})
+        ("signal", {"channel":23, "function": "digital", "bool": 1})
+    ),
+
+    "_general/sound/maracas/off":(
+        ("signal", {"channel":23, "function": "digital", "bool": 0})
     ),
 
     # "_general/sound/maracas/off":(
