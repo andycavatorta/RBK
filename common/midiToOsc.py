@@ -250,15 +250,15 @@ def modifier_calculation(modifier_list):
     return tempo_modifier
 
 tempo_list = {
-    "upper_byte": 0,
-    "lower_byte": 0
+    "upper_byte": "0000000",
+    "lower_byte": "0000001"
 }
 
 modifier_list = {
     "numerator_upper":"0000000",
     "numerator_lower":"0000001",
-    "numerator":1,
-    "denominator":1
+    "numerator":"00000000000001",
+    "denominator":"0000001"
 }
 
 def convert(devicename, status, channel, data1=None, data2=None):
