@@ -144,9 +144,9 @@ ccMap = {
     112:"master_tempo_ub",
     113:"master_tempo_lb",
     114:"Undefined",
-    115:"tempo_mod_numerator",
-    116:"tempo_mod_denominator",
-    117:"Undefined",
+    115:"tempo_mod_numerator_ub",
+    116:"tempo_mod_numerator_lb",
+    117:"tempo_mod_denominator",
     118:"Undefined",
     119:"Undefined",
     120:"Undefined",
@@ -233,12 +233,21 @@ def tempo_calculation(tempo_list):
     return [float(master_tempo),modifier]
 
 def modifier_calculation(modifier_list):
-    tempo_string = "%s%s" % (modifier_list["numerator"],modifier_list["denominator"])
-    tempo_int = int(tempo_string,2)
-    print tempo_int
-    tempo_modifier = float(pow(tempo_int/16383.0, 4.322)*1999.95+0.05)
-    print "Numerator: %s | Denominator: %s | Total: %s" % (modifier_list["numerator"],modifier_list["denominator"],tempo_modifier)
-    return float(tempo_modifier/100.0)
+    # tempo_string = "%s%s" % (modifier_list["numerator"],modifier_list["denominator"])
+    # tempo_int = int(tempo_string,2)
+    numerator_int = int(modifier_list["numerator"],2)
+    print numerator_int
+    if numerator_int < 500:
+        numerator_after_math = (numerator_int/100.0) + 0.01
+    else:
+        numerator_after_math = ((numerator_int-500)/20.0)+5.05
+    # print tempo_int
+    # tempo_modifier = float(pow(tempo_int/16383.0, 4.322)*1999.95+0.05)
+    denominator_int = int(modifier_list["denominator"],2)
+    tempo_modifier = numerator_after_math/(denominator_int+1)
+    print "Numerator: %s | Denominator: %s | Total: %s" % (numerator_after_math,denominator_int+1,tempo_modifier)
+    # return float(tempo_modifier/100.0)
+    return tempo_modifier
 
 tempo_list = {
     "upper_byte": 0,
@@ -246,6 +255,8 @@ tempo_list = {
 }
 
 modifier_list = {
+    "numerator_upper":"0000000",
+    "numerator_lower":"0000001",
     "numerator":1,
     "denominator":1
 }
@@ -380,9 +391,15 @@ def convert(devicename, status, channel, data1=None, data2=None):
                 "value": master_tempo[0],
                 "modifier": master_tempo[1]
             }
-        elif status == "control_change/tempo_mod_numerator":
+        elif status == "control_change/tempo_mod_numerator_ub":
+            numerator_ub = '{0:07b}'.format(data2)
+            modifier_list["numerator_upper"] = numerator_ub
+        elif status == "control_change/tempo_mod_numerator_lb":
             # tempo_mod_numerator = int(data2)
-            tempo_mod_numerator = '{0:07b}'.format(data2)
+            numerator_lb = '{0:07b}'.format(data2)
+            modifier_list["numerator_lower"] = numerator_lb
+            tempo_mod_numerator = "%s%s" % (modifier_list["numerator_upper"], modifier_list["numerator_lower"])
+            print "numerator bits = ", tempo_mod_numerator
             modifier_list["numerator"] = tempo_mod_numerator
             master_tempo = tempo_calculation(tempo_list)
             status = "control_change/master_tempo"
@@ -396,6 +413,7 @@ def convert(devicename, status, channel, data1=None, data2=None):
             # tempo_mod_denominator = int(data2)
             tempo_mod_denominator = '{0:07b}'.format(data2)
             modifier_list["denominator"] = tempo_mod_denominator
+            print "denominator bits = ", tempo_mod_denominator
             master_tempo = tempo_calculation(tempo_list)
             status = "control_change/master_tempo"
             params = {
