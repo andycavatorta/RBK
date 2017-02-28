@@ -13,7 +13,11 @@ instruments = (
 
 mapping = {
     "_general/sound/bass_drum/bang":(
-        ("signal", {"channel":10, "function": "pulse", "pulselength":0.2 })
+        ("signal", {"channel":10, "function": "digital", "bool":1 })
+    ),
+
+    "_general/sound/bass_drum/off":(
+        ("signal", {"channel":10, "function": "digital", "bool":0 })
     ),
 
     "_general/control_change/sensitivity":(
