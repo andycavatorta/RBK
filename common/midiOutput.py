@@ -4,11 +4,14 @@ import numbers
 class Midi_Output():
     def __init__(self):
         oNames = mido.get_output_names()
+        try:
+            if "USB Uno MIDI Interface MIDI 1" in oNames:
+                self.midi_out = mido.open_output('USB Uno MIDI Interface MIDI 1')
+            else:
+                self.midi_out = mido.open_output(oNames[1])
+        except Exception as e:
+            self.midi_out = mido.open_output(oNames[0])
 
-        if "USB Uno MIDI Interface MIDI 1" in oNames:
-            self.midi_out = mido.open_output('USB Uno MIDI Interface MIDI 1')
-        else:
-            self.midi_out = mido.open_output(oNames[1])
 
         # print self.midi_out
 
