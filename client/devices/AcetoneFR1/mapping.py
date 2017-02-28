@@ -126,6 +126,14 @@ mapping = {
         ("signal", {"channel":1, "function": "digital"})
     ),
 
+    "_general/control_change/start":(
+        ("signal", {"channel":1, "function": "digital", "bool": 1})
+    ),
+
+    "_general/control_change/stop":(
+        ("signal", {"channel":1, "function": "digital", "bool": 0})
+    ),
+
     "_general/control_change/int_ext":(
         ("signal", {"channel":00, "function": "digital"})
     ),
