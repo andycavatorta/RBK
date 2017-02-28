@@ -11,7 +11,7 @@ reg [16:0] osc_counter = 1'b1;
 
 begin
 always @(posedge clk_div) osc_counter <= (osc_counter >= osc_reg)?1'b0:osc_counter + 1'b1;
-always @(posedge clk_div) squareWaveOut_reg <= (osc_counter * 6 >= osc_reg * pwm_reg / 64)?1'b0:1'b1;
+always @(posedge clk_div) squareWaveOut_reg <= (osc_counter  >= osc_reg * pwm_reg / 64)?1'b0:1'b1;
 end
 
 assign pwm_osc_out = squareWaveOut_reg;
