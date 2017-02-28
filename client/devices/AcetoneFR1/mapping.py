@@ -135,7 +135,7 @@ mapping = {
     ),
 
     "_general/control_change/int_ext":(
-        ("signal", {"channel":00, "function": "digital"})
+        ("signal", {"channel":0, "function": "digital"})
     ),
 
     "_general/control_change/clock":(
