@@ -122,9 +122,9 @@ mapping = {
         ("signal", {"channel":3, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":(30000,30000), "duty_min_max":(0,100), "variable_key":"duty_cycle"})
     ),
 
-    "_general/control_change/start_stop":(
-        ("signal", {"channel":1, "function": "digital"})
-    ),
+    # "_general/control_change/start_stop":(
+    #     ("signal", {"channel":1, "function": "digital"})
+    # ),
 
     "_general/control_change/start":(
         ("signal", {"channel":1, "function": "digital", "bool": 1})
@@ -139,11 +139,11 @@ mapping = {
     ),
 
     "_general/control_change/clock":(
-        ("signal", {"channel":02, "function": "square_wave", "frequency":0, "duty cycle":20.0, "freq_min_max":(9,100), "duty_min_max":(1,1), "variable_key":"frequency"})
+        ("signal", {"channel":02, "function": "square_wave", "frequency":0.0, "duty cycle":20.0, "freq_min_max":(9,100), "duty_min_max":(1,1), "variable_key":"frequency"})
     ),
 
     "_general/control_change/master_tempo":(
-        ("signal", {"channel":02, "function": "square_wave", "frequency":0, "duty cycle":20.0, "freq_min_max":(9,100), "duty_min_max":(1,1), "variable_key":"frequency"})
+        ("signal", {"channel":02, "function": "square_wave", "frequency":0.0, "duty cycle":20.0, "freq_min_max":(9,100), "duty_min_max":(1,1), "variable_key":"frequency"})
     ),
 
 }

@@ -161,8 +161,8 @@ try:
                         iterate_device_mapping = iter(device_mapping)
                         next(iterate_device_mapping)
                         if category[3] == "master_tempo":
-                            scale_max = 999 * msg['params']['modifier']
-                            scale_min = 20 * msg['params']['modifier']
+                            scale_max = 999.0 #* msg['params']['modifier']
+                            scale_min = 20.0 #* msg['params']['modifier']
                         else:
                             scale_max = 127
                         for signal in iterate_device_mapping:
