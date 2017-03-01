@@ -43,7 +43,6 @@ mapping = {
     # "_general/control_change/start_stop":(
     #     ("signal", {"channel":1, "function": "digital"}, {"channel":19, "function": "digital", "inverse":True})
     # ),
-
     "_general/control_change/start":(
         ("signal", {"channel":1, "function": "digital", "bool":1}, {"channel":19, "function": "digital", "bool":0})
     ),
