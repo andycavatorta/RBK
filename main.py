@@ -187,6 +187,7 @@ try:
                                     signal_output.send(signal)
                                     del signal["bool"]
                                     print "sending"
+                                    collector.collect(device_mapping[0], "%s" % (signal))
                                     break
                             print "sending out"
                             signal_output.send(signal)
