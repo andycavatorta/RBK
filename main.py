@@ -168,14 +168,10 @@ try:
                         for signal in iterate_device_mapping:
                             if signal['function'] == "square_wave":
                                 if signal['variable_key'] is "duty_cycle":
-                                    signal['duty cycle'] = float((msg['params']['value']-scale_min*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/scale_max-scale_min)+signal['duty_min_max'][0])
+                                    signal['duty cycle'] = float(signal['duty_min_max'][0] + (signal['duty_min_max'][1]-signal['duty_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
                                 elif signal['variable_key'] is "frequency":
-                                    # NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
                                     # result =  min2 + (max2-min2) * ((value-min1)/(max1-min1))
-                                    # signal['frequency'] = float((msg['params']['value'] - scale_min * (signal['freq_min_max'][1]-signal['freq_min_max'][0]) / (scale_max-scale_min))+signal['freq_min_max'][0])
-
                                     signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
-                                    print "Min 1: %s Max 1: %s Min 2: %s Max 2: %s Value In: %s Value Out: %s " % (scale_min, scale_max, signal['freq_min_max'][0], signal['freq_min_max'][1], msg['params']['value'], signal['frequency'])
                             elif signal['function'] == "digital":
                                 if "bool" not in signal:
                                     if msg['params']['value'] < 64:
@@ -190,6 +186,9 @@ try:
                                             signal['bool'] = 1
                                     signal_output.send(signal)
                                     del signal["bool"]
+                                    print "sending"
+                                    break
+                            print "sending out"
                             signal_output.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal))
                             
