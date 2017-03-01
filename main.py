@@ -165,10 +165,12 @@ try:
                             scale_min = 20.0 #* msg['params']['modifier']
                         else:
                             scale_max = 127
+                            scale_min = 0
                         for signal in iterate_device_mapping:
                             if signal['function'] == "square_wave":
                                 if signal['variable_key'] is "duty_cycle":
-                                    signal['duty cycle'] = float(signal['duty_min_max'][0] + (signal['duty_min_max'][1]-signal['duty_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
+                                    #signal['duty cycle'] = float(signal['duty_min_max'][0] + (signal['duty_min_max'][1]-signal['duty_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
+                                    signal['duty cycle'] = float((msg['params']['value']-scale_min*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/scale_max-scale_min)+signal['duty_min_max'][0])
                                 elif signal['variable_key'] is "frequency":
                                     if category[3] != "master_tempo":
                                         signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
