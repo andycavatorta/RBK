@@ -183,10 +183,11 @@ try:
                                             signal['bool'] = 0
                                         else:
                                             signal['bool'] = 1
+                                    signal_output.send(signal)
                             print repr(signal)
                             signal_output.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal))
-                            del signal['bool']
+                            
             except Exception as e:
                 pass
                 # traceback.print_exc()
