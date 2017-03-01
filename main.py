@@ -186,7 +186,7 @@ try:
                             print repr(signal)
                             signal_output.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal))
-                            signal.pop('bool', None)
+                            del signal['bool']
             except Exception as e:
                 pass
                 # traceback.print_exc()
