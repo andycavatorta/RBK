@@ -184,6 +184,7 @@ try:
                                         else:
                                             signal['bool'] = 1
                                     signal_output.send(signal)
+                                    del signal["bool"]
                             print repr(signal)
                             signal_output.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal))
