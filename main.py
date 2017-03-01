@@ -170,6 +170,9 @@ try:
                                 if signal['variable_key'] is "duty_cycle":
                                     signal['duty cycle'] = float(signal['duty_min_max'][0] + (signal['duty_min_max'][1]-signal['duty_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
                                 elif signal['variable_key'] is "frequency":
+                                    if category[3] != "master_tempo":
+                                        signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
+                                    else:
                                     """
                                     # global_tempo (bpm)
                                     # scaling_factor
@@ -181,7 +184,7 @@ try:
                                     # clock_freq =  (global_tempo/60) * CLOCK_FACTOR
 
                                     """
-                                    signal['frequency'] = float((msg['params']['value']/60)*signal['clock_factor'])
+                                        signal['frequency'] = float((msg['params']['value']/60)*signal['clock_factor'])
                                     # signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
                             elif signal['function'] == "digital":
                                 if "bool" not in signal:
