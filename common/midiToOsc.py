@@ -226,7 +226,7 @@ def makePitch(midiNoteNumber, cents_int=0):
 def tempo_calculation(tempo_list):
     tempo_string = "%s%s" % (tempo_list["upper_byte"],tempo_list["lower_byte"])
     tempo_int = int(tempo_string,2)
-    modifier = modifier_calculation(modifier_list)
+    modifier = 1
     tempo_after_formula = tempo_int * 979/16383 + 20
     master_tempo = tempo_after_formula * modifier
     print "Tempo: %s | Modifier: %s | Master Tempo: %s" % (tempo_after_formula, modifier, master_tempo)
