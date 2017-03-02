@@ -121,7 +121,7 @@ class Channel_Process(multiprocessing.Process):
                                 while True:
                                     if time.time() >= pause_period + pause_start_time or len(self.queue) > 0:
                                         break
-                                    time.sleep(0.001)
+                                    time.sleep(0.005)
                                 # time.sleep(self.lowFreqSinePeriod * (self.lowFreqSineDutyCycle/100.0))
                                 # self.lowFreqSineActive = False
                             else:
@@ -132,7 +132,7 @@ class Channel_Process(multiprocessing.Process):
                                 while True:
                                     if time.time() >= pause_period + pause_start_time or len(self.queue) > 0:
                                         break
-                                    time.sleep(0.001)
+                                    time.sleep(0.005)
                                 # time.sleep(self.lowFreqSinePeriod * (self.lowFreqS
                                 # self.lowFreqSineActive = False
                             self.lowFreqSineToggle = not self.lowFreqSineToggle
