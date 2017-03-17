@@ -1,6 +1,4 @@
 #!/bin/bash
-
-# testing
 set -m
 sudo pkill python
 fg
