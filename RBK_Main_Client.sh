@@ -1,6 +1,6 @@
 #!/bin/bash
 
-####
+
 set -m
 sudo pkill python
 fg
