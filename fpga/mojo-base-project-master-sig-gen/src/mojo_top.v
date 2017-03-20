@@ -147,30 +147,55 @@ reg [oscBitWidth:0] channel_21_osc_reg;
 reg [oscBitWidth:0] channel_22_osc_reg;
 reg [oscBitWidth:0] channel_23_osc_reg;
 
-pwm_osc pwm_osc_00(clk_div, channel_00_pwm_reg, channel_00_osc_reg, pwm_osc_00_out);
-pwm_osc pwm_osc_01(clk_div, channel_01_pwm_reg, channel_01_osc_reg, pwm_osc_01_out);
-pwm_osc pwm_osc_02(clk_div, channel_02_pwm_reg, channel_02_osc_reg, pwm_osc_02_out);
-pwm_osc pwm_osc_03(clk_div, channel_03_pwm_reg, channel_03_osc_reg, pwm_osc_03_out);
-pwm_osc pwm_osc_04(clk_div, channel_04_pwm_reg, channel_04_osc_reg, pwm_osc_04_out);
-pwm_osc pwm_osc_05(clk_div, channel_05_pwm_reg, channel_05_osc_reg, pwm_osc_05_out);
-pwm_osc pwm_osc_06(clk_div, channel_06_pwm_reg, channel_06_osc_reg, pwm_osc_06_out);
-pwm_osc pwm_osc_07(clk_div, channel_07_pwm_reg, channel_07_osc_reg, pwm_osc_07_out);
-pwm_osc pwm_osc_08(clk_div, channel_08_pwm_reg, channel_08_osc_reg, pwm_osc_08_out);
-pwm_osc pwm_osc_09(clk_div, channel_09_pwm_reg, channel_09_osc_reg, pwm_osc_09_out);
-pwm_osc pwm_osc_10(clk_div, channel_10_pwm_reg, channel_10_osc_reg, pwm_osc_10_out);
-pwm_osc pwm_osc_11(clk_div, channel_11_pwm_reg, channel_11_osc_reg, pwm_osc_11_out);
-pwm_osc pwm_osc_12(clk_div, channel_12_pwm_reg, channel_12_osc_reg, pwm_osc_12_out);
-pwm_osc pwm_osc_13(clk_div, channel_13_pwm_reg, channel_13_osc_reg, pwm_osc_13_out);
-pwm_osc pwm_osc_14(clk_div, channel_14_pwm_reg, channel_14_osc_reg, pwm_osc_14_out);
-pwm_osc pwm_osc_15(clk_div, channel_15_pwm_reg, channel_15_osc_reg, pwm_osc_15_out);
-pwm_osc pwm_osc_16(clk_div, channel_16_pwm_reg, channel_16_osc_reg, pwm_osc_16_out);
-pwm_osc pwm_osc_17(clk_div, channel_17_pwm_reg, channel_17_osc_reg, pwm_osc_17_out);
-pwm_osc pwm_osc_18(clk_div, channel_18_pwm_reg, channel_18_osc_reg, pwm_osc_18_out);
-pwm_osc pwm_osc_19(clk_div, channel_19_pwm_reg, channel_19_osc_reg, pwm_osc_19_out);
-pwm_osc pwm_osc_20(clk_div, channel_20_pwm_reg, channel_20_osc_reg, pwm_osc_20_out);
-pwm_osc pwm_osc_21(clk_div, channel_21_pwm_reg, channel_21_osc_reg, pwm_osc_21_out);
-pwm_osc pwm_osc_22(clk_div, channel_22_pwm_reg, channel_22_osc_reg, pwm_osc_22_out);
-pwm_osc pwm_osc_23(clk_div, channel_23_pwm_reg, channel_23_osc_reg, pwm_osc_23_out);
+reg channel_00_rst_toggle;
+reg channel_01_rst_toggle;
+reg channel_02_rst_toggle;
+reg channel_03_rst_toggle;
+reg channel_04_rst_toggle;
+reg channel_05_rst_toggle;
+reg channel_06_rst_toggle;
+reg channel_07_rst_toggle;
+reg channel_08_rst_toggle;
+reg channel_09_rst_toggle;
+reg channel_10_rst_toggle;
+reg channel_11_rst_toggle;
+reg channel_12_rst_toggle;
+reg channel_13_rst_toggle;
+reg channel_14_rst_toggle;
+reg channel_15_rst_toggle;
+reg channel_16_rst_toggle;
+reg channel_17_rst_toggle;
+reg channel_18_rst_toggle;
+reg channel_19_rst_toggle;
+reg channel_20_rst_toggle;
+reg channel_21_rst_toggle;
+reg channel_22_rst_toggle;
+reg channel_23_rst_toggle;
+
+pwm_osc pwm_osc_00(channel_00_rst_toggle, clk_div, channel_00_pwm_reg, channel_00_osc_reg, pwm_osc_00_out);
+pwm_osc pwm_osc_01(channel_01_rst_toggle, clk_div, channel_01_pwm_reg, channel_01_osc_reg, pwm_osc_01_out);
+pwm_osc pwm_osc_02(channel_02_rst_toggle, clk_div, channel_02_pwm_reg, channel_02_osc_reg, pwm_osc_02_out);
+pwm_osc pwm_osc_03(channel_03_rst_toggle, clk_div, channel_03_pwm_reg, channel_03_osc_reg, pwm_osc_03_out);
+pwm_osc pwm_osc_04(channel_04_rst_toggle, clk_div, channel_04_pwm_reg, channel_04_osc_reg, pwm_osc_04_out);
+pwm_osc pwm_osc_05(channel_05_rst_toggle, clk_div, channel_05_pwm_reg, channel_05_osc_reg, pwm_osc_05_out);
+pwm_osc pwm_osc_06(channel_06_rst_toggle, clk_div, channel_06_pwm_reg, channel_06_osc_reg, pwm_osc_06_out);
+pwm_osc pwm_osc_07(channel_07_rst_toggle, clk_div, channel_07_pwm_reg, channel_07_osc_reg, pwm_osc_07_out);
+pwm_osc pwm_osc_08(channel_08_rst_toggle, clk_div, channel_08_pwm_reg, channel_08_osc_reg, pwm_osc_08_out);
+pwm_osc pwm_osc_09(channel_09_rst_toggle, clk_div, channel_09_pwm_reg, channel_09_osc_reg, pwm_osc_09_out);
+pwm_osc pwm_osc_10(channel_10_rst_toggle, clk_div, channel_10_pwm_reg, channel_10_osc_reg, pwm_osc_10_out);
+pwm_osc pwm_osc_11(channel_11_rst_toggle, clk_div, channel_11_pwm_reg, channel_11_osc_reg, pwm_osc_11_out);
+pwm_osc pwm_osc_12(channel_12_rst_toggle, clk_div, channel_12_pwm_reg, channel_12_osc_reg, pwm_osc_12_out);
+pwm_osc pwm_osc_13(channel_13_rst_toggle, clk_div, channel_13_pwm_reg, channel_13_osc_reg, pwm_osc_13_out);
+pwm_osc pwm_osc_14(channel_14_rst_toggle, clk_div, channel_14_pwm_reg, channel_14_osc_reg, pwm_osc_14_out);
+pwm_osc pwm_osc_15(channel_15_rst_toggle, clk_div, channel_15_pwm_reg, channel_15_osc_reg, pwm_osc_15_out);
+pwm_osc pwm_osc_16(channel_16_rst_toggle, clk_div, channel_16_pwm_reg, channel_16_osc_reg, pwm_osc_16_out);
+pwm_osc pwm_osc_17(channel_17_rst_toggle, clk_div, channel_17_pwm_reg, channel_17_osc_reg, pwm_osc_17_out);
+pwm_osc pwm_osc_18(channel_18_rst_toggle, clk_div, channel_18_pwm_reg, channel_18_osc_reg, pwm_osc_18_out);
+pwm_osc pwm_osc_19(channel_19_rst_toggle, clk_div, channel_19_pwm_reg, channel_19_osc_reg, pwm_osc_19_out);
+pwm_osc pwm_osc_20(channel_20_rst_toggle, clk_div, channel_20_pwm_reg, channel_20_osc_reg, pwm_osc_20_out);
+pwm_osc pwm_osc_21(channel_21_rst_toggle, clk_div, channel_21_pwm_reg, channel_21_osc_reg, pwm_osc_21_out);
+pwm_osc pwm_osc_22(channel_22_rst_toggle, clk_div, channel_22_pwm_reg, channel_22_osc_reg, pwm_osc_22_out);
+pwm_osc pwm_osc_23(channel_23_rst_toggle, clk_div, channel_23_pwm_reg, channel_23_osc_reg, pwm_osc_23_out);
 
 always @(posedge parallel_in[0])
 begin
@@ -221,122 +246,146 @@ begin
 	case(incoming_channel_reg) // which channel
 		5'b00000:
 			begin
+            channel_00_rst_toggle <= channel_00_rst_toggle + 1'b1;
 			channel_00_pwm_reg <= incoming_pwm_reg;
 			channel_00_osc_reg <= incoming_osc_reg;
 			end
 		5'b00001:
 			begin
+            channel_01_rst_toggle <= channel_01_rst_toggle + 1'b1;
 			channel_01_pwm_reg <= incoming_pwm_reg;
 			channel_01_osc_reg <= incoming_osc_reg;
 			end
 		5'b00010:
 			begin
+            channel_02_rst_toggle <= channel_02_rst_toggle + 1'b1;
 			channel_02_pwm_reg <= incoming_pwm_reg;
 			channel_02_osc_reg <= incoming_osc_reg;
 			end
 		5'b00011:
 			begin
+            channel_03_rst_toggle <= channel_03_rst_toggle + 1'b1;
 			channel_03_pwm_reg <= incoming_pwm_reg;
 			channel_03_osc_reg <= incoming_osc_reg;
 			end
 		5'b00100:
 			begin
+            channel_04_rst_toggle <= channel_04_rst_toggle + 1'b1;
 			channel_04_pwm_reg <= incoming_pwm_reg;
 			channel_04_osc_reg <= incoming_osc_reg;
 			end
 		5'b00101:
 			begin
+            channel_05_rst_toggle <= channel_05_rst_toggle + 1'b1;
 			channel_05_pwm_reg <= incoming_pwm_reg;
 			channel_05_osc_reg <= incoming_osc_reg;
 			end
 		5'b00110:
 			begin
+            channel_06_rst_toggle <= channel_06_rst_toggle + 1'b1;
 			channel_06_pwm_reg <= incoming_pwm_reg;
 			channel_06_osc_reg <= incoming_osc_reg;
 			end
 		5'b00111:
 			begin
+            channel_07_rst_toggle <= channel_07_rst_toggle + 1'b1;
 			channel_07_pwm_reg <= incoming_pwm_reg;
 			channel_07_osc_reg <= incoming_osc_reg;
 			end
 		5'b01000:
 			begin
+            channel_08_rst_toggle <= channel_08_rst_toggle + 1'b1;
 			channel_08_pwm_reg <= incoming_pwm_reg;
 			channel_08_osc_reg <= incoming_osc_reg;
 			end
 		5'b01001:
 			begin
+            channel_09_rst_toggle <= channel_09_rst_toggle + 1'b1;
 			channel_09_pwm_reg <= incoming_pwm_reg;
 			channel_09_osc_reg <= incoming_osc_reg;
 			end
 		5'b01010:
 			begin
+            channel_10_rst_toggle <= channel_10_rst_toggle + 1'b1;
 			channel_10_pwm_reg <= incoming_pwm_reg;
 			channel_10_osc_reg <= incoming_osc_reg;
 			end
 		5'b01011:
 			begin
+            channel_11_rst_toggle <= channel_11_rst_toggle + 1'b1;
 			channel_11_pwm_reg <= incoming_pwm_reg;
 			channel_11_osc_reg <= incoming_osc_reg;
 			end
 		5'b01100:
 			begin
+            channel_12_rst_toggle <= channel_12_rst_toggle + 1'b1;
 			channel_12_pwm_reg <= incoming_pwm_reg;
 			channel_12_osc_reg <= incoming_osc_reg;
 			end
 		5'b01101:
 			begin
+            channel_13_rst_toggle <= channel_13_rst_toggle + 1'b1;
 			channel_13_pwm_reg <= incoming_pwm_reg;
 			channel_13_osc_reg <= incoming_osc_reg;
 			end
 		5'b01110:
 			begin
+            channel_14_rst_toggle <= channel_14_rst_toggle + 1'b1;
 			channel_14_pwm_reg <= incoming_pwm_reg;
 			channel_14_osc_reg <= incoming_osc_reg;
 			end
 		5'b01111:
 			begin
+            channel_15_rst_toggle <= channel_15_rst_toggle + 1'b1;
 			channel_15_pwm_reg <= incoming_pwm_reg;
 			channel_15_osc_reg <= incoming_osc_reg;
 			end
 		5'b10000:
 			begin
+            channel_16_rst_toggle <= channel_16_rst_toggle + 1'b1;
 			channel_16_pwm_reg <= incoming_pwm_reg;
 			channel_16_osc_reg <= incoming_osc_reg;
 			end
 		5'b10001:
 			begin
+            channel_17_rst_toggle <= channel_17_rst_toggle + 1'b1;
 			channel_17_pwm_reg <= incoming_pwm_reg;
 			channel_17_osc_reg <= incoming_osc_reg;
 			end
 
 		5'b10010:
 			begin
+            channel_18_rst_toggle <= channel_18_rst_toggle + 1'b1;
 			channel_18_pwm_reg <= incoming_pwm_reg;
 			channel_18_osc_reg <= incoming_osc_reg;
 			end
 		5'b10011:
 			begin
+            channel_19_rst_toggle <= channel_19_rst_toggle + 1'b1;
 			channel_19_pwm_reg <= incoming_pwm_reg;
 			channel_19_osc_reg <= incoming_osc_reg;
 			end
 		5'b10100:
 			begin
+            channel_20_rst_toggle <= channel_20_rst_toggle + 1'b1;
 			channel_20_pwm_reg <= incoming_pwm_reg;
 			channel_20_osc_reg <= incoming_osc_reg;
 			end
 		5'b10101:
 			begin
+            channel_21_rst_toggle <= channel_21_rst_toggle + 1'b1;
 			channel_21_pwm_reg <= incoming_pwm_reg;
 			channel_21_osc_reg <= incoming_osc_reg;
 			end
 		5'b10110:
 			begin
+            channel_22_rst_toggle <= channel_22_rst_toggle + 1'b1;
 			channel_22_pwm_reg <= incoming_pwm_reg;
 			channel_22_osc_reg <= incoming_osc_reg;
 			end
 		5'b10111:
 			begin
+            channel_23_rst_toggle <= channel_23_rst_toggle + 1'b1;
 			channel_23_pwm_reg <= incoming_pwm_reg;
 			channel_23_osc_reg <= incoming_osc_reg;
 			end

@@ -147,7 +147,7 @@ ccMap = {
     115:"tempo_mod_numerator_ub",
     116:"tempo_mod_numerator_lb",
     117:"tempo_mod_denominator",
-    118:"Undefined",
+    118:"now_pulse",
     119:"Undefined",
     120:"Undefined",
     121:"Undefined",
