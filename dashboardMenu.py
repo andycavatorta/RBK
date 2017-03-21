@@ -2,6 +2,8 @@ import sys
 import threading
 import signalOutputProcess as sop
 
+#OIDOSADA
+
 class Dashboard(threading.Thread):
   def __init__(self, collect):
     threading.Thread.__init__(self) 
