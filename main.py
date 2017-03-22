@@ -125,9 +125,11 @@ try:
         subscribernames = ["nervebox"]
         import collectorModule
         collector = collectorModule.Collector()
+        collector.daemon = True
         collector.start()
         import dashboardMenu
         dashboard = dashboardMenu.Dashboard(collector)
+        dashboard.daemon = True
         dashboard.start()
         import blinkip
         import mapping  # host-specific mapping

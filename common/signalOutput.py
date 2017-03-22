@@ -215,6 +215,7 @@ class Channel_Process(multiprocessing.Process):
                 self.conn = conn
                 self.channels_l = [ Channel(x,self.conn) for x in range(24) ]
                 for ch in self.channels_l:
+                    ch.daemon = True
                     ch.start()
 
             def enqueue(self,receivedData):
