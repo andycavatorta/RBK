@@ -59,11 +59,11 @@ class Subscription():
         hb = self.lastHeartbeat + ( 2 * HEARTBEAT) > time.time() #if heartbeat is two beats stale
         if self.connected and not hb: # recently disconnected
             self.connected = False
-            print "something disconnected"
+            # print "something disconnected"
             return False
         if not self.connected and hb: # recently connected
             self.connected = True
-            print "something connected"          
+            # print "something connected"          
             return True
         return None
     def setConnected(self, ip=None, remotePort=None):
@@ -255,23 +255,23 @@ class Responder(threading.Thread):
         self.sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, self.mreq)
         self.IpTiming = {}
     def response(self, remoteIP, msg_json): # response sends the local IP to the remote device
-        print "discovery Responder 1"
+        # print "discovery Responder 1"
         if self.IpTiming.has_key(remoteIP):
             if self.IpTiming[remoteIP] + 6 > time.time():
                 return
         else:
             self.IpTiming[remoteIP] = time.time()
-        print "discovery Responder 2"
+        # print "discovery Responder 2"
         context = zmq.Context()
-        print "discovery Responder 3"
+        # print "discovery Responder 3"
         socket = context.socket(zmq.PAIR)
-        print "discovery Responder 4"
+        # print "discovery Responder 4"
         socket.connect("tcp://%s:%s" % (remoteIP,self.response_port))
-        print "discovery Responder 5"
+        # print "discovery Responder 5"
         socket.send(msg_json)
-        print "discovery Responder 6"
+        # print "discovery Responder 6"
         socket.close()
-        print "discovery Responder 7"
+        # print "discovery Responder 7"
     def run(self):
         while True:
                 msg_json = self.sock.recv(1024)
@@ -327,10 +327,10 @@ class CallerSend(threading.Thread):
         while True:
             if not self.serverFound_b:
                 try: 
-                    print "calling to",self.mcast_grp, self.mcast_port
+                    # print "calling to",self.mcast_grp, self.mcast_port
                     self.mcast_sock.sendto(self.mcast_msg, (self.mcast_grp, self.mcast_port))
                 except Exception as e:
-                    print 'DISCONNECTED'
+                    # print 'DISCONNECTED'
             time.sleep(5)
 
 class CallerRecv(threading.Thread):
