@@ -178,7 +178,7 @@ try:
                                         signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
                                     else:
                                         signal['frequency'] = float((msg['params']['value']/60)*signal['clock_factor'])
-                                        print "Frequency = ", signal['frequency']
+                                        #print "Frequency = ", signal['frequency']
                                     # signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
                             elif signal['function'] == "digital":
                                 if "bool" not in signal:
@@ -197,7 +197,7 @@ try:
                                     del signal["bool"]
                                     print "sending"
                                     break
-                            print "sending out"
+                            #print "sending out"
                             signal_output.send(signal)
                             collector.collect(device_mapping[0], "%s" % (signal))
                             
