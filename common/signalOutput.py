@@ -166,7 +166,7 @@ class Channel_Process(multiprocessing.Process):
                 self.sendStateToFPGA()
 
             def squareWave(self,frequency,dutyCycle):
-                # print 'executing square wave'
+                print 'executing square wave'
                 # if self.dutyCycle != dutyCycle:
                 self.dutyCycle = float(dutyCycle)
                 self.sendStateToFPGA()    
@@ -184,10 +184,10 @@ class Channel_Process(multiprocessing.Process):
                 dutyCycle_bin_str = "11111111" if self.dutyCycle > 99 else '{0:08b}'.format(int((self.dutyCycle*0.32)+0.5))[::-1]
                 modeSelector_bin_str = 0
                 x24bitParallelPort.send(list("%s%s%s"%(modeSelector_bin_str,channel_bin_str,freq_msb)))
-                #print "word 1 sent: %s%s%s" % (modeSelector_bin_str,channel_bin_str,freq_msb) 
+                print "word 1 sent: %s%s%s" % (modeSelector_bin_str,channel_bin_str,freq_msb) 
                 modeSelector_bin_str = 1
                 x24bitParallelPort.send(list("%s%s%s000"%(modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)))
-                #print "word 2 sent: %s%s%s" % (modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)
+                print "word 2 sent: %s%s%s" % (modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)
     
 
             # def sendStateToFPGA(self, freq_b, ds_b):
