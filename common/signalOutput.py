@@ -214,6 +214,7 @@ class Channel_Process(multiprocessing.Process):
                 self.conn = conn
                 while True:
                     self.receivedData = self.conn.recv()
+                    print self.receivedData
                     channels.enqueue(self.receivedData)
 
 
