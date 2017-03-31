@@ -1,3 +1,2 @@
 verilog work "../pwm_osc.v"
-verilog work "../clock_divider.v"
 verilog work "../src/mojo_top.v"

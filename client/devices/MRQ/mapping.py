@@ -62,7 +62,7 @@ mapping = {
     # ),
 
     "_general/control_change/master_tempo":(
-        ("signal", {"channel":2, "function": "square_wave", "frequency":0, "duty cycle":50.0, "duty_min_max":(0,100), "variable_key":"frequency", "clock_factor":4})
+        ("signal", {"channel":02, "function": "digital", "bool": 0}, {"channel":2, "function": "square_wave", "frequency":0, "duty cycle":50.0, "duty_min_max":(0,100), "variable_key":"frequency", "clock_factor":4})
     ),
 
 

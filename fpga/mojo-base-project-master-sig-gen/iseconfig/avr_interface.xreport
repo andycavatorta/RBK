@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-08-31T19:57:45</DateModified>
+  <DateModified>2017-03-29T15:32:52</DateModified>
   <ModuleName>mojo_top</ModuleName>
-  <SummaryTimeStamp>2015-08-31T18:02:50</SummaryTimeStamp>
-  <SavedFilePath>/opt/mojo/mojo-base-project-master/iseconfig/avr_interface.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/opt/mojo/mojo-base-project-master/syn</ImplementationReportsDirectory>
-  <DateInitialized>2015-08-31T17:40:20</DateInitialized>
+  <SummaryTimeStamp>2017-03-29T15:31:39</SummaryTimeStamp>
+  <SavedFilePath>/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/iseconfig/avr_interface.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/syn/</ImplementationReportsDirectory>
+  <DateInitialized>2017-03-29T15:32:52</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

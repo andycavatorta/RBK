@@ -26,19 +26,19 @@ reg out_clk ;
 input clk ;
 wire clk ;
 
-reg [5:0] m;
+reg [8:0] m;
 
 initial m = 0;
 
 always @ (posedge (clk)) begin
- if (m<5'b10000)
+ if (m<9'b100000000)
   m <= m + 1'b1;
  else   
   m <= 0;
 end
 
 always @ (m) begin
- if (m<5'b01000)
+ if (m<9'b010000000)
   out_clk <= 1'b1;
  else
   out_clk <= 1'b0;

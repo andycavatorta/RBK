@@ -23,19 +23,19 @@
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">avr_rx_busy</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="1843" delta="old" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_0</arg> connected to a primary input has been replicated
+<msg type="info" file="Xst" num="1843" delta="new" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_0</arg> connected to a primary input has been replicated
 </msg>
 
-<msg type="info" file="Xst" num="1843" delta="old" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_1</arg> connected to a primary input has been replicated
+<msg type="info" file="Xst" num="1843" delta="new" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_1</arg> connected to a primary input has been replicated
 </msg>
 
-<msg type="info" file="Xst" num="1843" delta="old" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_2</arg> connected to a primary input has been replicated
+<msg type="info" file="Xst" num="1843" delta="new" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_2</arg> connected to a primary input has been replicated
 </msg>
 
 <msg type="info" file="Xst" num="1843" delta="old" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_3</arg> connected to a primary input has been replicated
 </msg>
 
-<msg type="info" file="Xst" num="1843" delta="old" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_4</arg> connected to a primary input has been replicated
+<msg type="info" file="Xst" num="1843" delta="new" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_4</arg> connected to a primary input has been replicated
 </msg>
 
 </messages>

@@ -66,11 +66,11 @@ from multiprocessing import Pipe
 
 FREQ_DIGITAL_DEFAULT = 10000.0 # Hz
 FPGA_CLOCK_SPEED_ORIG = 50000000 # Hz
-FPGA_CLOCK_DIVISION_FACTOR = 16
-MYSTERY_FACTOR = 0.94
+FPGA_CLOCK_DIVISION_FACTOR = 1.0
+MYSTERY_FACTOR = 1.0
 FPGA_CLOCK_SPEED_DIVIDED = FPGA_CLOCK_SPEED_ORIG/(FPGA_CLOCK_DIVISION_FACTOR/MYSTERY_FACTOR)  #781250
 
-FREQ_MIN = 1.0 # Hz
+FREQ_MIN = 0.001 # Hz
 FREQ_MAX = 735200.0 # Hz
 
 class Channel_Process(multiprocessing.Process):
@@ -102,8 +102,8 @@ class Channel_Process(multiprocessing.Process):
                             self.pulse(params["pulselength"])
                         if params["function"] == "digital":
                             self.digital(params["bool"])
-                        if params["function"] == "square_wave":
-                            if params["frequency"] >= 22.5:
+                        if params["function"] == "square wave":
+                            if params["frequency"] >= 0.001:
                                 self.lowFreqSineActive = False
                                 self.squareWave(params["frequency"],params["duty cycle"])
                             else:
@@ -122,7 +122,7 @@ class Channel_Process(multiprocessing.Process):
                                 while True:
                                     if time.time() >= pause_period + pause_start_time or len(self.queue) > 0:
                                         break
-                                    time.sleep(0.005)
+                                    time.sleep(0.5)
                                 # time.sleep(self.lowFreqSinePeriod * (self.lowFreqSineDutyCycle/100.0))
                                 # self.lowFreqSineActive = False
                             else:
@@ -133,11 +133,10 @@ class Channel_Process(multiprocessing.Process):
                                 while True:
                                     if time.time() >= pause_period + pause_start_time or len(self.queue) > 0:
                                         break
-                                    time.sleep(0.005)
+                                    time.sleep(0.01)
                                 # time.sleep(self.lowFreqSinePeriod * (self.lowFreqS
                                 # self.lowFreqSineActive = False
                             self.lowFreqSineToggle = not self.lowFreqSineToggle
-
                         """
                         if self.lowFreqSineActive:
                             if self.lowFreqSineToggle:
@@ -153,47 +152,55 @@ class Channel_Process(multiprocessing.Process):
                             self.lowFreqSineToggle = not self.lowFreqSineToggle
                         else:
                             time.sleep(0.01)
-
-
-
-
-
-
             def pulse(self,pulselength):
                 # print 'executing pulse'
                 self.dutyCycle = 100.0
-                self.sendStateToFPGA(0,1)
+                self.sendStateToFPGA()
                 time.sleep(pulselength)
                 self.dutyCycle = 0.0
-                self.sendStateToFPGA(0,1)
-                self.sendStateToFPGA(1,0)
+                self.sendStateToFPGA()
 
             def digital(self,bool):
                 # print 'executing digital'
                 self.dutyCycle = 100.0 if bool else 0.0
-                self.sendStateToFPGA(0,1)
-                self.sendStateToFPGA(1,0)
+                self.sendStateToFPGA()
 
             def squareWave(self,frequency,dutyCycle):
-                if self.dutyCycle != dutyCycle:
-                    self.dutyCycle = float(dutyCycle)
-                    self.sendStateToFPGA(0,1)    
+                # print 'executing square wave'
+                # if self.dutyCycle != dutyCycle:
+                self.dutyCycle = float(dutyCycle)
+                self.sendStateToFPGA()    
                 # if self.freq != frequency:
-                    self.freq = float(frequency)
-                    self.sendStateToFPGA(1,0)
+                self.freq = float(frequency)
+                self.sendStateToFPGA()
+
+            def sendStateToFPGA(self):
+                channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
+                osc_bin_str = ('{0:028b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED/self.freq)))[::-1]
+                #print "period: ", int(FPGA_CLOCK_SPEED_DIVIDED/self.freq)
+                #print "binary: ", osc_bin_str
+                freq_msb = osc_bin_str[0:17]
+                freq_lsb = osc_bin_str[17:28]
+                dutyCycle_bin_str = "11111111" if self.dutyCycle > 99 else '{0:08b}'.format(int((self.dutyCycle*0.32)+0.5))[::-1]
+                modeSelector_bin_str = 0
+                x24bitParallelPort.send(list("%s%s%s"%(modeSelector_bin_str,channel_bin_str,freq_msb)))
+                #print "word 1 sent: %s%s%s" % (modeSelector_bin_str,channel_bin_str,freq_msb) 
+                modeSelector_bin_str = 1
+                x24bitParallelPort.send(list("%s%s%s000"%(modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)))
+                #print "word 2 sent: %s%s%s" % (modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)
     
 
-            def sendStateToFPGA(self, freq_b, ds_b):
-                channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
-                if freq_b:
-                    modeSelector_bin_str = "0"
-                    osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1]
-                    x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
-                if ds_b:
-                    modeSelector_bin_str = "1"
-                    dutyCycle_bin_str = "1111111" if self.dutyCycle > 99 else '{0:07b}'.format(int((self.dutyCycle*0.64)+0.5))[::-1]
-                    padding_bin_str = "00000000000"
-                    x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
+            # def sendStateToFPGA(self, freq_b, ds_b):
+            #     channel_bin_str = '{0:05b}'.format(self.channel)[::-1]
+            #     if freq_b:
+            #         modeSelector_bin_str = "0"
+            #         osc_bin_str = ('{0:017b}'.format(int(FPGA_CLOCK_SPEED_DIVIDED / self.freq)))[::-1]
+            #         x24bitParallelPort.send(list("%s%s%s" % (modeSelector_bin_str, channel_bin_str, osc_bin_str)))
+            #     if ds_b:
+            #         modeSelector_bin_str = "1"
+            #         dutyCycle_bin_str = "1111111" if self.dutyCycle > 99 else '{0:07b}'.format(int((self.dutyCycle*0.64)+0.5))[::-1]
+            #         padding_bin_str = "00000000000"
+            #         x24bitParallelPort.send(list("%s%s%s%s" % (modeSelector_bin_str, channel_bin_str, dutyCycle_bin_str, padding_bin_str)))
 
             def enqueue(self, params):
                 self.params = params

@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
-Release 14.7 Trace  (lin)
+Release 14.7 Trace  (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin/unwrapped/trce -intstyle ise -v 3 -s 2 -n 3
--fastpaths -xml avr_interface.twx avr_interface.ncd -o avr_interface.twr
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 2 -n
+3 -fastpaths -xml avr_interface.twx avr_interface.ncd -o avr_interface.twr
 avr_interface.pcf
 
 Design file:              avr_interface.ncd
@@ -113,14 +113,14 @@ spi_ss         |spi_miso       |   10.657|
 ---------------+---------------+---------+
 
 
-Analysis completed Mon Aug 31 17:37:30 2015 
+Analysis completed Wed Mar 29 15:31:38 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 137 MB
+Peak Memory Usage: 383 MB
 
 
 

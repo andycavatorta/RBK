@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-03-20T16:52:53</DateModified>
+  <DateModified>2017-03-31T11:48:49</DateModified>
   <ModuleName>mojo_top</ModuleName>
-  <SummaryTimeStamp>2016-06-16T12:30:21</SummaryTimeStamp>
+  <SummaryTimeStamp>2017-03-30T15:49:50</SummaryTimeStamp>
   <SavedFilePath>/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/iseconfig/mojo_top.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/syn/</ImplementationReportsDirectory>
-  <DateInitialized>2015-08-31T16:53:43</DateInitialized>
+  <DateInitialized>2017-03-29T15:25:37</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
