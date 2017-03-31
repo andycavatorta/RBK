@@ -102,7 +102,7 @@ class Channel_Process(multiprocessing.Process):
                             self.pulse(params["pulselength"])
                         if params["function"] == "digital":
                             self.digital(params["bool"])
-                        if params["function"] == "square wave":
+                        if params["function"] == "square_wave":
                             print "recebido o pedido de square"
                             if params["frequency"] >= 0.001:
                                 self.lowFreqSineActive = False
