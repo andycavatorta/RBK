@@ -188,7 +188,7 @@ class Channel_Process(multiprocessing.Process):
                 print "word 1 sent: %s%s%s" % (modeSelector_bin_str,channel_bin_str,freq_msb) 
                 modeSelector_bin_str = 1
                 x24bitParallelPort.send(list("%s%s%s000"%(modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)))
-                print "word 2 sent: %s%s%s" % (modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)
+                print "word 2 sent: %s%s%s000" % (modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)
     
 
             # def sendStateToFPGA(self, freq_b, ds_b):
