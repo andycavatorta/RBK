@@ -330,7 +330,7 @@ class CallerSend(threading.Thread):
                     # print "calling to",self.mcast_grp, self.mcast_port
                     self.mcast_sock.sendto(self.mcast_msg, (self.mcast_grp, self.mcast_port))
                 except Exception as e:
-                    # print 'DISCONNECTED'
+                    print 'DISCONNECTED'
             time.sleep(5)
 
 class CallerRecv(threading.Thread):
