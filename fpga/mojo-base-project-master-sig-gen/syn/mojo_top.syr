@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.03 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.03 secs
  
 --> 
 Reading design: mojo_top.prj
@@ -164,18 +164,6 @@ WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved
     Found 1-bit register for signal <incoming_osc_reg<2>>.
     Found 1-bit register for signal <incoming_osc_reg<1>>.
     Found 1-bit register for signal <incoming_osc_reg<0>>.
-    Found 1-bit register for signal <channel_00_reset>.
-    Found 1-bit register for signal <channel_01_reset>.
-    Found 1-bit register for signal <channel_02_reset>.
-    Found 1-bit register for signal <channel_03_reset>.
-    Found 1-bit register for signal <channel_04_reset>.
-    Found 1-bit register for signal <channel_05_reset>.
-    Found 1-bit register for signal <channel_06_reset>.
-    Found 1-bit register for signal <channel_07_reset>.
-    Found 1-bit register for signal <channel_08_reset>.
-    Found 1-bit register for signal <channel_09_reset>.
-    Found 1-bit register for signal <channel_10_reset>.
-    Found 1-bit register for signal <channel_11_reset>.
     Found 8-bit register for signal <incoming_pwm_reg>.
     Found 28-bit register for signal <channel_00_osc_reg>.
     Found 8-bit register for signal <channel_00_pwm_reg>.
@@ -201,6 +189,10 @@ WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved
     Found 8-bit register for signal <channel_10_pwm_reg>.
     Found 28-bit register for signal <channel_11_osc_reg>.
     Found 8-bit register for signal <channel_11_pwm_reg>.
+    Found 28-bit register for signal <channel_12_osc_reg>.
+    Found 8-bit register for signal <channel_12_pwm_reg>.
+    Found 28-bit register for signal <channel_13_osc_reg>.
+    Found 8-bit register for signal <channel_13_pwm_reg>.
     Found 5-bit register for signal <incoming_channel_reg>.
     Found 1-bit tristate buffer for signal <spi_miso> created at line 68
     Found 1-bit tristate buffer for signal <avr_rx> created at line 69
@@ -211,7 +203,7 @@ WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved
     Found 1-bit tristate buffer for signal <led<5>> created at line 95
     Found 1-bit tristate buffer for signal <led<6>> created at line 96
     Summary:
-	inferred 485 D-type flip-flop(s).
+	inferred 545 D-type flip-flop(s).
 	inferred   8 Tristate(s).
 Unit <mojo_top> synthesized.
 
@@ -219,10 +211,10 @@ Synthesizing Unit <pwm_osc>.
     Related source file is "/home/joaogonks/GitHub/RBK/fpga/mojo-base-project-master-sig-gen/pwm_osc.v".
     Found 1-bit register for signal <squareWaveOut_reg>.
     Found 28-bit register for signal <osc_counter>.
-    Found 28-bit adder for signal <osc_counter[27]_GND_10_o_add_3_OUT> created at line 15.
-    Found 28x8-bit multiplier for signal <n0018> created at line 16.
-    Found 28-bit comparator lessequal for signal <n0000> created at line 15
-    Found 28-bit comparator greater for signal <GND_10_o_INV_2_o> created at line 16
+    Found 28-bit adder for signal <osc_counter[27]_GND_10_o_add_2_OUT> created at line 15.
+    Found 28x8-bit multiplier for signal <n0016> created at line 16.
+    Found 28-bit comparator greater for signal <n0000> created at line 15
+    Found 28-bit comparator greater for signal <GND_10_o_INV_1_o> created at line 16
     Summary:
 	inferred   1 Multiplier(s).
 	inferred   1 Adder/Subtractor(s).
@@ -234,18 +226,17 @@ Unit <pwm_osc> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Multipliers                                          : 12
- 28x8-bit multiplier                                   : 12
-# Adders/Subtractors                                   : 12
- 28-bit adder                                          : 12
-# Registers                                            : 90
- 1-bit register                                        : 52
- 28-bit register                                       : 24
+# Multipliers                                          : 14
+ 28x8-bit multiplier                                   : 14
+# Adders/Subtractors                                   : 14
+ 28-bit adder                                          : 14
+# Registers                                            : 86
+ 1-bit register                                        : 42
+ 28-bit register                                       : 28
  5-bit register                                        : 1
- 8-bit register                                        : 13
-# Comparators                                          : 24
- 28-bit comparator greater                             : 12
- 28-bit comparator lessequal                           : 12
+ 8-bit register                                        : 15
+# Comparators                                          : 28
+ 28-bit comparator greater                             : 28
 # Tristates                                            : 8
  1-bit tristate buffer                                 : 8
 
@@ -264,15 +255,14 @@ Unit <pwm_osc> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Multipliers                                          : 12
- 28x8-bit multiplier                                   : 12
-# Counters                                             : 12
- 28-bit up counter                                     : 12
-# Registers                                            : 497
- Flip-Flops                                            : 497
-# Comparators                                          : 24
- 28-bit comparator greater                             : 12
- 28-bit comparator lessequal                           : 12
+# Multipliers                                          : 14
+ 28x8-bit multiplier                                   : 14
+# Counters                                             : 14
+ 28-bit up counter                                     : 14
+# Registers                                            : 559
+ Flip-Flops                                            : 559
+# Comparators                                          : 28
+ 28-bit comparator greater                             : 28
 
 =========================================================================
 
@@ -284,17 +274,7 @@ Optimizing unit <mojo_top> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 47.
-FlipFlop incoming_channel_reg_0 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_0 connected to a primary input has been replicated
-FlipFlop incoming_channel_reg_1 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_1 connected to a primary input has been replicated
-FlipFlop incoming_channel_reg_2 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_2 connected to a primary input has been replicated
-FlipFlop incoming_channel_reg_3 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_3 connected to a primary input has been replicated
-FlipFlop incoming_channel_reg_4 has been replicated 1 time(s)
-INFO:Xst:1843 - HDL ADVISOR - FlipFlop incoming_channel_reg_4 connected to a primary input has been replicated
+Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 62.
 FlipFlop incoming_channel_reg_4 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop incoming_channel_reg_3 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop incoming_channel_reg_2 has been replicated 1 time(s) to handle iob=true attribute.
@@ -307,8 +287,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 779
- Flip-Flops                                            : 779
+# Registers                                            : 892
+ Flip-Flops                                            : 892
 
 =========================================================================
 
@@ -331,27 +311,26 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 5496
+# BELS                             : 6837
 #      GND                         : 1
-#      INV                         : 18
-#      LUT1                        : 324
-#      LUT2                        : 776
-#      LUT3                        : 740
-#      LUT4                        : 1060
-#      LUT5                        : 16
-#      LUT6                        : 20
-#      MUXCY                       : 1440
+#      INV                         : 15
+#      LUT1                        : 392
+#      LUT2                        : 1524
+#      LUT3                        : 46
+#      LUT4                        : 1374
+#      LUT6                        : 14
+#      MUXCY                       : 1932
 #      VCC                         : 1
-#      XORCY                       : 1100
-# FlipFlops/Latches                : 779
-#      FD                          : 360
-#      FDE                         : 419
+#      XORCY                       : 1538
+# FlipFlops/Latches                : 892
+#      FD                          : 406
+#      FDE                         : 486
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 50
+# IO Buffers                       : 52
 #      IBUF                        : 24
-#      OBUF                        : 18
+#      OBUF                        : 20
 #      OBUFT                       : 8
 # DSPs                             : 16
 #      DSP48A1                     : 16
@@ -363,20 +342,20 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             774  out of  11440     6%  
- Number of Slice LUTs:                 2954  out of   5720    51%  
-    Number used as Logic:              2954  out of   5720    51%  
+ Number of Slice Registers:             887  out of  11440     7%  
+ Number of Slice LUTs:                 3365  out of   5720    58%  
+    Number used as Logic:              3365  out of   5720    58%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3021
-   Number with an unused Flip Flop:    2247  out of   3021    74%  
-   Number with an unused LUT:            67  out of   3021     2%  
-   Number of fully used LUT-FF pairs:   707  out of   3021    23%  
-   Number of unique control sets:        12
+ Number of LUT Flip Flop pairs used:   3874
+   Number with an unused Flip Flop:    2987  out of   3874    77%  
+   Number with an unused LUT:           509  out of   3874    13%  
+   Number of fully used LUT-FF pairs:   378  out of   3874     9%  
+   Number of unique control sets:        17
 
 IO Utilization: 
  Number of IOs:                          69
- Number of bonded IOBs:                  51  out of    102    50%  
+ Number of bonded IOBs:                  53  out of    102    51%  
     IOB Flip Flops/Latches:               5
 
 Specific Feature Utilization:
@@ -404,8 +383,8 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-parallel_in<0>                     | IBUF+BUFG              | 447   |
-clk                                | BUFGP                  | 348   |
+parallel_in<0>                     | IBUF+BUFG              | 502   |
+clk                                | BUFGP                  | 406   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -416,8 +395,8 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 4.569ns (Maximum Frequency: 218.868MHz)
-   Minimum input arrival time before clock: 5.661ns
+   Minimum period: 4.224ns (Maximum Frequency: 236.747MHz)
+   Minimum input arrival time before clock: 5.478ns
    Maximum output required time after clock: 4.118ns
    Maximum combinational path delay: 4.921ns
 
@@ -427,99 +406,97 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'parallel_in<0>'
-  Clock period: 4.569ns (frequency: 218.868MHz)
-  Total number of paths / destination ports: 3068 / 1060
+  Clock period: 4.224ns (frequency: 236.747MHz)
+  Total number of paths / destination ports: 3048 / 1192
 -------------------------------------------------------------------------
-Delay:               4.569ns (Levels of Logic = 2)
-  Source:            incoming_channel_reg_0 (FF)
-  Destination:       channel_05_reset (FF)
+Delay:               4.224ns (Levels of Logic = 1)
+  Source:            incoming_channel_reg_4 (FF)
+  Destination:       channel_08_osc_reg_0 (FF)
   Source Clock:      parallel_in<0> rising
   Destination Clock: parallel_in<0> rising
 
-  Data Path: incoming_channel_reg_0 to channel_05_reset
+  Data Path: incoming_channel_reg_4 to channel_08_osc_reg_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q            112   0.525   2.676  incoming_channel_reg_0 (incoming_channel_reg_0)
-     LUT6:I1->O            1   0.254   0.790  channel_05_reset_rstpot_G (N23)
-     LUT3:I1->O            1   0.250   0.000  channel_05_reset_rstpot1 (channel_05_reset_rstpot)
-     FD:D                      0.074          channel_05_reset
+     FDE:C->Q             14   0.525   1.557  incoming_channel_reg_4 (incoming_channel_reg_4)
+     LUT6:I1->O           36   0.254   1.586  _n0434_inv11 (_n0434_inv)
+     FDE:CE                    0.302          channel_13_osc_reg_0
     ----------------------------------------
-    Total                      4.569ns (1.103ns logic, 3.466ns route)
-                                       (24.1% logic, 75.9% route)
+    Total                      4.224ns (1.081ns logic, 3.143ns route)
+                                       (25.6% logic, 74.4% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 4.160ns (frequency: 240.361MHz)
-  Total number of paths / destination ports: 24360 / 348
+  Total number of paths / destination ports: 28420 / 406
 -------------------------------------------------------------------------
 Delay:               4.160ns (Levels of Logic = 16)
-  Source:            pwm_osc_11/osc_counter_1 (FF)
-  Destination:       pwm_osc_11/osc_counter_1 (FF)
+  Source:            pwm_osc_13/osc_counter_1 (FF)
+  Destination:       pwm_osc_13/osc_counter_1 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: pwm_osc_11/osc_counter_1 to pwm_osc_11/osc_counter_1
+  Data Path: pwm_osc_13/osc_counter_1 to pwm_osc_13/osc_counter_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               5   0.525   1.117  pwm_osc_11/osc_counter_1 (pwm_osc_11/osc_counter_1)
-     LUT4:I0->O            0   0.254   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_lutdi (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_lutdi)
-     MUXCY:DI->O           1   0.181   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<0> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<0>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<1> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<1>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<2> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<2>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<3> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<3>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<4> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<4>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<5> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<6> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<6>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<7> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<7>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<8> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<8>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<9> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<9>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<10> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<10>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<11> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<11>)
-     MUXCY:CI->O           1   0.023   0.000  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<12> (pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<12>)
-     MUXCY:CI->O          28   0.023   1.453  pwm_osc_11/Mcompar_osc_reg[27]_osc_counter[27]_LessThan_2_o_cy<13> (pwm_osc_11/osc_reg[27]_osc_counter[27]_LessThan_2_o)
-     LUT3:I2->O            1   0.254   0.000  pwm_osc_11/osc_counter_1_rstpot (pwm_osc_11/osc_counter_1_rstpot)
-     FD:D                      0.074          pwm_osc_11/osc_counter_1
+     FD:C->Q               5   0.525   1.117  pwm_osc_13/osc_counter_1 (pwm_osc_13/osc_counter_1)
+     LUT4:I0->O            0   0.254   0.000  pwm_osc_13/Mcompar_n0000_lutdi (pwm_osc_13/Mcompar_n0000_lutdi)
+     MUXCY:DI->O           1   0.181   0.000  pwm_osc_13/Mcompar_n0000_cy<0> (pwm_osc_13/Mcompar_n0000_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<1> (pwm_osc_13/Mcompar_n0000_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<2> (pwm_osc_13/Mcompar_n0000_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<3> (pwm_osc_13/Mcompar_n0000_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<4> (pwm_osc_13/Mcompar_n0000_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<5> (pwm_osc_13/Mcompar_n0000_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<6> (pwm_osc_13/Mcompar_n0000_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<7> (pwm_osc_13/Mcompar_n0000_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<8> (pwm_osc_13/Mcompar_n0000_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<9> (pwm_osc_13/Mcompar_n0000_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<10> (pwm_osc_13/Mcompar_n0000_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<11> (pwm_osc_13/Mcompar_n0000_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  pwm_osc_13/Mcompar_n0000_cy<12> (pwm_osc_13/Mcompar_n0000_cy<12>)
+     MUXCY:CI->O          28   0.023   1.453  pwm_osc_13/Mcompar_n0000_cy<13> (pwm_osc_13/Mcompar_n0000_cy<13>)
+     LUT2:I1->O            1   0.254   0.000  pwm_osc_13/osc_counter_1_rstpot (pwm_osc_13/osc_counter_1_rstpot)
+     FD:D                      0.074          pwm_osc_13/osc_counter_1
     ----------------------------------------
     Total                      4.160ns (1.590ns logic, 2.570ns route)
                                        (38.2% logic, 61.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'parallel_in<0>'
-  Total number of paths / destination ports: 506 / 506
+  Total number of paths / destination ports: 556 / 556
 -------------------------------------------------------------------------
-Offset:              5.661ns (Levels of Logic = 3)
+Offset:              5.478ns (Levels of Logic = 2)
   Source:            parallel_in<23> (PAD)
-  Destination:       channel_00_osc_reg_0 (FF)
+  Destination:       channel_08_osc_reg_0 (FF)
   Destination Clock: parallel_in<0> rising
 
-  Data Path: parallel_in<23> to channel_00_osc_reg_0
+  Data Path: parallel_in<23> to channel_08_osc_reg_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            56   1.328   2.298  parallel_in_23_IBUF (parallel_in_23_IBUF)
-     LUT5:I0->O           28   0.254   1.453  _n034711_rstpot (_n034711_rstpot)
-     LUT3:I2->O            1   0.254   0.000  channel_02_osc_reg_0_dpot (channel_02_osc_reg_0_dpot)
-     FDE:D                     0.074          channel_02_osc_reg_0
+     IBUF:I->O            34   1.328   2.008  parallel_in_23_IBUF (parallel_in_23_IBUF)
+     LUT6:I0->O           36   0.254   1.586  _n0434_inv11 (_n0434_inv)
+     FDE:CE                    0.302          channel_13_osc_reg_0
     ----------------------------------------
-    Total                      5.661ns (1.910ns logic, 3.751ns route)
-                                       (33.7% logic, 66.3% route)
+    Total                      5.478ns (1.884ns logic, 3.594ns route)
+                                       (34.4% logic, 65.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'parallel_in<0>'
   Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
 Offset:              4.118ns (Levels of Logic = 1)
-  Source:            incoming_channel_reg_4_2 (FF)
+  Source:            incoming_channel_reg_4_1 (FF)
   Destination:       led<4> (PAD)
   Source Clock:      parallel_in<0> rising
 
-  Data Path: incoming_channel_reg_4_2 to led<4>
+  Data Path: incoming_channel_reg_4_1 to led<4>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              1   0.525   0.681  incoming_channel_reg_4_2 (incoming_channel_reg_4_2)
+     FDE:C->Q              1   0.525   0.681  incoming_channel_reg_4_1 (incoming_channel_reg_4_1)
      OBUF:I->O                 2.912          led_4_OBUF (led<4>)
     ----------------------------------------
     Total                      4.118ns (3.437ns logic, 0.681ns route)
@@ -527,7 +504,7 @@ Offset:              4.118ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 12 / 12
+  Total number of paths / destination ports: 14 / 14
 -------------------------------------------------------------------------
 Offset:              4.118ns (Levels of Logic = 1)
   Source:            pwm_osc_00/squareWaveOut_reg (FF)
@@ -581,21 +558,21 @@ Clock to Setup on destination clock parallel_in<0>
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-parallel_in<0> |    4.569|         |         |         |
+parallel_in<0> |    4.224|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.04 secs
+Total CPU time to Xst completion: 7.27 secs
  
 --> 
 
 
-Total memory usage is 418608 kilobytes
+Total memory usage is 428788 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    6 (   0 filtered)
-Number of infos    :    5 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
 
