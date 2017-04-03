@@ -51,16 +51,16 @@ module mojo_top(
     output pwm_osc_11_out,
     output pwm_osc_12_out,
     output pwm_osc_13_out,
-    output pwm_osc_14_out,
-    output pwm_osc_15_out,
-    output pwm_osc_16_out,
-    output pwm_osc_17_out,
-    output pwm_osc_18_out,
-    output pwm_osc_19_out,
-    output pwm_osc_20_out,
-    output pwm_osc_21_out,
-    output pwm_osc_22_out,
-    output pwm_osc_23_out
+    output digital_osc_14_out,
+    output digital_osc_15_out,
+    output digital_osc_16_out,
+    output digital_osc_17_out,
+    output digital_osc_18_out,
+    output digital_osc_19_out,
+    output digital_osc_20_out,
+    output digital_osc_21_out,
+    output digital_osc_22_out,
+    output digital_osc_23_out
     );
 
 // wire rst = ~rst_n; // make reset active high
@@ -111,7 +111,6 @@ reg [pwmBitWidth:0] channel_10_pwm_reg;
 reg [pwmBitWidth:0] channel_11_pwm_reg;
 reg [pwmBitWidth:0] channel_12_pwm_reg;
 reg [pwmBitWidth:0] channel_13_pwm_reg;
-/*
 reg [pwmBitWidth:0] channel_14_pwm_reg;
 reg [pwmBitWidth:0] channel_15_pwm_reg;
 reg [pwmBitWidth:0] channel_16_pwm_reg;
@@ -122,7 +121,7 @@ reg [pwmBitWidth:0] channel_20_pwm_reg;
 reg [pwmBitWidth:0] channel_21_pwm_reg;
 reg [pwmBitWidth:0] channel_22_pwm_reg;
 reg [pwmBitWidth:0] channel_23_pwm_reg;
-*/
+
 
 
 reg [oscBitWidth:0] channel_00_osc_reg;
@@ -194,6 +193,17 @@ pwm_osc pwm_osc_10(clk, channel_10_pwm_reg, channel_10_osc_reg, pwm_osc_10_out);
 pwm_osc pwm_osc_11(clk, channel_11_pwm_reg, channel_11_osc_reg, pwm_osc_11_out);
 pwm_osc pwm_osc_12(clk, channel_12_pwm_reg, channel_12_osc_reg, pwm_osc_12_out);
 pwm_osc pwm_osc_13(clk, channel_13_pwm_reg, channel_13_osc_reg, pwm_osc_13_out);
+
+digital_osc digital_osc_14(clk, channel_14_pwm_reg, digital_osc_14_out);
+digital_osc digital_osc_15(clk, channel_15_pwm_reg, digital_osc_15_out);
+digital_osc digital_osc_16(clk, channel_16_pwm_reg, digital_osc_16_out);
+digital_osc digital_osc_17(clk, channel_17_pwm_reg, digital_osc_17_out);
+digital_osc digital_osc_18(clk, channel_18_pwm_reg, digital_osc_18_out);
+digital_osc digital_osc_19(clk, channel_19_pwm_reg, digital_osc_19_out);
+digital_osc digital_osc_20(clk, channel_20_pwm_reg, digital_osc_20_out);
+digital_osc digital_osc_21(clk, channel_21_pwm_reg, digital_osc_21_out);
+digital_osc digital_osc_22(clk, channel_22_pwm_reg, digital_osc_22_out);
+digital_osc digital_osc_23(clk, channel_23_pwm_reg, digital_osc_23_out); 
 /*
 pwm_osc pwm_osc_14(clk, channel_14_pwm_reg, channel_14_osc_reg, pwm_osc_14_out);
 pwm_osc pwm_osc_15(clk, channel_15_pwm_reg, channel_15_osc_reg, pwm_osc_15_out);
@@ -391,58 +401,46 @@ begin
 					channel_13_osc_reg <= incoming_osc_reg;
 					channel_13_pwm_reg <= incoming_pwm_reg;
 					end
-					/*
 			  5'b01110:
 					begin
-					channel_14_osc_reg <= incoming_osc_reg;
 					channel_14_pwm_reg <= incoming_pwm_reg;
 					end
 			  5'b01111:
 					begin
-					channel_15_osc_reg <= incoming_osc_reg;
 					channel_15_pwm_reg <= incoming_pwm_reg;
 					end
 			  5'b10000:
 					begin
-					channel_16_osc_reg <= incoming_osc_reg;
 					channel_16_pwm_reg <= incoming_pwm_reg;
 					end
 			  5'b10001:
 					begin
-					channel_17_osc_reg <= incoming_osc_reg;
 					channel_17_pwm_reg <= incoming_pwm_reg;
 					end
 			  5'b10010:
 					begin
-					channel_18_osc_reg <= incoming_osc_reg;
 					channel_18_pwm_reg <= incoming_pwm_reg;
 					end
 			  5'b10011:
 					begin
-					channel_19_osc_reg <= incoming_osc_reg;
 					channel_19_pwm_reg <= incoming_pwm_reg;
 					end
 			  5'b10100:
 					begin
-					channel_20_osc_reg <= incoming_osc_reg;
 					channel_20_pwm_reg <= incoming_pwm_reg;
 					end
 			  5'b10101:
 					begin
-					channel_21_osc_reg <= incoming_osc_reg;
 					channel_21_pwm_reg <= incoming_pwm_reg;
 					end
 			  5'b10110:
 					begin
-					channel_22_osc_reg <= incoming_osc_reg;
 					channel_22_pwm_reg <= incoming_pwm_reg;
 					end
 			  5'b10111:
 					begin
-					channel_23_osc_reg <= incoming_osc_reg;
 					channel_23_pwm_reg <= incoming_pwm_reg;
 					end
-					*/
 				endcase
 		end
 end
@@ -592,4 +590,5 @@ begin
     endcase
 end
 */
+
 endmodule

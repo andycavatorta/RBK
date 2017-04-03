@@ -1,8 +1,18 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Mon Apr 03 13:00:54 2017
+// Written by: Map P.20131013 on Mon Apr 03 16:02:58 2017
 //! **************************************************************************
 
 SCHEMATIC START;
+COMP "digital_osc_20_out" LOCATE = SITE "P97" LEVEL 1;
+COMP "digital_osc_21_out" LOCATE = SITE "P98" LEVEL 1;
+COMP "digital_osc_22_out" LOCATE = SITE "P99" LEVEL 1;
+COMP "digital_osc_14_out" LOCATE = SITE "P87" LEVEL 1;
+COMP "digital_osc_23_out" LOCATE = SITE "P100" LEVEL 1;
+COMP "digital_osc_15_out" LOCATE = SITE "P88" LEVEL 1;
+COMP "digital_osc_16_out" LOCATE = SITE "P92" LEVEL 1;
+COMP "digital_osc_17_out" LOCATE = SITE "P93" LEVEL 1;
+COMP "digital_osc_18_out" LOCATE = SITE "P94" LEVEL 1;
+COMP "digital_osc_19_out" LOCATE = SITE "P95" LEVEL 1;
 COMP "parallel_in<10>" LOCATE = SITE "P22" LEVEL 1;
 COMP "parallel_in<11>" LOCATE = SITE "P16" LEVEL 1;
 PIN parallel_in<11>_pin<0> = BEL "parallel_in<11>" PINNAME PAD;
@@ -63,7 +73,16 @@ TIMEGRP clk = BEL "pwm_osc_13/squareWaveOut_reg" BEL
         "pwm_osc_06/squareWaveOut_reg" BEL "pwm_osc_05/squareWaveOut_reg" BEL
         "pwm_osc_04/squareWaveOut_reg" BEL "pwm_osc_03/squareWaveOut_reg" BEL
         "pwm_osc_02/squareWaveOut_reg" BEL "pwm_osc_01/squareWaveOut_reg" BEL
-        "pwm_osc_00/squareWaveOut_reg" BEL "pwm_osc_13/osc_counter_0" BEL
+        "pwm_osc_00/squareWaveOut_reg" BEL "digital_osc_23/squareWaveOut_reg"
+        BEL "digital_osc_22/squareWaveOut_reg" BEL
+        "digital_osc_21/squareWaveOut_reg" BEL
+        "digital_osc_20/squareWaveOut_reg" BEL
+        "digital_osc_19/squareWaveOut_reg" BEL
+        "digital_osc_18/squareWaveOut_reg" BEL
+        "digital_osc_17/squareWaveOut_reg" BEL
+        "digital_osc_16/squareWaveOut_reg" BEL
+        "digital_osc_15/squareWaveOut_reg" BEL
+        "digital_osc_14/squareWaveOut_reg" BEL "pwm_osc_13/osc_counter_0" BEL
         "pwm_osc_12/osc_counter_0" BEL "pwm_osc_11/osc_counter_0" BEL
         "pwm_osc_10/osc_counter_0" BEL "pwm_osc_09/osc_counter_0" BEL
         "pwm_osc_08/osc_counter_0" BEL "pwm_osc_07/osc_counter_0" BEL

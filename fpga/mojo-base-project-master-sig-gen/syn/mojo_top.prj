@@ -1,2 +1,3 @@
 verilog work "../pwm_osc.v"
+verilog work "../digital_osc.v"
 verilog work "../src/mojo_top.v"

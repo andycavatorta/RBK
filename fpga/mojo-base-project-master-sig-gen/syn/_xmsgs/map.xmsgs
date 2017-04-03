@@ -5,15 +5,15 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="LIT" num="243" delta="new" >Logical network <arg fmt="%s" index="1">pwm_osc_14_out</arg> has no load.
+<msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">cclk_IBUF</arg> has no load.
 </msg>
 
-<msg type="info" file="LIT" num="395" delta="new" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">15</arg> more times for the following (max. 5 shown):
-<arg fmt="%s" index="3">pwm_osc_15_out,
-pwm_osc_16_out,
-pwm_osc_17_out,
-pwm_osc_18_out,
-pwm_osc_19_out</arg>
+<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">5</arg> more times for the following (max. 5 shown):
+<arg fmt="%s" index="3">spi_ss_IBUF,
+spi_mosi_IBUF,
+spi_sck_IBUF,
+avr_tx_IBUF,
+avr_rx_busy_IBUF</arg>
 To see the details of these <arg fmt="%s" index="4">info</arg> messages, please use the -detail switch.
 </msg>
 
@@ -56,7 +56,7 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 <msg type="info" file="Map" num="215" delta="old" >The Interim Design Summary has been generated in the MAP Report (.mrp).
 </msg>
 
-<msg type="info" file="Pack" num="1650" delta="new" >Map created a placed design.
+<msg type="info" file="Pack" num="1650" delta="old" >Map created a placed design.
 </msg>
 
 </messages>
