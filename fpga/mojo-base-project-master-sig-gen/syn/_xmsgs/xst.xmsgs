@@ -32,9 +32,6 @@
 <msg type="info" file="Xst" num="1843" delta="old" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_2</arg> connected to a primary input has been replicated
 </msg>
 
-<msg type="info" file="Xst" num="1843" delta="old" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_3</arg> connected to a primary input has been replicated
-</msg>
-
 <msg type="info" file="Xst" num="1843" delta="old" >HDL ADVISOR - FlipFlop <arg fmt="%s" index="1">incoming_channel_reg_4</arg> connected to a primary input has been replicated
 </msg>
 

@@ -2,7 +2,7 @@
 
 module pwm_osc(
   input clk_div,
-  input [7:0] pwm_reg,
+  input [10:0] pwm_reg,
   input [27:0] osc_reg,
   //input reset,
   output pwm_osc_out
@@ -13,7 +13,7 @@ reg [27:0] osc_counter = 1'b1;
 begin
 //always @(posedge clk_div) osc_counter <= (osc_counter >= osc_reg || reset == 1)?1'b0:osc_counter + 1'b1;
 always @(posedge clk_div) osc_counter <= (osc_counter >= osc_reg)?1'b0:osc_counter + 1'b1;
-always @(posedge clk_div) squareWaveOut_reg <= (osc_counter  >= osc_reg * pwm_reg / 32)?1'b0:1'b1;
+always @(posedge clk_div) squareWaveOut_reg <= (osc_counter >= osc_reg * pwm_reg/32)?1'b0:1'b1;
 end
 
 

@@ -181,12 +181,12 @@ class Channel_Process(multiprocessing.Process):
                 #print "binary: ", osc_bin_str
                 freq_msb = osc_bin_str[0:17]
                 freq_lsb = osc_bin_str[17:28]
-                dutyCycle_bin_str = "11111111" if self.dutyCycle > 99 else '{0:08b}'.format(int((self.dutyCycle*0.32)+0.5))[::-1]
+                dutyCycle_bin_str = "11111111111" if self.dutyCycle > 99 else '{0:011b}'.format(int((self.dutyCycle*0.32)+0.5))[::-1]
                 modeSelector_bin_str = 0
                 x24bitParallelPort.send(list("%s%s%s"%(modeSelector_bin_str,channel_bin_str,freq_msb)))
                 #print "word 1 sent: %s%s%s" % (modeSelector_bin_str,channel_bin_str,freq_msb) 
                 modeSelector_bin_str = 1
-                x24bitParallelPort.send(list("%s%s%s000"%(modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)))
+                x24bitParallelPort.send(list("%s%s%s"%(modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)))
                 #print "word 2 sent: %s%s%s" % (modeSelector_bin_str,freq_lsb, dutyCycle_bin_str)
 
     

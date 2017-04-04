@@ -81,7 +81,7 @@ assign spi_channel = 4'bzzzz;
 //clock_divider clock_divider_instance(clk,clk_div);
 
 // bit widths for data types
-parameter pwmBitWidth = 7;
+parameter pwmBitWidth = 10;
 parameter oscBitWidth = 27;
 parameter channelBitWidth = 4;
 
@@ -318,6 +318,9 @@ begin
         incoming_pwm_reg[5] <= parallel_in[6];
         incoming_pwm_reg[6] <= parallel_in[5];
         incoming_pwm_reg[7] <= parallel_in[4];
+        incoming_pwm_reg[8] <= parallel_in[3];
+        incoming_pwm_reg[9] <= parallel_in[2];
+        incoming_pwm_reg[10] <= parallel_in[1];
 		 case(incoming_channel_reg) // which channel
 			  5'b00000:
 					begin

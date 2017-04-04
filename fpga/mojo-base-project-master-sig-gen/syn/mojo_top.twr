@@ -30,17 +30,17 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  28420 paths analyzed, 910 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   6.298ns.
+ Minimum period is  11.408ns.
 --------------------------------------------------------------------------------
 
-Paths for end point pwm_osc_05/osc_counter_14 (SLICE_X13Y51.B3), 56 paths
+Paths for end point pwm_osc_10/osc_counter_26 (SLICE_X17Y55.D3), 56 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     13.702ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               pwm_osc_05/osc_counter_14 (FF)
-  Destination:          pwm_osc_05/osc_counter_14 (FF)
+Slack (setup path):     8.592ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pwm_osc_10/osc_counter_21 (FF)
+  Destination:          pwm_osc_10/osc_counter_26 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.263ns (Levels of Logic = 4)
-  Clock Path Skew:      0.000ns
+  Data Path Delay:      11.357ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.016ns (0.183 - 0.199)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -51,37 +51,34 @@ Slack (setup path):     13.702ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: pwm_osc_05/osc_counter_14 to pwm_osc_05/osc_counter_14
+  Maximum Data Path at Slow Process Corner: pwm_osc_10/osc_counter_21 to pwm_osc_10/osc_counter_26
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X13Y51.BMUX    Tshcko                0.518   N8
-                                                       pwm_osc_05/osc_counter_14
-    SLICE_X0Y57.D2       net (fanout=3)        2.493   pwm_osc_05/osc_counter<14>
-    SLICE_X0Y57.COUT     Topcyd                0.343   pwm_osc_05/Mcompar_n0000_cy<7>
-                                                       pwm_osc_05/Mcompar_n0000_lutdi7
-                                                       pwm_osc_05/Mcompar_n0000_cy<7>
-    SLICE_X0Y58.CIN      net (fanout=1)        0.003   pwm_osc_05/Mcompar_n0000_cy<7>
-    SLICE_X0Y58.COUT     Tbyp                  0.093   pwm_osc_05/Mcompar_n0000_cy<11>
-                                                       pwm_osc_05/Mcompar_n0000_cy<11>
-    SLICE_X0Y59.CIN      net (fanout=1)        0.003   pwm_osc_05/Mcompar_n0000_cy<11>
-    SLICE_X0Y59.BMUX     Tcinb                 0.286   pwm_osc_05/osc_counter<0>
-                                                       pwm_osc_05/osc_counter_0_glue_rst_cy
-    SLICE_X13Y51.B3      net (fanout=27)       2.260   pwm_osc_05/Mcompar_n0000_cy<13>
-    SLICE_X13Y51.CLK     Tas                   0.264   N8
-                                                       pwm_osc_05/osc_counter_14_rstpot
-                                                       pwm_osc_05/osc_counter_14
+    SLICE_X17Y53.CMUX    Tshcko                0.518   pwm_osc_10/osc_counter<22>
+                                                       pwm_osc_10/osc_counter_21
+    SLICE_X18Y4.C4       net (fanout=3)        5.801   pwm_osc_10/osc_counter<21>
+    SLICE_X18Y4.COUT     Topcyc                0.348   pwm_osc_10/Mcompar_n0000_cy<11>
+                                                       pwm_osc_10/Mcompar_n0000_lutdi10
+                                                       pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.BMUX     Tcinb                 0.239   pwm_osc_10/osc_counter<0>
+                                                       pwm_osc_10/osc_counter_0_glue_rst_cy
+    SLICE_X17Y55.D3      net (fanout=14)       4.075   pwm_osc_10/Mcompar_n0000_cy<13>
+    SLICE_X17Y55.CLK     Tas                   0.373   pwm_osc_10/osc_counter<26>
+                                                       pwm_osc_10/osc_counter_26_rstpot
+                                                       pwm_osc_10/osc_counter_26
     -------------------------------------------------  ---------------------------
-    Total                                      6.263ns (1.504ns logic, 4.759ns route)
-                                                       (24.0% logic, 76.0% route)
+    Total                                     11.357ns (1.478ns logic, 9.879ns route)
+                                                       (13.0% logic, 87.0% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     13.733ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               pwm_osc_05/osc_counter_14 (FF)
-  Destination:          pwm_osc_05/osc_counter_14 (FF)
+Slack (setup path):     8.615ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pwm_osc_10/osc_counter_21 (FF)
+  Destination:          pwm_osc_10/osc_counter_26 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.232ns (Levels of Logic = 4)
-  Clock Path Skew:      0.000ns
+  Data Path Delay:      11.334ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.016ns (0.183 - 0.199)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -92,37 +89,34 @@ Slack (setup path):     13.733ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: pwm_osc_05/osc_counter_14 to pwm_osc_05/osc_counter_14
+  Maximum Data Path at Slow Process Corner: pwm_osc_10/osc_counter_21 to pwm_osc_10/osc_counter_26
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X13Y51.BMUX    Tshcko                0.518   N8
-                                                       pwm_osc_05/osc_counter_14
-    SLICE_X0Y57.D2       net (fanout=3)        2.493   pwm_osc_05/osc_counter<14>
-    SLICE_X0Y57.COUT     Topcyd                0.312   pwm_osc_05/Mcompar_n0000_cy<7>
-                                                       pwm_osc_05/Mcompar_n0000_lut<7>
-                                                       pwm_osc_05/Mcompar_n0000_cy<7>
-    SLICE_X0Y58.CIN      net (fanout=1)        0.003   pwm_osc_05/Mcompar_n0000_cy<7>
-    SLICE_X0Y58.COUT     Tbyp                  0.093   pwm_osc_05/Mcompar_n0000_cy<11>
-                                                       pwm_osc_05/Mcompar_n0000_cy<11>
-    SLICE_X0Y59.CIN      net (fanout=1)        0.003   pwm_osc_05/Mcompar_n0000_cy<11>
-    SLICE_X0Y59.BMUX     Tcinb                 0.286   pwm_osc_05/osc_counter<0>
-                                                       pwm_osc_05/osc_counter_0_glue_rst_cy
-    SLICE_X13Y51.B3      net (fanout=27)       2.260   pwm_osc_05/Mcompar_n0000_cy<13>
-    SLICE_X13Y51.CLK     Tas                   0.264   N8
-                                                       pwm_osc_05/osc_counter_14_rstpot
-                                                       pwm_osc_05/osc_counter_14
+    SLICE_X17Y53.CMUX    Tshcko                0.518   pwm_osc_10/osc_counter<22>
+                                                       pwm_osc_10/osc_counter_21
+    SLICE_X18Y4.C4       net (fanout=3)        5.801   pwm_osc_10/osc_counter<21>
+    SLICE_X18Y4.COUT     Topcyc                0.325   pwm_osc_10/Mcompar_n0000_cy<11>
+                                                       pwm_osc_10/Mcompar_n0000_lut<10>
+                                                       pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.BMUX     Tcinb                 0.239   pwm_osc_10/osc_counter<0>
+                                                       pwm_osc_10/osc_counter_0_glue_rst_cy
+    SLICE_X17Y55.D3      net (fanout=14)       4.075   pwm_osc_10/Mcompar_n0000_cy<13>
+    SLICE_X17Y55.CLK     Tas                   0.373   pwm_osc_10/osc_counter<26>
+                                                       pwm_osc_10/osc_counter_26_rstpot
+                                                       pwm_osc_10/osc_counter_26
     -------------------------------------------------  ---------------------------
-    Total                                      6.232ns (1.473ns logic, 4.759ns route)
-                                                       (23.6% logic, 76.4% route)
+    Total                                     11.334ns (1.455ns logic, 9.879ns route)
+                                                       (12.8% logic, 87.2% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     14.517ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               pwm_osc_05/osc_counter_19 (FF)
-  Destination:          pwm_osc_05/osc_counter_14 (FF)
+Slack (setup path):     9.878ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pwm_osc_10/osc_counter_3 (FF)
+  Destination:          pwm_osc_10/osc_counter_26 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.403ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.045ns (0.659 - 0.704)
+  Data Path Delay:      10.064ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.023ns (0.183 - 0.206)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -133,37 +127,43 @@ Slack (setup path):     14.517ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: pwm_osc_05/osc_counter_19 to pwm_osc_05/osc_counter_14
+  Maximum Data Path at Slow Process Corner: pwm_osc_10/osc_counter_3 to pwm_osc_10/osc_counter_26
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X9Y55.BQ       Tcko                  0.430   pwm_osc_05/osc_counter<21>
-                                                       pwm_osc_05/osc_counter_19
-    SLICE_X0Y58.B1       net (fanout=3)        1.677   pwm_osc_05/osc_counter<19>
-    SLICE_X0Y58.COUT     Topcyb                0.483   pwm_osc_05/Mcompar_n0000_cy<11>
-                                                       pwm_osc_05/Mcompar_n0000_lut<9>
-                                                       pwm_osc_05/Mcompar_n0000_cy<11>
-    SLICE_X0Y59.CIN      net (fanout=1)        0.003   pwm_osc_05/Mcompar_n0000_cy<11>
-    SLICE_X0Y59.BMUX     Tcinb                 0.286   pwm_osc_05/osc_counter<0>
-                                                       pwm_osc_05/osc_counter_0_glue_rst_cy
-    SLICE_X13Y51.B3      net (fanout=27)       2.260   pwm_osc_05/Mcompar_n0000_cy<13>
-    SLICE_X13Y51.CLK     Tas                   0.264   N8
-                                                       pwm_osc_05/osc_counter_14_rstpot
-                                                       pwm_osc_05/osc_counter_14
+    SLICE_X16Y48.BMUX    Tshcko                0.576   pwm_osc_10/osc_counter<6>
+                                                       pwm_osc_10/osc_counter_3
+    SLICE_X18Y2.B2       net (fanout=3)        4.162   pwm_osc_10/osc_counter<3>
+    SLICE_X18Y2.COUT     Topcyb                0.448   pwm_osc_10/Mcompar_n0000_cy<3>
+                                                       pwm_osc_10/Mcompar_n0000_lut<1>
+                                                       pwm_osc_10/Mcompar_n0000_cy<3>
+    SLICE_X18Y3.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<3>
+    SLICE_X18Y3.COUT     Tbyp                  0.091   pwm_osc_10/Mcompar_n0000_cy<7>
+                                                       pwm_osc_10/Mcompar_n0000_cy<7>
+    SLICE_X18Y4.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<7>
+    SLICE_X18Y4.COUT     Tbyp                  0.091   pwm_osc_10/Mcompar_n0000_cy<11>
+                                                       pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.BMUX     Tcinb                 0.239   pwm_osc_10/osc_counter<0>
+                                                       pwm_osc_10/osc_counter_0_glue_rst_cy
+    SLICE_X17Y55.D3      net (fanout=14)       4.075   pwm_osc_10/Mcompar_n0000_cy<13>
+    SLICE_X17Y55.CLK     Tas                   0.373   pwm_osc_10/osc_counter<26>
+                                                       pwm_osc_10/osc_counter_26_rstpot
+                                                       pwm_osc_10/osc_counter_26
     -------------------------------------------------  ---------------------------
-    Total                                      5.403ns (1.463ns logic, 3.940ns route)
-                                                       (27.1% logic, 72.9% route)
+    Total                                     10.064ns (1.818ns logic, 8.246ns route)
+                                                       (18.1% logic, 81.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point pwm_osc_02/osc_counter_12 (SLICE_X12Y7.D2), 56 paths
+Paths for end point pwm_osc_10/osc_counter_24 (SLICE_X17Y55.C3), 56 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     14.018ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               pwm_osc_02/osc_counter_14 (FF)
-  Destination:          pwm_osc_02/osc_counter_12 (FF)
+Slack (setup path):     8.625ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pwm_osc_10/osc_counter_21 (FF)
+  Destination:          pwm_osc_10/osc_counter_24 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.976ns (Levels of Logic = 4)
-  Clock Path Skew:      0.029ns (0.650 - 0.621)
+  Data Path Delay:      11.324ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.016ns (0.183 - 0.199)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -174,37 +174,34 @@ Slack (setup path):     14.018ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: pwm_osc_02/osc_counter_14 to pwm_osc_02/osc_counter_12
+  Maximum Data Path at Slow Process Corner: pwm_osc_10/osc_counter_21 to pwm_osc_10/osc_counter_24
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X13Y19.BMUX    Tshcko                0.518   N14
-                                                       pwm_osc_02/osc_counter_14
-    SLICE_X4Y8.D3        net (fanout=3)        2.159   pwm_osc_02/osc_counter<14>
-    SLICE_X4Y8.COUT      Topcyd                0.343   pwm_osc_02/Mcompar_n0000_cy<7>
-                                                       pwm_osc_02/Mcompar_n0000_lutdi7
-                                                       pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.CIN       net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.COUT      Tbyp                  0.093   pwm_osc_02/Mcompar_n0000_cy<11>
-                                                       pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.CIN      net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.BMUX     Tcinb                 0.286   pwm_osc_02/osc_counter<0>
-                                                       pwm_osc_02/osc_counter_0_glue_rst_cy
-    SLICE_X12Y7.D2       net (fanout=27)       2.232   pwm_osc_02/Mcompar_n0000_cy<13>
-    SLICE_X12Y7.CLK      Tas                   0.339   pwm_osc_02/osc_counter<12>
-                                                       pwm_osc_02/osc_counter_12_rstpot
-                                                       pwm_osc_02/osc_counter_12
+    SLICE_X17Y53.CMUX    Tshcko                0.518   pwm_osc_10/osc_counter<22>
+                                                       pwm_osc_10/osc_counter_21
+    SLICE_X18Y4.C4       net (fanout=3)        5.801   pwm_osc_10/osc_counter<21>
+    SLICE_X18Y4.COUT     Topcyc                0.348   pwm_osc_10/Mcompar_n0000_cy<11>
+                                                       pwm_osc_10/Mcompar_n0000_lutdi10
+                                                       pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.BMUX     Tcinb                 0.239   pwm_osc_10/osc_counter<0>
+                                                       pwm_osc_10/osc_counter_0_glue_rst_cy
+    SLICE_X17Y55.C3      net (fanout=14)       4.042   pwm_osc_10/Mcompar_n0000_cy<13>
+    SLICE_X17Y55.CLK     Tas                   0.373   pwm_osc_10/osc_counter<26>
+                                                       pwm_osc_10/osc_counter_24_rstpot
+                                                       pwm_osc_10/osc_counter_24
     -------------------------------------------------  ---------------------------
-    Total                                      5.976ns (1.579ns logic, 4.397ns route)
-                                                       (26.4% logic, 73.6% route)
+    Total                                     11.324ns (1.478ns logic, 9.846ns route)
+                                                       (13.1% logic, 86.9% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     14.049ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               pwm_osc_02/osc_counter_14 (FF)
-  Destination:          pwm_osc_02/osc_counter_12 (FF)
+Slack (setup path):     8.648ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pwm_osc_10/osc_counter_21 (FF)
+  Destination:          pwm_osc_10/osc_counter_24 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.945ns (Levels of Logic = 4)
-  Clock Path Skew:      0.029ns (0.650 - 0.621)
+  Data Path Delay:      11.301ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.016ns (0.183 - 0.199)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -215,37 +212,34 @@ Slack (setup path):     14.049ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: pwm_osc_02/osc_counter_14 to pwm_osc_02/osc_counter_12
+  Maximum Data Path at Slow Process Corner: pwm_osc_10/osc_counter_21 to pwm_osc_10/osc_counter_24
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X13Y19.BMUX    Tshcko                0.518   N14
-                                                       pwm_osc_02/osc_counter_14
-    SLICE_X4Y8.D3        net (fanout=3)        2.159   pwm_osc_02/osc_counter<14>
-    SLICE_X4Y8.COUT      Topcyd                0.312   pwm_osc_02/Mcompar_n0000_cy<7>
-                                                       pwm_osc_02/Mcompar_n0000_lut<7>
-                                                       pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.CIN       net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.COUT      Tbyp                  0.093   pwm_osc_02/Mcompar_n0000_cy<11>
-                                                       pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.CIN      net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.BMUX     Tcinb                 0.286   pwm_osc_02/osc_counter<0>
-                                                       pwm_osc_02/osc_counter_0_glue_rst_cy
-    SLICE_X12Y7.D2       net (fanout=27)       2.232   pwm_osc_02/Mcompar_n0000_cy<13>
-    SLICE_X12Y7.CLK      Tas                   0.339   pwm_osc_02/osc_counter<12>
-                                                       pwm_osc_02/osc_counter_12_rstpot
-                                                       pwm_osc_02/osc_counter_12
+    SLICE_X17Y53.CMUX    Tshcko                0.518   pwm_osc_10/osc_counter<22>
+                                                       pwm_osc_10/osc_counter_21
+    SLICE_X18Y4.C4       net (fanout=3)        5.801   pwm_osc_10/osc_counter<21>
+    SLICE_X18Y4.COUT     Topcyc                0.325   pwm_osc_10/Mcompar_n0000_cy<11>
+                                                       pwm_osc_10/Mcompar_n0000_lut<10>
+                                                       pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.BMUX     Tcinb                 0.239   pwm_osc_10/osc_counter<0>
+                                                       pwm_osc_10/osc_counter_0_glue_rst_cy
+    SLICE_X17Y55.C3      net (fanout=14)       4.042   pwm_osc_10/Mcompar_n0000_cy<13>
+    SLICE_X17Y55.CLK     Tas                   0.373   pwm_osc_10/osc_counter<26>
+                                                       pwm_osc_10/osc_counter_24_rstpot
+                                                       pwm_osc_10/osc_counter_24
     -------------------------------------------------  ---------------------------
-    Total                                      5.945ns (1.548ns logic, 4.397ns route)
-                                                       (26.0% logic, 74.0% route)
+    Total                                     11.301ns (1.455ns logic, 9.846ns route)
+                                                       (12.9% logic, 87.1% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     14.438ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               pwm_osc_02/osc_counter_9 (FF)
-  Destination:          pwm_osc_02/osc_counter_12 (FF)
+Slack (setup path):     9.911ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pwm_osc_10/osc_counter_3 (FF)
+  Destination:          pwm_osc_10/osc_counter_24 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.527ns (Levels of Logic = 4)
-  Clock Path Skew:      0.000ns
+  Data Path Delay:      10.031ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.023ns (0.183 - 0.206)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -256,40 +250,43 @@ Slack (setup path):     14.438ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: pwm_osc_02/osc_counter_9 to pwm_osc_02/osc_counter_12
+  Maximum Data Path at Slow Process Corner: pwm_osc_10/osc_counter_3 to pwm_osc_10/osc_counter_24
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y7.AQ       Tcko                  0.525   pwm_osc_02/osc_counter<12>
-                                                       pwm_osc_02/osc_counter_9
-    SLICE_X4Y8.A2        net (fanout=3)        1.564   pwm_osc_02/osc_counter<9>
-    SLICE_X4Y8.COUT      Topcya                0.482   pwm_osc_02/Mcompar_n0000_cy<7>
-                                                       pwm_osc_02/Mcompar_n0000_lutdi4
-                                                       pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.CIN       net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.COUT      Tbyp                  0.093   pwm_osc_02/Mcompar_n0000_cy<11>
-                                                       pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.CIN      net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.BMUX     Tcinb                 0.286   pwm_osc_02/osc_counter<0>
-                                                       pwm_osc_02/osc_counter_0_glue_rst_cy
-    SLICE_X12Y7.D2       net (fanout=27)       2.232   pwm_osc_02/Mcompar_n0000_cy<13>
-    SLICE_X12Y7.CLK      Tas                   0.339   pwm_osc_02/osc_counter<12>
-                                                       pwm_osc_02/osc_counter_12_rstpot
-                                                       pwm_osc_02/osc_counter_12
+    SLICE_X16Y48.BMUX    Tshcko                0.576   pwm_osc_10/osc_counter<6>
+                                                       pwm_osc_10/osc_counter_3
+    SLICE_X18Y2.B2       net (fanout=3)        4.162   pwm_osc_10/osc_counter<3>
+    SLICE_X18Y2.COUT     Topcyb                0.448   pwm_osc_10/Mcompar_n0000_cy<3>
+                                                       pwm_osc_10/Mcompar_n0000_lut<1>
+                                                       pwm_osc_10/Mcompar_n0000_cy<3>
+    SLICE_X18Y3.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<3>
+    SLICE_X18Y3.COUT     Tbyp                  0.091   pwm_osc_10/Mcompar_n0000_cy<7>
+                                                       pwm_osc_10/Mcompar_n0000_cy<7>
+    SLICE_X18Y4.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<7>
+    SLICE_X18Y4.COUT     Tbyp                  0.091   pwm_osc_10/Mcompar_n0000_cy<11>
+                                                       pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.BMUX     Tcinb                 0.239   pwm_osc_10/osc_counter<0>
+                                                       pwm_osc_10/osc_counter_0_glue_rst_cy
+    SLICE_X17Y55.C3      net (fanout=14)       4.042   pwm_osc_10/Mcompar_n0000_cy<13>
+    SLICE_X17Y55.CLK     Tas                   0.373   pwm_osc_10/osc_counter<26>
+                                                       pwm_osc_10/osc_counter_24_rstpot
+                                                       pwm_osc_10/osc_counter_24
     -------------------------------------------------  ---------------------------
-    Total                                      5.527ns (1.725ns logic, 3.802ns route)
-                                                       (31.2% logic, 68.8% route)
+    Total                                     10.031ns (1.818ns logic, 8.213ns route)
+                                                       (18.1% logic, 81.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point pwm_osc_02/osc_counter_14 (SLICE_X13Y19.B4), 56 paths
+Paths for end point pwm_osc_10/osc_counter_27 (SLICE_X17Y55.D3), 56 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     14.099ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               pwm_osc_02/osc_counter_14 (FF)
-  Destination:          pwm_osc_02/osc_counter_14 (FF)
+Slack (setup path):     8.701ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pwm_osc_10/osc_counter_21 (FF)
+  Destination:          pwm_osc_10/osc_counter_27 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.866ns (Levels of Logic = 4)
-  Clock Path Skew:      0.000ns
+  Data Path Delay:      11.248ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.016ns (0.183 - 0.199)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -300,37 +297,34 @@ Slack (setup path):     14.099ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: pwm_osc_02/osc_counter_14 to pwm_osc_02/osc_counter_14
+  Maximum Data Path at Slow Process Corner: pwm_osc_10/osc_counter_21 to pwm_osc_10/osc_counter_27
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X13Y19.BMUX    Tshcko                0.518   N14
-                                                       pwm_osc_02/osc_counter_14
-    SLICE_X4Y8.D3        net (fanout=3)        2.159   pwm_osc_02/osc_counter<14>
-    SLICE_X4Y8.COUT      Topcyd                0.343   pwm_osc_02/Mcompar_n0000_cy<7>
-                                                       pwm_osc_02/Mcompar_n0000_lutdi7
-                                                       pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.CIN       net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.COUT      Tbyp                  0.093   pwm_osc_02/Mcompar_n0000_cy<11>
-                                                       pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.CIN      net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.BMUX     Tcinb                 0.286   pwm_osc_02/osc_counter<0>
-                                                       pwm_osc_02/osc_counter_0_glue_rst_cy
-    SLICE_X13Y19.B4      net (fanout=27)       2.197   pwm_osc_02/Mcompar_n0000_cy<13>
-    SLICE_X13Y19.CLK     Tas                   0.264   N14
-                                                       pwm_osc_02/osc_counter_14_rstpot
-                                                       pwm_osc_02/osc_counter_14
+    SLICE_X17Y53.CMUX    Tshcko                0.518   pwm_osc_10/osc_counter<22>
+                                                       pwm_osc_10/osc_counter_21
+    SLICE_X18Y4.C4       net (fanout=3)        5.801   pwm_osc_10/osc_counter<21>
+    SLICE_X18Y4.COUT     Topcyc                0.348   pwm_osc_10/Mcompar_n0000_cy<11>
+                                                       pwm_osc_10/Mcompar_n0000_lutdi10
+                                                       pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.BMUX     Tcinb                 0.239   pwm_osc_10/osc_counter<0>
+                                                       pwm_osc_10/osc_counter_0_glue_rst_cy
+    SLICE_X17Y55.D3      net (fanout=14)       4.075   pwm_osc_10/Mcompar_n0000_cy<13>
+    SLICE_X17Y55.CLK     Tas                   0.264   pwm_osc_10/osc_counter<26>
+                                                       pwm_osc_10/osc_counter_27_rstpot
+                                                       pwm_osc_10/osc_counter_27
     -------------------------------------------------  ---------------------------
-    Total                                      5.866ns (1.504ns logic, 4.362ns route)
-                                                       (25.6% logic, 74.4% route)
+    Total                                     11.248ns (1.369ns logic, 9.879ns route)
+                                                       (12.2% logic, 87.8% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     14.130ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               pwm_osc_02/osc_counter_14 (FF)
-  Destination:          pwm_osc_02/osc_counter_14 (FF)
+Slack (setup path):     8.724ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pwm_osc_10/osc_counter_21 (FF)
+  Destination:          pwm_osc_10/osc_counter_27 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.835ns (Levels of Logic = 4)
-  Clock Path Skew:      0.000ns
+  Data Path Delay:      11.225ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.016ns (0.183 - 0.199)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -341,37 +335,34 @@ Slack (setup path):     14.130ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: pwm_osc_02/osc_counter_14 to pwm_osc_02/osc_counter_14
+  Maximum Data Path at Slow Process Corner: pwm_osc_10/osc_counter_21 to pwm_osc_10/osc_counter_27
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X13Y19.BMUX    Tshcko                0.518   N14
-                                                       pwm_osc_02/osc_counter_14
-    SLICE_X4Y8.D3        net (fanout=3)        2.159   pwm_osc_02/osc_counter<14>
-    SLICE_X4Y8.COUT      Topcyd                0.312   pwm_osc_02/Mcompar_n0000_cy<7>
-                                                       pwm_osc_02/Mcompar_n0000_lut<7>
-                                                       pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.CIN       net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.COUT      Tbyp                  0.093   pwm_osc_02/Mcompar_n0000_cy<11>
-                                                       pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.CIN      net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.BMUX     Tcinb                 0.286   pwm_osc_02/osc_counter<0>
-                                                       pwm_osc_02/osc_counter_0_glue_rst_cy
-    SLICE_X13Y19.B4      net (fanout=27)       2.197   pwm_osc_02/Mcompar_n0000_cy<13>
-    SLICE_X13Y19.CLK     Tas                   0.264   N14
-                                                       pwm_osc_02/osc_counter_14_rstpot
-                                                       pwm_osc_02/osc_counter_14
+    SLICE_X17Y53.CMUX    Tshcko                0.518   pwm_osc_10/osc_counter<22>
+                                                       pwm_osc_10/osc_counter_21
+    SLICE_X18Y4.C4       net (fanout=3)        5.801   pwm_osc_10/osc_counter<21>
+    SLICE_X18Y4.COUT     Topcyc                0.325   pwm_osc_10/Mcompar_n0000_cy<11>
+                                                       pwm_osc_10/Mcompar_n0000_lut<10>
+                                                       pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.BMUX     Tcinb                 0.239   pwm_osc_10/osc_counter<0>
+                                                       pwm_osc_10/osc_counter_0_glue_rst_cy
+    SLICE_X17Y55.D3      net (fanout=14)       4.075   pwm_osc_10/Mcompar_n0000_cy<13>
+    SLICE_X17Y55.CLK     Tas                   0.264   pwm_osc_10/osc_counter<26>
+                                                       pwm_osc_10/osc_counter_27_rstpot
+                                                       pwm_osc_10/osc_counter_27
     -------------------------------------------------  ---------------------------
-    Total                                      5.835ns (1.473ns logic, 4.362ns route)
-                                                       (25.2% logic, 74.8% route)
+    Total                                     11.225ns (1.346ns logic, 9.879ns route)
+                                                       (12.0% logic, 88.0% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     14.471ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               pwm_osc_02/osc_counter_9 (FF)
-  Destination:          pwm_osc_02/osc_counter_14 (FF)
+Slack (setup path):     9.987ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               pwm_osc_10/osc_counter_3 (FF)
+  Destination:          pwm_osc_10/osc_counter_27 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      5.417ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.077ns (0.597 - 0.674)
+  Data Path Delay:      9.955ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.023ns (0.183 - 0.206)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -382,232 +373,320 @@ Slack (setup path):     14.471ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: pwm_osc_02/osc_counter_9 to pwm_osc_02/osc_counter_14
+  Maximum Data Path at Slow Process Corner: pwm_osc_10/osc_counter_3 to pwm_osc_10/osc_counter_27
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y7.AQ       Tcko                  0.525   pwm_osc_02/osc_counter<12>
-                                                       pwm_osc_02/osc_counter_9
-    SLICE_X4Y8.A2        net (fanout=3)        1.564   pwm_osc_02/osc_counter<9>
-    SLICE_X4Y8.COUT      Topcya                0.482   pwm_osc_02/Mcompar_n0000_cy<7>
-                                                       pwm_osc_02/Mcompar_n0000_lutdi4
-                                                       pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.CIN       net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<7>
-    SLICE_X4Y9.COUT      Tbyp                  0.093   pwm_osc_02/Mcompar_n0000_cy<11>
-                                                       pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.CIN      net (fanout=1)        0.003   pwm_osc_02/Mcompar_n0000_cy<11>
-    SLICE_X4Y10.BMUX     Tcinb                 0.286   pwm_osc_02/osc_counter<0>
-                                                       pwm_osc_02/osc_counter_0_glue_rst_cy
-    SLICE_X13Y19.B4      net (fanout=27)       2.197   pwm_osc_02/Mcompar_n0000_cy<13>
-    SLICE_X13Y19.CLK     Tas                   0.264   N14
-                                                       pwm_osc_02/osc_counter_14_rstpot
-                                                       pwm_osc_02/osc_counter_14
+    SLICE_X16Y48.BMUX    Tshcko                0.576   pwm_osc_10/osc_counter<6>
+                                                       pwm_osc_10/osc_counter_3
+    SLICE_X18Y2.B2       net (fanout=3)        4.162   pwm_osc_10/osc_counter<3>
+    SLICE_X18Y2.COUT     Topcyb                0.448   pwm_osc_10/Mcompar_n0000_cy<3>
+                                                       pwm_osc_10/Mcompar_n0000_lut<1>
+                                                       pwm_osc_10/Mcompar_n0000_cy<3>
+    SLICE_X18Y3.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<3>
+    SLICE_X18Y3.COUT     Tbyp                  0.091   pwm_osc_10/Mcompar_n0000_cy<7>
+                                                       pwm_osc_10/Mcompar_n0000_cy<7>
+    SLICE_X18Y4.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<7>
+    SLICE_X18Y4.COUT     Tbyp                  0.091   pwm_osc_10/Mcompar_n0000_cy<11>
+                                                       pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.CIN      net (fanout=1)        0.003   pwm_osc_10/Mcompar_n0000_cy<11>
+    SLICE_X18Y5.BMUX     Tcinb                 0.239   pwm_osc_10/osc_counter<0>
+                                                       pwm_osc_10/osc_counter_0_glue_rst_cy
+    SLICE_X17Y55.D3      net (fanout=14)       4.075   pwm_osc_10/Mcompar_n0000_cy<13>
+    SLICE_X17Y55.CLK     Tas                   0.264   pwm_osc_10/osc_counter<26>
+                                                       pwm_osc_10/osc_counter_27_rstpot
+                                                       pwm_osc_10/osc_counter_27
     -------------------------------------------------  ---------------------------
-    Total                                      5.417ns (1.650ns logic, 3.767ns route)
-                                                       (30.5% logic, 69.5% route)
+    Total                                      9.955ns (1.709ns logic, 8.246ns route)
+                                                       (17.2% logic, 82.8% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point pwm_osc_06/squareWaveOut_reg (SLICE_X10Y60.B5), 2 paths
+Paths for end point pwm_osc_02/osc_counter_27 (SLICE_X15Y6.B5), 28 paths
 --------------------------------------------------------------------------------
-Slack (hold path):      0.683ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               pwm_osc_06/osc_counter_27 (FF)
-  Destination:          pwm_osc_06/squareWaveOut_reg (FF)
+Slack (hold path):      0.750ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               pwm_osc_02/osc_counter_27 (FF)
+  Destination:          pwm_osc_02/osc_counter_27 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.687ns (Levels of Logic = 1)
-  Clock Path Skew:      0.004ns (0.041 - 0.037)
+  Data Path Delay:      0.750ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: pwm_osc_06/osc_counter_27 to pwm_osc_06/squareWaveOut_reg
+  Minimum Data Path at Fast Process Corner: pwm_osc_02/osc_counter_27 to pwm_osc_02/osc_counter_27
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y59.BQ      Tcko                  0.198   pwm_osc_06/osc_counter<27>
-                                                       pwm_osc_06/osc_counter_27
-    SLICE_X10Y60.B5      net (fanout=3)        0.186   pwm_osc_06/osc_counter<27>
-    SLICE_X10Y60.CLK     Tah         (-Th)    -0.303   pwm_osc_06/squareWaveOut_reg
-                                                       pwm_osc_06/Mcompar_GND_10_o_INV_1_o_lutdi13
-                                                       pwm_osc_06/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
-                                                       pwm_osc_06/squareWaveOut_reg
+    SLICE_X15Y6.BMUX     Tshcko                0.244   pwm_osc_02/osc_counter<26>
+                                                       pwm_osc_02/osc_counter_27
+    SLICE_X14Y6.D6       net (fanout=3)        0.037   pwm_osc_02/osc_counter<27>
+    SLICE_X14Y6.DMUX     Topdd                 0.243   Result<27>11
+                                                       pwm_osc_02/osc_counter<27>_rt
+                                                       pwm_osc_02/Mcount_osc_counter_xor<27>
+    SLICE_X15Y6.B5       net (fanout=1)        0.071   Result<27>11
+    SLICE_X15Y6.CLK      Tah         (-Th)    -0.155   pwm_osc_02/osc_counter<26>
+                                                       pwm_osc_02/osc_counter_27_rstpot
+                                                       pwm_osc_02/osc_counter_27
     -------------------------------------------------  ---------------------------
-    Total                                      0.687ns (0.501ns logic, 0.186ns route)
-                                                       (72.9% logic, 27.1% route)
+    Total                                      0.750ns (0.642ns logic, 0.108ns route)
+                                                       (85.6% logic, 14.4% route)
 
 --------------------------------------------------------------------------------
-Slack (hold path):      0.711ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               pwm_osc_06/osc_counter_27 (FF)
-  Destination:          pwm_osc_06/squareWaveOut_reg (FF)
+Slack (hold path):      0.832ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               pwm_osc_02/osc_counter_26 (FF)
+  Destination:          pwm_osc_02/osc_counter_27 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.715ns (Levels of Logic = 1)
-  Clock Path Skew:      0.004ns (0.041 - 0.037)
+  Data Path Delay:      0.832ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: pwm_osc_06/osc_counter_27 to pwm_osc_06/squareWaveOut_reg
+  Minimum Data Path at Fast Process Corner: pwm_osc_02/osc_counter_26 to pwm_osc_02/osc_counter_27
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y59.BQ      Tcko                  0.198   pwm_osc_06/osc_counter<27>
-                                                       pwm_osc_06/osc_counter_27
-    SLICE_X10Y60.B5      net (fanout=3)        0.186   pwm_osc_06/osc_counter<27>
-    SLICE_X10Y60.CLK     Tah         (-Th)    -0.331   pwm_osc_06/squareWaveOut_reg
-                                                       pwm_osc_06/Mcompar_GND_10_o_INV_1_o_lut<13>
-                                                       pwm_osc_06/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
-                                                       pwm_osc_06/squareWaveOut_reg
+    SLICE_X15Y6.BQ       Tcko                  0.198   pwm_osc_02/osc_counter<26>
+                                                       pwm_osc_02/osc_counter_26
+    SLICE_X14Y6.C4       net (fanout=3)        0.129   pwm_osc_02/osc_counter<26>
+    SLICE_X14Y6.DMUX     Topcd                 0.279   Result<27>11
+                                                       pwm_osc_02/osc_counter<26>_rt
+                                                       pwm_osc_02/Mcount_osc_counter_xor<27>
+    SLICE_X15Y6.B5       net (fanout=1)        0.071   Result<27>11
+    SLICE_X15Y6.CLK      Tah         (-Th)    -0.155   pwm_osc_02/osc_counter<26>
+                                                       pwm_osc_02/osc_counter_27_rstpot
+                                                       pwm_osc_02/osc_counter_27
     -------------------------------------------------  ---------------------------
-    Total                                      0.715ns (0.529ns logic, 0.186ns route)
-                                                       (74.0% logic, 26.0% route)
+    Total                                      0.832ns (0.632ns logic, 0.200ns route)
+                                                       (76.0% logic, 24.0% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point pwm_osc_02/squareWaveOut_reg (SLICE_X10Y12.CIN), 48 paths
---------------------------------------------------------------------------------
-Slack (hold path):      0.705ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               pwm_osc_02/osc_counter_20 (FF)
-  Destination:          pwm_osc_02/squareWaveOut_reg (FF)
+Slack (hold path):      0.932ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               pwm_osc_02/osc_counter_23 (FF)
+  Destination:          pwm_osc_02/osc_counter_27 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.712ns (Levels of Logic = 2)
-  Clock Path Skew:      0.007ns (0.041 - 0.034)
+  Data Path Delay:      0.932ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: pwm_osc_02/osc_counter_20 to pwm_osc_02/squareWaveOut_reg
+  Minimum Data Path at Fast Process Corner: pwm_osc_02/osc_counter_23 to pwm_osc_02/osc_counter_27
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y10.CQ      Tcko                  0.198   pwm_osc_02/osc_counter<21>
-                                                       pwm_osc_02/osc_counter_20
-    SLICE_X10Y11.C5      net (fanout=3)        0.176   pwm_osc_02/osc_counter<20>
-    SLICE_X10Y11.COUT    Topcyc                0.191   pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<11>
-                                                       pwm_osc_02/Mcompar_GND_10_o_INV_1_o_lutdi10
-                                                       pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<11>
-    SLICE_X10Y12.CIN     net (fanout=1)        0.001   pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<11>
-    SLICE_X10Y12.CLK     Tckcin      (-Th)    -0.146   pwm_osc_02/squareWaveOut_reg
-                                                       pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
-                                                       pwm_osc_02/squareWaveOut_reg
+    SLICE_X15Y5.DMUX     Tshcko                0.244   pwm_osc_02/osc_counter<22>
+                                                       pwm_osc_02/osc_counter_23
+    SLICE_X14Y5.D4       net (fanout=3)        0.126   pwm_osc_02/osc_counter<23>
+    SLICE_X14Y5.COUT     Topcyd                0.181   pwm_osc_02/Mcount_osc_counter_cy<23>
+                                                       pwm_osc_02/osc_counter<23>_rt
+                                                       pwm_osc_02/Mcount_osc_counter_cy<23>
+    SLICE_X14Y6.CIN      net (fanout=1)        0.001   pwm_osc_02/Mcount_osc_counter_cy<23>
+    SLICE_X14Y6.DMUX     Tcind                 0.154   Result<27>11
+                                                       pwm_osc_02/Mcount_osc_counter_xor<27>
+    SLICE_X15Y6.B5       net (fanout=1)        0.071   Result<27>11
+    SLICE_X15Y6.CLK      Tah         (-Th)    -0.155   pwm_osc_02/osc_counter<26>
+                                                       pwm_osc_02/osc_counter_27_rstpot
+                                                       pwm_osc_02/osc_counter_27
     -------------------------------------------------  ---------------------------
-    Total                                      0.712ns (0.535ns logic, 0.177ns route)
-                                                       (75.1% logic, 24.9% route)
+    Total                                      0.932ns (0.734ns logic, 0.198ns route)
+                                                       (78.8% logic, 21.2% route)
 
 --------------------------------------------------------------------------------
-Slack (hold path):      0.709ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               pwm_osc_02/osc_counter_20 (FF)
-  Destination:          pwm_osc_02/squareWaveOut_reg (FF)
+
+Paths for end point pwm_osc_11/squareWaveOut_reg (SLICE_X12Y19.CIN), 48 paths
+--------------------------------------------------------------------------------
+Slack (hold path):      0.816ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               pwm_osc_11/osc_counter_4 (FF)
+  Destination:          pwm_osc_11/squareWaveOut_reg (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.716ns (Levels of Logic = 2)
-  Clock Path Skew:      0.007ns (0.041 - 0.034)
+  Data Path Delay:      0.817ns (Levels of Logic = 4)
+  Clock Path Skew:      0.001ns (0.073 - 0.072)
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: pwm_osc_02/osc_counter_20 to pwm_osc_02/squareWaveOut_reg
+  Minimum Data Path at Fast Process Corner: pwm_osc_11/osc_counter_4 to pwm_osc_11/squareWaveOut_reg
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y10.CQ      Tcko                  0.198   pwm_osc_02/osc_counter<21>
-                                                       pwm_osc_02/osc_counter_20
-    SLICE_X10Y11.C5      net (fanout=3)        0.176   pwm_osc_02/osc_counter<20>
-    SLICE_X10Y11.COUT    Topcyc                0.195   pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<11>
-                                                       pwm_osc_02/Mcompar_GND_10_o_INV_1_o_lut<10>
-                                                       pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<11>
-    SLICE_X10Y12.CIN     net (fanout=1)        0.001   pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<11>
-    SLICE_X10Y12.CLK     Tckcin      (-Th)    -0.146   pwm_osc_02/squareWaveOut_reg
-                                                       pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
-                                                       pwm_osc_02/squareWaveOut_reg
+    SLICE_X15Y17.CQ      Tcko                  0.198   pwm_osc_11/osc_counter<6>
+                                                       pwm_osc_11/osc_counter_4
+    SLICE_X12Y16.C5      net (fanout=3)        0.209   pwm_osc_11/osc_counter<4>
+    SLICE_X12Y16.COUT    Topcyc                0.197   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<3>
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_lutdi2
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<3>
+    SLICE_X12Y17.CIN     net (fanout=1)        0.001   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<3>
+    SLICE_X12Y17.COUT    Tbyp                  0.032   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<7>
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<7>
+    SLICE_X12Y18.CIN     net (fanout=1)        0.001   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<7>
+    SLICE_X12Y18.COUT    Tbyp                  0.032   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<11>
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<11>
+    SLICE_X12Y19.CIN     net (fanout=1)        0.001   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<11>
+    SLICE_X12Y19.CLK     Tckcin      (-Th)    -0.146   pwm_osc_11/squareWaveOut_reg
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
+                                                       pwm_osc_11/squareWaveOut_reg
     -------------------------------------------------  ---------------------------
-    Total                                      0.716ns (0.539ns logic, 0.177ns route)
-                                                       (75.3% logic, 24.7% route)
+    Total                                      0.817ns (0.605ns logic, 0.212ns route)
+                                                       (74.1% logic, 25.9% route)
 
 --------------------------------------------------------------------------------
-Slack (hold path):      0.745ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               pwm_osc_02/osc_counter_19 (FF)
-  Destination:          pwm_osc_02/squareWaveOut_reg (FF)
+Slack (hold path):      0.822ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               pwm_osc_11/osc_counter_4 (FF)
+  Destination:          pwm_osc_11/squareWaveOut_reg (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.752ns (Levels of Logic = 2)
-  Clock Path Skew:      0.007ns (0.041 - 0.034)
+  Data Path Delay:      0.823ns (Levels of Logic = 4)
+  Clock Path Skew:      0.001ns (0.073 - 0.072)
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: pwm_osc_02/osc_counter_19 to pwm_osc_02/squareWaveOut_reg
+  Minimum Data Path at Fast Process Corner: pwm_osc_11/osc_counter_4 to pwm_osc_11/squareWaveOut_reg
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y10.BQ      Tcko                  0.198   pwm_osc_02/osc_counter<21>
-                                                       pwm_osc_02/osc_counter_19
-    SLICE_X10Y11.B5      net (fanout=3)        0.177   pwm_osc_02/osc_counter<19>
-    SLICE_X10Y11.COUT    Topcyb                0.230   pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<11>
-                                                       pwm_osc_02/Mcompar_GND_10_o_INV_1_o_lutdi9
-                                                       pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<11>
-    SLICE_X10Y12.CIN     net (fanout=1)        0.001   pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<11>
-    SLICE_X10Y12.CLK     Tckcin      (-Th)    -0.146   pwm_osc_02/squareWaveOut_reg
-                                                       pwm_osc_02/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
-                                                       pwm_osc_02/squareWaveOut_reg
+    SLICE_X15Y17.CQ      Tcko                  0.198   pwm_osc_11/osc_counter<6>
+                                                       pwm_osc_11/osc_counter_4
+    SLICE_X12Y16.C5      net (fanout=3)        0.209   pwm_osc_11/osc_counter<4>
+    SLICE_X12Y16.COUT    Topcyc                0.203   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<3>
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_lut<2>
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<3>
+    SLICE_X12Y17.CIN     net (fanout=1)        0.001   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<3>
+    SLICE_X12Y17.COUT    Tbyp                  0.032   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<7>
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<7>
+    SLICE_X12Y18.CIN     net (fanout=1)        0.001   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<7>
+    SLICE_X12Y18.COUT    Tbyp                  0.032   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<11>
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<11>
+    SLICE_X12Y19.CIN     net (fanout=1)        0.001   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<11>
+    SLICE_X12Y19.CLK     Tckcin      (-Th)    -0.146   pwm_osc_11/squareWaveOut_reg
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
+                                                       pwm_osc_11/squareWaveOut_reg
     -------------------------------------------------  ---------------------------
-    Total                                      0.752ns (0.574ns logic, 0.178ns route)
-                                                       (76.3% logic, 23.7% route)
+    Total                                      0.823ns (0.611ns logic, 0.212ns route)
+                                                       (74.2% logic, 25.8% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point pwm_osc_12/squareWaveOut_reg (SLICE_X4Y52.B5), 2 paths
---------------------------------------------------------------------------------
-Slack (hold path):      0.708ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               pwm_osc_12/osc_counter_26 (FF)
-  Destination:          pwm_osc_12/squareWaveOut_reg (FF)
+Slack (hold path):      0.857ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               pwm_osc_11/osc_counter_20 (FF)
+  Destination:          pwm_osc_11/squareWaveOut_reg (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.707ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.001ns (0.039 - 0.040)
+  Data Path Delay:      0.865ns (Levels of Logic = 2)
+  Clock Path Skew:      0.008ns (0.073 - 0.065)
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: pwm_osc_12/osc_counter_26 to pwm_osc_12/squareWaveOut_reg
+  Minimum Data Path at Fast Process Corner: pwm_osc_11/osc_counter_20 to pwm_osc_11/squareWaveOut_reg
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X5Y50.BQ       Tcko                  0.198   pwm_osc_12/osc_counter<27>
-                                                       pwm_osc_12/osc_counter_26
-    SLICE_X4Y52.B5       net (fanout=3)        0.190   pwm_osc_12/osc_counter<26>
-    SLICE_X4Y52.CLK      Tah         (-Th)    -0.319   pwm_osc_12/squareWaveOut_reg
-                                                       pwm_osc_12/Mcompar_GND_10_o_INV_1_o_lutdi13
-                                                       pwm_osc_12/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
-                                                       pwm_osc_12/squareWaveOut_reg
+    SLICE_X15Y21.CQ      Tcko                  0.198   pwm_osc_11/osc_counter<22>
+                                                       pwm_osc_11/osc_counter_20
+    SLICE_X12Y18.C5      net (fanout=3)        0.323   pwm_osc_11/osc_counter<20>
+    SLICE_X12Y18.COUT    Topcyc                0.197   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<11>
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_lutdi10
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<11>
+    SLICE_X12Y19.CIN     net (fanout=1)        0.001   pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<11>
+    SLICE_X12Y19.CLK     Tckcin      (-Th)    -0.146   pwm_osc_11/squareWaveOut_reg
+                                                       pwm_osc_11/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
+                                                       pwm_osc_11/squareWaveOut_reg
     -------------------------------------------------  ---------------------------
-    Total                                      0.707ns (0.517ns logic, 0.190ns route)
-                                                       (73.1% logic, 26.9% route)
+    Total                                      0.865ns (0.541ns logic, 0.324ns route)
+                                                       (62.5% logic, 37.5% route)
 
 --------------------------------------------------------------------------------
-Slack (hold path):      0.726ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               pwm_osc_12/osc_counter_26 (FF)
-  Destination:          pwm_osc_12/squareWaveOut_reg (FF)
+
+Paths for end point pwm_osc_01/osc_counter_3 (SLICE_X3Y50.B5), 4 paths
+--------------------------------------------------------------------------------
+Slack (hold path):      0.823ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               pwm_osc_01/osc_counter_2 (FF)
+  Destination:          pwm_osc_01/osc_counter_3 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.725ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.001ns (0.039 - 0.040)
+  Data Path Delay:      0.823ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: pwm_osc_12/osc_counter_26 to pwm_osc_12/squareWaveOut_reg
+  Minimum Data Path at Fast Process Corner: pwm_osc_01/osc_counter_2 to pwm_osc_01/osc_counter_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X5Y50.BQ       Tcko                  0.198   pwm_osc_12/osc_counter<27>
-                                                       pwm_osc_12/osc_counter_26
-    SLICE_X4Y52.B5       net (fanout=3)        0.190   pwm_osc_12/osc_counter<26>
-    SLICE_X4Y52.CLK      Tah         (-Th)    -0.337   pwm_osc_12/squareWaveOut_reg
-                                                       pwm_osc_12/Mcompar_GND_10_o_INV_1_o_lut<13>
-                                                       pwm_osc_12/Mcompar_GND_10_o_INV_1_o_cy<13>_inv1_cy
-                                                       pwm_osc_12/squareWaveOut_reg
+    SLICE_X3Y50.BQ       Tcko                  0.198   pwm_osc_01/osc_counter<6>
+                                                       pwm_osc_01/osc_counter_2
+    SLICE_X2Y50.C4       net (fanout=3)        0.120   pwm_osc_01/osc_counter<2>
+    SLICE_X2Y50.DMUX     Topcd                 0.279   pwm_osc_01/Mcount_osc_counter_cy<3>
+                                                       pwm_osc_01/osc_counter<2>_rt
+                                                       pwm_osc_01/Mcount_osc_counter_cy<3>
+    SLICE_X3Y50.B5       net (fanout=1)        0.071   Result<3>12
+    SLICE_X3Y50.CLK      Tah         (-Th)    -0.155   pwm_osc_01/osc_counter<6>
+                                                       pwm_osc_01/osc_counter_3_rstpot
+                                                       pwm_osc_01/osc_counter_3
     -------------------------------------------------  ---------------------------
-    Total                                      0.725ns (0.535ns logic, 0.190ns route)
-                                                       (73.8% logic, 26.2% route)
+    Total                                      0.823ns (0.632ns logic, 0.191ns route)
+                                                       (76.8% logic, 23.2% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.908ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               pwm_osc_01/osc_counter_3 (FF)
+  Destination:          pwm_osc_01/osc_counter_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.908ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: pwm_osc_01/osc_counter_3 to pwm_osc_01/osc_counter_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X3Y50.BMUX     Tshcko                0.244   pwm_osc_01/osc_counter<6>
+                                                       pwm_osc_01/osc_counter_3
+    SLICE_X2Y50.D5       net (fanout=3)        0.195   pwm_osc_01/osc_counter<3>
+    SLICE_X2Y50.DMUX     Topdd                 0.243   pwm_osc_01/Mcount_osc_counter_cy<3>
+                                                       pwm_osc_01/osc_counter<3>_rt
+                                                       pwm_osc_01/Mcount_osc_counter_cy<3>
+    SLICE_X3Y50.B5       net (fanout=1)        0.071   Result<3>12
+    SLICE_X3Y50.CLK      Tah         (-Th)    -0.155   pwm_osc_01/osc_counter<6>
+                                                       pwm_osc_01/osc_counter_3_rstpot
+                                                       pwm_osc_01/osc_counter_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.908ns (0.642ns logic, 0.266ns route)
+                                                       (70.7% logic, 29.3% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.983ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               pwm_osc_01/osc_counter_1 (FF)
+  Destination:          pwm_osc_01/osc_counter_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.983ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: pwm_osc_01/osc_counter_1 to pwm_osc_01/osc_counter_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X3Y50.AQ       Tcko                  0.198   pwm_osc_01/osc_counter<6>
+                                                       pwm_osc_01/osc_counter_1
+    SLICE_X2Y50.B5       net (fanout=3)        0.207   pwm_osc_01/osc_counter<1>
+    SLICE_X2Y50.DMUX     Topbd                 0.352   pwm_osc_01/Mcount_osc_counter_cy<3>
+                                                       pwm_osc_01/osc_counter<1>_rt
+                                                       pwm_osc_01/Mcount_osc_counter_cy<3>
+    SLICE_X3Y50.B5       net (fanout=1)        0.071   Result<3>12
+    SLICE_X3Y50.CLK      Tah         (-Th)    -0.155   pwm_osc_01/osc_counter<6>
+                                                       pwm_osc_01/osc_counter_3_rstpot
+                                                       pwm_osc_01/osc_counter_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.983ns (0.705ns logic, 0.278ns route)
+                                                       (71.7% logic, 28.3% route)
 
 --------------------------------------------------------------------------------
 
@@ -651,7 +730,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    6.298|         |         |         |
+clk            |   11.408|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -660,23 +739,23 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 28420 paths, 0 nets, and 2251 connections
+Constraints cover 28420 paths, 0 nets, and 2017 connections
 
 Design statistics:
-   Minimum period:   6.298ns{1}   (Maximum frequency: 158.781MHz)
+   Minimum period:  11.408ns{1}   (Maximum frequency:  87.658MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Mon Apr  3 16:03:19 2017 
+Analysis completed Tue Apr  4 13:55:55 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 427 MB
+Peak Memory Usage: 431 MB
 
 
 
