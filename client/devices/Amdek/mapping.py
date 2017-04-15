@@ -121,7 +121,7 @@ mapping = {
     "_general/sound/trigger_4/off":(
         ("signal", {"channel":20, "function": "digital", "bool":0 })
     ),
-
+}
 
 
 
