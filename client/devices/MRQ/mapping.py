@@ -26,7 +26,7 @@ mapping = {
     ),
 
     "_general/sound/snare_drum2/off":(
-        ("signal", {"channel":23, "function": "digital", "bool":1})
+        ("signal", {"channel":23, "function": "digital", "bool":1}),
         ("signal", {"channel":13, "function": "digital", "bool":0})
     ),
 
@@ -47,12 +47,12 @@ mapping = {
     # ),
 
     "_general/control_change/start":(
-        ("signal", {"channel":1, "function": "digital", "bool":1})
+        ("signal", {"channel":1, "function": "digital", "bool":1}),
         ("signal", {"channel":19, "function": "digital", "bool":0})
     ),
 
     "_general/control_change/stop":(
-        ("signal", {"channel":1, "function": "digital", "bool":0})
+        ("signal", {"channel":1, "function": "digital", "bool":0}),
         ("signal", {"channel":19, "function": "digital", "bool":1})
     ),
 
@@ -66,7 +66,7 @@ mapping = {
     # ),
 
     "_general/control_change/master_tempo":(
-        ("signal", {"channel":02, "function": "digital", "bool": 0})
+        ("signal", {"channel":02, "function": "digital", "bool": 0}),
         ("signal", {"channel":2, "function": "square_wave", "frequency":0, "duty cycle":50.0, "duty_min_max":(0,100), "variable_key":"frequency", "clock_factor":1.0})
     ),
 
