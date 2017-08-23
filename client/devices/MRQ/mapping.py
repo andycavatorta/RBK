@@ -47,12 +47,13 @@ mapping = {
     "_general/control_change/master_tempo":(
         ("signal", {"channel":2, "function": "square_wave", "frequency":0, "duty cycle":50.0, "duty_min_max":(0,100), "variable_key":"frequency", "clock_factor":1.0})
     ),
-    "_system/start":(
-            ("digital", {"channel":2,"function": "digital", "bool":1})
-    ),
-    "_system/start":(
-        ("digital", {"channel":1, "function": "digital", "bool":0})
-    ),
+    # "_system/start":(
+    #         ("digital", {"channel":2,"function": "digital", "bool":1})
+    # ),
+    
+    # "_system/start":(
+    #    ("digital", {"channel":1, "function": "digital", "bool":0})
+    # ),
     "_system/master_volume":(
         ("square_wave", {"channel":3, "function": "square_wave", "frequency":30000, "duty":50.0})
     ),
