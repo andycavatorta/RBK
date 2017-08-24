@@ -144,62 +144,63 @@ try:
             try:
                 category = msg['innerpath'].split('/')
                 new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
-                device_mapping = mapping.mapping[new_path]
-                if category[2] == "sound":
-                    if device_mapping[0] == "MIDI":
-                        midi_output.send_midi(msg['params'], device_mapping[1]['status'], device_mapping[1]['channel'], device_mapping[1]['pitch'])
-                        collector.collect("MIDI", "%s,%s,%s,%s" % (msg['params'], device_mapping[1]['status'], device_mapping[1]['channel'], device_mapping[1]['pitch']))
-                    elif device_mapping[0] == "signal":
-                        iterate_device_mapping = iter(device_mapping)
-                        next(iterate_device_mapping)
-                        for signal in iterate_device_mapping:
-                            signal_output.send(signal)
-                            collector.collect(device_mapping[0], "%s" % (signal)) #%s,%s,%s % (msg['params'], device_mapping[1]['status'], device_mapping[1]['channel'], device_mapping[1]['pitch']))
-                elif category[2] == "control_change":
-                    if device_mapping[0] == "MIDI":
-                        midi_output.send_midi(None, device_mapping[1]['status'],device_mapping[1]['channel'], device_mapping[1]['cc'], msg['params']['value'])
-                        collector.collect("MIDI", "%s,%s,%s,%s" % (device_mapping[1]['cc'], device_mapping[1]['status'], device_mapping[1]['channel'], msg['params']['value']))
-                    elif device_mapping[0] == "signal":
-                        iterate_device_mapping = iter(device_mapping)
-                        next(iterate_device_mapping)
-                        if category[3] == "master_tempo":
-                            scale_max = 999.0 #* msg['params']['modifier']
-                            scale_min = 20.0 #* msg['params']['modifier']
-                        else:
-                            scale_max = 127
-                            scale_min = 0
-                        for signal in iterate_device_mapping:
-                            if signal['function'] == "square_wave":
-                                if signal['variable_key'] is "duty_cycle":
-                                    #signal['duty cycle'] = float(signal['duty_min_max'][0] + (signal['duty_min_max'][1]-signal['duty_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
-                                    signal['duty cycle'] = float((msg['params']['value']-scale_min*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/scale_max-scale_min)+signal['duty_min_max'][0])
-                                elif signal['variable_key'] is "frequency":
-                                    if category[3] != "master_tempo":
-                                        signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
-                                    else:
-                                        signal['frequency'] = float((msg['params']['value']/60)*signal['clock_factor'])
-                                        print "Frequency = ", signal['frequency']
-                                    # signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
-                            elif signal['function'] == "digital":
-                                if "bool" not in signal:
-                                    if msg['params']['value'] < 64:
-                                        if "inverse" in signal:
-                                            signal['bool'] = 1
+                rhythm_box_actions = mapping.mapping[new_path]
+                for rhythm_box_action in rhythm_box_actions:
+                    if category[2] == "sound":
+                        if rhythm_box_action[0] == "MIDI":
+                            midi_output.send_midi(msg['params'], rhythm_box_action[1]['status'], rhythm_box_action[1]['channel'], rhythm_box_action[1]['pitch'])
+                            collector.collect("MIDI", "%s,%s,%s,%s" % (msg['params'], rhythm_box_action[1]['status'], rhythm_box_action[1]['channel'], rhythm_box_action[1]['pitch']))
+                        elif rhythm_box_action[0] == "signal":
+                            iterate_rhythm_box_action = iter(rhythm_box_action)
+                            next(iterate_rhythm_box_action)
+                            for signal in iterate_rhythm_box_action:
+                                signal_output.send(signal)
+                                collector.collect(rhythm_box_action[0], "%s" % (signal)) #%s,%s,%s % (msg['params'], rhythm_box_action[1]['status'], rhythm_box_action[1]['channel'], rhythm_box_action[1]['pitch']))
+                    elif category[2] == "control_change":
+                        if rhythm_box_action[0] == "MIDI":
+                            midi_output.send_midi(None, rhythm_box_action[1]['status'],rhythm_box_action[1]['channel'], rhythm_box_action[1]['cc'], msg['params']['value'])
+                            collector.collect("MIDI", "%s,%s,%s,%s" % (rhythm_box_action[1]['cc'], rhythm_box_action[1]['status'], rhythm_box_action[1]['channel'], msg['params']['value']))
+                        elif rhythm_box_action[0] == "signal":
+                            iterate_rhythm_box_action = iter(rhythm_box_action)
+                            next(iterate_rhythm_box_action)
+                            if category[3] == "master_tempo":
+                                scale_max = 999.0 #* msg['params']['modifier']
+                                scale_min = 20.0 #* msg['params']['modifier']
+                            else:
+                                scale_max = 127
+                                scale_min = 0
+                            for signal in iterate_rhythm_box_action:
+                                if signal['function'] == "square_wave":
+                                    if signal['variable_key'] is "duty_cycle":
+                                        #signal['duty cycle'] = float(signal['duty_min_max'][0] + (signal['duty_min_max'][1]-signal['duty_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
+                                        signal['duty cycle'] = float((msg['params']['value']-scale_min*(signal['duty_min_max'][1]-signal['duty_min_max'][0])/scale_max-scale_min)+signal['duty_min_max'][0])
+                                    elif signal['variable_key'] is "frequency":
+                                        if category[3] != "master_tempo":
+                                            signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
                                         else:
-                                            signal['bool'] = 0
-                                    else:
-                                        if "inverse" in signal:
-                                            signal['bool'] = 0
+                                            signal['frequency'] = float((msg['params']['value']/60)*signal['clock_factor'])
+                                            print "Frequency = ", signal['frequency']
+                                        # signal['frequency'] = float(signal['freq_min_max'][0] + (signal['freq_min_max'][1]-signal['freq_min_max'][0])*((msg['params']['value']-scale_min)/(scale_max-scale_min)))
+                                elif signal['function'] == "digital":
+                                    if "bool" not in signal:
+                                        if msg['params']['value'] < 64:
+                                            if "inverse" in signal:
+                                                signal['bool'] = 1
+                                            else:
+                                                signal['bool'] = 0
                                         else:
-                                            signal['bool'] = 1
-                                    signal_output.send(signal)
-                                    collector.collect(device_mapping[0], "%s" % (signal))
-                                    del signal["bool"]
-                                    print "sending"
-                                    break
-                            print "sending out"
-                            signal_output.send(signal)
-                            collector.collect(device_mapping[0], "%s" % (signal))
+                                            if "inverse" in signal:
+                                                signal['bool'] = 0
+                                            else:
+                                                signal['bool'] = 1
+                                        signal_output.send(signal)
+                                        collector.collect(rhythm_box_action[0], "%s" % (signal))
+                                        del signal["bool"]
+                                        print "sending"
+                                        break
+                                print "sending out"
+                                signal_output.send(signal)
+                                collector.collect(rhythm_box_action[0], "%s" % (signal))
                             
             except Exception as e:
                 pass
