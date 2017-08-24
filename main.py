@@ -142,10 +142,15 @@ try:
             scale_max = 127
             scale_min = 0
             try:
+                print "incoming osc = ", msg
                 category = msg['innerpath'].split('/')
+                print "category = ", category
                 new_path = msg["innerpath"].replace('/%s'%HOSTNAME,'')
+                print "new_path = ", new_path
                 rhythm_box_actions = mapping.mapping[new_path]
+                print "rhythm_box_actions = ", rhythm_box_actions
                 for rhythm_box_action in rhythm_box_actions:
+                    print "rhythm_box_action = ", rhythm_box_action
                     if category[2] == "sound":
                         if rhythm_box_action[0] == "MIDI":
                             midi_output.send_midi(msg['params'], rhythm_box_action[1]['status'], rhythm_box_action[1]['channel'], rhythm_box_action[1]['pitch'])
