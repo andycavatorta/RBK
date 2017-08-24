@@ -29,7 +29,6 @@ mapping = {
     "_general/sound/high_bongo/bang":[
         ["signal", {"channel":7, "function": "pulse", "pulselength":0.02 }]
     ],
-
     "_general/control_change/Main_Volume":[
         ["signal", {"channel":3, "function": "square_wave", "frequency":30000, "duty cycle":0, "freq_min_max":[30000,30000], "duty_min_max":[0,100], "variable_key":"duty_cycle"}]
     ],
@@ -50,7 +49,7 @@ mapping = {
     "_system/start":[
             ["digital", {"channel":2,"function": "digital", "bool":1}]
     ],
-    "_system/start":[
+    "_system/stop":[
         ["digital", {"channel":1, "function": "digital", "bool":0}]
     ],
     "_system/master_volume":[
